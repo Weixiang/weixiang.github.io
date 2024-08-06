@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>竞赛 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/</link>
+    <description>Recent content in 竞赛 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Sun, 15 May 2022 16:00:00 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一种AI防疫快速通行及自动追溯辅助数据系统</title>
+      <link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link>
+      <pubDate>Sun, 15 May 2022 16:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid>
+      <description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description>
+    </item>
+  </channel>
+</rss>

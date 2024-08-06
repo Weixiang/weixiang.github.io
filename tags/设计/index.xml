@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 设计 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Thu, 16 Sep 2021 01:55:05 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字体在设计中的运用</title>
+      <link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link>
+      <pubDate>Thu, 16 Sep 2021 01:55:05 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid>
+      <description>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description>
+    </item>
+    <item>
+      <title>中文网页中的字体选型及开发指南</title>
+      <link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link>
+      <pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid>
+      <description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description>
+    </item>
+  </channel>
+</rss>

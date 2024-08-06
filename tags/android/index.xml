@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/android/</link>
+    <description>Recent content in Android on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Fri, 28 Jan 2022 10:02:34 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>广东广电机顶盒 GDT-JL1000 研究记录</title>
+      <link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link>
+      <pubDate>Fri, 28 Jan 2022 10:02:34 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid>
+      <description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description>
+    </item>
+    <item>
+      <title>使用 Android 手机制作树莓派镜像 SD 卡</title>
+      <link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid>
+      <description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description>
+    </item>
+    <item>
+      <title>在 Android Q 上安装 V4A 的正确姿势</title>
+      <link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link>
+      <pubDate>Wed, 13 Nov 2019 12:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid>
+      <description>ViPER4Android 是一款用于Android系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description>
+    </item>
+  </channel>
+</rss>

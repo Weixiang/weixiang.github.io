@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/windows/</link>
+    <description>Recent content in Windows on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Tue, 25 Apr 2023 13:13:45 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows11 安装 WLS2 Ubuntu 子系统</title>
+      <link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link>
+      <pubDate>Tue, 25 Apr 2023 13:13:45 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid>
+      <description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以RedmiBook Pro 2022 锐龙版为例。</description>
+    </item>
+    <item>
+      <title>Windows 美化入门笔记</title>
+      <link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link>
+      <pubDate>Fri, 21 Feb 2020 10:21:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid>
+      <description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System</description>
+    </item>
+    <item>
+      <title>Windows 10 更新后系统无法识别键盘的解决方案</title>
+      <link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link>
+      <pubDate>Tue, 13 Feb 2018 09:11:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid>
+      <description>Windows10以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description>
+    </item>
+  </channel>
+</rss>

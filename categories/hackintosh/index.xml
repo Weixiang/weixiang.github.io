@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hackintosh on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/categories/hackintosh/</link>
+    <description>Recent content in Hackintosh on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Fri, 11 Mar 2022 12:59:45 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/categories/hackintosh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hackintosh Monterey 安装手记</title>
+      <link>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</link>
+      <pubDate>Fri, 11 Mar 2022 12:59:45 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</guid>
+      <description>在 HP EliteDesk 800 G1 USDT 上使用 OpenCore 引导 macOS 12.2.1 Monterey 黑苹果系统安装过程记录。</description>
+    </item>
+  </channel>
+</rss>

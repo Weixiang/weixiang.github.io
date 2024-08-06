@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/series/</link>
+    <description>Recent content in Series on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <atom:link href="https://weixiang.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Jacob&#39;s Thoughts</title>
-    <link>https://weixiang.github.io/tags/linux/</link>
+    <link>https://weixiang.github.io/categories/linux/</link>
     <description>Recent content in Linux on Jacob&#39;s Thoughts</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
     <lastBuildDate>Sat, 28 Oct 2023 03:57:20 +0000</lastBuildDate>
-    <atom:link href="https://weixiang.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://weixiang.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title>
       <link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link>

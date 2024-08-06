@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Wed, 07 Dec 2022 11:49:25 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS 中英文使用不同字体</title>
+      <link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link>
+      <pubDate>Wed, 07 Dec 2022 11:49:25 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid>
+      <description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description>
+    </item>
+    <item>
+      <title>Ghost 使用 DisqusJS 3.0 评论</title>
+      <link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link>
+      <pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid>
+      <description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description>
+    </item>
+    <item>
+      <title>用 Prism.js 为 Ghost 博客添加代码高亮</title>
+      <link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link>
+      <pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid>
+      <description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description>
+    </item>
+    <item>
+      <title>给 Ghost 博客更换字体</title>
+      <link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link>
+      <pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid>
+      <description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以 「Casp</description>
+    </item>
+    <item>
+      <title>中文网页中的字体选型及开发指南</title>
+      <link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link>
+      <pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid>
+      <description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description>
+    </item>
+  </channel>
+</rss>

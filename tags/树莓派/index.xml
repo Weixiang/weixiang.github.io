@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树莓派 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <description>Recent content in 树莓派 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Android 手机制作树莓派镜像 SD 卡</title>
+      <link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid>
+      <description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description>
+    </item>
+    <item>
+      <title>用 Pi-hole 搭建一个树莓派黑洞</title>
+      <link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link>
+      <pubDate>Mon, 12 Apr 2021 05:19:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid>
+      <description>通过您自己的 Linux 硬件进行广告拦截 Pi- hole®是一个DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。 易于安装：安装程</description>
+    </item>
+    <item>
+      <title>树莓派使用 V2Ray 魔法上网</title>
+      <link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link>
+      <pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid>
+      <description>请注意：由于V2Ray项目变动，本文的操作方法已经失效，但仍具一定参考价值。 本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy ，让树莓派顺畅访问国</description>
+    </item>
+    <item>
+      <title>树莓派的安装与初始化</title>
+      <link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link>
+      <pubDate>Thu, 02 Apr 2020 05:22:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid>
+      <description>树莓派（英语： Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。 Raspbian 是专门用于 ARM 卡</description>
+    </item>
+  </channel>
+</rss>

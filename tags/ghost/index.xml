@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ghost on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/ghost/</link>
+    <description>Recent content in Ghost on Jacob&#39;s Thoughts</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <lastBuildDate>Thu, 11 Aug 2022 09:56:57 +0000</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ghost 使用 DisqusJS 3.0 评论</title>
+      <link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link>
+      <pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid>
+      <description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description>
+    </item>
+    <item>
+      <title>Flarum 使用腾讯云COS对象存储</title>
+      <link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Tue, 25 Jan 2022 03:03:30 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid>
+      <description>Flarum 使用腾讯云COS对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description>
+    </item>
+    <item>
+      <title>Ghost 博客使用腾讯云COS对象存储</title>
+      <link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Thu, 13 Jan 2022 01:42:12 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid>
+      <description>Ghost 博客部署系列第二期，使用腾讯云COS对象存储作为博客图床。</description>
+    </item>
+    <item>
+      <title>Ghost 博客配置邮件系统</title>
+      <link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link>
+      <pubDate>Thu, 13 Jan 2022 01:10:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid>
+      <description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description>
+    </item>
+    <item>
+      <title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title>
+      <link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link>
+      <pubDate>Tue, 11 Jan 2022 06:31:08 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid>
+      <description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description>
+    </item>
+    <item>
+      <title>用 Prism.js 为 Ghost 博客添加代码高亮</title>
+      <link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link>
+      <pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid>
+      <description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description>
+    </item>
+    <item>
+      <title>给 Ghost 博客更换字体</title>
+      <link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link>
+      <pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid>
+      <description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以 「Casp</description>
+    </item>
+    <item>
+      <title>在庆祝中国共产党成立100周年大会上的讲话</title>
+      <link>https://weixiang.github.io/posts/speech-at-the-celebration-of-the-100th-anniversary-of-the-founding-of-the-communist-party-of-china/</link>
+      <pubDate>Fri, 02 Jul 2021 05:02:05 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/speech-at-the-celebration-of-the-100th-anniversary-of-the-founding-of-the-communist-party-of-china/</guid>
+      <description>今天，在中国共产党历史上，在中华民族历史上，都是一个十分重大而庄严的日子。我们在这里隆重集会，同全党全国各族人民一道，庆祝中国共产党成立一百周年，回顾中国共产党百年奋斗的光辉历程，展望中华民族伟大复兴的光明前景。</description>
+    </item>
+    <item>
+      <title>社团 Ghost 博客调较记录</title>
+      <link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link>
+      <pubDate>Thu, 03 Oct 2019 16:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid>
+      <description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description>
+    </item>
+    <item>
+      <title>您好，世界</title>
+      <link>https://weixiang.github.io/posts/hello-hexo/</link>
+      <pubDate>Sat, 03 Feb 2018 09:47:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/hello-hexo/</guid>
+      <description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description>
+    </item>
+    <item>
+      <title>站点更新记录</title>
+      <link>https://weixiang.github.io/posts/blog-update-log/</link>
+      <pubDate>Sun, 31 Dec 2017 16:03:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/blog-update-log/</guid>
+      <description>本站点自创立以来的更新记录</description>
+    </item>
+    <item>
+      <title>Links 友情链接</title>
+      <link>https://weixiang.github.io/posts/links/</link>
+      <pubDate>Sun, 31 Dec 2017 16:01:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/links/</guid>
+      <description>我的朋友们，当然，也欢迎你来加入。</description>
+    </item>
+    <item>
+      <title>About 关于</title>
+      <link>https://weixiang.github.io/posts/about/</link>
+      <pubDate>Sun, 31 Dec 2017 16:00:00 +0000</pubDate>
+      <guid>https://weixiang.github.io/posts/about/</guid>
+      <description>我是 Jacob，很高兴认识你。&#xA;I&amp;rsquo;m Jacob, nice to meet you.</description>
+    </item>
+  </channel>
+</rss>
