@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>魔法 on Jacob&#39;s Thoughts</title>
     <link>https://weixiang.github.io/tags/%E9%AD%94%E6%B3%95/</link>
     <description>Recent content in 魔法 on Jacob&#39;s Thoughts</description>
-    <generator>Hugo</generator>
+    <image>
+      <title>Jacob&#39;s Thoughts</title>
+      <url>https://api.dujin.org/bing/1920.php</url>
+      <link>https://api.dujin.org/bing/1920.php</link>
+    </image>
+    <generator>Hugo -- 0.131.0</generator>
     <language>zh</language>
-    <copyright>© 2017-2024 [Jacob&#39;s Thoughts](https://weixiang.github.io)</copyright>
+    <copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright>
     <lastBuildDate>Mon, 13 Jul 2020 03:39:00 +0000</lastBuildDate>
     <atom:link href="https://weixiang.github.io/tags/%E9%AD%94%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
