@@ -1,5 +1,394 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 06 Aug 2024 11:08:14 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Links</title><link>https://weixiang.github.io/links/</link><pubDate>Tue, 06 Aug 2024 11:08:14 +0800</pubDate><guid>https://weixiang.github.io/links/</guid><description/><content:encoded>&lt;!-- more --> 
-</content:encoded></item><item><title>View</title><link>https://weixiang.github.io/view/</link><pubDate>Mon, 05 Aug 2024 16:54:25 +0800</pubDate><guid>https://weixiang.github.io/view/</guid><description>话题 话题页-传送门🚪→ 分类 分类页-传送门🚪→ 系列 系列页-传送门🚪→</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost博客</title><link>https://weixiang.github.io/posts/ghost-blog/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog/</guid><description>Ghost博客使用记录</description><content:encoded><![CDATA[<h2 id="code-injection">Code injection</h2>
+<h3 id="site-header">Site header</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s2">&#34;(prefers-color-scheme: dark)&#34;</span><span class="p">).</span><span class="nx">matches</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;dark-mode&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">-moz-selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">-webkit-selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 黑色图底 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">has-cover</span> <span class="p">.</span><span class="nc">site-header-content</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 替换图片 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.site-header-cover&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">newSrcset</span> <span class="o">=</span> <span class="s1">&#39;https://api.dujin.org/bing/1366.php 300w, https://api.dujin.org/bing/1366.php 600w, https://api.dujin.org/bing/1920.php 1000w, https://api.dujin.org/bing/1920.php 2000w&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">newSrc</span> <span class="o">=</span> <span class="s1">&#39;https://api.dujin.org/bing/1920.php&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">srcset</span> <span class="o">=</span> <span class="nx">newSrcset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">newSrc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">alt</span> <span class="o">=</span> <span class="s2">&#34;Jacob&#39;s Thoughts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全局字体 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">/*@import url(&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="c">    @import url(&#39;https://fonts.googleapis.com/css2?family=Noto+Serif+SC&amp;display=swap&#39;);*/</span>
+</span></span><span class="line"><span class="cl">    <span class="c">/* 引入 Google Fonts */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&#34;ChineseFont&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">src</span><span class="o">:</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;PingFang SC&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Microsoft YaHei&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">unicode-range</span><span class="o">:</span> <span class="nt">U</span><span class="o">+</span><span class="nt">2E80-A4CF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">F900-FAFF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">FE30-FE4F</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-sans-serif</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;HarmonyOS_Regular&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="s2">&#34;Source Han Sans SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-serif</span><span class="p">:</span> <span class="n">STZhongsong</span><span class="p">,</span> <span class="n">STSong</span><span class="p">,</span> <span class="s1">&#39;Noto Serif SC&#39;</span><span class="p">,</span> <span class="s2">&#34;Noto Serif CJK&#34;</span><span class="p">,</span> <span class="n">PMingLiu</span><span class="p">,</span> <span class="n">SimSun</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Bitmap Song&#34;</span><span class="p">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="kc">serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-mono</span><span class="p">:</span> <span class="n">ChineseFont</span><span class="p">,</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Cascadia Code&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 覆写默认字体变量 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="k">font-family</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 网页正文字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-title</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">article-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 文章卡片标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-excerpt</span> <span class="nt">p</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">blockquote</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ol</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ul</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">dl</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.6</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 文章正文字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="nt">pre</span><span class="o">)&gt;</span><span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F5F5F5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#F0F0F0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#096DD9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/*  段落内代码样式 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">code</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">kbd</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">samp</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 统一代码字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">h1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h2</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h3</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h4</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h5</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">site-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">text-shadow</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">black</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 首页标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">author-profile</span> <span class="nt">h1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">article-byline-meta</span> <span class="nt">h4</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 作者名片字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">blockquote</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 引用字体大小 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.2</span><span class="kt">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.2</span><span class="kt">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">focus</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-image</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 圆角图片 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全局滚动条 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-track</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="kc">inset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">box-shadow</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#686868</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-image</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 代码高亮 prism.js --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.min.css&#34; integrity=&#34;sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==&#34; crossorigin=&#34;anonymous&#34; referrerpolicy=&#34;no-referrer&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-Dqf5696xtofgH089BgZJo2lSWTvev4GFo+gA2o4GullFY65rzQVQLQVlzLvYwTo0Bb2Gpb6IqwxYWtoMonfdhQ==&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">code</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">&#39;language-&#39;</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="nt">language-</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">2.4</span><span class="kt">rem</span> <span class="mf">3.2</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">html</span><span class="p">.</span><span class="nc">dark-mode</span> <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="mh">#030303</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics 谷歌统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-133816799-2&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">gtag</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-133816799-2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Baidu Tongji 百度统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">_hmt</span> <span class="o">=</span> <span class="nx">_hmt</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">hm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?cb3832ee43b34e6bfd3556bd054c7d26&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hm</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})();</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;baidu-site-verification&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;code-SpwhprNdN8&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- busuanzi 统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- DisqusJS --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 图标库 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-+oRH6u1nDGSm3hH8poU85YFIVTdSnS2f+texdPGrURaJh8hzmhMiZrQth6l56P4ZQmxeZzd2DqVEMqQoJ8J89A==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Font Awesome 6 Brands&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-weight</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text-rendering</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="n">font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span><span class="k">content</span><span class="p">:</span> <span class="s2">&#34;\f09b&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 阅读进度条 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* Progress bar height */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background</span><span class="p">:</span> <span class="mh">#c5d2d9</span><span class="p">;</span> <span class="c">/* Progress bar background color */</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">-webkit-</span><span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="kp">-moz-</span><span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Hide default progress bar */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span><span class="p">::</span><span class="nd">-webkit-progress-bar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span><span class="p">::</span><span class="nd">-webkit-progress-value</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span> <span class="c">/* Progress bar color */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="site-footer">Site footer</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 代码高亮 prism.js --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-RDQSW3KoqJMiX0L/UBgwBmH1EmRYp8LBOiLaA8rBHIy+7OGP/7Gxg8vbt8wG4ZYd29P0Fnoq6+LOytCqx3cyoQ==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-st608h+ZqzliahyzEpETxzU0f7z7a9acN6AFvYmHvpFhmcFuKT8a22TT5TpKpjDa3pt3Wv7Z3SdQBCBdDPhyWA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-/kVH1uXuObC0iYgxxCKY41JdWOkKOxorFVmip+YVifKsJ4Au/87EisD1wty7vxN2kAhnWh6Yc8o/dSAXj6Oz7A==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-ZqfG//sXQwAA7DOArFJyMmZQ3knKe+0ft3tPQZPvDPJR04IatmhVO5pTazVV+fLVDYSy28PhoBeUj5wxGRiGAA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-json.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- AddThis 分享组件 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61109cb1d502ff5d&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Cookie Consent 提示框 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js&#34;</span> <span class="na">data-cfasync</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">cookieconsent</span><span class="p">.</span><span class="nx">initialise</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">palette</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">popup</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#252e39&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">button</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#005ba4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">theme</span><span class="o">:</span> <span class="s2">&#34;edgeless&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">position</span><span class="o">:</span> <span class="s2">&#34;bottom-right&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 标题特效 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/typewriter-effect@latest/dist/core.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.site-title + p&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">typewriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Typewriter</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">loop</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">delay</span><span class="o">:</span> <span class="mi">75</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">typewriter</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;Writing my &lt;strong&gt;thoughts&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;stories&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">750</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;ideas&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;life&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;cats&lt;/strong&gt; on the web&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteAll</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 版权特效 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">poweredByLink</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.gh-powered-by a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">poweredByLink</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;自豪地使用 Ghost&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">copyrightSection</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.copyright&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">copyrightSection</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">copyrightSection</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">link</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">link</span><span class="p">.</span><span class="nx">textContent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">updatedText</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;© &#39;</span><span class="p">,</span> <span class="s1">&#39;© 2016-&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">link</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">updatedText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>View</title><link>https://weixiang.github.io/view/</link><pubDate>Mon, 05 Aug 2024 16:54:25 +0800</pubDate><guid>https://weixiang.github.io/view/</guid><description>话题 话题页-传送门🚪→ 分类 分类页-传送门🚪→ 系列 系列页-传送门🚪→</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
 <p><a href="/tags/">话题页-传送门🚪→</a></p>
 <iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
 <hr>
@@ -19,11 +408,13 @@
 <p><a href="https://coolapk.com/">酷</a>基，<a href="https://www.wizardingworld.com/">哈</a>学博士🪄，低浓度<a href="https://www.bilibili.com/">二次元</a>，听国际流行🎧。</p>
 <p>偶尔玩点游戏的 PlayStation 玩家🎮。</p>
 <h3 id="交个朋友">交个朋友</h3>
+<p>友情链接：<a href="/links/">传送门→</a></p>
 <p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
 <p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
 <h3 id="关于本博客">关于本博客</h3>
 <p>本站采用 Hugo 驱动，主题为 PaperMod。</p>
+<p>博客更新记录：<a href="/posts/blog-update-log/">传送门→</a></p>
 <h3 id="版权声明">版权声明</h3>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
@@ -1888,7 +2279,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </figure>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-]]></content:encoded></item><item><title>隐私政策</title><link>https://weixiang.github.io/privacy/</link><pubDate>Fri, 02 Jul 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/privacy/</guid><description>Privacy &amp;amp; Data</description><content:encoded><![CDATA[<p><em>本版发布日期：2021年7月2日</em></p>
+]]></content:encoded></item><item><title>隐私政策</title><link>https://weixiang.github.io/privacy/</link><pubDate>Fri, 02 Jul 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/privacy/</guid><description>隐私政策 Privacy &amp;amp; Data</description><content:encoded><![CDATA[<p><em>本版发布日期：2021年7月2日</em></p>
 <p><em>生效日期：2021年7月2日</em></p>
 <p>Jacob’s Thoughts（联系方式：jacob.ruan#outlook.com）运营的Jacob’s Thoughts 站点（以下或称“我们”）<strong>注重保护用户个人信息及个人隐私</strong>，您在使用我们的服务时，我们可能会收集和使用您的相关信息。</p>
 <p>我们希望通过本《隐私政策》向您说明，在使用Jacob’s Thoughts 站点的所有相关服务（包括但不限于网络资讯、网络社交等，以下称“Jacob’s Thoughts 站点”或“服务”）时，我们如何收集、使用、存储、分享这些信息，以及我们为您提供的访问、更新、控制和保护这些信息的方式。<strong>其中，有关您个人信息权益的条款等重要内容我们已用加粗形式提示，请特别关注。</strong></p>
@@ -3797,7 +4188,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
         </figcaption>
 </figure>
 
-]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0000</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<p>时间线</p>
+]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0000</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于GitHub Pages，发布第一篇文章</li>
 <li>2018-02-17 启用域名 ████.tech 和 ████████.club [数据删除]</li>
@@ -3813,12 +4204,9 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <li>2022-08-07 重新安装服务器，恢复访问</li>
 <li>2022-12-07 更新到 Ghost 5.0</li>
 <li>2023-10-14 迁移服务器至阿里云新加坡</li>
+<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub</li>
 </ul>
-<p>状态信息</p>
-<p>加载时间</p>
-<p>已运行</p>
-<p>总访问量</p>
-<p>次</p>
+<p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢Microsoft，提供了GitHub Page托管、GitHub Action自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
 ]]></content:encoded></item><item><title>Links 友情链接</title><link>https://weixiang.github.io/posts/links/</link><pubDate>Sun, 31 Dec 2017 16:01:00 +0000</pubDate><guid>https://weixiang.github.io/posts/links/</guid><description>我的朋友们，当然，也欢迎你来加入。</description><content:encoded><![CDATA[<figure class="kg-card kg-bookmark-card kg-card-hascaption"><a class="kg-bookmark-container" href="https://www.waitech.cn/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">WAI 科技社</div><div class="kg-bookmark-description">WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的STEM学生社团，是青少年创客和STEAM教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://www.waitech.cn/assets/favicon-p0j43mn6.png" alt=""><span class="kg-bookmark-author">WAI 科技社</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641960860-928108-image.png" alt=""></div></a><figcaption>WAI 科技社的官方社区</figcaption></figure>
 <figure class="kg-card kg-bookmark-card">
   <a href="https://wiki-power.com" class="kg-bookmark-container">
@@ -3862,6 +4250,16 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
   <figcaption>{map[author: caption:Talaxy 的博客 description:一个个人博客，记录所思所想 icon:https://www.talaxy.site/icons/icon-512x512.png?v=3a347a1c5e9ae152033a0013fd49434a publisher:雪山深处 thumbnail:https://www.talaxy.site/site-image.jpg title:雪山深处 url:https://www.talaxy.site/]  Page(/posts/links) &lt;nil&gt; bookmark true 1  {{{} 0} {0 0}}  {{{} 0} {0 0}} 1819 { 0 0 0} &lt;nil&gt;}</figcaption>
   
 </figure>
+<p>欢迎在下面的评论区交换友链 : )</p>
+]]></content:encoded></item><item><title>友情链接</title><link>https://weixiang.github.io/links/</link><pubDate>Sun, 31 Dec 2017 16:01:00 +0000</pubDate><guid>https://weixiang.github.io/links/</guid><description>我的朋友们，当然，也欢迎你来加入。</description><content:encoded><![CDATA[<h2 id="powers-wiki">Power&rsquo;s Wiki</h2>
+<p><a href="https://wiki-power.com/">https://wiki-power.com/</a></p>
+<p>Power Lin 的知识库</p>
+<h2 id="雪山深处">雪山深处</h2>
+<p><a href="https://www.talaxy.site/">https://www.talaxy.site/</a></p>
+<p>Talaxy 的博客。一个个人博客，记录所思所想。</p>
+<h2 id="wai-科技社">WAI 科技社</h2>
+<p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
+<p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的STEM学生社团，是青少年创客和STEAM教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
 ]]></content:encoded></item><item><title>About 关于</title><link>https://weixiang.github.io/posts/about/</link><pubDate>Sun, 31 Dec 2017 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/about/</guid><description>我是 Jacob，很高兴认识你。
 I&amp;rsquo;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<p>你好！👋</p>
