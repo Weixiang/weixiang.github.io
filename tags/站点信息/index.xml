@@ -1,39 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>站点信息 on Jacob&#39;s Thoughts</title>
-    <link>https://weixiang.github.io/tags/%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF/</link>
-    <description>Recent content in 站点信息 on Jacob&#39;s Thoughts</description>
-    <image>
-      <title>Jacob&#39;s Thoughts</title>
-      <url>https://api.dujin.org/bing/1920.php</url>
-      <link>https://api.dujin.org/bing/1920.php</link>
-    </image>
-    <generator>Hugo -- 0.131.0</generator>
-    <language>zh</language>
-    <copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright>
-    <lastBuildDate>Tue, 06 Aug 2024 11:08:14 +0800</lastBuildDate>
-    <atom:link href="https://weixiang.github.io/tags/%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Links</title>
-      <link>https://weixiang.github.io/links/</link>
-      <pubDate>Tue, 06 Aug 2024 11:08:14 +0800</pubDate>
-      <guid>https://weixiang.github.io/links/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>View</title>
-      <link>https://weixiang.github.io/view/</link>
-      <pubDate>Mon, 05 Aug 2024 16:54:25 +0800</pubDate>
-      <guid>https://weixiang.github.io/view/</guid>
-      <description>话题 话题页-传送门🚪→ 分类 分类页-传送门🚪→ 系列 系列页-传送门🚪→</description>
-    </item>
-    <item>
-      <title>关于</title>
-      <link>https://weixiang.github.io/about/</link>
-      <pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate>
-      <guid>https://weixiang.github.io/about/</guid>
-      <description>你好！👋 我是 Jacob，这里是我的个人博客。 正如博客的名字，我在这里记录我的想法、知识，分享我的发现。 纯文大学生，但热爱的是硬件与编程。 玩 Arduino</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>站点信息 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF/</link><description>Recent content in 站点信息 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 06 Aug 2024 11:08:14 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>Links</title><link>https://weixiang.github.io/links/</link><pubDate>Tue, 06 Aug 2024 11:08:14 +0800</pubDate><guid>https://weixiang.github.io/links/</guid><description/><content:encoded>&lt;!-- more --> 
+</content:encoded></item><item><title>View</title><link>https://weixiang.github.io/view/</link><pubDate>Mon, 05 Aug 2024 16:54:25 +0800</pubDate><guid>https://weixiang.github.io/view/</guid><description>话题 话题页-传送门🚪→ 分类 分类页-传送门🚪→ 系列 系列页-传送门🚪→</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
+<p><a href="/tags/">话题页-传送门🚪→</a></p>
+<iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
+<hr>
+<h2 id="分类">分类</h2>
+<p><a href="/categories/">分类页-传送门🚪→</a></p>
+<iframe src="/categories" width=100% height="400" frameborder=0 scrolling=no></iframe>
+<hr>
+<h2 id="系列">系列</h2>
+<p><a href="/series/">系列页-传送门🚪→</a></p>
+<iframe src="/series" width=100% height="400" frameborder=0 scrolling=no></iframe>
+]]></content:encoded></item><item><title>关于</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>你好！👋 我是 Jacob，这里是我的个人博客。 正如博客的名字，我在这里记录我的想法、知识，分享我的发现。 纯文大学生，但热爱的是硬件与编程。 玩 Arduino</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
+<p>我是 Jacob，这里是我的个人博客。</p>
+<p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
+<p>纯文大学生，但热爱的是硬件与编程。</p>
+<p>玩 <a href="https://www.arduino.cc/">Arduino</a> ，喜欢交互艺术，也搞点 <a href="https://www.espressif.com/">IoT</a> 。</p>
+<p>喜欢<a href="https://http.cat/">猫猫</a>🐱当然<a href="https://httpstatusdogs.com/">狗狗</a>🐶也可以。</p>
+<p><a href="https://coolapk.com/">酷</a>基，<a href="https://www.wizardingworld.com/">哈</a>学博士🪄，低浓度<a href="https://www.bilibili.com/">二次元</a>，听国际流行🎧。</p>
+<p>偶尔玩点游戏的 PlayStation 玩家🎮。</p>
+<h3 id="交个朋友">交个朋友</h3>
+<p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
+<p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
+<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
+<h3 id="关于本博客">关于本博客</h3>
+<p>本站采用 Hugo 驱动，主题为 PaperMod。</p>
+<h3 id="版权声明">版权声明</h3>
+<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
+
+本站文章除特别声明外，均由 <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可。</p>
+<hr>
+<p>English Version. (By Google Translate)</p>
+<h3 id="hello">Hello.👋</h3>
+<p>My name is <strong>Jacob Ruan</strong>.</p>
+<p>This is my personal blog. Just like the name of the blog, I am here to record my thoughts and share my knowledge.</p>
+<p>I am a social science college student, My major in the college is marketing, but I don’t like it. I like art and programming, and my dream is to be a designer or engineer. For this dream, I am studying computer courses by myself. Wish me luck. 😀</p>
+<p>Although I majored in social sciences at school, I also have a strong interest in natural sciences and computer science.</p>
+<p>Thank you for your attention, but because of my heavy academic work, I may not update my blog very often. 😜</p>
+<p>Years ago, I founded a STEM association in my senior middle school, called <a href="https://www.waitech.cn">WAI STEM Club</a> , it won some awards for my school.</p>
+<p>Outside of my studies, I also enjoy programming, Arduino, international pop music and secondary culture. I&rsquo;m also a fan of Harry Potter.</p>
+<h3 id="copyright">Copyright</h3>
+<p>Unless otherwise stated, the post of this website adopts the CC License.</p>
+<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License"  />
+
+This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<h3 id="contact-me">Contact me</h3>
+<p>If you are interested in making new friends, You can find me in the following ways:</p>
+<p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
+<p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
+<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
+]]></content:encoded></item></channel></rss>

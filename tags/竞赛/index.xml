@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>竞赛 on Jacob&#39;s Thoughts</title>
-    <link>https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/</link>
-    <description>Recent content in 竞赛 on Jacob&#39;s Thoughts</description>
-    <image>
-      <title>Jacob&#39;s Thoughts</title>
-      <url>https://api.dujin.org/bing/1920.php</url>
-      <link>https://api.dujin.org/bing/1920.php</link>
-    </image>
-    <generator>Hugo -- 0.131.0</generator>
-    <language>zh</language>
-    <copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright>
-    <lastBuildDate>Sun, 15 May 2022 16:00:00 +0000</lastBuildDate>
-    <atom:link href="https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>一种AI防疫快速通行及自动追溯辅助数据系统</title>
-      <link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link>
-      <pubDate>Sun, 15 May 2022 16:00:00 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid>
-      <description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>竞赛 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/</link><description>Recent content in 竞赛 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sun, 15 May 2022 16:00:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml"/><item><title>一种AI防疫快速通行及自动追溯辅助数据系统</title><link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link><pubDate>Sun, 15 May 2022 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid><description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description><content:encoded><![CDATA[<blockquote>
+<p>本文为2022年校内互联网+创业创新大赛的讲稿，在此记录，文章作者为我与Solitude同学。</p>
+</blockquote>
+<blockquote>
+<p>本文禁止转载。</p>
+</blockquote>
+<p>各位老师、同学们，大家好。</p>
+<p>我们是一支来自2021级的两人队伍，我们带来的项目是</p>
+<p>一种AI防疫快速通行，及自动追溯，辅助数据系统。</p>
+<p>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</p>
+<p>除此之外，本项目还可以用于其他领域，例如公共场所的人流量统计和身份认证，零售商店的无感支付和快速结算等。</p>
+<p>本项目主要分为前端、后端和硬件端三个部分，先带大家简单了解主要特色，稍后我们将在短片中详细讲解与演示。</p>
+<p>我们为不同的用户角色，设计了不同的前端交互界面，分为用户端、管理端和公开平台，它们各司其职，精准服务不同职能的用户，更加高效。</p>
+<p>后端我们使用了两个云计算平台，分别是百度大脑和IBM云，由它们共同协调整个项目的业务逻辑，同时提供人工智能、机器视觉能力的支持。</p>
+<p>硬件上，我们使用了来自国货之光乐鑫ESP32芯片作为基本节点，采集数据上报到云平台，用非常低的成本，提供了低功耗蓝牙与Wi-Fi联网能力。</p>
+<p>本项目立项于今年三月，在通过形式验证之后，就着手开始了开发工作，我们两个人分别负责软件和硬件部分，在四月份完成了基本的功能实现，随后经过联合调试，磨合软硬件之间的配合协作。</p>
+<p>这是本项目的主要特性和当前两项常用技术方法的对比，本项目补足了现有方法的一些不足之处，配合现有的技术方法，能较好提高防控工作的效率。</p>
+<p>本项目的架构主要分为四层，由下自上分别是底层、基础层、业务层和交互层，其中底层和基础层还分为软件层和硬件层，交互层也是分为了管理和用户两层，它们相互配合组成了本项目。</p>
+<p>这是本项目所使用的主要技术和特性。</p>
+<p>由于本项目开发时采用了局域网部署，现场无法完整演示功能，所以下面请通过短片了解本项目的详情和操作演示。</p>
+<p>我们的项目汇报结束，谢谢各位的聆听。</p>
+<h2 id="版权声明">版权声明</h2>
+<p>本文由 <a href="__GHOST_URL__/">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 发布。</p>
+]]></content:encoded></item></channel></rss>

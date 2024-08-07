@@ -1,32 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Hexo on Jacob&#39;s Thoughts</title>
-    <link>https://weixiang.github.io/categories/hexo/</link>
-    <description>Recent content in Hexo on Jacob&#39;s Thoughts</description>
-    <image>
-      <title>Jacob&#39;s Thoughts</title>
-      <url>https://api.dujin.org/bing/1920.php</url>
-      <link>https://api.dujin.org/bing/1920.php</link>
-    </image>
-    <generator>Hugo -- 0.131.0</generator>
-    <language>zh</language>
-    <copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright>
-    <lastBuildDate>Fri, 16 Feb 2018 01:19:00 +0000</lastBuildDate>
-    <atom:link href="https://weixiang.github.io/categories/hexo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>更改 Hexo 的背景颜色</title>
-      <link>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</link>
-      <pubDate>Fri, 16 Feb 2018 01:19:00 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</guid>
-      <description>这不是2018大年初一吗为了迎合各大网站\APP的传统习俗，我也把网页的主题色改了改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)） 实现方法 打</description>
-    </item>
-    <item>
-      <title>您好，世界</title>
-      <link>https://weixiang.github.io/posts/hello-hexo/</link>
-      <pubDate>Sat, 03 Feb 2018 09:47:00 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/hello-hexo/</guid>
-      <description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hexo on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/hexo/</link><description>Recent content in Hexo on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 16 Feb 2018 01:19:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/hexo/index.xml" rel="self" type="application/rss+xml"/><item><title>更改 Hexo 的背景颜色</title><link>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</link><pubDate>Fri, 16 Feb 2018 01:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</guid><description>这不是2018大年初一吗为了迎合各大网站\APP的传统习俗，我也把网页的主题色改了改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)） 实现方法 打</description><content:encoded><![CDATA[<p>这不是2018大年初一吗<del>为了迎合各大网站\APP的传统习俗，我也把网页的主题色改了</del>改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</p>
+<h4 id="实现方法">实现方法</h4>
+<p>打开文件：<code>themes/next/source/css/_variables/custom.styl</code></p>
+<p>添加以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 背景颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">$body</span><span class="o">-</span><span class="nx">bg</span><span class="o">-</span><span class="nx">color</span> <span class="o">=</span> <span class="err">#</span><span class="nx">FFE4E1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">$header</span><span class="o">-</span><span class="nx">bg</span><span class="o">-</span><span class="nx">color</span> <span class="o">=</span> <span class="err">#</span><span class="nx">FFE4E1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">$footer</span><span class="o">-</span><span class="nx">bg</span><span class="o">-</span><span class="nx">color</span> <span class="o">=</span> <span class="err">#</span><span class="nx">FFE4E1</span><span class="p">;</span>
+</span></span></code></pre></div><p>保存以后刷新一下页面就可以看到效果啦！</p>
+]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0000</pubDate><guid>https://weixiang.github.io/posts/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
+<p>2022年1月25日 更新</p>
+</blockquote>
+<p>如你所见，这是我开始写博客以来的第一篇文章，时过境迁，很多东西都不一样了，看个乐就好。还有一件事，现在我用的博客是基于 Ghost 的。</p>
+<hr>
+<p>断断续续地花了一个星期时间，终于把这个博客网站重新搭建了起来。其实这个网站在2017年的8月份就已经上线，但由于学业等原因，网站一直处于挂着的状态，现在趁着假期又将网站重新构建，优化添加了不少东西，也准备开始定期发布文章了。</p>
+<p>我想的是可以在这个站点写下自己所想的，记一些笔记，并不期盼会有多少人看到，其实最终大部分都是写给自己看的吧！重点是我的文笔也不算好……</p>
+<p>开始享受纯粹的Hexo写作吧！</p>
+<p>这个网站使用了 <code>HEXO</code> 作为博客系统，这是一个非常好用的博客系统，还有很多优秀的主题和插件可以选，还有Markdown的写作方式。网站同时托管于 <code>Github Page</code> 和 <code>Coding Page</code> 上，也使用了腾讯云的存储服务。 感兴趣的同学可以来与我交流哦~</p>
+<p>Tips：这个站点有两个服务器，由于众所周知的原因，国内站（Coding）可能会速度比较快一些，你可以根据自己的网络情况在网页底部进行切换~</p>
+<p>嗯就是这样，没了。最后放上一张我最近拍的风景照~</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e195e7f8e4c9fb65.jpg"
+         alt="江西南昌"/> <figcaption>
+            <p>江西南昌</p>
+        </figcaption>
+</figure>
+
+]]></content:encoded></item></channel></rss>

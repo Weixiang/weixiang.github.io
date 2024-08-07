@@ -1,53 +1,660 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>前端 on Jacob&#39;s Thoughts</title>
-    <link>https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
-    <description>Recent content in 前端 on Jacob&#39;s Thoughts</description>
-    <image>
-      <title>Jacob&#39;s Thoughts</title>
-      <url>https://api.dujin.org/bing/1920.php</url>
-      <link>https://api.dujin.org/bing/1920.php</link>
-    </image>
-    <generator>Hugo -- 0.131.0</generator>
-    <language>zh</language>
-    <copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright>
-    <lastBuildDate>Wed, 07 Dec 2022 11:49:25 +0000</lastBuildDate>
-    <atom:link href="https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CSS 中英文使用不同字体</title>
-      <link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link>
-      <pubDate>Wed, 07 Dec 2022 11:49:25 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid>
-      <description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description>
-    </item>
-    <item>
-      <title>Ghost 使用 DisqusJS 3.0 评论</title>
-      <link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link>
-      <pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid>
-      <description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description>
-    </item>
-    <item>
-      <title>用 Prism.js 为 Ghost 博客添加代码高亮</title>
-      <link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link>
-      <pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid>
-      <description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description>
-    </item>
-    <item>
-      <title>给 Ghost 博客更换字体</title>
-      <link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link>
-      <pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid>
-      <description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以 「Casp</description>
-    </item>
-    <item>
-      <title>中文网页中的字体选型及开发指南</title>
-      <link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link>
-      <pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate>
-      <guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid>
-      <description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>前端 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Dec 2022 11:49:25 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS 中英文使用不同字体</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 07 Dec 2022 11:49:25 +0000</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description><content:encoded><![CDATA[<p>又来捣鼓网页字体了，在此之前已经搞了几篇了</p>
+<figure class="kg-card kg-bookmark-card">
+  <a href="__GHOST_URL__/the-font-selection-and-development-guide-in-chinese-web-pages/" class="kg-bookmark-container">
+    <div class="kg-bookmark-content">
+      <div class="kg-bookmark-title">中文网页中的字体选型及开发指南</div>
+      <div class="kg-bookmark-description">探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</div>
+      <div class="kg-bookmark-metadata">
+        <img src="__GHOST_URL__/favicon.ico" class="kg-bookmark-icon">
+        <span class="kg-bookmark-author">Jacob Ruan</span>
+        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
+      </div>
+    </div>
+    
+    <div class="kg-bookmark-thumbnail">
+      <img src="https://images.unsplash.com/photo-1546638008-efbe0b62c730?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGhhbnppfGVufDB8fHx8MTYyNTMyNjIxMQ&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000">
+    </div>
+    
+  </a>
+  
+</figure>
+<figure class="kg-card kg-bookmark-card">
+  <a href="__GHOST_URL__/change-font-for-ghost-blog/" class="kg-bookmark-container">
+    <div class="kg-bookmark-content">
+      <div class="kg-bookmark-title">给 Ghost 博客更换字体</div>
+      <div class="kg-bookmark-description">引子\n接上篇 中文网页中的字体选型及开发指南\n[https://www.jacobruan.com/the-font-selection-and-development-guide-in-chinese-web-pages/] ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义\nGhost 博客中，以 「Casper」 主题为例，把全局字体进行了三个变量定义，分别对应 「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code\ninjection」设置中，重新定义它们就能实现全局更改字体的效果了。 在「Site Header」中添加以下代码： &lt;s…</div>
+      <div class="kg-bookmark-metadata">
+        <img src="__GHOST_URL__/favicon.ico" class="kg-bookmark-icon">
+        <span class="kg-bookmark-author">Jacob Ruan</span>
+        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
+      </div>
+    </div>
+    
+    <div class="kg-bookmark-thumbnail">
+      <img src="https://images.unsplash.com/photo-1461958508236-9a742665a0d5?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fGZvbnR8ZW58MHx8fHwxNjI1NjQ1NTI3&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000">
+    </div>
+    
+  </a>
+  
+</figure>
+<figure class="kg-card kg-bookmark-card">
+  <a href="__GHOST_URL__/the-use-of-fonts-in-design/" class="kg-bookmark-container">
+    <div class="kg-bookmark-content">
+      <div class="kg-bookmark-title">字体在设计中的运用</div>
+      <div class="kg-bookmark-description">字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</div>
+      <div class="kg-bookmark-metadata">
+        <img src="__GHOST_URL__/favicon.ico" class="kg-bookmark-icon">
+        <span class="kg-bookmark-author">Jacob Ruan</span>
+        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
+      </div>
+    </div>
+    
+    <div class="kg-bookmark-thumbnail">
+      <img src="https://images.unsplash.com/photo-1511548774318-563182fe8d03?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGZvbnR8ZW58MHx8fHwxNjMxNzU3MjM4&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000">
+    </div>
+    
+  </a>
+  
+</figure>
+<p>这次要解决的新问题是，如何去掉代码块中难看的中文宋体。</p>
+<p>众所周知，绝大部分等宽字体都是不带中文的，如果直接像这样定义代码块的字体：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--font-mono</span><span class="p">:</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Cascadia Code&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>那么在代码里的中文，就会因为没有字体匹配，回落到系统默认的中易宋体，非常影响阅读体验。</p>
+<p>下面我们就来解决这个问题。</p>
+<h2 id="font-face">font-face</h2>
+<p>通过设置 <code>unicode-range</code> 属性时需要明确字符的 Unicode 范围，可以实现指定中文字符的字体。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&#34;ChineseFont&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;PingFang SC&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Microsoft YaHei&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">unicode-range</span><span class="o">:</span> <span class="nt">U</span><span class="o">+</span><span class="nt">2E80-A4CF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">F900-FAFF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">FE30-FE4F</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>然后在代码字体中加上刚刚设置的自定义字体</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">--font-mono</span><span class="p">:</span> <span class="n">ChineseFont</span><span class="p">,</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Cascadia Code&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>代码块中的中文就被替换为了我们指定的中文字体，就是这个效果</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I can eat glass, it doesn&#39;t hurt me.&#34;</span><span class="p">);</span> <span class="c1">// 我能吞下玻璃而不伤身体。
+</span></span></span></code></pre></div>]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
+但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。
+DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
+<blockquote>
+<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p>
+</blockquote>
+<p>此前本站就在用 DisqusJS 1.3 作为评论支持，趁着这次升级版本记录一下操作。</p>
+<blockquote>
+<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p>
+</blockquote>
+<h2 id="添加头文件">添加头文件</h2>
+<p>在<code>Code Injection</code>中的<code>Site Header</code>添加 DisqusJS 的头文件即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="修改主题">修改主题</h2>
+<p>下载主题源码，在需要展示评论的地方创建一个 DisqusJS 容器，并添加配置：
+配置如何获取，请参考官方文档 <a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;disqusjs&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">disqusjs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DisqusJS</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">shortname</span><span class="o">:</span> <span class="s1">&#39;你的 Disqus Forum 的 shortname&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">siteName</span><span class="o">:</span> <span class="s1">&#39;你站点的名称&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">identifier</span><span class="o">:</span> <span class="s1">&#39;ghost-{{comment_id}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{url absolute=&#34;true&#34;}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">api</span><span class="o">:</span> <span class="s1">&#39;https://替换为你的反代域名/disqus/api/&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">apikey</span><span class="o">:</span> <span class="s1">&#39;DisqusJS 向 API 发起请求时使用的 API Key&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;你的站点的 Disqus Moderator 的用户名&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">adminLabel</span><span class="o">:</span> <span class="s1">&#39;你想显示在 Disqus Moderator Badge 中的文字&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="配置-disqus-application">配置 Disqus Application</h3>
+<p>在 <a href="https://disqus.com/api/applications/">Disqus API Application</a> 处注册一个 Application。
+<img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vepaH&amp;originHeight=520&amp;originWidth=1054&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
+
+点击新创建的 Application，获取你的 API Key（公钥）。
+<img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=n2k7W&amp;originHeight=306&amp;originWidth=644&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
+
+在 Application 的 Settings 页面设置你使用 DisqusJS 时的域名。Disqus API 会检查 API 请求的 Referrer 和 Origin。
+<img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=tIQea&amp;originHeight=267&amp;originWidth=710&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
+</p>
+<h2 id="配置-disqusjs-参数">配置 DisqusJS 参数</h2>
+<p><strong>shortname</strong> <code>{string}</code></p>
+<ul>
+<li>你的 Disqus Forum 的 shortname，你可以在 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Shortname</a> 获取你的 shortname</li>
+<li><strong>必须</strong>，无默认值</li>
+</ul>
+<p><strong>siteName</strong> <code>{string}</code></p>
+<ul>
+<li>你站点的名称，将会显示在「评论基础模式」的 header 中；该配置应该和 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Website Name</a> 一致</li>
+<li>非必须，无默认值</li>
+</ul>
+<p><strong>identifier</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的 identifier，用来区分不同页面</li>
+<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
+</ul>
+<p><strong>url</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的 URL，Disqus 的爬虫会爬取该 URL 获取页面相关信息</li>
+<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
+</ul>
+<p><strong>title</strong> <code>{string}</code></p>
+<ul>
+<li>当前页面的标题，如果没有设置默认为当前页面的标题。当页面标题中有其他信息（比如站点名称）而不想在 Disqus 中展示时，可以设置此项。</li>
+<li>非必须，默认值为 <code>document.title</code></li>
+</ul>
+<p><strong>api</strong> <code>{string}</code></p>
+<ul>
+<li>DisqusJS 请求的 API Endpoint，通常情况下你应该配置一个 Disqus API 的反代并填入反代的地址。你也可以直接使用 DISQUS 官方 API 的 Endpoint <code>https://disqus.com/api/</code>，或是使用我搭建的 Disqus API 反代 Endpoint <code>https://disqus.skk.moe/disqus/</code>。如有必要可以阅读关于搭建反代的 <a href="https://github.com/SukkaW/DisqusJS#%E8%B0%83%E8%AF%95%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8--%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3">相关内容</a></li>
+<li><strong>建议</strong>，默认值为 <code>https://disqus.skk.moe/disqus/</code></li>
+</ul>
+<p><strong>apikey</strong> <code>{string | string[]}</code></p>
+<ul>
+<li>DisqusJS 向 API 发起请求时使用的 API Key，你应该在配置 Disqus Application 时获取了 API Key</li>
+<li>DisqusJS 支持填入一个 包含多个 API Key 的数组，每次请求时会随机使用其中一个；如果你只填入一个 API Key，可以填入 string 或 Array。</li>
+<li><strong>必填</strong>，无默认值</li>
+</ul>
+<p><strong>nesting</strong> <code>{number}</code></p>
+<ul>
+<li>最大评论嵌套数；超过嵌套层数的评论，会不论从属关系显示在同一层级下</li>
+<li>非必须，默认值为 <code>4</code></li>
+</ul>
+<p><strong>nocomment</strong> <code>{string}</code></p>
+<ul>
+<li>没有评论时的提示语（对应 Disqus Admin - Settings - Community - Comment Count Link - Zero comments）</li>
+<li>非必须，默认值为 <code>这里冷冷清清的，一条评论都没有</code></li>
+</ul>
+<hr>
+<p>以下配置和 Disqus Moderator Badge 相关，缺少一个都不会显示 Badge
+<strong>admin</strong> <code>{string}</code></p>
+<ul>
+<li>你的站点的 Disqus Moderator 的用户名（也就是你的用户名）。你可以在 <a href="https://disqus.com/home/settings/account/">Disqus - Settings - Account - Username</a> 获取你的 Username</li>
+<li>非必须，无默认值</li>
+</ul>
+<p><strong>adminLabel</strong> <code>{string}</code></p>
+<ul>
+<li>你想显示在 Disqus Moderator Badge 中的文字。该配置应和 <a href="https://disqus.com/admin/settings/community/">Disqus Admin - Settings - Community - Moderator Badge Text</a> 相同</li>
+<li>非必须，无默认值</li>
+</ul>
+<h2 id="渲染评论">渲染评论</h2>
+<p>最后，让 DisqusJS 实例将评论组件渲染到页面上：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">disqusjs</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;disqusjs&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 你也可以传入一个 CSS 选择器
+</span></span></span><span class="line"><span class="cl"><span class="c1">// disqusjs.render(&#39;#disqusjs&#39;);
+</span></span></span></code></pre></div><p>在 Casper 主题中，完成之后的<code>post.hbs</code>评论部分长这样：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;article-comments gh-canvas&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- DisqusJS 评论区--&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;disqusjs&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">disqusjs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DisqusJS</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">shortname</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">siteName</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">identifier</span><span class="o">:</span> <span class="s1">&#39;ghost-{{comment_id}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{url absolute=&#34;true&#34;}}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">api</span><span class="o">:</span> <span class="s1">&#39;https://domain.com/disqus/api/&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">apikey</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">adminLabel</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="nx">disqusjs</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;disqusjs&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>修改完成后重新打包为zip，上传到 Ghost 更新主题即可。</p>
+<h2 id="反向代理">反向代理</h2>
+<p>在站点配置中添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># for hexo-theme-next disqusjs.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="s">location</span> <span class="s">/disqus/api/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_pass</span> <span class="s">https://disqus.com/api/</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">...</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></div><p>完成后重启 nginx 服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">service nginx reload
+</span></span></code></pre></div><p>打开 <code>https://domain.com/disqus/api/3.0/threads/list.json</code> （<code>domain.com</code>是你 nginx 配的域名）验证一下，是否配置成功：返回如下内容即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&#34;response&#34;</span><span class="p">:</span><span class="s2">&#34;Invalid API key&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://github.com/SukkaW/DisqusJS">https://github.com/SukkaW/DisqusJS</a>
+<a href="https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/">https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/</a>
+<a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
+<h2 id="版权声明">版权声明</h2>
+<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
+
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+<blockquote>
+<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
+</blockquote>
+<p>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。Ghost 官方也给出了对应的指引：<a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a></p>
+<p>在本指南中，我将展示如何将代码示例添加到您的 Ghost 站点，以及如何使用代码语法高亮显示对其进行自定义。</p>
+<h2 id="引入-prismjs">引入 Prism.js</h2>
+<p>在「Code injection」的「Site Header」中添加 Prism.js 的样式表：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><p>在「Site Footer」中添加 Prism.js 的脚本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>至此代码高亮已经可用。</p>
+<h2 id="添加自己常用的语言">添加自己常用的语言</h2>
+<blockquote>
+<p>2022年1月16日更新</p>
+</blockquote>
+<p>Prism.js 默认配置仅包含 <code>Markup + HTML + XML + SVG + MathML + SSML + Atom + RSS</code> 这几种语言的高亮规则，如果你常用的语言不在内，则需要自己手动添加。</p>
+<p>在 <a href="https://cdnjs.com/libraries/prism">https://cdnjs.com/libraries/prism</a> 搜索自己需要的语言，添加进 <code>Site Footer</code> 中 <code>prism.min.js</code> 的后面即可。</p>
+<p>我添加了 Bash 和 json 的支持。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-bash.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-ZqfG//sXQwAA7DOArFJyMmZQ3knKe+0ft3tPQZPvDPJR04IatmhVO5pTazVV+fLVDYSy28PhoBeUj5wxGRiGAA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-json.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="进阶配置">进阶配置</h2>
+<p>默认的主题有点丑，来改造一下。</p>
+<p>就像 Ghost 主题的其余部分一样，代码块可以使用标准 CSS 和 JavaScript 进行完全自定义。</p>
+<p>Prism.js 库附带了一个广泛的<a href="https://prismjs.com/">主题</a>和<a href="https://prismjs.com/#plugins">插件</a>列表，以进一步自定义您的代码示例的外观。</p>
+<h3 id="更换主题">更换主题</h3>
+<p>更改为 Tomorrow Night 主题，其余主题可以在<a href="https://prismjs.com/">Prism.js 官网</a>找到：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><h3 id="自建主题">自建主题</h3>
+<p>从 Ghost 官网抄来的，我觉得比 Tomorrow Night 主题好看，目前本站用的就是这个。
+在「Site Header」中添加样式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="nt">language-</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="mh">#202328</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">2.4</span><span class="kt">rem</span> <span class="mf">3.2</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="复制按钮">复制按钮</h3>
+<p>在「Site Header」中添加工具栏：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><p>在「Site Footer」中添加工具栏和复制组件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="显示行号">显示行号</h3>
+<p>在「Code injection」的「Site Footer」中添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;pre[class*=language-]&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">node</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;line-numbers&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Prism</span><span class="p">.</span><span class="nx">highlightAll</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="行内代码样式更改">行内代码样式更改</h2>
+<blockquote>
+<p>2022年1月16日更新</p>
+</blockquote>
+<p><code>这个东西就是行内代码.</code></p>
+<p>Casper 自带的行内代码样式不太好看，换掉。</p>
+<p>从语雀那里抄来的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="nt">pre</span><span class="o">)&gt;</span><span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F5F5F5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#F0F0F0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#096DD9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="后记">后记</h2>
+<p>正如上文所说， Prism.js 还有很多各式各样花里胡哨的功能，感兴趣的可以研究下 <a href="https://prismjs.com/">Prism.js 官网</a> 的内容。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
+<p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
+]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以 「Casp</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+<p>接上篇 <a href="__GHOST_URL__/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
+<h2 id="字体定义">字体定义</h2>
+<p>Ghost 博客中，以 「Casper」 主题为例，把全局字体进行了三个变量定义，分别对应 「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
+<p>在「Site Header」中添加以下代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nv">--font-sans-serif</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">--font-serif</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">,</span> <span class="n">STZhongsong</span><span class="p">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="n">PMingLiu</span><span class="p">,</span> <span class="n">STSong</span><span class="p">,</span> <span class="n">SimSun</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Bitmap Song&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Serif CJK&#34;</span><span class="p">,</span> <span class="kc">serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">--font-mono</span><span class="p">:</span> <span class="n">JetBrainsMono</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Monaco</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Courier New&#34;</span><span class="p">,</span> <span class="n">Courier</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>代码中的三个变量分别对应的就是「无衬线字体」、「衬线字体」和「等宽字体」，可以参考上一篇文章，根据自己的喜好进行更改。</p>
+<p>对于无衬线字体，我选择用「Segoe UI」作为优先，保障 Windows 用户的体验，这款字体也是 Microsoft 的御用品牌字体。其次用「PingFang SC」苹方，确保 Apple 用户的体验。最后用「&ldquo;Apple Color Emoji&rdquo;, &ldquo;Segoe UI Emoji&rdquo;, &ldquo;Segoe UI Symbol&rdquo;」三个特殊字体加入对 Emoji 和特殊符号的支持。这里是学习了 GitHub 的做法。如果你想把所有特殊符号都渲染为 Emoji，可以学习简书的做法，把这一堆字体提到最前。</p>
+<p>至于衬线字体，我保留了 Ghost 原装的 Georgia 字体，这款英文衬线字体确实很漂亮。然后我使用了我个人比较喜欢的「STZhongsong」华文中宋，这款字体党政风满满，听说是党政专用标题字体。最后依然加入了对 Emoji 和特殊符号的支持。</p>
+<p>最后是代码中使用的等宽字体，用的是「JetBrainsMono, &ldquo;Source Code Pro&rdquo;」，这两款也是我用的最多的代码编辑器字体。当然了，考虑到普通用户的设备上大概率不会安装这种字体，建议再加一行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;</span><span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>使用 Web Font 来渲染等宽字体，保障显示准确。</p>
+<h2 id="设置正文字体">设置正文字体</h2>
+<p>我的博客主要以技术类的文章为主，所以我想用「非衬线字体」作为我的正文字体。「Casper」主题默认的正文字体是「衬线字体」而且对于中文来说字体偏大了。</p>
+<p>我们可以通过重新定义 Body 和文章部分的字体来更改正文字体。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">blockquote</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ol</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ul</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">dl</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这里把正文字体设置为了无衬线字体，并且把字体大小调整为 16px，行间距为 1.8。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="__GHOST_URL__/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
+]]></content:encoded></item><item><title>中文网页中的字体选型及开发指南</title><link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link><pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate><guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid><description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+<p>趁着暑假，我又搭建了一个自己的个人博客，不同于以往，这次用的是较新的博客系统 Ghost。</p>
+<p>因为 Ghost 的主题和 UI 实在是太好看了。</p>
+<p>而且易用性也很好，比起臃肿的 WordPress 和 折腾人的 Hexo ，Ghost 正中我意。</p>
+<p>不过作为一个年轻的、国外开发者主导的博客系统，它似乎还没有考虑到中文显示这种东西。</p>
+<p>Windows 平台下，Ghost 的中文默认显示为宋体，实在是辣眼睛。</p>
+<p>于是就有了这次的探索，中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</p>
+<h2 id="例子">例子</h2>
+<p>先来看看大公司网站所用的字体：</p>
+<h3 id="知乎">知乎</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="n">Source</span> <span class="n">Han</span> <span class="n">Sans</span> <span class="n">SC</span><span class="p">,</span><span class="n">Noto</span> <span class="n">Sans</span> <span class="n">CJK</span> <span class="n">SC</span><span class="p">,</span><span class="n">WenQuanYi</span> <span class="n">Micro</span> <span class="n">Hei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#121212</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="简书">简书</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.42857</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#404040</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span><span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span><span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span><span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span><span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span><span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span><span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span><span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span><span class="n">Helvetica</span><span class="p">,</span><span class="n">Arial</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-feature-settings</span><span class="p">:</span> <span class="s2">&#34;tnum&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-variant</span><span class="p">:</span> <span class="n">tabular-nums</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="github">GitHub</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="n">Segoe</span> <span class="n">UI</span><span class="p">,</span><span class="n">Helvetica</span><span class="p">,</span><span class="n">Arial</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">,</span><span class="n">Apple</span> <span class="n">Color</span> <span class="n">Emoji</span><span class="p">,</span><span class="n">Segoe</span> <span class="n">UI</span> <span class="n">Emoji</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin-top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">ui-monospace</span><span class="p">,</span><span class="n">SFMono-Regular</span><span class="p">,</span><span class="n">SF</span> <span class="n">Mono</span><span class="p">,</span><span class="n">Menlo</span><span class="p">,</span><span class="n">Consolas</span><span class="p">,</span><span class="n">Liberation</span> <span class="n">Mono</span><span class="p">,</span><span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="苹果">苹果</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">17</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.5294717647</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">letter-spacing</span><span class="p">:</span> <span class="mf">-0.021</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;SF Pro Text&#34;</span><span class="p">,</span><span class="s2">&#34;SF Pro Icons&#34;</span><span class="p">,</span><span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span><span class="s2">&#34;Helvetica&#34;</span><span class="p">,</span><span class="s2">&#34;Arial&#34;</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="小米">小米</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="o">/</span><span class="mf">1.5</span> <span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">Helvetica</span><span class="p">,</span><span class="n">Arial</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">Yahei</span><span class="p">,</span><span class="n">Hiragino</span> <span class="n">Sans</span> <span class="n">GB</span><span class="p">,</span><span class="n">Heiti</span> <span class="n">SC</span><span class="p">,</span><span class="n">WenQuanYi</span> <span class="n">Micro</span> <span class="n">Hei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#333</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">min-width</span><span class="p">:</span> <span class="mi">1226</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="哔哩哔哩">哔哩哔哩</h3>
+<blockquote>
+<p>2022年1月17日更新</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 新版首页 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">HarmonyOS_Regular</span><span class="p">,</span><span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">overflow-x</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 旧版 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span><span class="n">BlinkMacSystemFont</span><span class="p">,</span><span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">Helvetica</span><span class="p">,</span><span class="n">Arial</span><span class="p">,</span><span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">Hiragino</span> <span class="n">Sans</span> <span class="n">GB</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#222</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="锤子">锤子</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">html</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">Hiragino</span> <span class="n">Sans</span> <span class="n">GB</span><span class="p">,</span><span class="n">Heiti</span> <span class="n">SC</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="n">WenQuanYi</span> <span class="n">Micro</span> <span class="n">Hei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="字体的分类">字体的分类</h2>
+<h3 id="非衬线字体sans-serif">非衬线字体（Sans-Serif）</h3>
+<p><span style="font-family: 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;">非衬线字体适用于屏幕显示，代表字体是黑体。可以用在较理性的技术类文章。</span></p>
+<h3 id="衬线字体serif">衬线字体（Serif）</h3>
+<p><span style="font-family: STSong, serif;">衬线字体适用于印刷出版，代表字体是宋体。可以用在较感性的生活随笔类文章中。</span></p>
+<h3 id="等宽字体monospace">等宽字体（Monospace）</h3>
+<p>等宽字体的每个字符具有相同的宽度，这使得英文字符和标点总是工整地排列，这些字体还专门为一些字母和符号做了优化，让你一眼就可以区别出 <code>O0</code> / <code>1ilIL</code>，代表字体  <a href="https://github.com/adobe-fonts/source-code-pro">Source Code Pro</a> 。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">例如这一段就是等宽字体 Source Code Pro 的效果
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="常见的字体">常见的字体</h2>
+<blockquote>
+<p>2022年1月17日更新</p>
+</blockquote>
+<h3 id="等线字体-sans-serif">等线字体 Sans-serif</h3>
+<table>
+<thead>
+<tr>
+<th>字体</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>system-ui</code></td>
+<td>默认系统字体</td>
+</tr>
+<tr>
+<td><code>-apple-system</code>, <code>BlinkMacSystemFont</code></td>
+<td>macOS, iOS</td>
+</tr>
+<tr>
+<td>Segoe UI</td>
+<td>Microsoft Windows, Xbox, etc.</td>
+</tr>
+<tr>
+<td>Roboto</td>
+<td>较新版本的 Android</td>
+</tr>
+<tr>
+<td>Oxygen</td>
+<td>Linux / KDE</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>Linux / Ubuntu</td>
+</tr>
+<tr>
+<td>Cantarell</td>
+<td>Linux / GNOME 3</td>
+</tr>
+<tr>
+<td>Fira Sans</td>
+<td>Firefox OS</td>
+</tr>
+<tr>
+<td>Droid Sans</td>
+<td>旧版本的 Android</td>
+</tr>
+<tr>
+<td>Helvetica Neue</td>
+<td>OSX</td>
+</tr>
+<tr>
+<td>Arial, <code>sans-serif</code></td>
+<td>备胎</td>
+</tr>
+</tbody>
+</table>
+<p><code>Helvetica</code> ：被评为设计师最爱的字体，Realist风格，简洁现代的线条，非常受到追捧。在Mac下面被认为是最佳的网页字体，在Windows下由于Hinting的原因显示很糟糕。
+<code>Arial</code> ：Helvetica的「克隆」，和Helvetica非常像，细节上比如R和G有小小差别。如果字号太小，文字太多，看起来会有些累眼。Win和Mac显示都正常
+<code>Lucida Family</code> ：Lucida Grande是Mac OS UI的标准字体，属于humanist风格，稍微活泼一点。Mac下的显示要比Win下好。
+<code>Verdana</code> ：专门为了屏显而设计的字体，humanist风格，在小字号下仍可以清楚显示，但是字体细节缺失严重，最好别做标题。
+<code>Tahoma</code> ：也是humanist风格，字体和Verdana有点像，但是略窄一些，counter略小，曾经是Windows的标准字体，Mac 10.5之后默认也有安装。
+<code>Trebuchet MS:</code> 为微软设计的一个humanist风格字体，个人觉得个性太过突出，用得不好会不搭。</p>
+<p><code>微软雅黑（Microsoft YaHei）</code> ：Vista之后新引入的字体，打开Cleartype之后显示效果不错，不开Cleartype发虚。微软雅黑的美观度和清晰度都较好，可以作为网页的首选字体。它在Mac平台的对应字体是华文细黑（STXihei）。</p>
+<p><code>华文细黑</code> ：Mac下的默认中文。</p>
+<p><code>Droid Sans和衍生的WenQuanYi Microhei</code> ：Andriod中的中文，也是Linux绝大多数发行版本的默认中文，，当然也有用WenQuanyi Zenhei的，不过比较少了。</p>
+<h3 id="衬线字体-serif">衬线字体 Serif</h3>
+<p><code>Georgia</code> ：基本上适合正文屏显的衬线字体，非Georgia莫属了。笔画粗重，衬线明线，轮廓较大，小字体显示也很清晰，同时细节还算OK。
+<code>Times</code> ：Times是为了报纸而设计的，特点是可以在有限的空间塞进去更多的文字，笔画较弱，小字号正文屏显看起来累眼。曾经Engadget改版的时候用了Times作为正文，被骂得很惨之后换成了Georgia。</p>
+<p><code>中易宋体（SimSun）</code> ：Win最常见的字体，小字体点阵，大字体TrueType，但是大字体并不好看，所以最好别做标题。宋体是最常见的中文字体，如果没有指定字体，操作系统往往选择它来渲染。很多人认为，这种字体并不美观。</p>
+<p><code>仿宋（FangSong）</code> ：这种字体是衬线体，比宋体的装饰性更强。如果字号太小，会影响清晰度，所以只有在字号大于14px的情况下，才可以考虑这种字体。它在Mac平台的对应字体是&quot;华文仿宋&quot;（STFangsong）。
+<code>楷体（KaiTi）</code> ：楷体也是衬线体，装饰性与仿宋体接近，但是宽度更大，笔画更清楚一些。这种字体也不应该在小于14px的情况下使用。它在Mac平台的对应字体是&quot;华文楷体&quot;（STKaiti）。</p>
+<h3 id="等宽字体-monospace">等宽字体 Monospace</h3>
+<p><code>ui-monospace</code>：较新的等宽字体声明形式，已在 Safari 13.19 中得到支持。这也是使用 macOS 新的“SF Mono”字体的唯一方法。</p>
+<p><code>Menlo, Monaco</code>：旧版本 macOS / OSX 的默认等宽字体，在支持 <code>.ui-monospace</code> 的 macOS 上不再生效。</p>
+<p><code>Cascadia Code, Segoe UI Mono</code>：Windows 自家的等宽字体，但默认不包含在 Windows 中 <del>，因为 Windows 根本没有默认的等宽字体（除非算上<code>Courier New</code>）。</del> 但是<code>Segue UI Mono</code>已随一些微软自家的软件一起分发，正在普及中。</p>
+<p><code>Cascadia Mono</code>：是微软正在开发的一种新的等宽字体，随 Windows Terminal 一起提供。</p>
+<p><code>Source Code Pro</code>：知名的等宽字体，GNOME12 中的默认字体，但来自不同的家族，作为默认的可变宽度字体<code>Cantarell</code>。</p>
+<h2 id="操作系统的预装字体">操作系统的预装字体</h2>
+<p>操作系统决定了开发者可以使用的字体。所以，第一步，我们必须了解操作系统到底提供哪些字体。</p>
+<p>可以通过查询各维基百科的这个页面，列出了常见的不同系统自带的日中韩字体：<a href="https://en.wikipedia.org/wiki/List_of_CJK_fonts">List Of CJK fonts</a>。</p>
+<h3 id="windows">Windows</h3>
+<ul>
+<li>宋体：SimSun</li>
+<li>新宋体：NSimSun</li>
+<li>仿宋：FangSong</li>
+<li>楷体：KaiTi</li>
+<li>仿宋<em>GB2312：FangSong</em>GB2312</li>
+<li>楷体<em>GB2312：KaiTi</em>GB2312</li>
+<li>Windows XP+: MS Hei 微软黑体</li>
+<li>Windows Vista+: Microsoft YaHei 微软雅黑</li>
+</ul>
+<h3 id="macos---ios--ipados">macOS /  iOS / iPadOS</h3>
+<p>详见苹果官网的 <a href="https://support.apple.com/zh-cn/HT208968">macOS Mojave 附带的字体</a>。</p>
+<ul>
+<li>华文细黑：STHeiti Light （又名STXihei）</li>
+<li>华文楷体：STKaiti</li>
+<li>华文宋体：STSong</li>
+<li>华文仿宋：STFangsong</li>
+<li>OSX 10.2+: 华文黑体 STHeiti</li>
+<li>OSX 10.6+: 黑体-简 Heiti SC / 黑体-繁 Heiti TC</li>
+<li>OSX 10.6+: 冬青黑体简体中文 Hiragino Sans GB</li>
+<li>OSX 10.11+: 苹方-简 PingFang SC / 苹方-繁 PingFang TC</li>
+</ul>
+<p>iOS / iPadOS 使用与 macOS 相同的中文字体。详见苹果官网的 <a href="https://developer.apple.com/fonts/system-fonts/">字体列表</a>。</p>
+<p>但是要注意的是，iOS / iPadOS 系统并不预装 CJK 衬线字体。所以几乎所有的中文网页在 iOS / iPadOS 都是显示为非衬线字体。原因正是前文所说的，黑体在屏幕上的可读性比宋体要高。</p>
+<h3 id="linux">Linux</h3>
+<ul>
+<li>Open Source*: WenQuanYi Zen Hei 文泉驿正黑</li>
+<li>Open Source*: WenQuanYi Micro Hei 文泉驿微米黑</li>
+<li>Open Source*: Noto Sans CJK / Source Han Sans</li>
+</ul>
+<p>Linux 由于发行版众多，比较混乱，一般需要用户自行安装中文字体，常见的有文泉驿、思源等开源字体。</p>
+<p>Android 目前使用 Adobe 和 Google 联合开发的思源系列 <code>Source *</code> 字体，不过在 Android 中叫做 <code>Noto *</code>。</p>
+<h3 id="microsoft-office">Microsoft Office</h3>
+<p>如果用户装了 <code>Microsoft Office</code> ，还会多出一些字体。</p>
+<ul>
+<li>隶书：LiSu</li>
+<li>幼圆：YouYuan</li>
+<li>华文细黑：STXihei</li>
+<li>华文楷体：STKaiti</li>
+<li>华文宋体：STSong</li>
+<li>华文中宋：STZhongsong</li>
+<li>华文仿宋：STFangsong</li>
+<li>方正舒体：FZShuTi</li>
+<li>方正姚体：FZYaoti</li>
+<li>华文彩云：STCaiyun</li>
+<li>华文琥珀：STHupo</li>
+<li>华文隶书：STLiti</li>
+<li>华文行楷：STXingkai</li>
+<li>华文新魏：STXinwei</li>
+</ul>
+<h2 id="字体的使用">字体的使用</h2>
+<h3 id="系统字体">系统字体</h3>
+<p>CSS 的 <code>font-family</code> 命令，指定了网页元素所使用的字体。下面是一个例子。</p>
+<blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">font-family</span><span class="o">:</span> <span class="nt">Georgia</span><span class="o">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="o">,</span> 
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="o">,</span> <span class="s2">&#34;微软雅黑&#34;</span><span class="o">,</span> 
+</span></span><span class="line"><span class="cl">          <span class="nt">STXihei</span><span class="o">,</span> <span class="s2">&#34;华文细黑&#34;</span><span class="o">,</span> 
+</span></span><span class="line"><span class="cl">          <span class="nt">serif</span><span class="o">;</span>
+</span></span></code></pre></div></blockquote>
+<p>它的规则有三条。</p>
+<blockquote>
+<p>（1）优先使用排在前面的字体。</p>
+<p>（2）如果找不到该种字体，或者该种字体不包括所要渲染的文字，则使用下一种字体。</p>
+<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p>
+</blockquote>
+<p><strong>根据这些规则，<code>font-family</code> 应该优先指定英文字体，然后再指定中文字体。</strong> 否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
+<p><strong>为了保证兼容性，中文字体的中文名称和英文名称，应该都写入<code>font-family</code>。</strong> 比如，&ldquo;微软雅黑&quot;的英文名称是<code>Microsoft YaHei</code>。</p>
+<blockquote>
+<p>font-family后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode,比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p>
+</blockquote>
+<p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
+<p>由于 Windows 和 Mac 的中文字体没有交叉，所以应该同时为两个平台指定字体。</p>
+<p>常见的做法是，Windows平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac平台指定&quot;华文细黑&quot;（STXihei）。</p>
+<h3 id="web-fonts">Web Fonts</h3>
+<p>如果是纯英文网页的话，选字体的事情比较好办，因为直接引入 <a href="https://fonts.google.com/">Web Fonts</a>  的成本非常低（文件小），而且现在 Web Fonts 的 [兼容性](&ldquo;<a href="https://caniuse.com/#search=web">https://caniuse.com/#search=web</a> font&rdquo;) 很好，基本上所有主流浏览器都支持，就能保证各个平台所用的字体的一致性。</p>
+<p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro</a>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>或者</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;</span><span class="o">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>如果找不到免费的 CDN 的话，也可以下载字体文件部署到自己的服务器上。</p>
+<p>然后在 <code>style.css</code> 中加入兼容各个浏览器的 <code>@font-face</code> 定义:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&#34;JetBrains Mono&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.eot&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.eot?#iefix&#34;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&#34;embedded-opentype&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.woff2&#34;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&#34;woff2&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.woff&#34;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&#34;woff&#34;</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.ttf&#34;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s2">&#34;truetype&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-weight</span><span class="o">:</span> <span class="nt">400</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>之后便可以在 CSS 中使用该字体：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;JetBrains Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这样浏览器就会下载自己能使用的字体文件进行文字渲染了。</p>
+<h2 id="总结成果">总结成果</h2>
+<p>你现在所看到的这个页面的字体</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">--font-sans-serif</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">HarmonyOS_Regular</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Helvetica</span><span class="p">,</span> <span class="s2">&#34;Source Han Sans SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">--font-serif</span><span class="p">:</span> <span class="n">STZhongsong</span><span class="p">,</span> <span class="n">STSong</span><span class="p">,</span> <span class="s2">&#34;Noto Serif CJK&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Serif SC&#34;</span><span class="p">,</span> <span class="n">PMingLiu</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SimSun</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Bitmap Song&#34;</span><span class="p">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="kc">serif</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">--font-mono</span><span class="p">:</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Cascadia Code&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Segoe UI Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<blockquote>
+</blockquote>
+<p><a href="https://blog.mutoo.im/2020/02/fonts-for-my-blog-theme">木匣子</a>  “中文博客的字体选型&quot;
+<a href="https://www.runoob.com/w3cnote/web-font-family.html">菜鸟教程</a>    &ldquo;常用网页字体&rdquo;
+<a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a> 	&ldquo;中文字体网页开发指南&rdquo;
+<a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
+<h2 id="版权声明">版权声明</h2>
+<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
+
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+]]></content:encoded></item></channel></rss>
