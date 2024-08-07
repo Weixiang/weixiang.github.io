@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost博客</title><link>https://weixiang.github.io/posts/ghost-blog/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog/</guid><description>Ghost博客使用记录</description><content:encoded><![CDATA[<h2 id="code-injection">Code injection</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的Ghost博客，先换到Hugo，记下Ghost博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<p>为什么从 Ghost 换到 Hugo？</p>
+<p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用CMS系统，对服务器性能要求越来越高了。</p>
+<p><del>买不起服务器了，就换回静态博客了。</del></p>
+<p>本文记录一下Ghost多年的使用体验和一些小技巧。</p>
+<p>永远喜欢 Casper 主题。</p>
+<h2 id="code-injection">Code injection</h2>
 <h3 id="site-header">Site header</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -428,6 +434,22 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
 <p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
+]]></content:encoded></item><item><title>滕王阁序</title><link>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</link><pubDate>Fri, 02 Aug 2024 17:42:46 +0800</pubDate><guid>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</guid><description>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。</description><content:encoded><![CDATA[<p>这是一篇测试文章，用于测试中文显示。</p>
+<h2 id="豫章故郡">豫章故郡</h2>
+<p>　　豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。(豫章故郡 一作：南昌故郡；青霜 一作：清霜)</p>
+<p>　　时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。（天人 一作：仙人；层峦 一作：层台；即冈 一作：列冈；飞阁流丹 一作：飞阁翔丹）</p>
+<h2 id="披绣闼">披绣闼</h2>
+<p>　　披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。(迷津 一作：弥津；云销雨霁，彩彻区明 一作：虹销雨霁，彩彻云衢)</p>
+<p>　　遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而北辰远。关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。怀帝阍而不见，奉宣室以何年？(遥襟甫畅 一作：遥吟俯畅)</p>
+<h2 id="时运不齐">时运不齐</h2>
+<p>　　嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！(见机 一作：安贫；以犹欢 一作：而相欢)</p>
+<p>　　勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？</p>
+<h2 id="胜地不常">胜地不常</h2>
+<p>　　呜呼！胜地不常，盛筵难再；兰亭已矣，梓泽丘墟。临别赠言，幸承恩于伟饯；登高作赋，是所望于群公。敢竭鄙怀，恭疏短引；一言均赋，四韵俱成。请洒潘江，各倾陆海云尔。
+　　滕王高阁临江渚，佩玉鸣鸾罢歌舞。
+　　画栋朝飞南浦云，珠帘暮卷西山雨。
+　　闲云潭影日悠悠，物换星移几度秋。
+　　阁中帝子今何在？槛外长江空自流。</p>
 ]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。
 DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
@@ -1115,39 +1137,4 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
 <p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的STEM学生社团，是青少年创客和STEAM教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
-]]></content:encoded></item><item><title>About 关于</title><link>https://weixiang.github.io/posts/about/</link><pubDate>Sun, 31 Dec 2017 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/about/</guid><description>我是 Jacob，很高兴认识你。
-I&amp;rsquo;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<p>你好！👋</p>
-<p>我是 Jacob，这里是我的个人博客。</p>
-<p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
-<p>纯文大学生，但热爱的是硬件与编程。</p>
-<p>玩 Arduino ，喜欢交互艺术，也搞点 IoT 。</p>
-<p>喜欢猫猫🐱当然狗狗🐶也可以。</p>
-<p>酷基，哈学博士🪄，低浓度二次元，听国际流行🎧。</p>
-<p>偶尔玩点游戏的 PlayStation 玩家🎮。</p>
-<p>交个朋友</p>
-<p>Email(Base64): amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</p>
-<p>WeChat(Base64): aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</p>
-<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
-<p>关于本博客</p>
-<p>本站采用 Ghost 驱动，主题为 Casper。</p>
-<p>站点更新记录本站点自创立以来的更新记录Jacob&rsquo;s ThoughtsJacob Ruan</p>
-<p>版权声明</p>
-<p>本站文章除特别声明外，均由 Jacob Ruan 采用 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 进行许可。</p>
-<p>English Version. (By Google Translate)</p>
-<p>Hello.👋</p>
-<p>My name is Jacob Ruan.</p>
-<p>This is my personal blog. Just like the name of the blog, I am here to record my thoughts and share my knowledge.</p>
-<p>I am a social science college student, My major in the college is marketing, but I don’t like it. I like art and programming, and my dream is to be a designer or engineer. For this dream, I am studying computer courses by myself. Wish me luck. 😀</p>
-<p>Although I majored in social sciences at school, I also have a strong interest in natural sciences and computer science.</p>
-<p>Thank you for your attention, but because of my heavy academic work, I may not update my blog very often. 😜</p>
-<p>Years ago, I founded a STEM association in my senior middle school, called WAI STEM Club , it won some awards for my school.</p>
-<p>Outside of my studies, I also enjoy programming, Arduino, international pop music and secondary culture. I&rsquo;m also a fan of Harry Potter.</p>
-<p>Copyright</p>
-<p>Unless otherwise stated, the post of this website adopts the CC License.</p>
-<p>This work by Jacob Ruan is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
-<p>Contact me</p>
-<p>If you are interested in making new friends, You can find me in the following ways:</p>
-<p>Email(Base64): amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</p>
-<p>WeChat(Base64): aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</p>
-<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
 ]]></content:encoded></item></channel></rss>

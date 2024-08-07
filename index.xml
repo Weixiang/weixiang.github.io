@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost博客</title><link>https://weixiang.github.io/posts/ghost-blog/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog/</guid><description>Ghost博客使用记录</description><content:encoded><![CDATA[<h2 id="code-injection">Code injection</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的Ghost博客，先换到Hugo，记下Ghost博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<p>为什么从 Ghost 换到 Hugo？</p>
+<p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用CMS系统，对服务器性能要求越来越高了。</p>
+<p><del>买不起服务器了，就换回静态博客了。</del></p>
+<p>本文记录一下Ghost多年的使用体验和一些小技巧。</p>
+<p>永远喜欢 Casper 主题。</p>
+<h2 id="code-injection">Code injection</h2>
 <h3 id="site-header">Site header</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -508,7 +514,8 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Noto Sans&#34;, Helvetica, Arial, sans-serif, &#34;Apple Color Emoji&#34;, &#34;Segoe UI Emoji&#34;
 </span></span></code></pre></div><h3 id="代码">代码</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ui-monospace, SFMono-Regular, &#34;SF Mono&#34;, Menlo, Consolas, &#34;Liberation Mono&#34;, monospace
-</span></span></code></pre></div>]]></content:encoded></item><item><title>滕王阁序</title><link>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</link><pubDate>Fri, 02 Aug 2024 17:42:46 +0800</pubDate><guid>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</guid><description>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。</description><content:encoded><![CDATA[<h2 id="豫章故郡">豫章故郡</h2>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>滕王阁序</title><link>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</link><pubDate>Fri, 02 Aug 2024 17:42:46 +0800</pubDate><guid>https://weixiang.github.io/posts/preface-to-the-pavilion-of-prince-teng/</guid><description>时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。</description><content:encoded><![CDATA[<p>这是一篇测试文章，用于测试中文显示。</p>
+<h2 id="豫章故郡">豫章故郡</h2>
 <p>　　豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。(豫章故郡 一作：南昌故郡；青霜 一作：清霜)</p>
 <p>　　时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。（天人 一作：仙人；层峦 一作：层台；即冈 一作：列冈；飞阁流丹 一作：飞阁翔丹）</p>
 <h2 id="披绣闼">披绣闼</h2>
@@ -1764,11 +1771,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
 <p>等待进度条跑完，SD卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除SD卡，就能拔出SD卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
-]]></content:encoded></item><item><title>Search 搜索</title><link>https://weixiang.github.io/posts/search/</link><pubDate>Mon, 09 Aug 2021 05:00:58 +0000</pubDate><guid>https://weixiang.github.io/posts/search/</guid><description>Search by Google 通过谷歌来搜索（大陆访问需要施展魔法）</description><content:encoded><![CDATA[<p>Search by Google 通过谷歌来搜索（大陆访问需要施展魔法）</p>
-<script async src="https://cse.google.com/cse.js?cx=d9bca0cb2b46d1cd2"></script>
-<div class="gcse-search"></div>
-]]></content:encoded></item><item><title>You are Offline</title><link>https://weixiang.github.io/posts/offline/</link><pubDate>Mon, 09 Aug 2021 04:38:47 +0000</pubDate><guid>https://weixiang.github.io/posts/offline/</guid><description>抱歉，Jacob&amp;rsquo;s Thoughts 需要连接到互联网才能访问。</description><content:encoded>&lt;p>抱歉，Jacob&amp;rsquo;s Thoughts 需要连接到互联网才能访问。&lt;/p>
-</content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0000</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
 <p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
 </blockquote>
@@ -4261,39 +4264,4 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
 <p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的STEM学生社团，是青少年创客和STEAM教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
-]]></content:encoded></item><item><title>About 关于</title><link>https://weixiang.github.io/posts/about/</link><pubDate>Sun, 31 Dec 2017 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/about/</guid><description>我是 Jacob，很高兴认识你。
-I&amp;rsquo;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<p>你好！👋</p>
-<p>我是 Jacob，这里是我的个人博客。</p>
-<p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
-<p>纯文大学生，但热爱的是硬件与编程。</p>
-<p>玩 Arduino ，喜欢交互艺术，也搞点 IoT 。</p>
-<p>喜欢猫猫🐱当然狗狗🐶也可以。</p>
-<p>酷基，哈学博士🪄，低浓度二次元，听国际流行🎧。</p>
-<p>偶尔玩点游戏的 PlayStation 玩家🎮。</p>
-<p>交个朋友</p>
-<p>Email(Base64): amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</p>
-<p>WeChat(Base64): aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</p>
-<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
-<p>关于本博客</p>
-<p>本站采用 Ghost 驱动，主题为 Casper。</p>
-<p>站点更新记录本站点自创立以来的更新记录Jacob&rsquo;s ThoughtsJacob Ruan</p>
-<p>版权声明</p>
-<p>本站文章除特别声明外，均由 Jacob Ruan 采用 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 进行许可。</p>
-<p>English Version. (By Google Translate)</p>
-<p>Hello.👋</p>
-<p>My name is Jacob Ruan.</p>
-<p>This is my personal blog. Just like the name of the blog, I am here to record my thoughts and share my knowledge.</p>
-<p>I am a social science college student, My major in the college is marketing, but I don’t like it. I like art and programming, and my dream is to be a designer or engineer. For this dream, I am studying computer courses by myself. Wish me luck. 😀</p>
-<p>Although I majored in social sciences at school, I also have a strong interest in natural sciences and computer science.</p>
-<p>Thank you for your attention, but because of my heavy academic work, I may not update my blog very often. 😜</p>
-<p>Years ago, I founded a STEM association in my senior middle school, called WAI STEM Club , it won some awards for my school.</p>
-<p>Outside of my studies, I also enjoy programming, Arduino, international pop music and secondary culture. I&rsquo;m also a fan of Harry Potter.</p>
-<p>Copyright</p>
-<p>Unless otherwise stated, the post of this website adopts the CC License.</p>
-<p>This work by Jacob Ruan is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
-<p>Contact me</p>
-<p>If you are interested in making new friends, You can find me in the following ways:</p>
-<p>Email(Base64): amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</p>
-<p>WeChat(Base64): aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</p>
-<p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
 ]]></content:encoded></item></channel></rss>
