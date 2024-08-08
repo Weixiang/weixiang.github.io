@@ -617,7 +617,7 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <h3 id="文件链接前缀">文件链接前缀</h3>
 <p>找到“存储设置 - 文件链接前缀 / 对象存储 CDN 或访问域名（含 http/https）”，在里面填入你的腾讯云域名前缀。</p>
 <p>格式为 <code>https://&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.myqcloud.com</code></p>
-<p>例如 <code>https://jacob-1234567890.cos.ap-guangzhou.myqcloud.com</code></p>
+<p>例如 <code>//jacob-1234567890.cos.ap-guangzhou.myqcloud.com</code></p>
 <h3 id="aws-s3-存储设置">AWS S3 存储设置</h3>
 <p>找到“AWS S3 存储设置”，依次填入。</p>
 <ul>
