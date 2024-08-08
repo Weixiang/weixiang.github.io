@@ -928,7 +928,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
   <a href="__GHOST_URL__/change-font-for-ghost-blog/" class="kg-bookmark-container">
     <div class="kg-bookmark-content">
       <div class="kg-bookmark-title">给 Ghost 博客更换字体</div>
-      <div class="kg-bookmark-description">引子\n接上篇 中文网页中的字体选型及开发指南\n[https://www.jacobruan.com/the-font-selection-and-development-guide-in-chinese-web-pages/] ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义\nGhost 博客中，以 「Casper」 主题为例，把全局字体进行了三个变量定义，分别对应 「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code\ninjection」设置中，重新定义它们就能实现全局更改字体的效果了。 在「Site Header」中添加以下代码： &lt;s…</div>
+      <div class="kg-bookmark-description">引子\n接上篇 中文网页中的字体选型及开发指南\n[https://weixiang.github.io/the-font-selection-and-development-guide-in-chinese-web-pages/] ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义\nGhost 博客中，以 「Casper」 主题为例，把全局字体进行了三个变量定义，分别对应 「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code\ninjection」设置中，重新定义它们就能实现全局更改字体的效果了。 在「Site Header」中添加以下代码： &lt;s…</div>
       <div class="kg-bookmark-metadata">
         <img src="__GHOST_URL__/favicon.ico" class="kg-bookmark-icon">
         <span class="kg-bookmark-author">Jacob Ruan</span>
@@ -1079,7 +1079,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>假期给家里组了一台NAS，万由401机箱+华擎J3455。
 没想到过程比预想中要曲折许多，买了才知道，华擎J3455是著名的“妖板”。
@@ -1169,7 +1169,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。
 DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
@@ -1320,7 +1320,7 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>Flarum 站点服务器迁移笔记</title><link>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</link><pubDate>Mon, 08 Aug 2022 05:55:00 +0000</pubDate><guid>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</guid><description>记录一次使用宝塔面板进行 Flarum 论坛网站服务器迁移的过程。</description><content:encoded><![CDATA[<h2 id="备份原站点">备份原站点</h2>
 <p>将网站目录及数据库打包，妥善保管。</p>
 <h2 id="部署新站点">部署新站点</h2>
@@ -1342,7 +1342,7 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>一种AI防疫快速通行及自动追溯辅助数据系统</title><link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link><pubDate>Sun, 15 May 2022 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid><description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description><content:encoded><![CDATA[<blockquote>
 <p>本文为2022年校内互联网+创业创新大赛的讲稿，在此记录，文章作者为我与Solitude同学。</p>
 </blockquote>
@@ -1365,7 +1365,7 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <p>由于本项目开发时采用了局域网部署，现场无法完整演示功能，所以下面请通过短片了解本项目的详情和操作演示。</p>
 <p>我们的项目汇报结束，谢谢各位的聆听。</p>
 <h2 id="版权声明">版权声明</h2>
-<p>本文由 <a href="__GHOST_URL__/">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 发布。</p>
+<p>本文由 <a href="__GHOST_URL__/">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="__GHOST_URL__/">weixiang.github.io</a> 发布。</p>
 ]]></content:encoded></item><item><title>Hackintosh Monterey 安装手记</title><link>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</link><pubDate>Fri, 11 Mar 2022 12:59:45 +0000</pubDate><guid>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</guid><description>在 HP EliteDesk 800 G1 USDT 上使用 OpenCore 引导 macOS 12.2.1 Monterey 黑苹果系统安装过程记录。</description><content:encoded><![CDATA[<p>去年跟着 <a href="https://space.bilibili.com/28457">司波图</a> 捡垃圾，搞了一台 HP EliteDesk 800 G1 USDT 小主机，并且成功安装上了 Catalina 系统。
 现在 Monterey 已经推出一段时间了，驱动等社区项目都已经趋于稳定，于是便自己动手尝试安装了，在此记录一下。</p>
 <blockquote>
@@ -1482,7 +1482,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title><link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link><pubDate>Sun, 27 Feb 2022 12:45:47 +0000</pubDate><guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid><description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description><content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
 <p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣軟市傳製片廠的 DJI OM 3 提供拍摄。</p>
 <figure>
@@ -1503,7 +1503,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>同时，您还可以通过 Apple HomeKit 实现 Siri 控制等功能。</p>
 <p>如果你觉得这个产品还有点意思的话，欢迎关注我，也欢迎给我提意见或建议，您的支持和关注就是我创作的最大动力！</p>
 <h2 id="版权声明">版权声明</h2>
-<p>本文由 <a href="__GHOST_URL__/">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 发布。</p>
+<p>本文由 <a href="__GHOST_URL__/">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="__GHOST_URL__/">weixiang.github.io</a> 发布。</p>
 ]]></content:encoded></item><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0000</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络adb调试">网络ADB调试</h2>
 <ol>
 <li>进入设置页面，遥控器输入<code>96956</code></li>
@@ -1694,7 +1694,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0000</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。不过其缺点是在屏幕上显示效果不佳，笔画过细而难以辨认，如无特殊需要，不要用于屏幕显示的正文。比如 PPT 的主段落。无衬线字体的代表是黑体，也就是我们在手机、电脑上看到的默认字体。它的特点是笔画清晰、粗细均匀，没有多余的装饰部分（也就是“无衬线”的名字由来），辨识度极佳，非常适合屏幕显示，但比起衬线字体缺乏了文字的传统美感。我们做新媒体的内容时，考虑到读者都是使用屏幕来阅读我们的文字，我们通常也是采用无衬线字体来作为主字体的。 <strong>记住在屏幕上用系统自带的宋体是大忌。</strong> 无衬线字体更佳适用于理性的文字，比如科技文章等。等宽字体比起上两种比较少使用，等宽字体，顾名思义，它的笔画、字形大小都是绝对一致的，能让你很容易分清楚英文字母 <code>O</code> 和数字 <code>0</code>。	常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。如果你觉得这篇 tips 还不错的话，我的网站：jacobruan.com，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
+]]></content:encoded></item><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0000</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。不过其缺点是在屏幕上显示效果不佳，笔画过细而难以辨认，如无特殊需要，不要用于屏幕显示的正文。比如 PPT 的主段落。无衬线字体的代表是黑体，也就是我们在手机、电脑上看到的默认字体。它的特点是笔画清晰、粗细均匀，没有多余的装饰部分（也就是“无衬线”的名字由来），辨识度极佳，非常适合屏幕显示，但比起衬线字体缺乏了文字的传统美感。我们做新媒体的内容时，考虑到读者都是使用屏幕来阅读我们的文字，我们通常也是采用无衬线字体来作为主字体的。 <strong>记住在屏幕上用系统自带的宋体是大忌。</strong> 无衬线字体更佳适用于理性的文字，比如科技文章等。等宽字体比起上两种比较少使用，等宽字体，顾名思义，它的笔画、字形大小都是绝对一致的，能让你很容易分清楚英文字母 <code>O</code> 和数字 <code>0</code>。	常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。如果你觉得这篇 tips 还不错的话，我的网站：weixiang.github.io，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
 ]]></content:encoded></item><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
 <p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
@@ -2149,7 +2149,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>在庆祝中国共产党成立100周年大会上的讲话</title><link>https://weixiang.github.io/posts/speech-at-the-celebration-of-the-100th-anniversary-of-the-founding-of-the-communist-party-of-china/</link><pubDate>Fri, 02 Jul 2021 05:02:05 +0000</pubDate><guid>https://weixiang.github.io/posts/speech-at-the-celebration-of-the-100th-anniversary-of-the-founding-of-the-communist-party-of-china/</guid><description>今天，在中国共产党历史上，在中华民族历史上，都是一个十分重大而庄严的日子。我们在这里隆重集会，同全党全国各族人民一道，庆祝中国共产党成立一百周年，回顾中国共产党百年奋斗的光辉历程，展望中华民族伟大复兴的光明前景。</description><content:encoded><![CDATA[<p>同志们，朋友们：</p>
 <p>今天，在中国共产党历史上，在中华民族历史上，都是一个十分重大而庄严的日子。我们在这里隆重集会，同全党全国各族人民一道，庆祝中国共产党成立一百周年，回顾中国共产党百年奋斗的光辉历程，展望中华民族伟大复兴的光明前景。</p>
 <p>首先，我代表党中央，向全体中国共产党员致以节日的热烈祝贺！</p>
@@ -2364,7 +2364,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>我们根据国家相关法律法规的规定保护未成年人的个人信息，只会在法律允许、父母或其他监护人明确同意或保护未成年人所必要的情况下收集、使用、储存、共享、转让或披露未成年人的个人信息。</p>
 <p>七、《隐私政策》的修订和通知</p>
 <p>为了给您提供更好的服务，Jacob’s Thoughts 站点及相关服务将不时更新与变化，我们会适时修订本隐私政策的条款，该等修订构成本隐私政策的一部分。</p>
-<p>当本隐私政策更新后，我们会在Jacob’s Thoughts 站点发出更新版本，并在更新后的条款生效前通过官方网站（jacobruan.com）公告，并将以站内信等适当的方式提醒您相关内容的更新，以便您及时了解本隐私政策的最新版本。</p>
+<p>当本隐私政策更新后，我们会在Jacob’s Thoughts 站点发出更新版本，并在更新后的条款生效前通过官方网站（weixiang.github.io）公告，并将以站内信等适当的方式提醒您相关内容的更新，以便您及时了解本隐私政策的最新版本。</p>
 <p>八、联系我们</p>
 <p>当您有其他的投诉、建议、未成年人个人信息相关问题或需要删除所有访问记录时，您可以将您的问题发送至 jacob.ruan#outlook.com 。</p>
 <p>我们将尽快审核所涉问题，并在验证您的用户身份后的十五个工作日内予以回复。</p>

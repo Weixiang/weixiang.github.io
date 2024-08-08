@@ -120,7 +120,7 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>假期给家里组了一台NAS，万由401机箱+华擎J3455。
 没想到过程比预想中要曲折许多，买了才知道，华擎J3455是著名的“妖板”。
@@ -210,5 +210,5 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item></channel></rss>

@@ -188,7 +188,7 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">www.jacobruan.com</a> 。</p>
+本文由 <a href="__GHOST_URL__/">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="__GHOST_URL__/">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>Flarum 使用腾讯云COS对象存储</title><link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link><pubDate>Tue, 25 Jan 2022 03:03:30 +0000</pubDate><guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid><description>Flarum 使用腾讯云COS对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description><content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
 <h2 id="安装-fof-upload-插件">安装 FoF Upload 插件</h2>
 <p>原作帖子地址：https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension</p>
