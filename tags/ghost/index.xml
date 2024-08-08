@@ -1046,6 +1046,15 @@ DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <ul>
 <li>2022年1月25日 文章迁移及表述调整</li>
 </ul>
+]]></content:encoded></item><item><title>你好，Ghost</title><link>https://weixiang.github.io/posts/hello-ghost/</link><pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-ghost/</guid><description>第一次使用Ghost博客，有什么感觉呢？</description><content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的Ghost。</p>
+<p>从我开始接触博客起，从最初的Hexo，到后来的WordPress，再到现在你看到的Ghost，博客平台换的多，实际生产的内容却寥寥无几，在每一次博客的迁移过程中又丢失过一些文章，最后收获的不是知识的贮藏，而是各种博客平台的安装迁移方法。</p>
+<p>在我为WordPress臃肿的系统、找不到我钟意主题时，我在互联网的角落中发现了这个名为Ghost的博客系统。简洁的设计风格使我第一眼就看中了它，而它精简的系统也使我的辣鸡服务器不必再为WordPress而气喘吁吁。</p>
+<p>花费了我整整半天的时间，总算是把Ghost搭建起来了，这次搭建Ghost花费了我不少力气，并不是说Ghost不易用，而是我选择了一个我没有用过的船新操作——使用Docker，还有一个原因是Ghost相关的中文资料还不够完善，很多教程都已经过时。虽然过程有点坎坷，不过好处是学会了一点点Docker的概念和基本用法。
+嗯，可以在Ghost养老了吧。</p>
+<p>接下来的三百多天，可能是对我极为重要的日子。逝者如斯夫，不舍昼夜。不知不觉中，我也迈入了高三的行列，准备着应对人生中最为重要的考试之一——高考。这个博客在这三百多天中，可能是不会更新了。这是这个新的博客的第一篇文章，短时间内也不会有第二篇了吧。</p>
+<p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
+<p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
 ]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0000</pubDate><guid>https://weixiang.github.io/posts/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
 <p>2022年1月25日 更新</p>
 </blockquote>

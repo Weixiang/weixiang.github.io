@@ -3386,6 +3386,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <ul>
 <li>2022年1月25日 文章迁移及表述调整</li>
 </ul>
+]]></content:encoded></item><item><title>你好，Ghost</title><link>https://weixiang.github.io/posts/hello-ghost/</link><pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-ghost/</guid><description>第一次使用Ghost博客，有什么感觉呢？</description><content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的Ghost。</p>
+<p>从我开始接触博客起，从最初的Hexo，到后来的WordPress，再到现在你看到的Ghost，博客平台换的多，实际生产的内容却寥寥无几，在每一次博客的迁移过程中又丢失过一些文章，最后收获的不是知识的贮藏，而是各种博客平台的安装迁移方法。</p>
+<p>在我为WordPress臃肿的系统、找不到我钟意主题时，我在互联网的角落中发现了这个名为Ghost的博客系统。简洁的设计风格使我第一眼就看中了它，而它精简的系统也使我的辣鸡服务器不必再为WordPress而气喘吁吁。</p>
+<p>花费了我整整半天的时间，总算是把Ghost搭建起来了，这次搭建Ghost花费了我不少力气，并不是说Ghost不易用，而是我选择了一个我没有用过的船新操作——使用Docker，还有一个原因是Ghost相关的中文资料还不够完善，很多教程都已经过时。虽然过程有点坎坷，不过好处是学会了一点点Docker的概念和基本用法。
+嗯，可以在Ghost养老了吧。</p>
+<p>接下来的三百多天，可能是对我极为重要的日子。逝者如斯夫，不舍昼夜。不知不觉中，我也迈入了高三的行列，准备着应对人生中最为重要的考试之一——高考。这个博客在这三百多天中，可能是不会更新了。这是这个新的博客的第一篇文章，短时间内也不会有第二篇了吧。</p>
+<p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
+<p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
 ]]></content:encoded></item><item><title>基于ESP8266的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>一、模块化设计 所有模块均可通过Wi-Fi接入一个或多个物联平台，支持AirKiss、SmartConfig等多种快速配网协议，支持休眠模式，</description><content:encoded><![CDATA[<h3 id="一模块化设计">一、模块化设计</h3>
 <p>所有模块均可通过Wi-Fi接入一个或多个物联平台，支持AirKiss、SmartConfig等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
 <p><strong>户外主机</strong>：Mini百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD显示实时数据，支持ZigBee协议，可使用SD卡记录数据，高精度ADC转换，冬季自动恒温等。</p>
