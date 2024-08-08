@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Windows on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/windows/</link><description>Recent content in Windows on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 25 Apr 2023 13:13:45 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0000</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
-<p>首先需要去BIOS开启虚拟化，各品牌电脑不一致。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Windows on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/windows/</link><description>Recent content in Windows on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 25 Apr 2023 13:13:45 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0000</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
+<p>首先需要去 BIOS 开启虚拟化，各品牌电脑不一致。
 RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。</p>
-<h2 id="安装wls2">安装WLS2</h2>
+<h2 id="安装-wls2">安装 WLS2</h2>
 <p>在终端输入以下命令</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span>
 </span></span><span class="line"><span class="cl"><span class="n">dism</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="err">:</span><span class="nb">Microsoft-Windows</span><span class="n">-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
 </span></span><span class="line"><span class="cl"><span class="n">dism</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="err">:</span><span class="n">VirtualMachinePlatform</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
 </span></span><span class="line"><span class="cl"><span class="n">wsl</span> <span class="p">-</span><span class="n">-set-default-version</span> <span class="mf">2</span>
 </span></span></code></pre></div><p>完成后重启电脑。</p>
-<h2 id="安装ubuntu">安装Ubuntu</h2>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
 <p>打开 Microsoft Store，直接搜索 Ubuntu 安装即可。
 传送门→ <a href="https://www.microsoft.com/store/productId/9PDXGNCFSCZV">https://www.microsoft.com/store/productId/9PDXGNCFSCZV</a></p>
 <h2 id="配置">配置</h2>
-<h3 id="安装vscode插件">安装VSCode插件</h3>
-<p>打开VSCode会自动检测到WLS2环境，点击安装即可。</p>
+<h3 id="安装-vscode-插件">安装 VSCode 插件</h3>
+<p>打开 VSCode 会自动检测到 WLS2 环境，点击安装即可。</p>
 <h3 id="配置中文语言包">配置中文语言包</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install language-pack-zh-hans
 </span></span><span class="line"><span class="cl">sudo dpkg-reconfigure locales
 </span></span></code></pre></div><p>选择<code>en_US.UTF-8</code>和<code>zh_CN.UTF-8</code>，选择<code>zh_CN.UTF-8</code>为默认语言，重新打开终端生效。</p>
 <h3 id="配置代理">配置代理</h3>
-<p>查看宿主机IP</p>
+<p>查看宿主机 IP</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /etc/resolv.conf <span class="p">|</span> grep nameserver <span class="p">|</span> awk <span class="s1">&#39;{ print $2 }&#39;</span>
 </span></span></code></pre></div><p>设置代理</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span><span class="s1">&#39;http://&lt;Windows IP&gt;:&lt;Port&gt;&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="s1">&#39;http://&lt;Windows IP&gt;:&lt;Port&gt;&#39;</span>
-</span></span></code></pre></div><p>设置git代理</p>
+</span></span></code></pre></div><p>设置 git 代理</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">// 添加代理
 </span></span><span class="line"><span class="cl">git config --global http.proxy <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PROXY_HTTP</span><span class="si">}</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">git config --global https.proxy <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PROXY_HTTP</span><span class="si">}</span><span class="s2">&#34;</span>
@@ -41,13 +41,13 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </p>
 <p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
 <blockquote>
-<p>系统美化的意义就在于让自己获得更好的浏览体验 ，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
+<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
 </blockquote>
 <blockquote>
 <p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p>
 </blockquote>
 <p>这篇文章记录了我的一些方法，留作记录，也能帮助一些同学简单复刻这些操作，能加以创新当然会更加好啦。</p>
-<p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202年了还在用一个14年前的系统……（截至发文还能白嫖升级）</p>
+<p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202 年了还在用一个 14 年前的系统……（截至发文还能白嫖升级）</p>
 <h2 id="最终效果">最终效果</h2>
 <p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png" alt="图标隐藏"  />
 
@@ -78,21 +78,21 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>轻量级（占用几 MB 内存且几乎不占用 CPU）的实用程序，可使 Windows 任务栏在 Windows 10 上半透明/透明。</p>
 <h3 id="半机翻介绍">半机翻介绍</h3>
 <ul>
-<li>先进的<strong>颜色选择器</strong>，支持Alpha和实时预览，可更改任务栏的颜色。</li>
-<li><strong>任务栏状态</strong>（选择一种-可以在除“正常”以外的每种状态下自定义颜色）：
+<li>先进的<strong>颜色选择器</strong>，支持 Alpha 和实时预览，可更改任务栏的颜色。</li>
+<li><strong>任务栏状态</strong>（选择一种 - 可以在除“正常”以外的每种状态下自定义颜色）：
 <ul>
 <li><strong>Blur</strong>：将使任务栏稍微模糊。</li>
 <li><strong>Clear</strong>：透明的任务栏。</li>
-<li><strong>Normal</strong>：常规Windows样式。（好像TranslucentTB没有运行）</li>
+<li><strong>Normal</strong>：常规 Windows 样式。（好像 TranslucentTB 没有运行）</li>
 <li><strong>Opaque</strong>：没有透明度。</li>
-<li><strong>Fluent</strong>：仅Windows 10 April 2018更新及更新。将使任务栏的外观类似于Microsoft的Fluent Design准则。</li>
+<li><strong>Fluent</strong>：仅 Windows 10 April 2018 更新及更新。将使任务栏的外观类似于 Microsoft 的 Fluent Design 准则。</li>
 </ul>
 </li>
 <li><strong>Dynamic</strong>模式（可以一起使用，并且它们各自提供您可以自定义的任务栏状态和颜色）：
 <ul>
 <li><strong>Dynamic Windows</strong>：如果当前窗口最大化，则将任务栏更改为其他外观。</li>
 <li><strong>Dynamic Start Menu</strong>：打开开始菜单时将更改任务栏外观。</li>
-<li><strong>Dynamic Cortana</strong>：打开Cortana（或禁用Cortana的搜索菜单）时，将更改任务栏的外观。</li>
+<li><strong>Dynamic Cortana</strong>：打开 Cortana（或禁用 Cortana 的搜索菜单）时，将更改任务栏的外观。</li>
 <li><strong>Dynamic Timeline/Task View</strong>：打开时间轴（或旧版本的任务视图）时，将更改任务栏外观。</li>
 </ul>
 </li>
@@ -131,14 +131,14 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>首先右键点击开始屏幕中的「微信」磁贴，选择「打开文件所在的位置」，然后再次右键点击出现的快捷方式，跳转到微信的实际安装目录。</p>
 <p><img loading="lazy" src="https://cdn.sspai.com/2017/10/16/511c4247469b1e23a1e5777a8884f396.png" alt=""  />
 </p>
-]]></content:encoded></item><item><title>Windows 10 更新后系统无法识别键盘的解决方案</title><link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link><pubDate>Tue, 13 Feb 2018 09:11:00 +0000</pubDate><guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid><description>Windows10以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description><content:encoded><![CDATA[<blockquote>
+]]></content:encoded></item><item><title>Windows 10 更新后系统无法识别键盘的解决方案</title><link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link><pubDate>Tue, 13 Feb 2018 09:11:00 +0000</pubDate><guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid><description>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description><content:encoded><![CDATA[<blockquote>
 <p>非常抱歉，由于这篇文章过于古早，图片已经遗失在了互联网的长河中</p>
 </blockquote>
-<p>Windows10以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</p>
+<p>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.jpg" alt=""  />
 </p>
 <!-- more -->
-<p>电脑用久了就会有越来越多乱七八糟的 软件\文件\缓存 堆积在C盘的各个角落，拖严重影响使用体验。应对这种情况呢，如果没有什么重要的文件的话，直接重装就是最好的解决方案啦！嗯，于是我从微软官网上下载了一个“Windows10 创意者”给电脑装上了……</p>
+<p>电脑用久了就会有越来越多乱七八糟的 软件\文件\缓存 堆积在 C 盘的各个角落，拖严重影响使用体验。应对这种情况呢，如果没有什么重要的文件的话，直接重装就是最好的解决方案啦！嗯，于是我从微软官网上下载了一个“Windows10 创意者”给电脑装上了……</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082103626.png" alt=""  />
 </p>
 <p>但是当系统安装完之后，我才发现</p>
@@ -153,25 +153,25 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h3 id="检查驱动程序有没有正确安装">检查驱动程序有没有正确安装</h3>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082105050.jpg" alt="更新驱动程序"  />
 
-右键左下角Windows标志，选择<code>设备管理器</code>→<code>键盘</code>→<code>更新驱动程序</code>，然后Windows10 就会自己在线更新驱动啦！（也可以用驱动精灵、驱动大师之类的软件更新驱动）</p>
-<h3 id="找不到键盘设备怎么破">找不到键盘设备怎么破？！</h3>
+右键左下角 Windows 标志，选择<code>设备管理器</code>→<code>键盘</code>→<code>更新驱动程序</code>，然后 Windows10 就会自己在线更新驱动啦！（也可以用驱动精灵、驱动大师之类的软件更新驱动）</p>
+<h3 id="找不到键盘设备怎么破">找不到键盘设备怎么破？</h3>
 <p>这也是我所遇到的问题，键盘设备都没有识别出来啊啊啊啊啊！
-此时，这可能就是BIOS那里的问题了！你可以关机并拔电源后拆开电脑来看看，把BIOS的电池抠下来，等一会再装回去。当然你也可以开机的时候进入BIOS（不同品牌的电脑进BIOS的方法会不同，可以在网上搜索“你的电脑品牌+BIOS”找到你的电脑进入BIOS的方法），根据提示或说明书回复BIOS的出厂设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082106580.png" alt="BIOS设置"  />
+此时，这可能就是 BIOS 那里的问题了！你可以关机并拔电源后拆开电脑来看看，把 BIOS 的电池抠下来，等一会再装回去。当然你也可以开机的时候进入 BIOS（不同品牌的电脑进 BIOS 的方法会不同，可以在网上搜索“你的电脑品牌+BIOS”找到你的电脑进入 BIOS 的方法），根据提示或说明书回复 BIOS 的出厂设置。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082106580.png" alt="BIOS 设置"  />
 </p>
-<h3 id="还是不行啊啊啊啊啊怎么办">还是不行啊啊啊啊啊！！！怎么办？！</h3>
-<p>如果上面的方法都无效，而且键盘确实是好的，重点是在<strong>BIOS设置中键盘是可以正常使用的</strong>！！！那么就是<strong>系统</strong>的问题了！</p>
+<h3 id="还是不行啊啊啊啊啊怎么办">还是不行啊啊啊啊啊！！！怎么办？</h3>
+<p>如果上面的方法都无效，而且键盘确实是好的，重点是在<strong>BIOS 设置中键盘是可以正常使用的</strong>！！！那么就是<strong>系统</strong>的问题了！</p>
 <p>如果设备管理器里面没有键盘设备，你可以参考<a href="https://jingyan.baidu.com/article/2d5afd69c9c6b185a3e28e7f.html">这篇文章</a>，设置完毕之后重启一下电脑，看看键盘能不能用，如果还不行，请继续往下看。</p>
-<p>选择小娜的搜索框（或是快捷键Windows + R），输入<code>regedit</code>，回车，打开<code>注册表管理器</code>。然后定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}</code>
+<p>选择小娜的搜索框（或是快捷键 Windows + R），输入<code>regedit</code>，回车，打开<code>注册表管理器</code>。然后定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}</code>
 删除<code>UpperFilters</code>项，然后再去<code>设备管理器</code>把键盘的驱动卸载。接着重启电脑。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082108498.jpg" alt="删除UpperFilters"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082108498.jpg" alt="删除 UpperFilters"  />
 </p>
 <p>开机之后如果你在进去设备管理器看的话，键盘的状态可能\应该是<code>该设备无法启动。 (代码 10)</code>酱紫的。</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.jpg" alt="该设备无法启动。"  />
 </p>
 <p>然后再定位到那个目录<code>定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}</code></p>
 <p>新建一个名称为<code>UpperFilters</code>多字符串值项，内容填上<code>kbdclass</code>
-<img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082110660.jpg" alt="新建UpperFilters"  />
+<img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082110660.jpg" alt="新建 UpperFilters"  />
 </p>
 <p>然后再去<code>设备管理器</code>卸载键盘设备，重启电脑即可。</p>
 <p><em>到这一步我的键盘终于恢复工作了！</em></p>

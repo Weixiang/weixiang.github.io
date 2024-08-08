@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>设计 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/</link><description>Recent content in 设计 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 16 Sep 2021 01:55:05 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0000</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。不过其缺点是在屏幕上显示效果不佳，笔画过细而难以辨认，如无特殊需要，不要用于屏幕显示的正文。比如 PPT 的主段落。无衬线字体的代表是黑体，也就是我们在手机、电脑上看到的默认字体。它的特点是笔画清晰、粗细均匀，没有多余的装饰部分（也就是“无衬线”的名字由来），辨识度极佳，非常适合屏幕显示，但比起衬线字体缺乏了文字的传统美感。我们做新媒体的内容时，考虑到读者都是使用屏幕来阅读我们的文字，我们通常也是采用无衬线字体来作为主字体的。 <strong>记住在屏幕上用系统自带的宋体是大忌。</strong> 无衬线字体更佳适用于理性的文字，比如科技文章等。等宽字体比起上两种比较少使用，等宽字体，顾名思义，它的笔画、字形大小都是绝对一致的，能让你很容易分清楚英文字母 <code>O</code> 和数字 <code>0</code>。	常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。如果你觉得这篇 tips 还不错的话，我的网站：weixiang.github.io，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>设计 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/</link><description>Recent content in 设计 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 16 Sep 2021 01:55:05 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0000</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</p>
+<p>我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。</p>
+<p>我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。</p>
+<p>你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。</p>
+<p>不过其缺点是在屏幕上显示效果不佳，笔画过细而难以辨认，如无特殊需要，不要用于屏幕显示的正文。比如 PPT 的主段落。</p>
+<p>无衬线字体的代表是黑体，也就是我们在手机、电脑上看到的默认字体。它的特点是笔画清晰、粗细均匀，没有多余的装饰部分（也就是“无衬线”的名字由来），辨识度极佳，非常适合屏幕显示，但比起衬线字体缺乏了文字的传统美感。</p>
+<p>我们做新媒体的内容时，考虑到读者都是使用屏幕来阅读我们的文字，我们通常也是采用无衬线字体来作为主字体的。</p>
+<p><strong>记住在屏幕上用系统自带的宋体是大忌。</strong></p>
+<p>无衬线字体更佳适用于理性的文字，比如科技文章等。等宽字体比起上两种比较少使用，等宽字体，顾名思义，它的笔画、字形大小都是绝对一致的，能让你很容易分清楚英文字母 <code>O</code> 和数字 <code>0</code>。</p>
+<p>常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。</p>
+<p>今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。</p>
+<p>如果你觉得这篇 tips 还不错的话，我的网站：weixiang.github.io，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
 ]]></content:encoded></item><item><title>中文网页中的字体选型及开发指南</title><link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link><pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate><guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid><description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>趁着暑假，我又搭建了一个自己的个人博客，不同于以往，这次用的是较新的博客系统 Ghost。</p>
 <p>因为 Ghost 的主题和 UI 实在是太好看了。</p>
-<p>而且易用性也很好，比起臃肿的 WordPress 和 折腾人的 Hexo ，Ghost 正中我意。</p>
+<p>而且易用性也很好，比起臃肿的 WordPress 和 折腾人的 Hexo，Ghost 正中我意。</p>
 <p>不过作为一个年轻的、国外开发者主导的博客系统，它似乎还没有考虑到中文显示这种东西。</p>
 <p>Windows 平台下，Ghost 的中文默认显示为宋体，实在是辣眼睛。</p>
 <p>于是就有了这次的探索，中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</p>
@@ -57,7 +68,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="哔哩哔哩">哔哩哔哩</h3>
 <blockquote>
-<p>2022年1月17日更新</p>
+<p>2022 年 1 月 17 日更新</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 新版首页 */</span>
 </span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
@@ -90,7 +101,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="常见的字体">常见的字体</h2>
 <blockquote>
-<p>2022年1月17日更新</p>
+<p>2022 年 1 月 17 日更新</p>
 </blockquote>
 <h3 id="等线字体-sans-serif">等线字体 Sans-serif</h3>
 <table>
@@ -147,21 +158,21 @@
 </tr>
 </tbody>
 </table>
-<p><code>Helvetica</code> ：被评为设计师最爱的字体，Realist风格，简洁现代的线条，非常受到追捧。在Mac下面被认为是最佳的网页字体，在Windows下由于Hinting的原因显示很糟糕。
-<code>Arial</code> ：Helvetica的「克隆」，和Helvetica非常像，细节上比如R和G有小小差别。如果字号太小，文字太多，看起来会有些累眼。Win和Mac显示都正常
-<code>Lucida Family</code> ：Lucida Grande是Mac OS UI的标准字体，属于humanist风格，稍微活泼一点。Mac下的显示要比Win下好。
-<code>Verdana</code> ：专门为了屏显而设计的字体，humanist风格，在小字号下仍可以清楚显示，但是字体细节缺失严重，最好别做标题。
-<code>Tahoma</code> ：也是humanist风格，字体和Verdana有点像，但是略窄一些，counter略小，曾经是Windows的标准字体，Mac 10.5之后默认也有安装。
-<code>Trebuchet MS:</code> 为微软设计的一个humanist风格字体，个人觉得个性太过突出，用得不好会不搭。</p>
-<p><code>微软雅黑（Microsoft YaHei）</code> ：Vista之后新引入的字体，打开Cleartype之后显示效果不错，不开Cleartype发虚。微软雅黑的美观度和清晰度都较好，可以作为网页的首选字体。它在Mac平台的对应字体是华文细黑（STXihei）。</p>
-<p><code>华文细黑</code> ：Mac下的默认中文。</p>
-<p><code>Droid Sans和衍生的WenQuanYi Microhei</code> ：Andriod中的中文，也是Linux绝大多数发行版本的默认中文，，当然也有用WenQuanyi Zenhei的，不过比较少了。</p>
+<p><code>Helvetica</code> ：被评为设计师最爱的字体，Realist 风格，简洁现代的线条，非常受到追捧。在 Mac 下面被认为是最佳的网页字体，在 Windows 下由于 Hinting 的原因显示很糟糕。
+<code>Arial</code> ：Helvetica 的「克隆」，和 Helvetica 非常像，细节上比如 R 和 G 有小小差别。如果字号太小，文字太多，看起来会有些累眼。Win 和 Mac 显示都正常
+<code>Lucida Family</code> ：Lucida Grande 是 Mac OS UI 的标准字体，属于 humanist 风格，稍微活泼一点。Mac 下的显示要比 Win 下好。
+<code>Verdana</code> ：专门为了屏显而设计的字体，humanist 风格，在小字号下仍可以清楚显示，但是字体细节缺失严重，最好别做标题。
+<code>Tahoma</code> ：也是 humanist 风格，字体和 Verdana 有点像，但是略窄一些，counter 略小，曾经是 Windows 的标准字体，Mac 10.5 之后默认也有安装。
+<code>Trebuchet MS:</code> 为微软设计的一个 humanist 风格字体，个人觉得个性太过突出，用得不好会不搭。</p>
+<p><code>微软雅黑（Microsoft YaHei）</code> ：Vista 之后新引入的字体，打开 Cleartype 之后显示效果不错，不开 Cleartype 发虚。微软雅黑的美观度和清晰度都较好，可以作为网页的首选字体。它在 Mac 平台的对应字体是华文细黑（STXihei）。</p>
+<p><code>华文细黑</code> ：Mac 下的默认中文。</p>
+<p><code>Droid Sans和衍生的WenQuanYi Microhei</code> ：Andriod 中的中文，也是 Linux 绝大多数发行版本的默认中文，，当然也有用 WenQuanyi Zenhei 的，不过比较少了。</p>
 <h3 id="衬线字体-serif">衬线字体 Serif</h3>
-<p><code>Georgia</code> ：基本上适合正文屏显的衬线字体，非Georgia莫属了。笔画粗重，衬线明线，轮廓较大，小字体显示也很清晰，同时细节还算OK。
-<code>Times</code> ：Times是为了报纸而设计的，特点是可以在有限的空间塞进去更多的文字，笔画较弱，小字号正文屏显看起来累眼。曾经Engadget改版的时候用了Times作为正文，被骂得很惨之后换成了Georgia。</p>
-<p><code>中易宋体（SimSun）</code> ：Win最常见的字体，小字体点阵，大字体TrueType，但是大字体并不好看，所以最好别做标题。宋体是最常见的中文字体，如果没有指定字体，操作系统往往选择它来渲染。很多人认为，这种字体并不美观。</p>
-<p><code>仿宋（FangSong）</code> ：这种字体是衬线体，比宋体的装饰性更强。如果字号太小，会影响清晰度，所以只有在字号大于14px的情况下，才可以考虑这种字体。它在Mac平台的对应字体是&quot;华文仿宋&quot;（STFangsong）。
-<code>楷体（KaiTi）</code> ：楷体也是衬线体，装饰性与仿宋体接近，但是宽度更大，笔画更清楚一些。这种字体也不应该在小于14px的情况下使用。它在Mac平台的对应字体是&quot;华文楷体&quot;（STKaiti）。</p>
+<p><code>Georgia</code> ：基本上适合正文屏显的衬线字体，非 Georgia 莫属了。笔画粗重，衬线明线，轮廓较大，小字体显示也很清晰，同时细节还算 OK。
+<code>Times</code> ：Times 是为了报纸而设计的，特点是可以在有限的空间塞进去更多的文字，笔画较弱，小字号正文屏显看起来累眼。曾经 Engadget 改版的时候用了 Times 作为正文，被骂得很惨之后换成了 Georgia。</p>
+<p><code>中易宋体（SimSun）</code> ：Win 最常见的字体，小字体点阵，大字体 TrueType，但是大字体并不好看，所以最好别做标题。宋体是最常见的中文字体，如果没有指定字体，操作系统往往选择它来渲染。很多人认为，这种字体并不美观。</p>
+<p><code>仿宋（FangSong）</code> ：这种字体是衬线体，比宋体的装饰性更强。如果字号太小，会影响清晰度，所以只有在字号大于 14px 的情况下，才可以考虑这种字体。它在 Mac 平台的对应字体是&quot;华文仿宋&quot;（STFangsong）。
+<code>楷体（KaiTi）</code> ：楷体也是衬线体，装饰性与仿宋体接近，但是宽度更大，笔画更清楚一些。这种字体也不应该在小于 14px 的情况下使用。它在 Mac 平台的对应字体是&quot;华文楷体&quot;（STKaiti）。</p>
 <h3 id="等宽字体-monospace">等宽字体 Monospace</h3>
 <p><code>ui-monospace</code>：较新的等宽字体声明形式，已在 Safari 13.19 中得到支持。这也是使用 macOS 新的“SF Mono”字体的唯一方法。</p>
 <p><code>Menlo, Monaco</code>：旧版本 macOS / OSX 的默认等宽字体，在支持 <code>.ui-monospace</code> 的 macOS 上不再生效。</p>
@@ -185,14 +196,14 @@
 <h3 id="macos---ios--ipados">macOS /  iOS / iPadOS</h3>
 <p>详见苹果官网的 <a href="https://support.apple.com/zh-cn/HT208968">macOS Mojave 附带的字体</a>。</p>
 <ul>
-<li>华文细黑：STHeiti Light （又名STXihei）</li>
+<li>华文细黑：STHeiti Light（又名 STXihei）</li>
 <li>华文楷体：STKaiti</li>
 <li>华文宋体：STSong</li>
 <li>华文仿宋：STFangsong</li>
 <li>OSX 10.2+: 华文黑体 STHeiti</li>
-<li>OSX 10.6+: 黑体-简 Heiti SC / 黑体-繁 Heiti TC</li>
+<li>OSX 10.6+: 黑体 - 简 Heiti SC / 黑体 - 繁 Heiti TC</li>
 <li>OSX 10.6+: 冬青黑体简体中文 Hiragino Sans GB</li>
-<li>OSX 10.11+: 苹方-简 PingFang SC / 苹方-繁 PingFang TC</li>
+<li>OSX 10.11+: 苹方 - 简 PingFang SC / 苹方 - 繁 PingFang TC</li>
 </ul>
 <p>iOS / iPadOS 使用与 macOS 相同的中文字体。详见苹果官网的 <a href="https://developer.apple.com/fonts/system-fonts/">字体列表</a>。</p>
 <p>但是要注意的是，iOS / iPadOS 系统并不预装 CJK 衬线字体。所以几乎所有的中文网页在 iOS / iPadOS 都是显示为非衬线字体。原因正是前文所说的，黑体在屏幕上的可读性比宋体要高。</p>
@@ -240,13 +251,13 @@
 <p><strong>根据这些规则，<code>font-family</code> 应该优先指定英文字体，然后再指定中文字体。</strong> 否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
 <p><strong>为了保证兼容性，中文字体的中文名称和英文名称，应该都写入<code>font-family</code>。</strong> 比如，&ldquo;微软雅黑&quot;的英文名称是<code>Microsoft YaHei</code>。</p>
 <blockquote>
-<p>font-family后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode,比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p>
+<p>font-family 后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode，比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p>
 </blockquote>
 <p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
 <p>由于 Windows 和 Mac 的中文字体没有交叉，所以应该同时为两个平台指定字体。</p>
-<p>常见的做法是，Windows平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac平台指定&quot;华文细黑&quot;（STXihei）。</p>
+<p>常见的做法是，Windows 平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac 平台指定&quot;华文细黑&quot;（STXihei）。</p>
 <h3 id="web-fonts">Web Fonts</h3>
-<p>如果是纯英文网页的话，选字体的事情比较好办，因为直接引入 <a href="https://fonts.google.com/">Web Fonts</a>  的成本非常低（文件小），而且现在 Web Fonts 的 [兼容性](&ldquo;<a href="https://caniuse.com/#search=web">https://caniuse.com/#search=web</a> font&rdquo;) 很好，基本上所有主流浏览器都支持，就能保证各个平台所用的字体的一致性。</p>
+<p>如果是纯英文网页的话，选字体的事情比较好办，因为直接引入 <a href="https://fonts.google.com/">Web Fonts</a>  的成本非常低（文件小），而且现在 Web Fonts 的 [兼容性](&quot;<a href="https://caniuse.com/#search=web">https://caniuse.com/#search=web</a> font&quot;) 很好，基本上所有主流浏览器都支持，就能保证各个平台所用的字体的一致性。</p>
 <p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro</a>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>或者</p>
@@ -254,7 +265,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;</span><span class="o">)</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>如果找不到免费的 CDN 的话，也可以下载字体文件部署到自己的服务器上。</p>
-<p>然后在 <code>style.css</code> 中加入兼容各个浏览器的 <code>@font-face</code> 定义:</p>
+<p>然后在 <code>style.css</code> 中加入兼容各个浏览器的 <code>@font-face</code> 定义：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&#34;JetBrains Mono&#34;</span><span class="o">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;./fonts/JetBrainsMono-Regular.eot&#34;</span><span class="o">);</span>
@@ -290,10 +301,10 @@
 </blockquote>
 <p><a href="https://blog.mutoo.im/2020/02/fonts-for-my-blog-theme">木匣子</a>  “中文博客的字体选型&quot;
 <a href="https://www.runoob.com/w3cnote/web-font-family.html">菜鸟教程</a>    &ldquo;常用网页字体&rdquo;
-<a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a> 	&ldquo;中文字体网页开发指南&rdquo;
+<a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a>  &ldquo;中文字体网页开发指南&rdquo;
 <a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
+本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item></channel></rss>

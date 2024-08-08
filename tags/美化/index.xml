@@ -3,13 +3,13 @@
 </p>
 <p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
 <blockquote>
-<p>系统美化的意义就在于让自己获得更好的浏览体验 ，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
+<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
 </blockquote>
 <blockquote>
 <p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p>
 </blockquote>
 <p>这篇文章记录了我的一些方法，留作记录，也能帮助一些同学简单复刻这些操作，能加以创新当然会更加好啦。</p>
-<p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202年了还在用一个14年前的系统……（截至发文还能白嫖升级）</p>
+<p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202 年了还在用一个 14 年前的系统……（截至发文还能白嫖升级）</p>
 <h2 id="最终效果">最终效果</h2>
 <p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png" alt="图标隐藏"  />
 
@@ -40,21 +40,21 @@
 <p>轻量级（占用几 MB 内存且几乎不占用 CPU）的实用程序，可使 Windows 任务栏在 Windows 10 上半透明/透明。</p>
 <h3 id="半机翻介绍">半机翻介绍</h3>
 <ul>
-<li>先进的<strong>颜色选择器</strong>，支持Alpha和实时预览，可更改任务栏的颜色。</li>
-<li><strong>任务栏状态</strong>（选择一种-可以在除“正常”以外的每种状态下自定义颜色）：
+<li>先进的<strong>颜色选择器</strong>，支持 Alpha 和实时预览，可更改任务栏的颜色。</li>
+<li><strong>任务栏状态</strong>（选择一种 - 可以在除“正常”以外的每种状态下自定义颜色）：
 <ul>
 <li><strong>Blur</strong>：将使任务栏稍微模糊。</li>
 <li><strong>Clear</strong>：透明的任务栏。</li>
-<li><strong>Normal</strong>：常规Windows样式。（好像TranslucentTB没有运行）</li>
+<li><strong>Normal</strong>：常规 Windows 样式。（好像 TranslucentTB 没有运行）</li>
 <li><strong>Opaque</strong>：没有透明度。</li>
-<li><strong>Fluent</strong>：仅Windows 10 April 2018更新及更新。将使任务栏的外观类似于Microsoft的Fluent Design准则。</li>
+<li><strong>Fluent</strong>：仅 Windows 10 April 2018 更新及更新。将使任务栏的外观类似于 Microsoft 的 Fluent Design 准则。</li>
 </ul>
 </li>
 <li><strong>Dynamic</strong>模式（可以一起使用，并且它们各自提供您可以自定义的任务栏状态和颜色）：
 <ul>
 <li><strong>Dynamic Windows</strong>：如果当前窗口最大化，则将任务栏更改为其他外观。</li>
 <li><strong>Dynamic Start Menu</strong>：打开开始菜单时将更改任务栏外观。</li>
-<li><strong>Dynamic Cortana</strong>：打开Cortana（或禁用Cortana的搜索菜单）时，将更改任务栏的外观。</li>
+<li><strong>Dynamic Cortana</strong>：打开 Cortana（或禁用 Cortana 的搜索菜单）时，将更改任务栏的外观。</li>
 <li><strong>Dynamic Timeline/Task View</strong>：打开时间轴（或旧版本的任务视图）时，将更改任务栏外观。</li>
 </ul>
 </li>

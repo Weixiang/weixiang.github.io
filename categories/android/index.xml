@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 28 Jan 2022 10:02:34 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/android/index.xml" rel="self" type="application/rss+xml"/><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0000</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络adb调试">网络ADB调试</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 28 Jan 2022 10:02:34 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/android/index.xml" rel="self" type="application/rss+xml"/><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0000</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
 <ol>
 <li>进入设置页面，遥控器输入<code>96956</code></li>
-<li>查看IP，并使用 <code>adb connect 192.168.1.x</code>连接到机顶盒</li>
+<li>查看 IP，并使用 <code>adb connect 192.168.1.x</code>连接到机顶盒</li>
 </ol>
 <h2 id="常见应用安装目录">常见应用安装目录</h2>
-<p><code>system/app</code> 系统自带的应用程序，无法删除。root后可以删除
-<code>system/priv-app</code> 比system/app 中的应用权限更加高,如Launcher，系统设置等
-<code>vendor/app</code> 设备厂商提供的app
-<code>system_ext/app</code> 真实路径在 system/system_ext/app
-<code>data/app</code> 用户自己安装的app
-<code>data/data/packageName</code>用于存储应用数据
-<code>data/dalvik-cache</code>将apk中的dex文件放在这个目录中</p>
-<h2 id="安装为系统app">安装为系统APP</h2>
+<p><code>system/app</code> 系统自带的应用程序，无法删除。root 后可以删除</p>
+<p><code>system/priv-app</code> 比 system/app 中的应用权限更加高，如 Launcher，系统设置等</p>
+<p><code>vendor/app</code> 设备厂商提供的 app</p>
+<p><code>system_ext/app</code> 真实路径在 system/system_ext/app</p>
+<p><code>data/app</code> 用户自己安装的 app</p>
+<p><code>data/data/packageName</code>用于存储应用数据</p>
+<p><code>data/dalvik-cache</code>将 apk 中的 dex 文件放在这个目录中</p>
+<h2 id="安装为系统-app">安装为系统 APP</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb shell mount -o remount /system <span class="c1">#添加读写权限</span>
 </span></span><span class="line"><span class="cl">adb push C:<span class="se">\U</span>sers<span class="se">\j</span>acob<span class="se">\D</span>esktop<span class="se">\B</span>iliTV.apk system/app <span class="c1">#推送APK到系统目录</span>
 </span></span></code></pre></div><h2 id="常用设备命令">常用设备命令</h2>
@@ -21,7 +21,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">adb shell pm list packages <span class="c1">#列出已安装的应用</span>
 </span></span><span class="line"><span class="cl">adb shell dumpsys activity top <span class="p">|</span> grep ACTIVITY <span class="c1">#显示当前的Activity</span>
-</span></span></code></pre></div><h2 id="常用app启动命令">常用APP启动命令</h2>
+</span></span></code></pre></div><h2 id="常用-app-启动命令">常用 APP 启动命令</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb shell am start com.xiaodianshi.tv/.yst.ui.main.MainActivity <span class="c1">#云视听小电视</span>
 </span></span><span class="line"><span class="cl">adb shell am start com.dangbeimarket/.activity.WelcomeActivity <span class="c1">#当贝市场</span>
 </span></span><span class="line"><span class="cl">adb shell am start com.bilibili.tv/.ui.splash.SplashActivity <span class="c1">#BiliTV</span>
@@ -44,7 +44,7 @@
 <p>Google 了一下还真行。</p>
 <p>由于还没有类似的中文教程，这里简单记录一下就作为「中文首发」吧。?</p>
 <h2 id="下载-app">下载 APP</h2>
-<p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」 即可下载。</p>
+<p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」即可下载。</p>
 <p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&hl=en_US&gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
 <h2 id="下载系统镜像">下载系统镜像</h2>
 <p>打开 APP，默认会为你选择一个「boot」镜像。需要更改的话，点右上角「Choose OS」即可更换，我选择了「Raspberry Pi OS (32-bit)」。</p>
@@ -52,7 +52,7 @@
 <p>下载过程中尽量保持 APP 在前台运行。
 非常神奇的是它下载并不需要魔法加持，而且速度还很快，甚至如果使用了魔法它还会变慢。</p>
 <h2 id="连接-sd-卡">连接 SD 卡</h2>
-<p>将需要烧录的 SD 卡连入手机。有 SD 卡槽的手机可以直接插入卡槽中，没有 SD 卡槽的手机可以使用「OTG+读卡器」的方案来连接 SD 卡。</p>
+<p>将需要烧录的 SD 卡连入手机。有 SD 卡槽的手机可以直接插入卡槽中，没有 SD 卡槽的手机可以使用「OTG+ 读卡器」的方案来连接 SD 卡。</p>
 <h2 id="格式化-sd-卡">格式化 SD 卡</h2>
 <p>在 APP 右上角选择「Format SD」，在系统界面中格式化 SD 卡即可。</p>
 <h2 id="开始烧写">开始烧写</h2>
@@ -60,12 +60,12 @@
 <p>我的树莓派没有屏幕也没有鼠标键盘，所以需要选择自动配置 SSH 和自动安装。勾选「Install opinions」中的两项即可。</p>
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
-<p>等待进度条跑完，SD卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除SD卡，就能拔出SD卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
-]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于Android系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
+<p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
+]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
 <p>那么，如何在 Android 10 上安装 ViPER4Android 呢？按照以下的方法即可正常安装使用 ViPER4Android</p>
 <p>Pixel，Pixel 3 XL，Pixel 2 XL，OnePlus 6 / 6T，OnePlus 7/7 Pro 经过测试均可运行成功，理论上适用于大部分 Android 10 手机。</p>
 <p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
-<p>正式开始：1、下载安装 ViPER4Android v2.7.1.0 APK 。比如说这里：<a href="https://labs.xda-developers.com/store/app/com.pittvandewitt.viperfx">查看链接</a>或者这里：<a href="http://www.coolapk.com/apk/com.pittvandewitt.viperfx">【VIPERFX&ndash;XDA代理开发版-不欢迎安智网的“一个人的冬季”】</a>2、安装完毕后打开 ViPER4Android，但<strong>不要</strong>安装驱动。</p>
+<p>正式开始：1、下载安装 ViPER4Android v2.7.1.0 APK。比如说这里：<a href="https://labs.xda-developers.com/store/app/com.pittvandewitt.viperfx">查看链接</a>或者这里：<a href="http://www.coolapk.com/apk/com.pittvandewitt.viperfx">【VIPERFX&ndash;XDA 代理开发版 - 不欢迎安智网的“一个人的冬季”】</a>2、安装完毕后打开 ViPER4Android，但<strong>不要</strong>安装驱动。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.png"
          alt="安装 ViPER4Android"/> <figcaption>

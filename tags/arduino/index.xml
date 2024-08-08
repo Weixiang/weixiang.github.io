@@ -19,9 +19,9 @@
 <p>如果你觉得这个产品还有点意思的话，欢迎关注我，也欢迎给我提意见或建议，您的支持和关注就是我创作的最大动力！</p>
 <h2 id="版权声明">版权声明</h2>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="https://weixiang.github.io">weixiang.github.io</a> 发布。</p>
-]]></content:encoded></item><item><title>基于ESP8266的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>一、模块化设计 所有模块均可通过Wi-Fi接入一个或多个物联平台，支持AirKiss、SmartConfig等多种快速配网协议，支持休眠模式，</description><content:encoded><![CDATA[<h3 id="一模块化设计">一、模块化设计</h3>
-<p>所有模块均可通过Wi-Fi接入一个或多个物联平台，支持AirKiss、SmartConfig等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
-<p><strong>户外主机</strong>：Mini百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD显示实时数据，支持ZigBee协议，可使用SD卡记录数据，高精度ADC转换，冬季自动恒温等。</p>
+]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>一、模块化设计 所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长</description><content:encoded><![CDATA[<h3 id="一模块化设计">一、模块化设计</h3>
+<p>所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
+<p><strong>户外主机</strong>：Mini 百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD 显示实时数据，支持 ZigBee 协议，可使用 SD 卡记录数据，高精度 ADC 转换，冬季自动恒温等。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4fb987ff39d38713.png"
          alt="户外主机及太阳能模块"/> <figcaption>
@@ -30,13 +30,13 @@
 </figure>
 
 <p><strong>太阳能模块</strong>：为户外主机或其他模块提供辅助供电，整合雨水、温度、电压传感器，冬季自动融雪恒温等。</p>
-<p><strong>室内网关</strong>：LCD显示户外主机或其他模块的实时数据，支持ZigBee协议，内置温湿度、光照传感器。</p>
-<p><strong>土壤模块</strong>：内置高精度的土壤温度、湿度以及光照传感器、高精度ADC转换，可实现自动浇花。</p>
+<p><strong>室内网关</strong>：LCD 显示户外主机或其他模块的实时数据，支持 ZigBee 协议，内置温湿度、光照传感器。</p>
+<p><strong>土壤模块</strong>：内置高精度的土壤温度、湿度以及光照传感器、高精度 ADC 转换，可实现自动浇花。</p>
 <p><strong>温湿度模块</strong>：内置高精度的数字温湿度传感器及数字光照传感器，可用于室内环境监测。</p>
-<p><strong>气体模块</strong>：内置MQ-2、MQ-135、VOC等多种气体传感器，可用于空气质量监测。</p>
-<p><strong>风速/风向模块</strong>：使用专业级的高精度风速/风向传感器，高精度ADC转换，可用于户外环境监测。</p>
-<p><strong>智能插座</strong>：内置多路光耦隔离继电器，可用APP控制，也可与其他模块进行联动，实现自动化响应数据变化，如户外光照适宜时自动拉开窗帘等。</p>
-<p><strong>智能灯</strong>：内置全彩LED灯，可用APP控制，也可与其他模块进行联动，实现自动化响应数据变化，如室内光线较暗时自动打开灯光。</p>
+<p><strong>气体模块</strong>：内置 MQ-2、MQ-135、VOC 等多种气体传感器，可用于空气质量监测。</p>
+<p><strong>风速/风向模块</strong>：使用专业级的高精度风速/风向传感器，高精度 ADC 转换，可用于户外环境监测。</p>
+<p><strong>智能插座</strong>：内置多路光耦隔离继电器，可用 APP 控制，也可与其他模块进行联动，实现自动化响应数据变化，如户外光照适宜时自动拉开窗帘等。</p>
+<p><strong>智能灯</strong>：内置全彩 LED 灯，可用 APP 控制，也可与其他模块进行联动，实现自动化响应数据变化，如室内光线较暗时自动打开灯光。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/9bf440b91670189f.png"
          alt="风速传感器及主机内部"/> <figcaption>
@@ -47,8 +47,8 @@
 <h3 id="二应用范围及特点">二、应用范围及特点</h3>
 <p>本作品采用模块化设计，成本可控，用户可根据自己的需求选用不同功能、不同类型，不同精度的传感器或功能模块，以满足不同需求，减少不必要的开支。</p>
 <p>所有模块均可接入一个或多个物联平台，实现数据自动上传、设备联动、警报、大数据分析、远程升级、远程控制等功能，可用于对接智能家居、智慧农业、智慧城市等物联网应用。软硬件均采用了开源协议，修改代码或硬件设计即可实现不同的功能，接入不同的平台，和不同的设备联动等。</p>
-<p>采用16位ADC芯片进行数据采集，宽电压供电，芯片内部有精密参考电压和可编程增益调节(PGA)，因此无论对微弱信号还是变化幅度较大的信号，都可进行精确的采集与转换。</p>
-<p>使用了ESP8266作为主控，将主控与网络模块整合到了一起，节约了成本以及内部空间，更易于向微型化发展。</p>
+<p>采用 16 位 ADC 芯片进行数据采集，宽电压供电，芯片内部有精密参考电压和可编程增益调节 (PGA)，因此无论对微弱信号还是变化幅度较大的信号，都可进行精确的采集与转换。</p>
+<p>使用了 ESP8266 作为主控，将主控与网络模块整合到了一起，节约了成本以及内部空间，更易于向微型化发展。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bc72c557c3b5d673.png"
          alt="部分代码展示"/> <figcaption>
@@ -56,8 +56,8 @@
         </figcaption>
 </figure>
 
-<p>支持微信AirKiss、SmartConfig等多种快速配网方式，更加简单易用，接通电源，打开APP即可快速配置完毕投入使用。</p>
-<p>采用企业级物联平台，数据收发均采用加密协议并可同时备份在外置SD卡，数据更安全。</p>
+<p>支持微信 AirKiss、SmartConfig 等多种快速配网方式，更加简单易用，接通电源，打开 APP 即可快速配置完毕投入使用。</p>
+<p>采用企业级物联平台，数据收发均采用加密协议并可同时备份在外置 SD 卡，数据更安全。</p>
 <p>可广泛应用于教育领域，如地理、生物、通用、信息等学科的教学，例如可用于分析当地气候的探究课题活动，亦可作为创客教育的套件。也可应用于农业、环境监测等领域。</p>
 <figure class="kg-gallery-card kg-width-wide">
   <div class="kg-gallery-container">
@@ -111,6 +111,6 @@
 </figure>
 
 <p>优化代码逻辑，兼容更多类型的传感器。</p>
-<p>增加GPRS，4G、NB-IoT等通信模块，以应对户外无Wi-Fi信号和超出ZigBee通信距离的情况。</p>
+<p>增加 GPRS，4G、NB-IoT 等通信模块，以应对户外无 Wi-Fi 信号和超出 ZigBee 通信距离的情况。</p>
 <p>增加摄像头，用户可通过手机查看实时画面，以辅助用户进行现场实况的判断。</p>
 ]]></content:encoded></item></channel></rss>

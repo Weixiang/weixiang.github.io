@@ -1,74 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 28 Oct 2023 03:57:20 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0000</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖Docker套件的Bridge网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改Container Manager的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<p>前言</p>
-<p>由于群晖Docker套件，其Bridge网桥默认的网段为172段，很容易和现有网段冲突，导致发包错误，需要避开才可正常通信。</p>
-<p>Docker配置文件位置</p>
-<p>先开启DSM的SSH登录，然后通过SSH连接到DSM。</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 28 Oct 2023 03:57:20 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0000</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<p>2024 年 8 月 8 日更新：</p>
+<p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
+<hr>
+<p>由于群晖 Docker 套件，其 Bridge 网桥默认的网段为 172 段，很容易和现有网段冲突，导致发包错误，需要避开才可正常通信。</p>
+<h2 id="docker-配置文件位置">Docker 配置文件位置</h2>
+<p>先开启 DSM 的 SSH 登录，然后通过 SSH 连接到 DSM。</p>
 <p>DSM7.2 前，使用以下命令。</p>
-<p>sudo vim /var/packages/Docker/etc/dockerd.json</p>
-<p>DSM7.2 后 Docker 更名为 Container Manager，并升级了 UI 以便于更新和清理容器。因此路径也需要更改。</p>
-<p>sudo vim /var/packages/ContainerManager/etc/dockerd.json</p>
-<p>清空内容小技巧：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /var/packages/Docker/etc/dockerd.json
+</span></span></code></pre></div><p>DSM7.2 后 Docker 更名为 Container Manager，并升级了 UI 以便于更新和清理容器。因此路径也需要更改。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /var/packages/ContainerManager/etc/dockerd.json
+</span></span></code></pre></div><p>清空内容小技巧：</p>
 <ol>
-<li>（vi进入文件后）在命令模式下，先执行gg(跳转光标至文件首行)；</li>
-<li>再执行dG，这样就清空了整个文件。</li>
+<li>（vi 进入文件后）在命令模式下，先执行 gg(跳转光标至文件首行)；</li>
+<li>再执行 dG，这样就清空了整个文件。</li>
 </ol>
-<p>修改配置文件</p>
+<h2 id="修改配置文件">修改配置文件</h2>
 <p>DSM7.2 前，使用以下配置。</p>
-<p>{
-&ldquo;data-root&rdquo;: &ldquo;/var/packages/Docker/var/docker&rdquo;,
-&ldquo;log-driver&rdquo;: &ldquo;db&rdquo;,
-&ldquo;storage-driver&rdquo;: &ldquo;btrfs&rdquo;,
-&ldquo;registry-mirrors&rdquo;: [
-&ldquo;https://docker.mirrors.ustc.edu.cn&rdquo;,
-&ldquo;https://hub-mirror.c.163.com&rdquo;,
-&ldquo;https://registry.docker-cn.com&rdquo;
-],
-&ldquo;bip&rdquo;: &ldquo;192.168.10.1/24&rdquo;,
-&ldquo;default-address-pools&rdquo;: [
-{
-&ldquo;base&rdquo;: &ldquo;192.168.10.0/24&rdquo;,
-&ldquo;size&rdquo;: 24
-}
-]
-}</p>
-<p>DSM7.2 后，使用以下配置。</p>
-<p>{
-&ldquo;data-root&rdquo;: &ldquo;/var/packages/ContainerManager/var/docker&rdquo;,
-&ldquo;log-driver&rdquo;: &ldquo;db&rdquo;,
-&ldquo;storage-driver&rdquo;: &ldquo;btrfs&rdquo;,
-&ldquo;registry-mirrors&rdquo;: [
-&ldquo;https://docker.mirrors.ustc.edu.cn&rdquo;,
-&ldquo;https://hub-mirror.c.163.com&rdquo;,
-&ldquo;https://registry.docker-cn.com&rdquo;
-],
-&ldquo;bip&rdquo;: &ldquo;192.168.10.1/24&rdquo;,
-&ldquo;default-address-pools&rdquo;: [
-{
-&ldquo;base&rdquo;: &ldquo;192.168.10.0/24&rdquo;,
-&ldquo;size&rdquo;: 24
-}
-]
-}</p>
-<p>提醒：配置不可省略data-root路径，否则配置不生效。</p>
-<p>重启Docker</p>
-<p>systemctl daemon-reload
-systemctl restart pkgctl-Docker # DSM7.2前
-systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
-<p>附录：常见国内加速镜像源</p>
-<p>&ldquo;registry-mirrors&rdquo;: [
-&ldquo;https://docker.mirrors.ustc.edu.cn&rdquo;,
-&ldquo;https://hub-mirror.c.163.com&rdquo;,
-&ldquo;https://registry.docker-cn.com&rdquo;
-]</p>
-<p>阿里云镜像加速器获取：https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</p>
-<p>参考文献</p>
-<p><a href="https://www.ithome.com/0/680/524.htm">https://www.ithome.com/0/680/524.htm</a></p>
-<p><a href="https://cr.console.aliyun.com">https://cr.console.aliyun.com</a></p>
-<p><a href="https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images">https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</a></p>
-<p><a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a></p>
-<p><a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a></p>
-<p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
-<p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>解决华擎J3455主板DSM兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/Docker/var/docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.1/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default-address-pools&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.0/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">24</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>DSM7.2 后，使用以下配置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/ContainerManager/var/docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.1/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default-address-pools&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.0/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">24</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>提醒：配置不可省略 data-root 路径，否则配置不生效。</p>
+<h2 id="重启-docker">重启 Docker</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl restart pkgctl-Docker <span class="c1"># DSM7.2前</span>
+</span></span><span class="line"><span class="cl">systemctl restart pkgctl-ContainerManager <span class="c1"># DSM7.2后</span>
+</span></span></code></pre></div><h2 id="附录常见国内加速镜像源">附录：常见国内加速镜像源</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;registry-mirrors&#34;</span><span class="err">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span></code></pre></div><p>阿里云镜像加速器获取：<a href="https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images">https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</a></p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://www.ithome.com/0/680/524.htm">https://www.ithome.com/0/680/524.htm</a>
+<a href="https://cr.console.aliyun.com">https://cr.console.aliyun.com</a>
+<a href="https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images">https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</a>
+<a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a>
+<a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
+<a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
+<a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
+]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
@@ -88,24 +91,24 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 </span></span></code></pre></div><p>可以发现缺少了一项</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
 </span></span></code></pre></div><p>这就是问题所在。</p>
-<h2 id="升级bios">升级BIOS</h2>
+<h2 id="升级-bios">升级 BIOS</h2>
 <p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。
 前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a>
-下载BIOS时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。
+下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。
 华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a>
-下载后 <strong>解压</strong> 到U盘，重启按住F6即可进入升级界面（图文不符）。
+下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。
 具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
 <img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
 </p>
 <h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
-<p>首先建议选择UEFI进行引导。
-下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白U盘的根目录。
-此工具可以在互联网上找到，常见用途是强行给10代以上的主板装 Windows 7（奇怪的要求
+<p>首先建议选择 UEFI 进行引导。
+下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。
+此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
 这里放一个两个下载链接，若失效可自行搜索下载。
 <a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a>
 <a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
 <h2 id="修改-bios">修改 BIOS</h2>
-<p>将启动盘插入目标设备，启动时按 F11，选择从U盘启动。
+<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。
 会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：
 <img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
 
@@ -120,33 +123,34 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
+本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
-<p>假期给家里组了一台NAS，万由401机箱+华擎J3455。
-没想到过程比预想中要曲折许多，买了才知道，华擎J3455是著名的“妖板”。
-安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有DSM中各种奇奇怪怪的Bug……
-总之，敢碰华擎J3455的都是勇士。
-听说是驱动问题造成的，自己编译引导可以一定程度上缓解这些问题。
-于是就有了下面的笔记。</p>
+<p>假期给家里组了一台 NAS，万由 401 机箱 + 华擎 J3455。</p>
+<p>没想到过程比预想中要曲折许多，买了才知道，华擎 J3455 是著名的“妖板”。</p>
+<p>安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有 DSM 中各种奇奇怪怪的 Bug……</p>
+<p>总之，敢碰华擎 J3455 的都是勇士。</p>
+<p>听说是驱动问题造成的，自己编译引导可以一定程度上缓解这些问题。</p>
+<p>于是就有了下面的笔记。</p>
 <blockquote>
 <p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p>
 </blockquote>
 <h2 id="制作-tinycore-redpill-启动盘">制作 tinycore-redpill 启动盘</h2>
 <p>前往项目：<a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a>
-这里采用了llm-y2k修改的换源版镜像：</p>
+这里采用了 llm-y2k 修改的换源版镜像：</p>
 <blockquote>
-<p>pocopico发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译DSM7引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，Tinycore-redpill在国内网络基本无法使用，U盘引导NAS实体机编译时几乎无法完成，遂修改部分代码以适应国内网络环境，目前已可正常使用。</p>
+<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p>
 </blockquote>
-<p>下载镜像文件，根据设备情况选择不同的引导镜像，我这里选用了<code>[tinycore-redpill-uefi.v0.8.0.0.img.gz](https://github.com/llm-y2k/tinycore-redpill/blob/cn/tinycore-redpill-uefi.v0.8.0.0.img.gz)</code>。
-使用任意引导盘制作工具，如Rufus，烧录进U盘即可。</p>
+<p>Tinycore-redpill 在国内网络基本无法使用，U 盘引导 NAS 实体机编译时几乎无法完成，遂修改部分代码以适应国内网络环境，目前已可正常使用。</p>
+<p>下载镜像文件，根据设备情况选择不同的引导镜像，我这里选用了<code>[tinycore-redpill-uefi.v0.8.0.0.img.gz](https://github.com/llm-y2k/tinycore-redpill/blob/cn/tinycore-redpill-uefi.v0.8.0.0.img.gz)</code>。</p>
+<p>使用任意引导盘制作工具，如 Rufus，烧录进 U 盘即可。</p>
 <h2 id="启动-tinycore-redpill">启动 tinycore-redpill</h2>
-<p>将烧写完成的U盘插入目标设备，选择从U盘启动即可进入系统，点击下图图标进入终端。
-<img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg" alt=""  />
+<p>将烧写完成的 U 盘插入目标设备，选择从 U 盘启动即可进入系统，点击下图图标进入终端。</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg" alt=""  />
 </p>
-<p>使用<code>ifconfig</code>命令查看设备IP地址
-<img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg" alt=""  />
+<p>使用<code>ifconfig</code>命令查看设备 IP 地址</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg" alt=""  />
 </p>
-<p>使用任意 SSH 工具连接到上面的IP，账号为<code>tc</code>，密码为<code>P@ssw0rd</code></p>
+<p>使用任意 SSH 工具连接到上面的 IP，账号为<code>tc</code>，密码为<code>P@ssw0rd</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh tc@192.168.0.243
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg" alt=""  />
 </p>
@@ -167,7 +171,7 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh satamap now
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg" alt=""  />
 </p>
-<p>生成U盘VID、PID信息</p>
+<p>生成 U 盘 VID、PID 信息</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh identifyusb now
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg" alt=""  />
 </p>
@@ -181,34 +185,32 @@ systemctl restart pkgctl-ContainerManager # DSM7.2后</p>
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build bromolow-7.0.1-42218
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg" alt=""  />
 </p>
-<p>curl 35错误不妨休息一下，过会再试，curl 60错误不妨检查下Nas机器本地时间是否正确。
-由于网络原因，可能个别驱动下载失败，别慌，重新再次编译即可。
-<img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg" alt=""  />
+<p>curl 35 错误不妨休息一下，过会再试，curl 60 错误不妨检查下 Nas 机器本地时间是否正确。
+由于网络原因，可能个别驱动下载失败，别慌，重新再次编译即可。</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg" alt=""  />
 </p>
-<p>编译成功！切换到winscp去下载生成的文件
-<img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg" alt=""  />
+<p>编译成功！切换到 winscp 去下载生成的文件</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg" alt=""  />
 </p>
 <h2 id="备份引导">备份引导</h2>
-<p>下载引导镜像文件，做好备份有备无患，此引导镜像相当于为此设备定制。
-<img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg" alt=""  />
+<p>下载引导镜像文件，做好备份有备无患，此引导镜像相当于为此设备定制。</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg" alt=""  />
 </p>
-<p>最后回到putty，正式存盘，一定要存盘！一定要存盘！一定要存盘！</p>
+<p>最后回到 putty，正式存盘，一定要存盘！一定要存盘！一定要存盘！</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo filetool.sh -b
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg" alt=""  />
 </p>
 <p>最后重启设备</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
 </span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg" alt=""  />
-
-理论上会自动引导进入 DSM 的安装界面，
-如果没有，可以将上面备份的镜像写入U盘，再进行引导。
-接下来就是常规的 DSM 安装流程了。</p>
+</p>
+<p>理论上会自动引导进入 DSM 的安装界面，如果没有，可以将上面备份的镜像写入 U 盘，再进行引导。接下来就是常规的 DSM 安装流程了。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/">https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/</a>
-<a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a>
-<a href="https://github.com/pocopico/tinycore-redpill">https://github.com/pocopico/tinycore-redpill</a></p>
+<p><a href="https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/">https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/</a></p>
+<p><a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a></p>
+<p><a href="https://github.com/pocopico/tinycore-redpill">https://github.com/pocopico/tinycore-redpill</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
-本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
+本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item></channel></rss>
