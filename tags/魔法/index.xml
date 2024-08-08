@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>魔法 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E9%AD%94%E6%B3%95/</link><description>Recent content in 魔法 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Mon, 13 Jul 2020 03:39:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E9%AD%94%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>请注意：由于V2Ray项目变动，本文的操作方法已经失效，但仍具一定参考价值。 本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy ，让树莓派顺畅访问国</description><content:encoded><![CDATA[<h2 id="请注意由于v2ray项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于V2Ray项目变动，本文的操作方法已经失效，但仍具一定参考价值。</h2>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
-<p><img loading="lazy" src="https://md-1256058189.cos.ap-guangzhou.myqcloud.com/image-20200410145120973.png" alt="image-20200410145120973"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.png" alt="image-20200410145120973"  />
 </p>
 <p>啊不好意思放错了，应该是这张：</p>
-<p><img loading="lazy" src="https://md-1256058189.cos.ap-guangzhou.myqcloud.com/567px-VPN_overview-en.svg.png" alt="File:VPN overview-en.svg"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.png" alt="File:VPN overview-en.svg"  />
 </p>
 <p>我们这篇文章要实现的目标是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
@@ -372,14 +372,15 @@
 <p>将代理设置配置为指向树莓派后，在浏览器中打开下面的地址</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://config.privoxy.org/
 </span></span></code></pre></div><p>如果一切运行正常，可以看到 Privoxy 的欢迎界面：</p>
-<p>![image-20200414115516257](C:\Users\weixi\OneDrive\文档\树莓派文章\Privoxy 使用指南.assets\image-20200414115516257.png)</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.png" alt="image-20200414115516257"  />
+</p>
 <p>如果显示的是 <strong>Privoxy is not being used</strong> ，就要检查一下检查代理设置是否正确了。</p>
 <h2 id="enjoy-it">Enjoy it!</h2>
 <p>到这里，你已经完成了树莓派魔法的安装与配置，你可以开始使用你的树莓派访问真正的互联网，并为局域网内的其他设备提供魔法代理服务。</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://md-1256058189.cos.ap-guangzhou.myqcloud.com/by-nc-sa.png" alt="知识共享许可协议"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.png" alt="知识共享许可协议"  />
 </p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
