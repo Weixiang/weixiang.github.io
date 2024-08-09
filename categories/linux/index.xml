@@ -670,7 +670,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截 Pi- hole®是一个DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。 易于安装：安装程</description><content:encoded><![CDATA[<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
+]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
 <p>Pi- <a href="https://pi-hole.net/trademark-rules-and-brand-guidelines/">hole®</a>是一个<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">DNS 沉洞服务器</a>，无需安装任何客户端软件即可保护您的设备免受有害内容的<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">侵害</a>。</p>
 <ul>
 <li><strong>易于安装</strong>：安装程序将引导您完成整个过程，并且<a href="https://www.youtube.com/watch?v=vKWjx1AQYgs">只需不到十分钟的时间</a></li>
@@ -783,7 +783,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <hr>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值 本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy ，让树莓派顺畅访问国际互联网，</description><content:encoded><![CDATA[<h2 id="请注意由于-v2ray-项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</h2>
+]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<h2 id="请注意由于-v2ray-项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</h2>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.png" alt="image-20200410145120973"  />
@@ -1170,7 +1170,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
 <p>[Ask Ubuntu]: <a href="https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13</a> &ldquo;apt.conf “Acquire::http:Proxy ”proxyserver:port&rdquo; seems not to be used (Ubuntu 13.04 under Virtual Box on Win7)&quot;</p>
-]]></content:encoded></item><item><title>树莓派的安装与初始化</title><link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link><pubDate>Thu, 02 Apr 2020 05:22:00 +0000</pubDate><guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid><description>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</description><content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
+]]></content:encoded></item><item><title>树莓派的安装与初始化</title><link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link><pubDate>Thu, 02 Apr 2020 05:22:00 +0000</pubDate><guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid><description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description><content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
 <p>Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统。</p>
 <p>Raspberry Pi® “树莓派”是 2012 年问世的 ARM 计算机，旨在为儿童和所有的计算机爱好者提供一套廉价的编程学习与硬件 DIY 平台。树莓派基于 ARM11，具有 1080P 高清视频解析能力，附带用于硬件开发的 GPIO 接口，使用 Linux 操作系统。售价仅 $25~$35。</p>
 <p>Raspbian 系统是 Debian 7.0/wheezy 的定制版本。得益于 Debian 从 7.0/wheezy 开始引入的“带硬件浮点加速的 ARM 架构”(armhf)，Debian 7.0 在树莓派上的运行性能有了很大提升。Raspbian 默认使用 LXDE 桌面，内置 C 和 Python 编译器。</p>

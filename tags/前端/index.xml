@@ -263,7 +263,7 @@
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
 <p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
-]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以「Casp</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
 <h2 id="字体定义">字体定义</h2>
 <p>Ghost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
