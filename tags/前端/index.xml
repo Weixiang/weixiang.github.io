@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>前端 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E5%89%8D%E7%AB%AF/</link><description>Recent content in 前端 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Dec 2022 11:49:25 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml"/><item><title>CSS 中英文使用不同字体</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 07 Dec 2022 11:49:25 +0000</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description><content:encoded><![CDATA[<p>又来捣鼓网页字体了，在此之前已经搞了几篇了</p>
-<figure class="kg-card kg-bookmark-card">
-  <a href="#ZgotmplZ" class="kg-bookmark-container">
-    <div class="kg-bookmark-content">
-      <div class="kg-bookmark-title">中文网页中的字体选型及开发指南</div>
-      <div class="kg-bookmark-description">探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</div>
-      <div class="kg-bookmark-metadata">
-        <img src="#ZgotmplZ" class="kg-bookmark-icon">
-        <span class="kg-bookmark-author">Jacob Ruan</span>
-        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
-      </div>
-    </div>
-    
-    <div class="kg-bookmark-thumbnail">
-      <img src="#ZgotmplZ">
-    </div>
-    
-  </a>
-  
-</figure>
-<figure class="kg-card kg-bookmark-card">
-  <a href="#ZgotmplZ" class="kg-bookmark-container">
-    <div class="kg-bookmark-content">
-      <div class="kg-bookmark-title">给 Ghost 博客更换字体</div>
-      <div class="kg-bookmark-description">引子\n接上篇 中文网页中的字体选型及开发指南\n[https://weixiang.github.io/the-font-selection-and-development-guide-in-chinese-web-pages/] ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！字体定义\nGhost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code\ninjection」设置中，重新定义它们就能实现全局更改字体的效果了。在「Site Header」中添加以下代码： &lt;s…</div>
-      <div class="kg-bookmark-metadata">
-        <img src="#ZgotmplZ" class="kg-bookmark-icon">
-        <span class="kg-bookmark-author">Jacob Ruan</span>
-        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
-      </div>
-    </div>
-    
-    <div class="kg-bookmark-thumbnail">
-      <img src="#ZgotmplZ">
-    </div>
-    
-  </a>
-  
-</figure>
-<figure class="kg-card kg-bookmark-card">
-  <a href="#ZgotmplZ" class="kg-bookmark-container">
-    <div class="kg-bookmark-content">
-      <div class="kg-bookmark-title">字体在设计中的运用</div>
-      <div class="kg-bookmark-description">字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</div>
-      <div class="kg-bookmark-metadata">
-        <img src="#ZgotmplZ" class="kg-bookmark-icon">
-        <span class="kg-bookmark-author">Jacob Ruan</span>
-        <span class="kg-bookmark-publisher">Jacob&#39;s Thoughts</span>
-      </div>
-    </div>
-    
-    <div class="kg-bookmark-thumbnail">
-      <img src="#ZgotmplZ">
-    </div>
-    
-  </a>
-  
-</figure>
+<p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a></p>
+<p><a href="/posts/-font-selection-and-development-guide-in-chinese-web-pages/">给 Ghost 博客更换字体</a></p>
+<p><a href="/posts/-use-of-fonts-in-design/">字体在设计中的运用</a></p>
 <p>这次要解决的新问题是，如何去掉代码块中难看的中文宋体。</p>
 <p>众所周知，绝大部分等宽字体都是不带中文的，如果直接像这样定义代码块的字体：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
@@ -318,7 +264,7 @@
 <p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
 <p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
 ]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0000</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>引子 接上篇 中文网页中的字体选型及开发指南 ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！ 字体定义 Ghost 博客中，以「Casp</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
-<p>接上篇 <a href="https://weixiang.github.iothe-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
+<p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
 <h2 id="字体定义">字体定义</h2>
 <p>Ghost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
 <p>在「Site Header」中添加以下代码：</p>
@@ -360,7 +306,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>这里把正文字体设置为了无衬线字体，并且把字体大小调整为 16px，行间距为 1.8。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="https://weixiang.github.iothe-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
+<p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
 ]]></content:encoded></item><item><title>中文网页中的字体选型及开发指南</title><link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link><pubDate>Sat, 03 Jul 2021 15:35:06 +0000</pubDate><guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid><description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>趁着暑假，我又搭建了一个自己的个人博客，不同于以往，这次用的是较新的博客系统 Ghost。</p>
 <p>因为 Ghost 的主题和 UI 实在是太好看了。</p>
@@ -650,10 +596,10 @@
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <blockquote>
 </blockquote>
-<p><a href="https://blog.mutoo.im/2020/02/fonts-for-my-blog-theme">木匣子</a>  “中文博客的字体选型&quot;
-<a href="https://www.runoob.com/w3cnote/web-font-family.html">菜鸟教程</a>    &ldquo;常用网页字体&rdquo;
-<a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a>  &ldquo;中文字体网页开发指南&rdquo;
-<a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
+<p><a href="https://blog.mutoo.im/2020/02/fonts-for-my-blog-theme">木匣子</a>  “中文博客的字体选型&quot;</p>
+<p><a href="https://www.runoob.com/w3cnote/web-font-family.html">菜鸟教程</a>    &ldquo;常用网页字体&rdquo;</p>
+<p><a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a>  &ldquo;中文字体网页开发指南&rdquo;</p>
+<p><a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
