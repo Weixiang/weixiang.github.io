@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Windows on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/windows/</link><description>Recent content in Windows on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 25 Apr 2023 13:13:45 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0000</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Windows on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/windows/</link><description>Recent content in Windows on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Mon, 25 Sep 2023 14:25:04 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>华硕飞行堡垒 9 安装 Windows11</title><link>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</link><pubDate>Mon, 25 Sep 2023 14:25:04 +0800</pubDate><guid>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</guid><description>以 FX506HCB 为例，记录安装 Windows11 系统，解决驱动问题。</description><content:encoded><![CDATA[<p>以<code>FX506HCB</code>为例，记录安装 Windows11 系统。</p>
+<h2 id="写入-windows11-镜像">写入 Windows11 镜像</h2>
+<ol>
+<li>制作一个驱动盘，例如 <a href="http://www.wepe.com.cn/download.html">http://www.wepe.com.cn/download.html</a></li>
+<li>下载 Windows11 镜像文件，例如 <a href="https://next.itellyou.cn">https://next.itellyou.cn</a></li>
+<li>将镜像文件放入启动盘中</li>
+<li>启动盘插入电脑，重启按<code>ESC</code>进入 PE</li>
+<li>使用 <code>DiskGenius</code>进行硬盘的分区</li>
+<li>使用 WinNTSetup 写入镜像到硬盘</li>
+</ol>
+<h2 id="发现问题">发现问题</h2>
+<p>系统写入完毕后重启，出现蓝屏，代码：<code>INACCESSIBLE BOOT DEVICE BSOD</code></p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101653571.webp" alt=""  />
+</p>
+<p>进研究，该问题的原因是 Windows 未内置英特尔的 RAID 驱动，导致无法识别出电脑硬盘。</p>
+<h2 id="打上花火驱动">打上<del>花火</del>驱动</h2>
+<p>下载英特尔的 RAID 驱动：</p>
+<p><a href="https://www.itsk.com/link?target=https://downloadcenter.intel.com/zh-cn/download/30163/-Rapid-Storage-Technology-NUC11PA-10-64-Windows-RAID-?wapkw=RST-f6vmdflpy-Win10-18.0.1.1138">https://www.itsk.com/link?target=https://downloadcenter.intel.com/zh-cn/download/30163/-Rapid-Storage-Technology-NUC11PA-10-64-Windows-RAID-?wapkw=RST-f6vmdflpy-Win10-18.0.1.1138</a></p>
+<p>这里我们由于进入不了系统，所以需要下载独立于操作系统这个 <code>RST-f6vmdflpy-Win10-18.0.1.1138</code>，安装完毕后，即可正常按普通 Windows 安装流程进行。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://www.itsk.com/thread-416713-1-1.html">https://www.itsk.com/thread-416713-1-1.html</a></p>
+]]></content:encoded></item><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0000</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
 <p>首先需要去 BIOS 开启虚拟化，各品牌电脑不一致。
 RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。</p>
 <h2 id="安装-wls2">安装 WLS2</h2>

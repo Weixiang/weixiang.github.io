@@ -395,18 +395,7 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>View</title><link>https://weixiang.github.io/view/</link><pubDate>Mon, 05 Aug 2024 16:54:25 +0800</pubDate><guid>https://weixiang.github.io/view/</guid><description>文章分类传送门</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
-<p><a href="/tags/">话题页 - 传送门🚪→</a></p>
-<iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
-<p>+++</p>
-<h2 id="分类">分类</h2>
-<p><a href="/categories/">分类页 - 传送门🚪→</a></p>
-<iframe src="/categories" width=100% height="400" frameborder=0 scrolling=no></iframe>
-<p>+++</p>
-<h2 id="系列">系列</h2>
-<p><a href="/series/">系列页 - 传送门🚪→</a></p>
-<iframe src="/series" width=100% height="400" frameborder=0 scrolling=no></iframe>
-]]></content:encoded></item><item><title>关于</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>关于</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
 <p>我是 Jacob，这里是我的个人博客。</p>
 <p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
 <p>纯文大学生，但热爱的是硬件与编程。</p>
@@ -446,6 +435,17 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
 <p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
+]]></content:encoded></item><item><title>文章传送门</title><link>https://weixiang.github.io/portal/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/portal/</guid><description>文章分类传送门</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
+<p><a href="/tags/">话题页 - 传送门🚪→</a></p>
+<iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
+<p>+++</p>
+<h2 id="分类">分类</h2>
+<p><a href="/categories/">分类页 - 传送门🚪→</a></p>
+<iframe src="/categories" width=100% height="400" frameborder=0 scrolling=no></iframe>
+<p>+++</p>
+<h2 id="系列">系列</h2>
+<p><a href="/series/">系列页 - 传送门🚪→</a></p>
+<iframe src="/series" width=100% height="400" frameborder=0 scrolling=no></iframe>
 ]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0000</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。</p>
 <p>DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
