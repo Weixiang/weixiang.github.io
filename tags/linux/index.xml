@@ -1057,6 +1057,131 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
+]]></content:encoded></item><item><title>哪吒监控探针部署</title><link>https://weixiang.github.io/posts/nezha-monitoring-deployment/</link><pubDate>Tue, 19 Jul 2022 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/nezha-monitoring-deployment/</guid><description>哪吒监控是一款轻量化的服务器监控和运维工具，提供实时性能监控与告警通知。作为开源项目，它支持企业自托管，保护数据隐私，并支持多语言。</description><content:encoded><![CDATA[<h2 id="准备工作">准备工作</h2>
+<p>获取 Github/Jihulab 的 Client ID 和密钥：</p>
+<p>哪吒监控接入 Github、Gitlab、Jihulab、Gitee 作为后台管理员账号</p>
+<ul>
+<li>
+<p>首先我们需要新建一个验证应用，以 Github 为例，登录 Github 后，打开 <a href="https://github.com/settings/developers">https://github.com/settings/developers</a> ，依次选择“OAuth Apps” - “New OAuth App”</p>
+<p><code>Application name</code> - 随意填写</p>
+<p><code>Homepage URL</code> - 填写面板的访问域名，如：&quot;<a href="http://cdn.example.com/">http://cdn.example.com</a>&quot;</p>
+<p><code>Authorization callback URL</code> - 填写回调地址，如：&quot;<a href="http://cdn.example.com/oauth2/callback">http://cdn.example.com/oauth2/callback</a>&quot;</p>
+</li>
+<li>
+<p>点击“Register application”</p>
+</li>
+<li>
+<p>保存页面中的 Client ID，然后点击“Generate a new client secret“，创建一个新的 Client Secret，新建的密钥仅会显示一次，请妥善保存</p>
+</li>
+<li>
+<p>JihuLab 的应用创建入口为：<a href="https://jihulab.com/-/profile/applications">https://jihulab.com/-/profile/applications</a></p>
+</li>
+<li>
+<p><code>Redirect URL</code> 中应填入回调地址</p>
+</li>
+<li>
+<p>在下方<code>范围</code>中勾选 <code>read_user</code> 和 <code>read_api</code></p>
+</li>
+<li>
+<p>创建完成后，保存好应用程序 ID 和密码</p>
+</li>
+</ul>
+<h2 id="安装面板">安装面板</h2>
+<ul>
+<li>在面板服务器中，运行安装脚本：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh  -o nezha.sh <span class="o">&amp;&amp;</span> chmod +x nezha.sh <span class="o">&amp;&amp;</span> sudo ./nezha.sh
+</span></span></code></pre></div><p>如果你的面板服务器位于中国大陆，可以使用镜像：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L https://jihulab.com/nezha/nezha/-/raw/master/script/install.sh -o nezha.sh <span class="o">&amp;&amp;</span> chmod +x nezha.sh <span class="o">&amp;&amp;</span> sudo <span class="nv">CN</span><span class="o">=</span><span class="nb">true</span> ./nezha.sh
+</span></span></code></pre></div><ul>
+<li>等待 Docker 安装完毕后，分别输入以下值：</li>
+</ul>
+<p><code>OAuth提供商</code> - Github，Gitlab，Jihulab，Gitee 中选择一个</p>
+<p><code>Client ID</code> - 之前保存的 Client ID</p>
+<p><code>Client Secret</code> - 之前保存的密钥</p>
+<p><code>用户名</code> - OAuth 提供商中的用户名</p>
+<p><code>站点标题</code> - 自定义站点标题</p>
+<p><code>访问端口</code> - 公开访问端口，可自定义，默认 8008</p>
+<p><code>Agent的通信端口</code> - Agent 与 Dashboard 的通信端口，默认 5555</p>
+<ul>
+<li>输入完成后，等待拉取镜像</li>
+</ul>
+<p>安装结束后，如果一切正常，此时你可以访问域名 + 端口号，如“<a href="http://cdn.example.com:8008/">http://cdn.example.com:8008</a>”来查看面板</p>
+<h2 id="配置反代">配置反代</h2>
+<ul>
+<li>在宝塔面板中新建一个站点，域名填写公开访问域名，如“<a href="http://cdn.example.com/">http://cdn.example.com</a>“ ，然后点击“设置”进入站点设置选项，选择“反向代理” - “新建反向代理”</li>
+<li>自定义一个代理名称，在下方“目标 URL”中填入 <code>http://127.0.0.1</code> 然后点击“保存”</li>
+<li>打开刚刚新建的反向代理右边的“配置文件”，将配置文件替换为以下内容：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="c1">#PROXY-START/
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:8008</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_set_header</span>      <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">location</span> <span class="p">~</span> <span class="sr">^/(ws|terminal/.+)$</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:8008</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&#34;Upgrade&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#PROXY-END/
+</span></span></span></code></pre></div><ul>
+<li>点击“保存”</li>
+</ul>
+<p>现在，你应该可以直接使用域名，如：“<a href="http://cdn.example.com/">http://cdn.example.com</a>“来访问面板了</p>
+<h2 id="自定义页面">自定义页面</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/MicroMessenger/i</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;micromessenger&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 这里警告框会阻塞当前页面继续加载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;请勿使用微信打开 Outsite！\n请将链接复制到 Safari、Chrome 或 Edge 打开！&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 以下代码是用 javascript 强行关闭当前页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">opened</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;about:blank&#34;</span><span class="p">,</span> <span class="s2">&#34;_self&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">opened</span><span class="p">.</span><span class="nx">opener</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">opened</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">right</span><span class="p">.</span><span class="nc">menu</span><span class="o">&gt;</span><span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">visibility</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">footer</span> <span class="p">.</span><span class="nc">is-size-7</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">visibility</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">item</span> <span class="nt">img</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">visibility</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">avatar</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;.item img&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">footer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;div.is-size-7&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">footer</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Powered by Outsite Project&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">footer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s2">&#34;visible&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">avatar</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://my.outsite.space/images/user/static/outsite-logo-s.svg&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">avatar</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s2">&#34;visible&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-133816799-1&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-133816799-1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">$crisp</span><span class="o">=</span><span class="p">[];</span><span class="nb">window</span><span class="p">.</span><span class="nx">CRISP_WEBSITE_ID</span><span class="o">=</span><span class="s2">&#34;103e95b6-3b0c-4f8a-9185-349951c14825&#34;</span><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">d</span><span class="o">=</span><span class="nb">document</span><span class="p">;</span><span class="nx">s</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://client.crisp.chat/l.js&#34;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="kr">async</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);})();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://nezha.wiki/">https://nezha.wiki/</a></p>
 ]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0000</pubDate><guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
 <h2 id="创建用户">创建用户</h2>
 <p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>

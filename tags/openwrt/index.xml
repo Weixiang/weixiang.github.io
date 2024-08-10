@@ -1,41 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenWRT on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/openwrt/</link><description>Recent content in OpenWRT on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 10 Aug 2024 18:30:51 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/openwrt/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title><link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link><pubDate>Sat, 10 Aug 2024 18:30:51 +0800</pubDate><guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid><description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description><content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#我们使用https下载软件源</span>
-</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/http:/https:/g&#39;</span> /etc/opkg/distfeeds.conf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#更新官方源信息</span>
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate update
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#列出软件包</span>
-</span></span><span class="line"><span class="cl">opkg list
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#安装</span>
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install luci-app-shadowsocks-libev
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-config
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-local
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-redir
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-rules
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-server
-</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-tunnel
-</span></span></code></pre></div><h2 id="配置-shadowsocks-libev">配置 Shadowsocks-libev</h2>
-<p>进入<code>Shadowsocks-libev</code>插件页进行配置</p>
-<ol>
-<li>在<code>Remote Servers</code>页面，编辑默认的服务器信息，改为自己的，将<code>Disable</code>取消勾选。</li>
-<li>在<code>Local Instances</code>页面，启用<code>ss_local.cfg013015</code>（后面为随机数字）。</li>
-</ol>
-<p>此时已经可以通过 Socks5 连接到路由器来使用代理。</p>
-<h2 id="配置透明代理">配置透明代理</h2>
-<ol>
-<li>在<code>Local Instances</code>页面，启用<code>ss_redir.hi</code>。</li>
-<li>在<code>Redir Rules - 常规设置</code>页面，将<code>Disable</code>取消勾选。</li>
-<li>在<code>Redir Rules - Destination Settings</code>页面，将<code>Dst default</code>改为<code>forward</code>。</li>
-<li>同上一页面，在<code>Dst ip/net bypass</code>填写需要排除的 IP</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 常用排除 IP
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">192.168.0.0/16
-</span></span><span class="line"><span class="cl">172.16.0.0/12
-</span></span><span class="line"><span class="cl">10.0.0.0/8
-</span></span></code></pre></div>]]></content:encoded></item><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenWRT on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/openwrt/</link><description>Recent content in OpenWRT on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 19 Jul 2023 16:31:53 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/openwrt/index.xml" rel="self" type="application/rss+xml"/><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
 <h2 id="路由器准备">路由器准备</h2>
 <h3 id="解锁-telnet">解锁 Telnet</h3>
 <p>进入小米路由器后台<code>192.168.31.1</code>，通过固件升级，刷入开发版固件 <a href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a></p>
@@ -394,4 +357,41 @@
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a></p>
 <p><a href="https://github.com/skyformat99/eqos/blob/master/README_ZH.md">https://github.com/skyformat99/eqos/blob/master/README_ZH.md</a></p>
 <p><a href="https://xiaohai.co/build-openwrt-firmware/">https://xiaohai.co/build-openwrt-firmware/</a></p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded></item><item><title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title><link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link><pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate><guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid><description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description><content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#我们使用https下载软件源</span>
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/http:/https:/g&#39;</span> /etc/opkg/distfeeds.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#更新官方源信息</span>
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#列出软件包</span>
+</span></span><span class="line"><span class="cl">opkg list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install luci-app-shadowsocks-libev
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-config
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-local
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-redir
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-rules
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-server
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-tunnel
+</span></span></code></pre></div><h2 id="配置-shadowsocks-libev">配置 Shadowsocks-libev</h2>
+<p>进入<code>Shadowsocks-libev</code>插件页进行配置</p>
+<ol>
+<li>在<code>Remote Servers</code>页面，编辑默认的服务器信息，改为自己的，将<code>Disable</code>取消勾选。</li>
+<li>在<code>Local Instances</code>页面，启用<code>ss_local.cfg013015</code>（后面为随机数字）。</li>
+</ol>
+<p>此时已经可以通过 Socks5 连接到路由器来使用代理。</p>
+<h2 id="配置透明代理">配置透明代理</h2>
+<ol>
+<li>在<code>Local Instances</code>页面，启用<code>ss_redir.hi</code>。</li>
+<li>在<code>Redir Rules - 常规设置</code>页面，将<code>Disable</code>取消勾选。</li>
+<li>在<code>Redir Rules - Destination Settings</code>页面，将<code>Dst default</code>改为<code>forward</code>。</li>
+<li>同上一页面，在<code>Dst ip/net bypass</code>填写需要排除的 IP</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 常用排除 IP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.0.0/16
+</span></span><span class="line"><span class="cl">172.16.0.0/12
+</span></span><span class="line"><span class="cl">10.0.0.0/8
+</span></span></code></pre></div>]]></content:encoded></item></channel></rss>
