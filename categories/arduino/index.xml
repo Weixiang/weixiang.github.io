@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Arduino on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/arduino/</link><description>Recent content in Arduino on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sun, 27 Feb 2022 12:45:47 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/arduino/index.xml" rel="self" type="application/rss+xml"/><item><title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title><link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link><pubDate>Sun, 27 Feb 2022 12:45:47 +0000</pubDate><guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid><description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description><content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
 <p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣軟市傳製片廠的 DJI OM 3 提供拍摄。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/02/0035c99d58fc0555.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/02/0035c99d58fc0555.webp"/> 
 </figure>
 
 <h2 id="文字版">文字版</h2>
@@ -23,7 +23,7 @@
 <p>所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
 <p><strong>户外主机</strong>：Mini 百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD 显示实时数据，支持 ZigBee 协议，可使用 SD 卡记录数据，高精度 ADC 转换，冬季自动恒温等。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4fb987ff39d38713.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4fb987ff39d38713.webp"
          alt="户外主机及太阳能模块"/> <figcaption>
             <p>户外主机及太阳能模块</p>
         </figcaption>
@@ -38,7 +38,7 @@
 <p><strong>智能插座</strong>：内置多路光耦隔离继电器，可用 APP 控制，也可与其他模块进行联动，实现自动化响应数据变化，如户外光照适宜时自动拉开窗帘等。</p>
 <p><strong>智能灯</strong>：内置全彩 LED 灯，可用 APP 控制，也可与其他模块进行联动，实现自动化响应数据变化，如室内光线较暗时自动打开灯光。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/9bf440b91670189f.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/9bf440b91670189f.webp"
          alt="风速传感器及主机内部"/> <figcaption>
             <p>风速传感器及主机内部</p>
         </figcaption>
@@ -50,7 +50,7 @@
 <p>采用 16 位 ADC 芯片进行数据采集，宽电压供电，芯片内部有精密参考电压和可编程增益调节 (PGA)，因此无论对微弱信号还是变化幅度较大的信号，都可进行精确的采集与转换。</p>
 <p>使用了 ESP8266 作为主控，将主控与网络模块整合到了一起，节约了成本以及内部空间，更易于向微型化发展。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bc72c557c3b5d673.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bc72c557c3b5d673.webp"
          alt="部分代码展示"/> <figcaption>
             <p>部分代码展示</p>
         </figcaption>
@@ -65,30 +65,30 @@
     
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ec185194d524b85a.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ec185194d524b85a.webp" width="720" height="1280">
   </div>
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/765ba3b5a4ed6a21.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/765ba3b5a4ed6a21.webp" width="720" height="1280">
   </div>
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/00bf27c7c807f626.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/00bf27c7c807f626.webp" width="720" height="1280">
   </div>
 
 </div>
 <div class="kg-gallery-row">
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/22dea0072e4955ae.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/22dea0072e4955ae.webp" width="720" height="1280">
   </div>
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fdaff9d0ed14fbcf.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fdaff9d0ed14fbcf.webp" width="720" height="1280">
   </div>
 
   <div class="kg-gallery-image">
-    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/eae86d9e8081ef9d.png" width="720" height="1280">
+    <img src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/eae86d9e8081ef9d.webp" width="720" height="1280">
   </div>
 
 </div>
@@ -104,7 +104,7 @@
 <p>增强防水性能，使用防水黑胶密封精密部件，增加防水胶条。</p>
 <p>增加固定支架，固定孔等，使其更易于在户外安装使用。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/6d00a9d8467d76b9.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/6d00a9d8467d76b9.webp"
          alt="外观设计图"/> <figcaption>
             <p>外观设计图</p>
         </figcaption>

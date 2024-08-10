@@ -67,7 +67,7 @@
 <p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
 <p>正式开始：1、下载安装 ViPER4Android v2.7.1.0 APK。比如说这里：<a href="https://labs.xda-developers.com/store/app/com.pittvandewitt.viperfx">查看链接</a>或者这里：<a href="http://www.coolapk.com/apk/com.pittvandewitt.viperfx">【VIPERFX&ndash;XDA 代理开发版 - 不欢迎安智网的“一个人的冬季”】</a>2、安装完毕后打开 ViPER4Android，但<strong>不要</strong>安装驱动。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.webp"
          alt="安装 ViPER4Android"/> <figcaption>
             <p>安装 ViPER4Android</p>
         </figcaption>
@@ -75,14 +75,14 @@
 
 <p>3、打开 Magisk Manager，在“下载”中搜索 Audio Modification Library，点安装，完毕后<strong>不要</strong>点重启。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e3fcecc5ac3c88ec.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e3fcecc5ac3c88ec.webp"
          alt="搜索 Audio Modification Library"/> <figcaption>
             <p>搜索 Audio Modification Library</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a27fd9e66f72a82f.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a27fd9e66f72a82f.webp"
          alt="安装 Audio Modification Library"/> <figcaption>
             <p>安装 Audio Modification Library</p>
         </figcaption>
@@ -90,7 +90,7 @@
 
 <p>4、回到 ViPER4Android，选择安装驱动，安装完毕后手机会自动重启。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/3f6edb0602d83e05.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/3f6edb0602d83e05.webp"
          alt="安装 ViPER4Android 驱动"/> <figcaption>
             <p>安装 ViPER4Android 驱动</p>
         </figcaption>
@@ -98,7 +98,7 @@
 
 <p>5、重启后，打开 Magisk Manager，在“模块”中将 Audio Modification Library 禁用。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/b9859a6ccc703b9b.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/b9859a6ccc703b9b.webp"
          alt="禁用 Audio Modification Library"/> <figcaption>
             <p>禁用 Audio Modification Library</p>
         </figcaption>
@@ -106,14 +106,14 @@
 
 <p>6、再次打开 ViPER4Android，选择安装驱动。7、重启后，打开 ViPER4Android，看看驱动是否正常。如果正常就是安装成功了，若不正常请继续下面的步骤。8、打开 Magisk Manager，在“模块”中将 Audio Modification Library 启用，选择重启，重启后打开 ViPER4Android 看看驱动状态，理论上应该已经安装成功了。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a252a161dacffbfc.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a252a161dacffbfc.webp"
          alt="将 Audio Modification Library 启用"/> <figcaption>
             <p>将 Audio Modification Library 启用</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/2d46a68df11c3b66.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/2d46a68df11c3b66.webp"
          alt="安装成功"/> <figcaption>
             <p>安装成功</p>
         </figcaption>

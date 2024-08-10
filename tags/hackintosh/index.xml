@@ -7,7 +7,7 @@
 <p>需要先安装好 Python 环境：<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 <p>下载 OpenCore：<a href="https://github.com/acidanthera/OpenCorePkg/releases">https://github.com/acidanthera/OpenCorePkg/releases</a></p>
 <p>解压，并在 CMD 里定位到 <code>/Utilities/macrecovery/</code>目录</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/4301a26e7bb63bb1.png" alt="4301a26e7bb63bb1"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/4301a26e7bb63bb1.webp" alt="4301a26e7bb63bb1"  />
 </p>
 <p>然后用命令下载对应版本就行了</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Mojave (10.14)</span>
@@ -21,10 +21,10 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Monterey (12)</span>
 </span></span><span class="line"><span class="cl">python ./macrecovery.py -b Mac-E43C1C25D4880AD6 -m <span class="m">00000000000000000</span> download
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/96ced11aa5247e6f.png" alt="96ced11aa5247e6f"  />
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/96ced11aa5247e6f.webp" alt="96ced11aa5247e6f"  />
 </p>
 <p>下载完毕之后，可以得到<code>BaseSystem</code>的镜像文件。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/ca7b4c320c8c128c.png" alt="ca7b4c320c8c128c"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/ca7b4c320c8c128c.webp" alt="ca7b4c320c8c128c"  />
 </p>
 <h2 id="制作启动盘">制作启动盘</h2>
 <p>下载 Rufus：<a href="https://rufus.ie/">https://rufus.ie/</a></p>
@@ -35,14 +35,14 @@
 <li>点击开始</li>
 <li>删除 U 盘分区中的所有文件</li>
 </ol>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/f0ebebfc594740a7.png" alt="f0ebebfc594740a7"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/f0ebebfc594740a7.webp" alt="f0ebebfc594740a7"  />
 </p>
 <p>然后在 U 盘的根目录并创建一个名为<code>com.apple.recovery.boot</code>的文件夹，然后把刚刚下好的 <code>BaseSystem</code> 复制进去， <code>.dmg</code> 和 <code>.chunklist</code> 都要复制。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/31ee37eb4660cfea.png" alt="31ee37eb4660cfea"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/31ee37eb4660cfea.webp" alt="31ee37eb4660cfea"  />
 </p>
 <p>接着把刚刚下好的<code>OpenCorePkg</code>里的 <code>x64/EFI</code>文件夹复制到 U 盘根目录。<del>其实如果不打算自己写 EFI 文件的话这步就不用做了</del>
 此时 U 盘应该长这样：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/c2802884a0368c35.png" alt="c2802884a0368c35"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/c2802884a0368c35.webp" alt="c2802884a0368c35"  />
 </p>
 <p>到这一步，启动盘就制作好了，下面就是难点了。</p>
 <h2 id="获取-efi-文件">获取 EFI 文件</h2>
@@ -57,7 +57,7 @@ plist 编辑器 ProperTree：<a href="https://github.com/corpnewt/ProperTree">ht
 SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">https://github.com/corpnewt/GenSMBIOS</a></p>
 <p>接下来，让我们双击<code>ProperTree.bat</code>打开 ProperTree 并编辑大佬 EFI 中的 <code>config.plist</code>
 定位到<code>PlatformInfo</code>，修改系统信息。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/25bb66fdb84f785b.png" alt="25bb66fdb84f785b"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/25bb66fdb84f785b.webp" alt="25bb66fdb84f785b"  />
 </p>
 <p>Google 查询苹果的 iMac 系统支持情况可知，2015 年前后的电脑，只有<code>iMac16,2</code>以上的机型可以升级，所以我计划模拟为它。</p>
 <p>打开 GenSMBIOS，根据 readme 生成 <code>iMac16,2</code>的串号信息，看起来应该长这样：</p>
@@ -85,7 +85,7 @@ SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">htt
 <p>安装成功后，EFI 是不会自动添加进硬盘的，需要我们自己复制进去。
 首先需要一个 OpenCore Configurator：<a href="https://mackie100projects.altervista.org/download-opencore-configurator/">https://mackie100projects.altervista.org/download-opencore-configurator/</a>
 启动后，会在菜单栏出现快捷菜单，可以很方便地挂载 EFI 分区。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/b224a34e5050678d.png" alt="b224a34e5050678d"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/b224a34e5050678d.webp" alt="b224a34e5050678d"  />
 </p>
 <p>选择系统盘，然后点击挂载分区，打开分区。
 把 U 盘的 EFI 文件夹复制到硬盘的 EFI 分区里，下次启动时就不用插着 U 盘了。</p>
@@ -96,7 +96,7 @@ SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">htt
 <p>可以在 GitHub 找自己需要的驱动，比如英特尔网卡驱动项目<code>itlwm</code>：
 <a href="https://github.com/OpenIntelWireless/itlwm">https://github.com/OpenIntelWireless/itlwm</a></p>
 <p>下载对应系统版本，解压并复制到 <code>EFI/Kexts</code> 里，然后在 OpenCore Configurator 里启用它就好了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/2f12cfc1f04efd6e.png" alt="2f12cfc1f04efd6e"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/2f12cfc1f04efd6e.webp" alt="2f12cfc1f04efd6e"  />
 </p>
 <h2 id="结语">结语</h2>
 <p>选择了 Hackintosh 就注定这不是一条轻松的道路，过程中会遇到许多困难，花费许多时间。
@@ -107,7 +107,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 想去买一台的冲动也越来越强烈了……<del>（这一定是厨子的阴谋</del></p>
 <p>这或许就是苹果不严打 Hackintosh 的原因吧。
 愿你 Hackintosh 半生，归来仍是 Macintosh。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/69a244f5708f3160.png" alt="69a244f5708f3160"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/69a244f5708f3160.webp" alt="69a244f5708f3160"  />
 </p>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a></p>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 01 Aug 2024 16:55:37 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
 <p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.jpg" alt="定制设置"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp" alt="定制设置"  />
 </p>
 <p>幸好我们有 root 权限，在盒子上装个 MT 管理器就能直接替换系统应用。于是我想去网上找个原生设置放进去，结果有的不能用，有的替换完干脆直接进不去系统了，又得重刷&hellip;  后来寻思我明明会逆向，为啥不自己动手，丰衣足食呢？</p>
 <h2 id="提取原生设置-apk">提取原生设置 APK</h2>
 <p>使用 MT 管理器提取 APK，查看 APK 内容。</p>
 <p>注意到我们的雷电模拟器里就有个原生设置，系统恰好也是安卓 9，提取并检查这个设置的 APK 文件，发现里面没有 lib 库，因此推断 APK 是全平台通用的，只要能装上：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.jpg" alt="提取原生设置 APK"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp" alt="提取原生设置 APK"  />
 </p>
 <h2 id="替换证书">替换证书</h2>
 <p>这个设置和电视盒子里已有的设置包名冲突了，只能先进行替换，替换后重启，发现设置图标消失，原生设置和定制设置都没了，于是对比两个设置的签名描述，如下：</p>
@@ -24,19 +24,19 @@
 </span></span><span class="line"><span class="cl">        <span class="na">android:description=</span><span class="s">&#34;@string/superuser_description_more&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>幸好，安卓对 <code>/system/app</code> 下的应用只判断签名是否存在，不判断是否有效，我们可以来一出借尸还魂。</p>
 <p>首先将定制设置备份，然后在 MT 管理器两侧同时打开原生设置和定制设置，接下来将定制设置中除 <code>META-INF</code> 外的文件全部删除，然后将原生设置中除 <code>META-INF</code> 外的文件全部添加到定制设置中，全程不要进行签名（同时建议保留 v2 签名数据），这样我们就得到了披着系统级签名的原生设置：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.jpg" alt="替换后证书"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp" alt="替换后证书"  />
 </p>
 <h2 id="移动到系统-app-目录">移动到系统 App 目录</h2>
 <p>现在我们把这个设置再移到系统 App 目录下，例如 <code>/system/app/Setting</code>，并且设置权限为 644，所有者为 root，所有组也为 root。</p>
 <p>重启发现原生设置出现了，功能基本正常，也可以查看应用信息并清缓存了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.jpg" alt="原生设置"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp" alt="原生设置"  />
 </p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.jpg" alt="原生设置"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp" alt="原生设置"  />
 </p>
 <h2 id="定制设置共存">定制设置共存</h2>
 <p>接下来要解决两个设置共存的问题，原生设置虽好，但调整屏幕分辨率比较困难，因此定制设置还是需要保留的，我们直接用 MT 的 apk 共存功能，修改定制设置的包名（因为原生设置会被第三方调用），同样不签名，然后一并放到系统 App 目录下，这里是 <code>/system/app/Setting2</code>，同样设置权限为 644，所有者和组为 root。</p>
 <p>重启电视盒子，发现两个设置都出现了，目前使用起来一切正常。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.jpg" alt="原生设置与定制设置共存"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp" alt="原生设置与定制设置共存"  />
 </p>
 <p>留一个思考题：目前发现无法在原生设置中通过多次点击版本号启用开发者模式，屏幕无任何提示，问如何解决？</p>
 <h2 id="还有一件事">还有一件事</h2>
@@ -50,7 +50,7 @@
 <li><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></li>
 </ul>
 ]]></content:encoded></item><item><title>移动魔百盒 CM201-1-YS 刷入 Android 9</title><link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link><pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate><guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid><description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description><content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.png" alt="效果图"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="效果图"  />
 </p>
 <h2 id="基本信息">基本信息</h2>
 <ul>
@@ -59,17 +59,17 @@
 <li>无线网卡： <code>RTL8822CS</code></li>
 </ul>
 <h3 id="背部标签">背部标签</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.png" alt="背部标签"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp" alt="背部标签"  />
 </p>
 <h3 id="主板正面">主板正面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.png" alt="主板正面"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp" alt="主板正面"  />
 </p>
 <h3 id="主板背面">主板背面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.png" alt="主板背面"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp" alt="主板背面"  />
 </p>
 <h3 id="刷机测试点">刷机测试点</h3>
 <p>短接标号为 4R12 的黑色电阻可进入刷机模式，用于救砖。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.png" alt="刷机测试点"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp" alt="刷机测试点"  />
 </p>
 <h2 id="准备">准备</h2>
 <h3 id="下载固件">下载固件</h3>
@@ -84,13 +84,13 @@
 <h2 id="刷机">刷机</h2>
 <p>使用双 USB-A 线，连接机顶盒的 USB1 到电脑。</p>
 <p>1、打开 USB_Burning_Tool 线刷工具，加载固件，导入成功后，默认烧录配置勾选，不用动，然后点击开始。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.png" alt="USB_Burning_Tool"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp" alt="USB_Burning_Tool"  />
 </p>
 <p>2、根据不同机器，比如 YS 代工按住 AV 口里面的复位键，CH 或者 ZG 代工短接闪存背面的 4R12 电阻两端，等等。也可通过刷机神器免拆。然后，双头 USB 线插上电脑和盒子靠近网口一端的 USB 接口，此时刷机工具自动连接识别，并开始走进度条刷机，等待刷机结束即可！（不能自动识别的可先通电，再插盒子端的 USB 接口）。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.png" alt="开始刷机"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp" alt="开始刷机"  />
 </p>
 <p>3、刷机完成后，刷机工具点“停止”，拔掉双头 USB 线，重新开机，即可正常进入刷机后的系统。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.png" alt="完成效果"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="完成效果"  />
 </p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209">https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209</a></p>
@@ -596,7 +596,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
 <p>正式开始：1、下载安装 ViPER4Android v2.7.1.0 APK。比如说这里：<a href="https://labs.xda-developers.com/store/app/com.pittvandewitt.viperfx">查看链接</a>或者这里：<a href="http://www.coolapk.com/apk/com.pittvandewitt.viperfx">【VIPERFX&ndash;XDA 代理开发版 - 不欢迎安智网的“一个人的冬季”】</a>2、安装完毕后打开 ViPER4Android，但<strong>不要</strong>安装驱动。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.webp"
          alt="安装 ViPER4Android"/> <figcaption>
             <p>安装 ViPER4Android</p>
         </figcaption>
@@ -604,14 +604,14 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 
 <p>3、打开 Magisk Manager，在“下载”中搜索 Audio Modification Library，点安装，完毕后<strong>不要</strong>点重启。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e3fcecc5ac3c88ec.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e3fcecc5ac3c88ec.webp"
          alt="搜索 Audio Modification Library"/> <figcaption>
             <p>搜索 Audio Modification Library</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a27fd9e66f72a82f.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a27fd9e66f72a82f.webp"
          alt="安装 Audio Modification Library"/> <figcaption>
             <p>安装 Audio Modification Library</p>
         </figcaption>
@@ -619,7 +619,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 
 <p>4、回到 ViPER4Android，选择安装驱动，安装完毕后手机会自动重启。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/3f6edb0602d83e05.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/3f6edb0602d83e05.webp"
          alt="安装 ViPER4Android 驱动"/> <figcaption>
             <p>安装 ViPER4Android 驱动</p>
         </figcaption>
@@ -627,7 +627,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 
 <p>5、重启后，打开 Magisk Manager，在“模块”中将 Audio Modification Library 禁用。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/b9859a6ccc703b9b.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/b9859a6ccc703b9b.webp"
          alt="禁用 Audio Modification Library"/> <figcaption>
             <p>禁用 Audio Modification Library</p>
         </figcaption>
@@ -635,14 +635,14 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 
 <p>6、再次打开 ViPER4Android，选择安装驱动。7、重启后，打开 ViPER4Android，看看驱动是否正常。如果正常就是安装成功了，若不正常请继续下面的步骤。8、打开 Magisk Manager，在“模块”中将 Audio Modification Library 启用，选择重启，重启后打开 ViPER4Android 看看驱动状态，理论上应该已经安装成功了。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a252a161dacffbfc.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a252a161dacffbfc.webp"
          alt="将 Audio Modification Library 启用"/> <figcaption>
             <p>将 Audio Modification Library 启用</p>
         </figcaption>
 </figure>
 
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/2d46a68df11c3b66.png"
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/2d46a68df11c3b66.webp"
          alt="安装成功"/> <figcaption>
             <p>安装成功</p>
         </figcaption>

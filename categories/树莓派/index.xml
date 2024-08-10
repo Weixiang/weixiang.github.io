@@ -56,22 +56,22 @@
 <p><strong>因为众所周知的原因，安装过程可能需要魔法！</strong></p>
 <p>如果你和我一样在这里卡了很久或者直接 error 了，说明你需要使用魔法。</p>
 <p>至于具体操作请自己 Google 一下吧，我这里也不太好直接向麻瓜们直接展示对吧。（搜索关键词：树莓派 + 魔法名称）</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp" alt=""  />
 </p>
 <p>安装完毕，记下访问地址和密码。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp" alt=""  />
 </p>
 <h2 id="调整-pi-hole-的设置">调整 Pi-hole 的设置</h2>
 <p>用浏览器访问刚刚的地址就能看到主页了，或者也可以访问 <a href="http://pi.hole/admin">http://pi.hole/admin</a></p>
 <p>主页展示的是 Pi-hole 的实时运行状态，点击 Login 输入记下的密码即可登录到控制台。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp" alt=""  />
 </p>
 <p>控制台就是这样的，现在可以开始调整 Pi-hole 的设置来获得更好的体验了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp" alt=""  />
 </p>
 <h3 id="添加-hosts-源">添加 hosts 源</h3>
 <p>实际上，Pi-hole 使用的是 hosts 方式对广告进行过滤（类似 AdAway），所以 hosts 源的好坏直接决定了用户体验。自带的 host 对于我国网络环境来说可能会水土不服，下面推荐几个知名 hosts 源，可以到  Settings - Blocklists 里面添加自定义源，添加一个之后按 Save 保存，全部添加完成后按 Save and Update 来更新 host 并保存设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp" alt=""  />
 </p>
 <ul>
 <li><a href="https://github.com/vokins/yhosts">yhosts</a>：可以说是国内比较老牌的知名 hosts，定期有更新，但作者主观屏蔽了一些非广告网站，可以用下面的命令手动添加白名单来解决不够客观的问题：</li>
@@ -88,7 +88,7 @@
 <h3 id="添加国内-dns-服务器">添加国内 DNS 服务器</h3>
 <p>Pi-hole 在安装时已经设置过一次 DNS 服务器了，但因为是国外的 DNS 服务，速度可能会比较慢，通过添加国内的 DNS 服务可以提高速度。</p>
 <p>进入 Settings - DNS - Upstream DNS Servers 就可以添加 DNS 服务器了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.png" alt=""  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp" alt=""  />
 </p>
 <h4 id="国内常见公共-dns-服务">国内常见公共 DNS 服务</h4>
 <h5 id="腾讯-dnspod">腾讯 DNSPod</h5>
@@ -139,10 +139,10 @@
 ]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<h2 id="请注意由于-v2ray-项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</h2>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.png" alt="image-20200410145120973"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
 </p>
 <p>啊不好意思放错了，应该是这张：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.png" alt="File:VPN overview-en.svg"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp" alt="File:VPN overview-en.svg"  />
 </p>
 <p>我们这篇文章要实现的目标是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
@@ -510,7 +510,7 @@
 <p>将代理设置配置为指向树莓派后，在浏览器中打开下面的地址</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://config.privoxy.org/
 </span></span></code></pre></div><p>如果一切运行正常，可以看到 Privoxy 的欢迎界面：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.png" alt="image-20200414115516257"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp" alt="image-20200414115516257"  />
 </p>
 <p>如果显示的是 <strong>Privoxy is not being used</strong> ，就要检查一下检查代理设置是否正确了。</p>
 <h2 id="enjoy-it">Enjoy it</h2>
@@ -518,7 +518,7 @@
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.png" alt="知识共享许可协议"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
 </p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
@@ -548,30 +548,30 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span>
 </span></span></code></pre></div><p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
 <p>安装后打开的软件界面是这样的，是不是超级简单：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.png" alt="Raspberry Pi Imager"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp" alt="Raspberry Pi Imager"  />
 </p>
 <h3 id="格式化-sd-卡">格式化 SD 卡</h3>
 <p>首先要格式化 SD 卡，在第一项 Choose OS 里选择 Erase，然后选好要格式化的 SD 卡，最后点 Write 即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.png" alt="image-20200409181322292"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp" alt="image-20200409181322292"  />
 </p>
 <h3 id="烧录镜像">烧录镜像</h3>
 <p>在 Choose OS 里选择第一项 Raspbain 即可，软件会自动下载并烧录进去，如果要使用本地的镜像文件，要注意文件路径中不要有中文。</p>
 <p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.png" alt="image-20200409181731951"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp" alt="image-20200409181731951"  />
 </p>
 <p>等进度条跑满，系统镜像就烧写完成啦。</p>
 <h2 id="开启-ssh-功能">开启 SSH 功能</h2>
 <p>在树莓派将来的使用中，我们要用 SSH 的方式连接树莓派并对其进行操作，但为了安全起见，这个功能默认是关闭的，所以我们需要在 SD 卡的根目录创建一个叫“SSH”的文件，才能开启树莓派的 SSH 功能。</p>
 <p>在“此电脑”中找到一个叫“boot”的盘，新建一个 TXT，命名为 <code>SSH</code> 即可，注意不要有后缀！
 如果找不到“boot”这个盘，重新拔插一下读卡器即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.png" alt="image-20200409183711203"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp" alt="image-20200409183711203"  />
 </p>
 <h2 id="启动树莓派并找到它">启动树莓派并找到它</h2>
 <h3 id="启动树莓派">启动树莓派</h3>
 <p>插入烧写好系统的 SD 卡，用网线把树莓派和路由器连接起来，如果有键鼠显示器也要先连接上，最后插上电源，等待树莓派启动即可。</p>
 <h3 id="查找树莓派的地址">查找树莓派的地址</h3>
 <p>使用浏览器登录路由器的管理页面，一般为 <code>192.168.1.1</code>，输入管理密码（路由器背面可以找到），进入“终端管理”界面，查看树莓派的 IP 地址。最好给树莓派设置一个固定 IP 地址方便后续使用。此步骤不同品牌的路由器操作方法略有不同，不过都大同小异。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.png" alt="image-20200409194420317"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp" alt="image-20200409194420317"  />
 </p>
 <h2 id="使用-ssh-连接到树莓派">使用 SSH 连接到树莓派</h2>
 <p>以 Xshell 为例</p>
@@ -579,10 +579,10 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.netsarang.com/zh/xshell/
 </span></span></code></pre></div><p>打开 Xshell，在左上角点击新建图标，填入名称，树莓派的 IP 地址，点击连接即可。</p>
 <p>树莓派默认的账户是 <code>pi</code> ，默认密码是 <code>raspberry</code> 。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.png" alt="image-20200409195033479"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp" alt="image-20200409195033479"  />
 </p>
 <p>如下图时即连接成功：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.png" alt="image-20200409195326223"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp" alt="image-20200409195326223"  />
 </p>
 <h2 id="给树莓派换上国内源">给树莓派换上国内源</h2>
 <p>因为众所周知的原因，树莓派的默认源速度感人，换上国内的源可以显著提高使用体验。</p>
@@ -606,27 +606,27 @@
 <p>在 SSH 终端中输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo raspi-config
 </span></span></code></pre></div><p>即可进入下面的配置模式，罗列了扩展系统分区，修改密码，启动设置等等，然后按着图片找到 VNC 选项打开即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.png" alt="image-20200409200744520"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp" alt="image-20200409200744520"  />
 </p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.png" alt="image-20200409200759386"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp" alt="image-20200409200759386"  />
 </p>
 <h3 id="连接到树莓派">连接到树莓派</h3>
 <p>下载 VNC 客户端</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">realvnc</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">connect</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">viewer</span><span class="o">/</span>
 </span></span></code></pre></div><p>打开 VNC 软件，输入树莓派的 IP 地址、账户名密码（上一节有），即可连接。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.png" alt="image-20200409201641067"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp" alt="image-20200409201641067"  />
 </p>
 <h3 id="完成剩余的设置">完成剩余的设置</h3>
 <p>连接成功后即可看到树莓派的桌面和欢迎界面。</p>
 <p>在欢迎界面中完成剩余的设置，修改地区、语言、时区、密码等，连接上 WiFi。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.png" alt="image-20200409201733135"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp" alt="image-20200409201733135"  />
 </p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.png" alt="知识共享许可协议"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
 </p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>

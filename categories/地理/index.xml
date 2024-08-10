@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>地理 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E5%9C%B0%E7%90%86/</link><description>Recent content in 地理 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sun, 06 Oct 2019 03:49:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E5%9C%B0%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>逆温现象</title><link>https://weixiang.github.io/posts/temperature-inversion/</link><pubDate>Sun, 06 Oct 2019 03:49:00 +0000</pubDate><guid>https://weixiang.github.io/posts/temperature-inversion/</guid><description>在对流层，气温垂直分布的一般情况是随高度增加而降低，大约每升高 100 米，气温降低 0.6°C，但在一定条件下，对流层中也会出现气温随高度增加而上升的现象，或者地面上随高度的增加，降温变化率小于 0.6°C/100 m，这种现象称为逆温。</description><content:encoded><![CDATA[<h3 id="1-逆温概念">1. 逆温概念</h3>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/04db6e2fa3806ed9.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/04db6e2fa3806ed9.webp"/> 
 </figure>
 
 <ol>
@@ -23,22 +23,22 @@
 <p><strong>2）分类（成因）</strong></p>
 <p>① **辐射逆温（中高纬度）：**经常发生在晴朗无云的夜间，由于地面有效辐射很强，近地面层气温迅速下降，而高处气层降温较少，从而出现上暖下冷的逆温现象。这种逆温黎明前最强，日出后自下而上消失。辐射逆温的形成过程，如下图：</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/17e1dbb002727c3a.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/17e1dbb002727c3a.webp"/> 
 </figure>
 
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/6f2f1ccb88d5c80c.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/6f2f1ccb88d5c80c.webp"/> 
 </figure>
 
 <p><strong>②    地形逆温：</strong></p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/192b3f1e13d8410c.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/192b3f1e13d8410c.webp"/> 
 </figure>
 
 <p>常发生在山地、盆地和谷地中。由于山坡散热快，山坡上的冷空气沿山坡下沉到谷底，谷底原来较暖的空气被冷空气抬挤上升，从而出现温度的倒置现象。这样的逆温主要是在一定的地形条件下形成的，所以称为地形逆温。如美国的洛杉矶因周围三面环山，每年有两百多天出现逆温现象。</p>
 <p><strong>③    平流逆温</strong></p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/37d5e59135838e71.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/37d5e59135838e71.webp"/> 
 </figure>
 
 <p>由于暖空气水平移动到冷却的地面、水面或气层之上时，底层空气因受下垫面的影响迅速降温，上层空气因距离较远，降温较少，于是产生逆温。</p>
@@ -47,7 +47,7 @@
 <p><strong>④ 锋面逆温</strong></p>
 <p>对流层中，暖空气移到冷空气之上，形成冷暖相交的锋面。暖气团位于锋面之上，冷气团在下。在冷暖气团之间的过渡带上，若锋面上下暖冷空气的温差较大，便形成逆温。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/56970ffbcae143ad.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/56970ffbcae143ad.webp"/> 
 </figure>
 
 <p>图中垂直线上的气温分布情况可见由下面的冷空气到上面的暖空气，等温线通过锋面区域时必有曲折，曲折程度视两种气团间的温度对比而决定，曲折段（如图中 BC 段）就出现了逆温层。由于锋是从地面向冷空气上方倾斜的，逆温层也随锋面的倾斜而呈倾斜状态（出现逆温的高度，与锋线位置距离地面高度有关）。因此逆温只能在冷空气所控制的地区内观察到，在冬半年有时会形成冻雨一些恶劣性天气。</p>
@@ -68,20 +68,20 @@
 <h2 id="大气受热过程与逆温现象">大气受热过程与逆温现象</h2>
 <h3 id="一大气的受热过程">一、大气的受热过程</h3>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/db51c2f725f27647.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/db51c2f725f27647.webp"/> 
 </figure>
 
 <p>辐射波长：物体的温度与波长是负相关，温度越高，波长越短。温度越低，波长越长。</p>
 <p>太阳辐射是短波，地面和大气辐射是长波</p>
 <p>太阳辐射在传播过程中，部分被大气吸收（19％）、反射和散射（34％），大部分到达地面（47％）。</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/95ea619242f83638.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/95ea619242f83638.webp"/> 
 </figure>
 
 <h3 id="大气的对太阳辐射的削弱作用">大气的对太阳辐射的削弱作用</h3>
 <p>1、大气对太阳辐射的吸收作用：</p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/f0af89a5b3f7bdb0.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/f0af89a5b3f7bdb0.webp"/> 
 </figure>
 
 <p><strong>特点</strong>：有选择性。</p>
@@ -89,7 +89,7 @@
 <p><strong>影响因素</strong>：太阳辐射经过的大气路径、尘埃、云雾的多少</p>
 <p><strong>2、大气对太阳辐射的反射作用：</strong></p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fde32e14ccd22a60.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fde32e14ccd22a60.webp"/> 
 </figure>
 
 <p><strong>参与的大气成分</strong>：云层、尘埃</p>
@@ -97,7 +97,7 @@
 <p>云层越厚，云量越多，反射就越强</p>
 <p><strong>3、大气对太阳辐射的散射作用：</strong></p>
 <figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/15d2fd1ff02218db.png"/> 
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/15d2fd1ff02218db.webp"/> 
 </figure>
 
 <p><strong>参与的大气成分</strong>：空气分子和微小尘埃</p>
