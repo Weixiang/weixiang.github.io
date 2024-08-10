@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 10 Aug 2024 12:06:42 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian 黑曜石</title><link>https://weixiang.github.io/posts/obsidian/</link><pubDate>Sat, 10 Aug 2024 12:06:42 +0800</pubDate><guid>https://weixiang.github.io/posts/obsidian/</guid><description>Obsidian 是使用 Markdown 语法的闭源笔记软件。用户可以在笔记间建立双向链接，并且可以探索这些笔记连接形成的关系图谱。该软件旨在帮助用户以一种灵活的、非线性的方式来组织和构架他们的想法和知识。Obsidian 对个人使用免费，商业使用则需购买许可。</description><content:encoded><![CDATA[<p>此篇博文用于测试 Obsidian 同步到 Hugo 的功能。</p>
-<hr>
-<p>Obsidian 是使用 Markdown 语法的闭源笔记软件。[2][3]用户可以在笔记间建立双向链接，并且可以探索这些笔记连接形成的关系图谱。该软件旨在帮助用户以一种灵活的、非线性的方式来组织和构架他们的想法和知识。Obsidian 对个人使用免费，商业使用则需购买许可。</p>
-<p>Obsidian 是由 Shida Li 和徐子殷于 2019 冠状病毒病疫情隔离期间所编写的。[4]两人在滑铁卢大学学习时相识，彼时他们已经在几个开发项目上进行了合作。[5]</p>
-<p>Obsidian 的第一个版本于 2020 年 3 月 30 日发布。[6]1.0.0 版本于 2022 年 10 月发布。[7][8]1.1 版于 2022 年 12 月发布，增加了 Canvas 核心插件。[9]</p>
-<p>Obsidian 基于 Electron 构建。它是一款跨平台应用程序，可在 Windows、Linux、macOS 以及移动操作系统（如 Android 和 iOS）上运行，不过没有提供基于网页的版本。Obsidian 可以通过添加插件进行定制，移动应用程序也可使用这些插件。</p>
-]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
 <p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
 <p><del>买不起服务器了，就换回静态博客了。</del></p>
 <p>本文记录一下 Ghost 多年的使用体验和一些小技巧。</p>
 <p>永远喜欢 Casper 主题。</p>
 <h2 id="code-injection">Code injection</h2>
+<p>代码注入是修改 Ghost 主题最方便的方法，而且不受主题更新影响。下面是我使用 Ghost 多年攒下来的 Code inject 方案，包含了字体、图片、样式、插件等各个方面的自定义。</p>
 <h3 id="site-header">Site header</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>

@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 10 Aug 2024 12:06:42 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian 黑曜石</title><link>https://weixiang.github.io/posts/obsidian/</link><pubDate>Sat, 10 Aug 2024 12:06:42 +0800</pubDate><guid>https://weixiang.github.io/posts/obsidian/</guid><description>Obsidian 是使用 Markdown 语法的闭源笔记软件。用户可以在笔记间建立双向链接，并且可以探索这些笔记连接形成的关系图谱。该软件旨在帮助用户以一种灵活的、非线性的方式来组织和构架他们的想法和知识。Obsidian 对个人使用免费，商业使用则需购买许可。</description><content:encoded><![CDATA[<p>此篇博文用于测试 Obsidian 同步到 Hugo 的功能。</p>
-<hr>
-<p>Obsidian 是使用 Markdown 语法的闭源笔记软件。[2][3]用户可以在笔记间建立双向链接，并且可以探索这些笔记连接形成的关系图谱。该软件旨在帮助用户以一种灵活的、非线性的方式来组织和构架他们的想法和知识。Obsidian 对个人使用免费，商业使用则需购买许可。</p>
-<p>Obsidian 是由 Shida Li 和徐子殷于 2019 冠状病毒病疫情隔离期间所编写的。[4]两人在滑铁卢大学学习时相识，彼时他们已经在几个开发项目上进行了合作。[5]</p>
-<p>Obsidian 的第一个版本于 2020 年 3 月 30 日发布。[6]1.0.0 版本于 2022 年 10 月发布。[7][8]1.1 版于 2022 年 12 月发布，增加了 Canvas 核心插件。[9]</p>
-<p>Obsidian 基于 Electron 构建。它是一款跨平台应用程序，可在 Windows、Linux、macOS 以及移动操作系统（如 Android 和 iOS）上运行，不过没有提供基于网页的版本。Obsidian 可以通过添加插件进行定制，移动应用程序也可使用这些插件。</p>
-]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
 <p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
 <p><del>买不起服务器了，就换回静态博客了。</del></p>
 <p>本文记录一下 Ghost 多年的使用体验和一些小技巧。</p>
 <p>永远喜欢 Casper 主题。</p>
 <h2 id="code-injection">Code injection</h2>
+<p>代码注入是修改 Ghost 主题最方便的方法，而且不受主题更新影响。下面是我使用 Ghost 多年攒下来的 Code inject 方案，包含了字体、图片、样式、插件等各个方面的自定义。</p>
 <h3 id="site-header">Site header</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -453,73 +448,146 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
 ]]></content:encoded></item><item><title>大厂官网字体收集</title><link>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</link><pubDate>Sat, 03 Aug 2024 16:42:10 +0800</pubDate><guid>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</guid><description>收集了常见消费电子品牌及互联网大厂的字体使用情况。</description><content:encoded><![CDATA[<h2 id="消费电子">消费电子</h2>
 <h3 id="apple">Apple</h3>
-<h4 id="官网">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;SF Pro SC&#34;, &#34;SF Pro Text&#34;, &#34;SF Pro Icons&#34;, &#34;PingFang SC&#34;, &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;SF Pro SC&#34;</span><span class="p">,</span> <span class="s2">&#34;SF Pro Text&#34;</span><span class="p">,</span> <span class="s2">&#34;SF Pro Icons&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="小米">小米</h3>
-<h4 id="官网-1">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;MiSans VF&#34;, MiSans, system-ui, sans-serif
-</span></span></code></pre></div><h4 id="商城">商城</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;Helvetica Neue&#34;, Helvetica, Arial, &#34;Microsoft Yahei&#34;, &#34;Hiragino Sans GB&#34;, &#34;Heiti SC&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;MiSans VF&#34;</span><span class="p">,</span> <span class="n">MiSans</span><span class="p">,</span> <span class="n">system-ui</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 商城 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Heiti SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="华为">华为</h3>
-<h4 id="消费者官网">消费者官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Manrope, Arial, &#34;Helvetica Neue&#34;, Helvetica, sans-serif
-</span></span></code></pre></div><h4 id="商城-1">商城</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;Helvetica Neue&#34;, Helvetica, Arial, &#34;Microsoft Yahei&#34;, &#34;Hiragino Sans GB&#34;, &#34;Heiti SC&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
-</span></span></code></pre></div><h4 id="鸿蒙">鸿蒙</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HarmonyOSHans-Regular, HarmonyOSHans-fallback, PingFangSC-Regular, &#34;Microsoft YaHei&#34;, Arial, Helvetica, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 消费者官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Manrope</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 商城 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Heiti SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 鸿蒙 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">HarmonyOSHans-Regular</span><span class="p">,</span> <span class="n">HarmonyOSHans-fallback</span><span class="p">,</span> <span class="n">PingFangSC-Regular</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="荣耀">荣耀</h3>
-<h4 id="官网-2">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;HONOR Sans Brand&#34;, &#34;Microsoft Yahei&#34;, &#34;PingFang SC&#34;, Arial, &#34;Helvetica Neue&#34;, Helvetica, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;HONOR Sans Brand&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="oppo">OPPO</h3>
-<h4 id="官网-3">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">OPPOSans-Ver2-Regular, Helvetica, Arial, sans-serif, system-ui
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">OPPOSans-Ver2-Regular</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="n">system-ui</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="vivo">vivo</h3>
-<h4 id="官网-4">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">VIVO-FONT-WEB, VIVO-FONT-NAV, sans-serif
-</span></span></code></pre></div><h4 id="商城-2">商城</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">方正悠黑简体_纤, &#34;Microsoft YaHei&#34;, Arial
-</span></span></code></pre></div><h4 id="originos">OriginOS</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vivoSansSC500, VIVO-FONT-WEB, VIVO-FONT-NAV, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">VIVO-FONT-WEB</span><span class="p">,</span> <span class="n">VIVO-FONT-NAV</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 商城 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="err">方正悠黑简体</span><span class="n">_纤</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="n">Aria</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* OriginOS */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">vivoSansSC500</span><span class="p">,</span> <span class="n">VIVO-FONT-WEB</span><span class="p">,</span> <span class="n">VIVO-FONT-NAV</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="三星">三星</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SamsungOne, &#34;Microsoft Yahei&#34;, 微软雅黑, Simsun, 宋体, arial, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">SamsungOne</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="err">微软雅黑</span><span class="p">,</span> <span class="n">Simsun</span><span class="p">,</span> <span class="err">宋体</span><span class="p">,</span> <span class="n">arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="蔚来">蔚来</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">BlueSkyStandard, &#34;Helvetica Neue&#34;, Helvetica, Arial, &#34;PingFang SC&#34;, &#34;Hiragino Sans GB&#34;, &#34;Heiti SC&#34;, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">BlueSkyStandard</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Heiti SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="中兴">中兴</h3>
-<h4 id="努比亚">努比亚</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Gotham, hyykh, Helvetica, Arial, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 努比亚官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Gotham</span><span class="p">,</span> <span class="n">hyykh</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="魅族">魅族</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Helvetica, Tahoma, Arial, &#34;Hiragino Sans GB&#34;, &#34;Microsoft YaHei&#34;, SimSun, Heiti, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Tahoma</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="n">SimSun</span><span class="p">,</span> <span class="n">Heiti</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="锤子">锤子</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;Helvetica Neue&#34;, &#34;PingFang SC&#34;, &#34;Hiragino Sans GB&#34;, &#34;Heiti SC&#34;, &#34;Microsoft YaHei&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Heiti SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="互联网">互联网</h2>
 <h3 id="腾讯">腾讯</h3>
-<h4 id="官网-5">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PingFangSC-Regular, &#34;helvetica neue&#34;, tahoma, &#34;PingFang SC&#34;, &#34;microsoft yahei&#34;, arial, &#34;hiragino sans gb&#34;, sans-serif
-</span></span></code></pre></div><h4 id="微信">微信</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-apple-system-font, BlinkMacSystemFont, &#34;Helvetica Neue&#34;, &#34;PingFang SC&#34;, &#34;Hiragino Sans GB&#34;, &#34;Microsoft YaHei UI&#34;, &#34;Microsoft YaHei&#34;, Arial, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">PingFangSC-Regular</span><span class="p">,</span> <span class="s2">&#34;helvetica neue&#34;</span><span class="p">,</span> <span class="n">tahoma</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;microsoft yahei&#34;</span><span class="p">,</span> <span class="n">arial</span><span class="p">,</span> <span class="s2">&#34;hiragino sans gb&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 微信 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system-font</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei UI&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="知乎">知乎</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-apple-system, BlinkMacSystemFont, &#34;Helvetica Neue&#34;, &#34;PingFang SC&#34;, &#34;Microsoft YaHei&#34;, &#34;Source Han Sans SC&#34;, &#34;Noto Sans CJK SC&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Han Sans SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="网易">网易</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Arial, &#34;Hiragino Sans GB&#34;, STHeiti, &#34;Helvetica Neue&#34;, Helvetica, &#34;Microsoft Yahei&#34;, &#34;WenQuanYi Micro Hei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="n">STHeiti</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="字节跳动">字节跳动</h3>
-<h3 id="官网-6">官网</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;DM Sans&#34;, Gilroy, -apple-system, &#34;Sofia Pro&#34;, &#34;Microsoft YaHei&#34;, Helvetica, Arial, sans-serif
-</span></span></code></pre></div><h4 id="抖音">抖音</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;PingFang SC&#34;, DFPKingGothicGB-Medium, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;DM Sans&#34;</span><span class="p">,</span> <span class="n">Gilroy</span><span class="p">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="s2">&#34;Sofia Pro&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 抖音 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="n">DFPKingGothicGB-Medium</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="阿里巴巴">阿里巴巴</h3>
-<h4 id="官网-7">官网</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Roboto, &#34;Helvetica Neue&#34;, Helvetica, Tahoma, Arial, &#34;PingFang SC&#34;, &#34;Microsoft YaHei&#34;
-</span></span></code></pre></div><h4 id="新淘宝">新淘宝</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">system-ui, -apple-system, &#34;Segoe UI&#34;, Roboto, Ubuntu, Cantarell, &#34;Noto Sans&#34;, sans-serif, &#34;Apple Color Emoji&#34;, &#34;Segoe UI Emoji&#34;, &#34;Segoe UI Symbol&#34;, &#34;Noto Color Emoji&#34;, BlinkMacSystemFont, &#34;Helvetica Neue&#34;, Arial, &#34;PingFang SC&#34;, &#34;PingFang TC&#34;, &#34;PingFang HK&#34;, &#34;Microsoft Yahei&#34;, &#34;Microsoft JhengHei&#34;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">Roboto</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Tahoma</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 新淘宝 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">system-ui</span><span class="p">,</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="n">Roboto</span><span class="p">,</span> <span class="n">Ubuntu</span><span class="p">,</span> <span class="n">Cantarell</span><span class="p">,</span> <span class="s2">&#34;Noto Sans&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Color Emoji&#34;</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang TC&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang HK&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft Yahei&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft JhengHei&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="简书">简书</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-apple-system, BlinkMacSystemFont, &#34;Apple Color Emoji&#34;, &#34;Segoe UI Emoji&#34;, &#34;Segoe UI Symbol&#34;, &#34;Segoe UI&#34;, &#34;PingFang SC&#34;, &#34;Hiragino Sans GB&#34;, &#34;Microsoft YaHei&#34;, &#34;Helvetica Neue&#34;, Helvetica, Arial, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="哔哩哔哩">哔哩哔哩</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;PingFang SC&#34;, HarmonyOS_Regular, &#34;Helvetica Neue&#34;, &#34;Microsoft YaHei&#34;, sans-serif
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="n">HarmonyOS_Regular</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="github">GitHub</h3>
-<h4 id="正文">正文</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-apple-system, BlinkMacSystemFont, &#34;Segoe UI&#34;, &#34;Noto Sans&#34;, Helvetica, Arial, sans-serif, &#34;Apple Color Emoji&#34;, &#34;Segoe UI Emoji&#34;
-</span></span></code></pre></div><h4 id="代码">代码</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ui-monospace, SFMono-Regular, &#34;SF Mono&#34;, Menlo, Consolas, &#34;Liberation Mono&#34;, monospace
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Sans&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 代码 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>]]></content:encoded></item><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
 <p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
