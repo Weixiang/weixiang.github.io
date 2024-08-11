@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>建站 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E5%BB%BA%E7%AB%99/</link><description>Recent content in 建站 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 11 Oct 2023 18:06:25 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 11 宝塔安装 Flarum</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description><content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>建站 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E5%BB%BA%E7%AB%99/</link><description>Recent content in 建站 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 11 Oct 2023 18:06:25 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E5%BB%BA%E7%AB%99/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian 11 宝塔安装 Flarum</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/set-different-fonts-for-english-and-chinese-in-css/</guid><description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description><content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
+<ul>
+<li><strong>Apache</strong> (with mod_rewrite enabled) or <strong>Nginx</strong></li>
+<li><strong>PHP 8.0+</strong> with the following extensions: curl, dom, fileinfo, gd, json, mbstring, openssl, pdo_mysql, tokenizer, zip</li>
+<li><strong>MySQL 8.0.23+</strong> or <strong>MariaDB 10.0.5+</strong></li>
+<li><strong>SSH (command-line) access</strong> to run Composer</li>
+</ul>
+<h2 id="安装宝塔面板">安装宝塔面板</h2>
+<p>安装完成后，选择一键安装 LNMP 环境。</p>
+<h2 id="配置-php-环境">配置 PHP 环境</h2>
+<p>在软件商店，配置 PHP。</p>
+<ol>
+<li>在【安装扩展】中，安装 <code>fileinfo</code>、<code>opcache</code>、<code>exif</code>、<code>bz2</code>、<code>pdo_pgsql</code></li>
+<li>在【禁用函数】中，删除 <code>putenv</code>、 <code>pcntl_signal</code>以及 <code>proc_open</code></li>
+<li>设置 PHP 配置如下</li>
+</ol>
+<p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
+<p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
+<h2 id="安装-composer">安装 Composer</h2>
+<p>更新软件包并安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install curl php-cli php-mbstring git unzip
+</span></span></code></pre></div><p>下载安装 Composer</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> ~
+</span></span><span class="line"><span class="cl">curl -sS https://getcomposer.org/installer -o composer-setup.php
+</span></span><span class="line"><span class="cl"><span class="nv">HASH</span><span class="o">=</span><span class="sb">`</span>curl -sS https://composer.github.io/installer.sig<span class="sb">`</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$HASH</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">php -r <span class="s2">&#34;if (hash_file(&#39;SHA384&#39;, &#39;composer-setup.php&#39;) === &#39;</span><span class="nv">$HASH</span><span class="s2">&#39;) { echo &#39;Installer verified&#39;; } else { echo &#39;Installer corrupt&#39;; unlink(&#39;composer-setup.php&#39;); } echo PHP_EOL;&#34;</span>
+</span></span><span class="line"><span class="cl">sudo php composer-setup.php --install-dir<span class="o">=</span>/usr/local/bin --filename<span class="o">=</span>composer
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">composer
+</span></span></code></pre></div><p>删除安装脚本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php -r <span class="s2">&#34;unlink(&#39;composer-setup.php&#39;);&#34;</span>
+</span></span></code></pre></div><h2 id="安装-flarum">安装 Flarum</h2>
+<p>前往宝塔面板 – 【网站】 – 【添加站点】，同时创建用于 Flarum 的数据库。最后提交。</p>
+<p>务必注意！数据库字符集一定要是 utf8mb4，至于为什么是 utf8mb4，参考：<a href="https://www.jianshu.com/p/6967ce16a202">https://www.jianshu.com/p/6967ce16a202</a></p>
+<p>配置 SSL 证书，请注意开启“强制 HTTPS”！</p>
+<p>删除文章目录下的<strong>所有</strong>文件。</p>
+<h3 id="下载-flarum">下载 Flarum</h3>
+<p>定位到网站目录，执行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer create-project flarum/flarum .
+</span></span></code></pre></div><h2 id="配置运行">配置运行</h2>
+<h3 id="修改-nginx-配置">修改 Nginx 配置</h3>
+<p>进入宝塔面板，打开站点设置，修改网站配置文件：</p>
+<p><strong>root</strong>：需要在路径后面加上 <code>public</code>，比如原本是 <code>root /www/wwwroot/example.com;</code>，需要修改为<code>root /www/wwwroot/example.com/public;</code>。</p>
+<p>引入 Flarum 提供的伪静态配置，在 <code>server name</code> 下方加上 <code>include /www/wwwroot/example.com/.nginx.conf;</code>，网站目录不要忘记更换成自己的。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11</a></p>
+<p><a href="https://discuss.flarum.org.cn/d/2195/2">https://discuss.flarum.org.cn/d/2195</a></p>
+<p><a href="https://docs.flarum.org/install/">https://docs.flarum.org/install/</a></p>
+]]></content:encoded></item><item><title>Debian 11 宝塔安装 Flarum</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description><content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
 <ul>
 <li><strong>Apache</strong> (with mod_rewrite enabled) or <strong>Nginx</strong></li>
 <li><strong>PHP 8.0+</strong> with the following extensions: curl, dom, fileinfo, gd, json, mbstring, openssl, pdo_mysql, tokenizer, zip</li>

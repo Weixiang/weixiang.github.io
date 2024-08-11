@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 01 Aug 2024 16:55:37 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 01 Aug 2024 16:55:37 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
 <p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp" alt="定制设置"  />
@@ -49,6 +49,104 @@
 <li><a href="https://mt2.cn/guide/reverse/signature.html">APK 签名 | MT 管理器</a></li>
 <li><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></li>
 </ul>
+]]></content:encoded></item><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
+<p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
+<p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp" alt="定制设置"  />
+</p>
+<p>幸好我们有 root 权限，在盒子上装个 MT 管理器就能直接替换系统应用。于是我想去网上找个原生设置放进去，结果有的不能用，有的替换完干脆直接进不去系统了，又得重刷&hellip;  后来寻思我明明会逆向，为啥不自己动手，丰衣足食呢？</p>
+<h2 id="提取原生设置-apk">提取原生设置 APK</h2>
+<p>使用 MT 管理器提取 APK，查看 APK 内容。</p>
+<p>注意到我们的雷电模拟器里就有个原生设置，系统恰好也是安卓 9，提取并检查这个设置的 APK 文件，发现里面没有 lib 库，因此推断 APK 是全平台通用的，只要能装上：</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp" alt="提取原生设置 APK"  />
+</p>
+<h2 id="替换证书">替换证书</h2>
+<p>这个设置和电视盒子里已有的设置包名冲突了，只能先进行替换，替换后重启，发现设置图标消失，原生设置和定制设置都没了，于是对比两个设置的签名描述，如下：</p>
+<p>雷电模拟器设置：
+<code>EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US</code></p>
+<p>电视盒子设置：
+<code>EMAILADDRESS=sumavision@sumavision.com, CN=Sumavision, OU=Sumavision, O=Sumavision, L=Shenzhen, ST=Guangdong, C=CN</code></p>
+<p>可见电视盒子的系统级签名与模拟器的系统级签名不同，在 Android 中这些申请了特殊权限的应用需要系统级签名才能正常安装运行，其中一个特殊权限如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;permission-group</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:label=</span><span class="s">&#34;@string/superuser&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:icon=</span><span class="s">&#34;@drawable/ic_action_permission&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:name=</span><span class="s">&#34;android.permission-group.SUPERUSER&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:priority=</span><span class="s">&#34;10000&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="na">android:description=</span><span class="s">&#34;@string/superuser_description_more&#34;</span> <span class="nt">/&gt;</span>
+</span></span></code></pre></div><p>幸好，安卓对 <code>/system/app</code> 下的应用只判断签名是否存在，不判断是否有效，我们可以来一出借尸还魂。</p>
+<p>首先将定制设置备份，然后在 MT 管理器两侧同时打开原生设置和定制设置，接下来将定制设置中除 <code>META-INF</code> 外的文件全部删除，然后将原生设置中除 <code>META-INF</code> 外的文件全部添加到定制设置中，全程不要进行签名（同时建议保留 v2 签名数据），这样我们就得到了披着系统级签名的原生设置：</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp" alt="替换后证书"  />
+</p>
+<h2 id="移动到系统-app-目录">移动到系统 App 目录</h2>
+<p>现在我们把这个设置再移到系统 App 目录下，例如 <code>/system/app/Setting</code>，并且设置权限为 644，所有者为 root，所有组也为 root。</p>
+<p>重启发现原生设置出现了，功能基本正常，也可以查看应用信息并清缓存了：</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp" alt="原生设置"  />
+</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp" alt="原生设置"  />
+</p>
+<h2 id="定制设置共存">定制设置共存</h2>
+<p>接下来要解决两个设置共存的问题，原生设置虽好，但调整屏幕分辨率比较困难，因此定制设置还是需要保留的，我们直接用 MT 的 apk 共存功能，修改定制设置的包名（因为原生设置会被第三方调用），同样不签名，然后一并放到系统 App 目录下，这里是 <code>/system/app/Setting2</code>，同样设置权限为 644，所有者和组为 root。</p>
+<p>重启电视盒子，发现两个设置都出现了，目前使用起来一切正常。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp" alt="原生设置与定制设置共存"  />
+</p>
+<p>留一个思考题：目前发现无法在原生设置中通过多次点击版本号启用开发者模式，屏幕无任何提示，问如何解决？</p>
+<h2 id="还有一件事">还有一件事</h2>
+<p>该固件的默认字体被魔改了，是一种综艺体，看着挺非主流的，顺手给它改回 Noto + 思源字体了。</p>
+<p>装上了 Magisk，直接刷入字体包即可。</p>
+<p><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></p>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li><a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></li>
+<li><a href="https://mt2.cn/guide/reverse/signature.html">APK 签名 | MT 管理器</a></li>
+<li><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></li>
+</ul>
+]]></content:encoded></item><item><title>移动魔百盒 CM201-1-YS 刷入 Android 9</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link><pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid><description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description><content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="效果图"  />
+</p>
+<h2 id="基本信息">基本信息</h2>
+<ul>
+<li>SOC：  <code>S095l3b</code></li>
+<li>Model：  <code>CM201-1-YS</code></li>
+<li>无线网卡： <code>RTL8822CS</code></li>
+</ul>
+<h3 id="背部标签">背部标签</h3>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp" alt="背部标签"  />
+</p>
+<h3 id="主板正面">主板正面</h3>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp" alt="主板正面"  />
+</p>
+<h3 id="主板背面">主板背面</h3>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp" alt="主板背面"  />
+</p>
+<h3 id="刷机测试点">刷机测试点</h3>
+<p>短接标号为 4R12 的黑色电阻可进入刷机模式，用于救砖。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp" alt="刷机测试点"  />
+</p>
+<h2 id="准备">准备</h2>
+<h3 id="下载固件">下载固件</h3>
+<p>固件名称：<code>android_tv_cm201-1-ys_s905l3b.tar.xz</code></p>
+<p>解压后得到： <code>S905L3-L3B完美ipv6线刷-实测4K不卡顿发热低-2024_cm201-1-ys_s905l3b可用.img</code></p>
+<p><a href="https://github.com/ophub/kernel/releases/tag/tools">https://github.com/ophub/kernel/releases/tag/tools</a></p>
+<p><a href="https://pan.baidu.com/s/15M9ZdZURTGdN5V17peoaqQ?pwd=6666">https://pan.baidu.com/s/15M9ZdZURTGdN5V17peoaqQ?pwd=6666</a></p>
+<p>该固件第一次启动需要连接到网络。</p>
+<h3 id="下载工具">下载工具</h3>
+<p>Amlogic USB Burning Tool 晶晨烧写工具：</p>
+<p><a href="https://androidmtk.com/download-amlogic-usb-burning-tool">https://androidmtk.com/download-amlogic-usb-burning-tool</a></p>
+<h2 id="刷机">刷机</h2>
+<p>使用双 USB-A 线，连接机顶盒的 USB1 到电脑。</p>
+<p>1、打开 USB_Burning_Tool 线刷工具，加载固件，导入成功后，默认烧录配置勾选，不用动，然后点击开始。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp" alt="USB_Burning_Tool"  />
+</p>
+<p>2、根据不同机器，比如 YS 代工按住 AV 口里面的复位键，CH 或者 ZG 代工短接闪存背面的 4R12 电阻两端，等等。也可通过刷机神器免拆。然后，双头 USB 线插上电脑和盒子靠近网口一端的 USB 接口，此时刷机工具自动连接识别，并开始走进度条刷机，等待刷机结束即可！（不能自动识别的可先通电，再插盒子端的 USB 接口）。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp" alt="开始刷机"  />
+</p>
+<p>3、刷机完成后，刷机工具点“停止”，拔掉双头 USB 线，重新开机，即可正常进入刷机后的系统。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="完成效果"  />
+</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209">https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209</a></p>
+<p><a href="https://www.mydigit.cn/thread-195255-1-1.html">https://www.mydigit.cn/thread-195255-1-1.html</a></p>
+<p><a href="https://www.right.com.cn/forum/thread-8292204-1-1.html">https://www.right.com.cn/forum/thread-8292204-1-1.html</a></p>
 ]]></content:encoded></item><item><title>移动魔百盒 CM201-1-YS 刷入 Android 9</title><link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link><pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate><guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid><description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description><content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="效果图"  />
 </p>
@@ -96,6 +194,437 @@
 <p><a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209">https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209</a></p>
 <p><a href="https://www.mydigit.cn/thread-195255-1-1.html">https://www.mydigit.cn/thread-195255-1-1.html</a></p>
 <p><a href="https://www.right.com.cn/forum/thread-8292204-1-1.html">https://www.right.com.cn/forum/thread-8292204-1-1.html</a></p>
+]]></content:encoded></item><item><title>广东广电机顶盒 APK 安装限制探究</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link><pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid><description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description><content:encoded><![CDATA[<h2 id="省流">省流</h2>
+<p>没成。</p>
+<h2 id="引言">引言</h2>
+<p>垃圾广电，宽带是租的，用户侧 BGP，出口随机，2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装。</p>
+<h2 id="现象">现象</h2>
+<p>无论使用 U 盘、ADB、Shell 命令，安装第三方 APK，均报错 <code>INCONSISTENT_CERTIFICATES</code>，即证书错误，可知是通过证书限制的方法禁止第三方 App。</p>
+<p>机顶盒型号为 <code>GDT-JL1100</code>，查询得知其芯片为<code>晨星MSO9385</code>，标识型号为<code>MStar Android TV</code>。</p>
+<p>MSTAR 晨星 公司介绍：
+MStar 晨星半导体成立于 2002.05，总部位于福建旁边新竹科技园，核心技术团队来自美国 TI 公司；
+员工（全球）超过 2000 名，其中芯片研发人员约 1200 人，25% 员工具有硕士以上学历；
+全球共设有 17 个分支机构，在新竹、台北、美国、俄罗斯、法国、英国、中国大路均有
+芯片设计团队，另外还有韩国、土耳其、日本、新加坡等办事处。</p>
+<p>目前晨星 MSO9385 方案有：
+CM311-3/3s；烽火 HG680-MC/MY；海信 IP202H/IP203H；Z86-ZN 兆能；M411M／M401M-YS&hellip;等</p>
+<p>广电机顶盒型号多样，通过对比手上的另一型号 GDT-JL1000，虽芯片方案不一样，但其系统结构基本一致，均为安卓 4.4.2 的定制系统。</p>
+<h2 id="分析">分析</h2>
+<p>出于国情，国内市面上正式发售的盒子，都没有内置谷歌套件和市场，所以不会用谷歌框架实现对安装文件的合法性验证。<br>
+安卓应用的安装最终落实到对.apk 安装包的操作，其基本流程如下：<br>
+PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageManagerService</p>
+<p>当前国内研发人员实现限制安装的常见方法如下：</p>
+<h3 id="1数字签名白名单">1、数字签名白名单</h3>
+<p>这种方法多见于安卓手机或车机等设备，盒子较少使用，<br>
+白名单数字证书一般位于<code>/system/etc/security/</code>；</p>
+<h3 id="2修改版-packageinstaller">2、修改版 PackageInstaller</h3>
+<p>如果一个盒子可以在终端中用<code>pm install</code>  命令安装.apk，而在盒子的文件管理器中点击.apk 却安装失败，则多半可能是 PackageInstaller 这个安卓应用层面的安装器被“加强”了；</p>
+<h3 id="3内置文件管理器过滤">3、内置文件管理器过滤</h3>
+<p>原厂固件内置的文件管理器已将 <code>.apk</code> 文件列入过滤列表，不会响应用户的操作；**</p>
+<h3 id="4修改版系统框架">4、修改版系统框架</h3>
+<p>pms、ams 这些安卓系统服务都位于 framework 中，把安卓源代码改得面目全非是每个资深研发人员的“最高”追求，<br>
+这也是最常用的限制实现途径。</p>
+<p>结合现象分析，广电机顶盒应该是通过修改系统框架，实现了对数字签名的验证。</p>
+<p>理论分析完毕，开始实操。</p>
+<h2 id="备份">备份</h2>
+<p>在任何操作之前，需要先备份好原系统，以免变砖后无法复原。</p>
+<p>通过 ADB 连接到机顶盒，进入机顶盒设置，输入广电客服电话“96956”，即可打开 ADB 调试。</p>
+<p>连接到机顶盒</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-batch" data-lang="batch"><span class="line"><span class="cl">adb connect 192.168.1.20
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">adb ls /system/app  查看app文件夹  
+</span></span><span class="line"><span class="cl">adb ls /dev/block/platform/mstar_mci.0/by-name/  查看各分区  
+</span></span><span class="line"><span class="cl">adb shell df            查看整个分区
+</span></span></code></pre></div><p>编写了一个备份脚本，可以将系统打包备份到 U 盘中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-batch" data-lang="batch"><span class="line"><span class="cl"><span class="p">@</span><span class="k">echo</span> off
+</span></span><span class="line"><span class="cl"><span class="k">color</span> 0a
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span>. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">rem 清理旧备份</span>
+</span></span><span class="line"><span class="cl"><span class="k">rd</span> /s /q backup <span class="p">&gt;</span> nul <span class="mi">2</span><span class="p">&gt;&amp;</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">adb ls dev/block/platform/mstar_mci.0/by-name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;rm -rf /mnt/sdcard/backup&#34;</span>
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;mkdir /mnt/sdcard/backup&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> MBOOT
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> MPOOL
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> boot
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> customer
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> dtb
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> dtbo
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> misc
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> factoryinfo
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> product
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> recovery
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> param
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> tvcertificate
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> tvconfig
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> tvservice
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">backup_partition</span> vbmeta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">rem 提示用户备份 vendor 分区可能需要一些时间</span>
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span> 正在备份晨星 vendor 分区，可能需要较长时间...... 
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;dd if=/dev/block/platform/mstar_mci.0/by-name/vendor of=/mnt/sdcard/backup/vendor.img&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">rem 提示用户备份 system 分区可能需要一些时间</span>
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span> 正在备份晨星 system 分区，可能需要较长时间...... 
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;dd if=/dev/block/platform/mstar_mci.0/by-name/system of=/mnt/sdcard/backup/system.img&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">call</span> <span class="p">:</span><span class="nl">upload_and_cleanup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span> 备份完成，固件存放位置为工具根目录 backup 文件！！！
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">pause</span> <span class="p">&gt;</span> NUL
+</span></span><span class="line"><span class="cl"><span class="k">goto</span> <span class="p">:</span><span class="nl">eof</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nl">backup_partition</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">PARTITION_NAME</span><span class="p">=</span><span class="nv">%1</span>
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span> 正在备份晨星 <span class="nv">%PARTITION_NAME%</span> 分区...... 
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;dd if=/dev/block/platform/mstar_mci.0/by-name/</span><span class="nv">%PARTITION_NAME%</span><span class="s2"> of=/mnt/sdcard/backup/</span><span class="nv">%PARTITION_NAME%</span><span class="s2">.img&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">goto</span> <span class="p">:</span><span class="nl">eof</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nl">upload_and_cleanup</span>
+</span></span><span class="line"><span class="cl"><span class="k">ECHO</span> 正在上传备份的固件，可能需要较长时间......
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="c1">REM adb pull -p /mnt/sdcard/backup backup</span>
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="c1">REM adb shell &#34;rm -rf /mnt/sdcard/backup&#34;</span>
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;cp -r /mnt/sdcard/backup /mnt/usb/sda1&#34;</span>
+</span></span><span class="line"><span class="cl">adb shell <span class="s2">&#34;rm -rf /mnt/sdcard/backup&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">goto</span> <span class="p">:</span><span class="nl">eof</span>
+</span></span></code></pre></div><h2 id="逆向">逆向</h2>
+<p>将 <code>/system/framework/services.jar</code> 拉下来，在电脑上使用 jadx 打开。
+在左侧结构树中，找到 pm 包，进而找到 PackageManagerService 类。</p>
+<p>通过搜索错误代码<code>-104</code>，找到 12 处代码，逐一查看，找到关键判断代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/* JADX INFO: Access modifiers changed from: private */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">installPackageLI</span><span class="p">(</span><span class="n">InstallArgs</span><span class="w"> </span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">newInstall</span><span class="p">,</span><span class="w"> </span><span class="n">PackageInstalledInfo</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Signature</span><span class="w"> </span><span class="n">testProjectSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">flags</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">installerPackageName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">installerPackageName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">File</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">getCodePath</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">forwardLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">onSd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">8</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">scanMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">onSd</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">newInstall</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">16</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">parseFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mDefParseFlags</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">forwardLocked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">16</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">onSd</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">32</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PackageParser</span><span class="w"> </span><span class="n">pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PackageParser</span><span class="p">(</span><span class="n">tmpPackageFile</span><span class="p">.</span><span class="na">getPath</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">pp</span><span class="p">.</span><span class="na">setSeparateProcesses</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mSeparateProcesses</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PackageParser</span><span class="p">.</span><span class="na">Package</span><span class="w"> </span><span class="n">pkg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">parsePackage</span><span class="p">(</span><span class="n">tmpPackageFile</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mMetrics</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">getParseError</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">pkgName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">packageName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkgName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pkg</span><span class="p">.</span><span class="na">applicationInfo</span><span class="p">.</span><span class="na">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">256</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">15</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pp</span><span class="p">.</span><span class="na">collectCertificates</span><span class="p">(</span><span class="n">pkg</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">getParseError</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">manifestDigest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">args</span><span class="p">.</span><span class="na">manifestDigest</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">manifestDigest</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">23</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;android.uid.system&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongSystemAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongThirdAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">boolean</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Signature</span><span class="o">[]</span><span class="w"> </span><span class="n">arr$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">len$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i$</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len$</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Signature</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="o">[</span><span class="n">i$</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">testProjectSignature</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">i$</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no project certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h3 id="解析代码">解析代码</h3>
+<p>将这段代码喂给 AI，得到：</p>
+<p>这段代码的主要功能是安装一个应用程序包（APK）。代码的流程包括解析包、验证签名、处理现有应用包以及完成安装。下面是详细的逻辑解析：</p>
+<ol>
+<li>
+<p><strong>方法声明和参数</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* JADX INFO: Access modifiers changed from: private */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">installPackageLI</span><span class="p">(</span><span class="n">InstallArgs</span><span class="w"> </span><span class="n">args</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">newInstall</span><span class="p">,</span><span class="w"> </span><span class="n">PackageInstalledInfo</span><span class="w"> </span><span class="n">res</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>InstallArgs args</code>: 包含安装所需的各种参数，如代码路径、标志、安装程序包名等。</li>
+<li><code>boolean newInstall</code>: 标记是否是新的安装。</li>
+<li><code>PackageInstalledInfo res</code>: 存储安装结果的信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>初始化变量</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Signature</span><span class="w"> </span><span class="n">testProjectSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">pFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">flags</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">installerPackageName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">installerPackageName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">File</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">getCodePath</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">forwardLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">onSd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">8</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">scanMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">onSd</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">4</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">newInstall</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">16</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">parseFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mDefParseFlags</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">forwardLocked</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">16</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">onSd</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">32</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">0</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>设定了一些变量，包括文件路径、标志位等。</li>
+</ul>
+</li>
+<li>
+<p><strong>解析包</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">PackageParser</span><span class="w"> </span><span class="n">pp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PackageParser</span><span class="p">(</span><span class="n">tmpPackageFile</span><span class="p">.</span><span class="na">getPath</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pp</span><span class="p">.</span><span class="na">setSeparateProcesses</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mSeparateProcesses</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">PackageParser</span><span class="p">.</span><span class="na">Package</span><span class="w"> </span><span class="n">pkg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">parsePackage</span><span class="p">(</span><span class="n">tmpPackageFile</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mMetrics</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">getParseError</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>使用 <code>PackageParser</code> 解析 APK 文件。如果解析失败，返回错误代码并退出。</li>
+</ul>
+</li>
+<li>
+<p><strong>检查应用包</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">pkgName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">packageName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">res</span><span class="p">.</span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkgName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pkg</span><span class="p">.</span><span class="na">applicationInfo</span><span class="p">.</span><span class="na">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">256</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">15</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pp</span><span class="p">.</span><span class="na">collectCertificates</span><span class="p">(</span><span class="n">pkg</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pp</span><span class="p">.</span><span class="na">getParseError</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="na">manifestDigest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">args</span><span class="p">.</span><span class="na">manifestDigest</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">manifestDigest</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">23</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>检查应用的标志、证书和 manifest 摘要。如果任何检查失败，设置错误代码并退出。</li>
+</ul>
+</li>
+<li>
+<p><strong>签名验证</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;android.uid.system&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongSystemAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongThirdAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Signature</span><span class="o">[]</span><span class="w"> </span><span class="n">arr$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">len$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">i$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i$</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len$</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Signature</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="o">[</span><span class="n">i$</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">testProjectSignature</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">i$</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no project certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>根据应用的共享用户 ID 选择正确的签名。检查应用包的签名是否与预期的签名匹配。如果没有找到匹配的签名，则设置错误代码并退出。</li>
+</ul>
+</li>
+<li>
+<p><strong>处理现有应用包</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">oldCodePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">boolean</span><span class="w"> </span><span class="n">systemApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mPackages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">pFlags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">2</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">oldName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mSettings</span><span class="p">.</span><span class="na">mRenamedPackages</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">pkgName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mOriginalPackages</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mOriginalPackages</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">oldName</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mPackages</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">oldName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pkg</span><span class="p">.</span><span class="na">setPackageName</span><span class="p">(</span><span class="n">oldName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">pkgName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">packageName</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mPackages</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="n">pkgName</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PackageSetting</span><span class="w"> </span><span class="n">ps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mSettings</span><span class="p">.</span><span class="na">mPackages</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">pkgName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ps</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">oldCodePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mSettings</span><span class="p">.</span><span class="na">mPackages</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">pkgName</span><span class="p">).</span><span class="na">codePathString</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ps</span><span class="p">.</span><span class="na">pkg</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">pkg</span><span class="p">.</span><span class="na">applicationInfo</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">systemApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ps</span><span class="p">.</span><span class="na">pkg</span><span class="p">.</span><span class="na">applicationInfo</span><span class="p">.</span><span class="na">flags</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">origUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps</span><span class="p">.</span><span class="na">queryInstalledUsers</span><span class="p">(</span><span class="n">sUserManager</span><span class="p">.</span><span class="na">getUserIds</span><span class="p">(),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>检查包是否已存在。如果是系统应用且安装在 SD 卡上，设置错误代码并退出。如果是新安装，则处理包的路径和用户信息。</li>
+</ul>
+</li>
+<li>
+<p><strong>执行安装</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">systemApp</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">onSd</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Slog</span><span class="p">.</span><span class="na">w</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;Cannot install updates to system apps on sdcard&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">19</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">args</span><span class="p">.</span><span class="na">doRename</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="p">,</span><span class="w"> </span><span class="n">pkgName</span><span class="p">,</span><span class="w"> </span><span class="n">oldCodePath</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">4</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">setApplicationInfoPaths</span><span class="p">(</span><span class="n">pkg</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">getCodePath</span><span class="p">(),</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">getResourcePath</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pkg</span><span class="p">.</span><span class="na">applicationInfo</span><span class="p">.</span><span class="na">nativeLibraryDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">getNativeLibraryPath</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">replace</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">replacePackageLI</span><span class="p">(</span><span class="n">pkg</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">,</span><span class="w"> </span><span class="n">scanMode</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">user</span><span class="p">,</span><span class="w"> </span><span class="n">installerPackageName</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">installNewPackageLI</span><span class="p">(</span><span class="n">pkg</span><span class="p">,</span><span class="w"> </span><span class="n">parseFlags</span><span class="p">,</span><span class="w"> </span><span class="n">scanMode</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="na">user</span><span class="p">,</span><span class="w"> </span><span class="n">installerPackageName</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">synchronized</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mPackages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PackageSetting</span><span class="w"> </span><span class="n">ps2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mSettings</span><span class="p">.</span><span class="na">mPackages</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">pkgName</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ps2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">res</span><span class="p">.</span><span class="na">newUsers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ps2</span><span class="p">.</span><span class="na">queryInstalledUsers</span><span class="p">(</span><span class="n">sUserManager</span><span class="p">.</span><span class="na">getUserIds</span><span class="p">(),</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>如果所有检查都通过，执行实际的包安装（替换或新安装）。设置应用的路径信息，并更新用户信息。</li>
+</ul>
+</li>
+</ol>
+<h3 id="证书验证逻辑">证书验证逻辑</h3>
+<p>继续询问 AI 关键的签名验证部分，得到：</p>
+<p>签名验证部分是确保安装的应用程序包（APK）具有预期的签名，以防止安装恶意或未经授权的应用。下面是签名验证部分的详细讲解：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSharedUserId</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&#34;android.uid.system&#34;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongSystemAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sGuangdongThirdAppSignature</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>根据应用包的共享用户 ID (<code>pkg.mSharedUserId</code>) 来确定使用哪个测试项目签名。
+<ul>
+<li>如果共享用户 ID 是 <code>android.uid.system</code>，则使用 <code>sGuangdongSystemAppSignature</code>。</li>
+<li>否则，使用 <code>sGuangdongThirdAppSignature</code>。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">testProjectSignature</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>如果没有找到合适的 <code>testProjectSignature</code>，则设置返回码为 <code>-104</code> 并退出方法。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>如果解析出来的包没有签名（<code>pkg.mSignatures</code> 为空），则设置返回码为 <code>-104</code>，记录日志并退出方法。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">boolean</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Signature</span><span class="o">[]</span><span class="w"> </span><span class="n">arr$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pkg</span><span class="p">.</span><span class="na">mSignatures</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">len$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">int</span><span class="w"> </span><span class="n">i$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i$</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len$</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Signature</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr$</span><span class="o">[</span><span class="n">i$</span><span class="o">]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">testProjectSignature</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">i$</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>遍历 <code>pkg.mSignatures</code> 中的签名，检查是否有一个签名与 <code>testProjectSignature</code> 匹配。
+<ul>
+<li>如果找到匹配的签名，则将 <code>found</code> 设置为 <code>true</code> 并跳出循环。</li>
+<li>如果没有找到匹配的签名，则继续循环直到检查完所有签名。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">found</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">res</span><span class="p">.</span><span class="na">returnCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">104</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Slog</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;installPackageLI package=&#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmpPackageFile</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; no project certificates&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>如果没有找到匹配的签名（<code>found</code> 仍为 <code>false</code>），则设置返回码为 <code>-104</code>，记录日志并退出方法。</li>
+</ul>
+<h2 id="修改">修改</h2>
+<p>有一个简单粗暴的方法，使得 <code>boolean found</code>始终<code>= true</code>即可。</p>
+<p>理论上将修改后的<code>services.jar</code>打包放回系统即可，但若失败需要拆机使用 TLL 编程器进行救砖，我手上的机顶盒还在保修期中，就不进行尝试了。</p>
+<p>救砖方法：<a href="https://www.right.com.cn/forum/thread-8302557-1-1.html">https://www.right.com.cn/forum/thread-8302557-1-1.html</a></p>
+<h2 id="有趣的事情">有趣的事情</h2>
+<p>解包内置的<code>机顶盒设置</code>，位于 <code>system/app/SUMA_GCABLE_SystemSetting_sys_signed.apk</code>，可以找到 ADB 的后门代码。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">mAdbBackDoorKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">16</span><span class="p">,</span><span class="w"> </span><span class="n">13</span><span class="p">,</span><span class="w"> </span><span class="n">16</span><span class="p">,</span><span class="w"> </span><span class="n">12</span><span class="p">,</span><span class="w"> </span><span class="n">13</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">mVersionBackDoorKeys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">19</span><span class="p">,</span><span class="w"> </span><span class="n">19</span><span class="p">,</span><span class="w"> </span><span class="n">20</span><span class="p">,</span><span class="w"> </span><span class="n">20</span><span class="p">,</span><span class="w"> </span><span class="n">21</span><span class="p">,</span><span class="w"> </span><span class="n">22</span><span class="p">,</span><span class="w"> </span><span class="n">21</span><span class="p">,</span><span class="w"> </span><span class="n">22</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w"> </span><span class="c1">// android.app.Activity, android.view.KeyEvent.Callback</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">onKeyDown</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">KeyEvent</span><span class="w"> </span><span class="n">keyEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;keyCode: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">iArr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mAdbBackDoorKeys</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">iArr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">iArr</span><span class="o">[</span><span class="n">i2</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;mCurrentAdbBackDoorIndex: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">mAdbBackDoorKeys</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Log</span><span class="p">.</span><span class="na">i</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span><span class="w"> </span><span class="s">&#34; SystemProperties.set(\&#34;ctl.start\&#34;,\&#34;adbd\&#34;);&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Reflects</span><span class="p">.</span><span class="na">SystemProperties</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;ctl.start&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;adbd&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Reflects</span><span class="p">.</span><span class="na">SystemProperties</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="s">&#34;ctl.start&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;console&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">Toast</span><span class="p">.</span><span class="na">makeText</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;adb 已经打开&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">0</span><span class="p">).</span><span class="na">show</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">mCurrentAdbBackDoorIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">onKeyDown</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">keyEvent</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://www.bilibili.com/video/BV1bm421E76a">https://www.bilibili.com/video/BV1bm421E76a</a></p>
+<p><a href="https://www.znds.com/tv-1210588-1-1.html">https://www.znds.com/tv-1210588-1-1.html</a></p>
+<p><a href="https://www.52pojie.cn/thread-1136160-1-1.html">https://www.52pojie.cn/thread-1136160-1-1.html</a></p>
+<p><a href="https://www.52pojie.cn/thread-710679-1-1.html">https://www.52pojie.cn/thread-710679-1-1.html</a></p>
 ]]></content:encoded></item><item><title>广东广电机顶盒 APK 安装限制探究</title><link>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link><pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate><guid>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid><description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description><content:encoded><![CDATA[<h2 id="省流">省流</h2>
 <p>没成。</p>
 <h2 id="引言">引言</h2>
@@ -527,6 +1056,44 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://www.znds.com/tv-1210588-1-1.html">https://www.znds.com/tv-1210588-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-1136160-1-1.html">https://www.52pojie.cn/thread-1136160-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-710679-1-1.html">https://www.52pojie.cn/thread-710679-1-1.html</a></p>
+]]></content:encoded></item><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
+<ol>
+<li>进入设置页面，遥控器输入<code>96956</code></li>
+<li>查看 IP，并使用 <code>adb connect 192.168.1.x</code>连接到机顶盒</li>
+</ol>
+<h2 id="常见应用安装目录">常见应用安装目录</h2>
+<p><code>system/app</code> 系统自带的应用程序，无法删除。root 后可以删除</p>
+<p><code>system/priv-app</code> 比 system/app 中的应用权限更加高，如 Launcher，系统设置等</p>
+<p><code>vendor/app</code> 设备厂商提供的 app</p>
+<p><code>system_ext/app</code> 真实路径在 system/system_ext/app</p>
+<p><code>data/app</code> 用户自己安装的 app</p>
+<p><code>data/data/packageName</code>用于存储应用数据</p>
+<p><code>data/dalvik-cache</code>将 apk 中的 dex 文件放在这个目录中</p>
+<h2 id="安装为系统-app">安装为系统 APP</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb shell mount -o remount /system <span class="c1">#添加读写权限</span>
+</span></span><span class="line"><span class="cl">adb push C:<span class="se">\U</span>sers<span class="se">\j</span>acob<span class="se">\D</span>esktop<span class="se">\B</span>iliTV.apk system/app <span class="c1">#推送APK到系统目录</span>
+</span></span></code></pre></div><h2 id="常用设备命令">常用设备命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb disconnect <span class="c1">#断开连接</span>
+</span></span><span class="line"><span class="cl">adb reboot <span class="c1">#重启</span>
+</span></span><span class="line"><span class="cl">adb shell <span class="c1">#进入终端</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">adb shell pm list packages <span class="c1">#列出已安装的应用</span>
+</span></span><span class="line"><span class="cl">adb shell dumpsys activity top <span class="p">|</span> grep ACTIVITY <span class="c1">#显示当前的Activity</span>
+</span></span></code></pre></div><h2 id="常用-app-启动命令">常用 APP 启动命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">adb shell am start com.xiaodianshi.tv/.yst.ui.main.MainActivity <span class="c1">#云视听小电视</span>
+</span></span><span class="line"><span class="cl">adb shell am start com.dangbeimarket/.activity.WelcomeActivity <span class="c1">#当贝市场</span>
+</span></span><span class="line"><span class="cl">adb shell am start com.bilibili.tv/.ui.splash.SplashActivity <span class="c1">#BiliTV</span>
+</span></span><span class="line"><span class="cl">adb shell am start -n com.android.browser/com.android.browser.BrowserActivity <span class="c1">#浏览器</span>
+</span></span><span class="line"><span class="cl">adb shell am start -a android.intent.action.VIEW -d  https://www.bilibili.com/ <span class="c1">#用浏览器打开网址</span>
+</span></span><span class="line"><span class="cl">adb shell am start com.android.settings/com.android.settings.Settings <span class="c1">#打开系统设置</span>
+</span></span></code></pre></div><h2 id="研究小结">研究小结</h2>
+<ul>
+<li>该机顶盒采用华为海思方案，性能还行，不过运营商限制了第三方应用的安装，采用证书签名的限制方法。</li>
+<li>自带 root 权限，可以使用 root 将第三方应用作为系统应用安装，但大部分安装完会闪退，当贝市场用该方法安装可以正常使用。</li>
+<li>猜测可以使用芯片同型号的其他机顶盒刷机包进行卡刷或线刷破解。</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://blog.csdn.net/xianrenli38/article/details/79607077">https://blog.csdn.net/xianrenli38/article/details/79607077</a></p>
 ]]></content:encoded></item><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
 <ol>
 <li>进入设置页面，遥控器输入<code>96956</code></li>
@@ -565,6 +1132,31 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </ul>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://blog.csdn.net/xianrenli38/article/details/79607077">https://blog.csdn.net/xianrenli38/article/details/79607077</a></p>
+]]></content:encoded></item><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+<blockquote>
+<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
+</blockquote>
+<p>今天树莓派的系统不小心被我搞炸了，不知道如何修复，需要重装系统才能解决，但正巧没有电脑，于是便想能不能用手机来制作树莓派的系统镜像 SD 卡。</p>
+<p>Google 了一下还真行。</p>
+<p>由于还没有类似的中文教程，这里简单记录一下就作为「中文首发」吧。?</p>
+<h2 id="下载-app">下载 APP</h2>
+<p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」即可下载。</p>
+<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&hl=en_US&gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
+<h2 id="下载系统镜像">下载系统镜像</h2>
+<p>打开 APP，默认会为你选择一个「boot」镜像。需要更改的话，点右上角「Choose OS」即可更换，我选择了「Raspberry Pi OS (32-bit)」。</p>
+<p>点击软件下方的「Download」即可开始下载。</p>
+<p>下载过程中尽量保持 APP 在前台运行。
+非常神奇的是它下载并不需要魔法加持，而且速度还很快，甚至如果使用了魔法它还会变慢。</p>
+<h2 id="连接-sd-卡">连接 SD 卡</h2>
+<p>将需要烧录的 SD 卡连入手机。有 SD 卡槽的手机可以直接插入卡槽中，没有 SD 卡槽的手机可以使用「OTG+ 读卡器」的方案来连接 SD 卡。</p>
+<h2 id="格式化-sd-卡">格式化 SD 卡</h2>
+<p>在 APP 右上角选择「Format SD」，在系统界面中格式化 SD 卡即可。</p>
+<h2 id="开始烧写">开始烧写</h2>
+<p>回到 APP，右上角「Choose SD or USB」，接着在系统界面中授予 APP 访问 SD 卡的权限。</p>
+<p>我的树莓派没有屏幕也没有鼠标键盘，所以需要选择自动配置 SSH 和自动安装。勾选「Install opinions」中的两项即可。</p>
+<p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
+<h2 id="大功告成">大功告成</h2>
+<p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
 ]]></content:encoded></item><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
 <p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
@@ -590,6 +1182,66 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
 <p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
+]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
+<p>那么，如何在 Android 10 上安装 ViPER4Android 呢？按照以下的方法即可正常安装使用 ViPER4Android</p>
+<p>Pixel，Pixel 3 XL，Pixel 2 XL，OnePlus 6 / 6T，OnePlus 7/7 Pro 经过测试均可运行成功，理论上适用于大部分 Android 10 手机。</p>
+<p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
+<p>正式开始：1、下载安装 ViPER4Android v2.7.1.0 APK。比如说这里：<a href="https://labs.xda-developers.com/store/app/com.pittvandewitt.viperfx">查看链接</a>或者这里：<a href="http://www.coolapk.com/apk/com.pittvandewitt.viperfx">【VIPERFX&ndash;XDA 代理开发版 - 不欢迎安智网的“一个人的冬季”】</a>2、安装完毕后打开 ViPER4Android，但<strong>不要</strong>安装驱动。</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/fcca874e304497e2.webp"
+         alt="安装 ViPER4Android"/> <figcaption>
+            <p>安装 ViPER4Android</p>
+        </figcaption>
+</figure>
+
+<p>3、打开 Magisk Manager，在“下载”中搜索 Audio Modification Library，点安装，完毕后<strong>不要</strong>点重启。</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e3fcecc5ac3c88ec.webp"
+         alt="搜索 Audio Modification Library"/> <figcaption>
+            <p>搜索 Audio Modification Library</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a27fd9e66f72a82f.webp"
+         alt="安装 Audio Modification Library"/> <figcaption>
+            <p>安装 Audio Modification Library</p>
+        </figcaption>
+</figure>
+
+<p>4、回到 ViPER4Android，选择安装驱动，安装完毕后手机会自动重启。</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/3f6edb0602d83e05.webp"
+         alt="安装 ViPER4Android 驱动"/> <figcaption>
+            <p>安装 ViPER4Android 驱动</p>
+        </figcaption>
+</figure>
+
+<p>5、重启后，打开 Magisk Manager，在“模块”中将 Audio Modification Library 禁用。</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/b9859a6ccc703b9b.webp"
+         alt="禁用 Audio Modification Library"/> <figcaption>
+            <p>禁用 Audio Modification Library</p>
+        </figcaption>
+</figure>
+
+<p>6、再次打开 ViPER4Android，选择安装驱动。7、重启后，打开 ViPER4Android，看看驱动是否正常。如果正常就是安装成功了，若不正常请继续下面的步骤。8、打开 Magisk Manager，在“模块”中将 Audio Modification Library 启用，选择重启，重启后打开 ViPER4Android 看看驱动状态，理论上应该已经安装成功了。</p>
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/a252a161dacffbfc.webp"
+         alt="将 Audio Modification Library 启用"/> <figcaption>
+            <p>将 Audio Modification Library 启用</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/2d46a68df11c3b66.webp"
+         alt="安装成功"/> <figcaption>
+            <p>安装成功</p>
+        </figcaption>
+</figure>
+
+<p>似乎是要按照上面的顺序安装 ViPER4Android 和 Audio Modification Library 才能成功如果还是失败的同学可以在评论区发出来看看有没有大佬…或者…等 ViPER4Android 的开发团队适配 Android 10 …</p>
+<p><em>感谢 XDA 上的 1dopewrx05，他在 Pixel 2 XL 主题站上分享了本方法，当然还有 The Customdroid 提供的图片和整理。</em></p>
 ]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
 <p>那么，如何在 Android 10 上安装 ViPER4Android 呢？按照以下的方法即可正常安装使用 ViPER4Android</p>
 <p>Pixel，Pixel 3 XL，Pixel 2 XL，OnePlus 6 / 6T，OnePlus 7/7 Pro 经过测试均可运行成功，理论上适用于大部分 Android 10 手机。</p>

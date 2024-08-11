@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>美化 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E7%BE%8E%E5%8C%96/</link><description>Recent content in 美化 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 21 Feb 2020 10:21:00 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 美化入门笔记</title><link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link><pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate><guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid><description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description><content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>美化 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E7%BE%8E%E5%8C%96/</link><description>Recent content in 美化 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 21 Feb 2020 10:21:00 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 美化入门笔记</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/getting-started-notes-for-windows-beautification/</link><pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/getting-started-notes-for-windows-beautification/</guid><description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description><content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
+<p><img loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png" alt="Microsoft Fluent Design System"  />
+</p>
+<p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
+<blockquote>
+<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
+</blockquote>
+<blockquote>
+<p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p>
+</blockquote>
+<p>这篇文章记录了我的一些方法，留作记录，也能帮助一些同学简单复刻这些操作，能加以创新当然会更加好啦。</p>
+<p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202 年了还在用一个 14 年前的系统……（截至发文还能白嫖升级）</p>
+<h2 id="最终效果">最终效果</h2>
+<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png" alt="图标隐藏"  />
+
+<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="图片显示"  />
+
+<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKmss.md.png" alt="滑动关机"  />
+</p>
+<h2 id="快捷方式箭头">快捷方式箭头</h2>
+<p>按照惯例呢，我们先从最基础的开始，强迫症必做。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">taskkill /f /im explorer.exe
+</span></span><span class="line"><span class="cl">reg add <span class="s2">&#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&#34;</span> /v 29 /d <span class="s2">&#34;C:\Windows\system32\imageres.dll,154&#34;</span> /t reg_sz /f
+</span></span><span class="line"><span class="cl">reg add <span class="s2">&#34;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&#34;</span> /v 29 /d <span class="s2">&#34;C:\Windows\system32\imageres.dll,154&#34;</span> /t reg_sz /f
+</span></span><span class="line"><span class="cl">reg add <span class="s2">&#34;HKEY_CLASSES_ROOT\lnkfile&#34;</span> /v IsShortcut /t reg_sz /f
+</span></span><span class="line"><span class="cl">reg add <span class="s2">&#34;HEKY_CLASSES_ROOT\piffile&#34;</span> /v IsShortcut /t reg_sz /f
+</span></span><span class="line"><span class="cl"><span class="k">start</span> explorer
+</span></span></code></pre></div><p>复制上面的代码 &ndash;&gt; 新建文本文件 &ndash;&gt; 粘贴保存 &ndash;&gt; 更改文件后缀为 <code>bat</code> ，以管理员身份运行即可。</p>
+<p>像添加快捷方式箭头？</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">reg delete <span class="s2">&#34;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&#34;</span> /v 29 /f
+</span></span><span class="line"><span class="cl">taskkill /f /im explorer.exe
+</span></span><span class="line"><span class="cl">attrib -s -r -h <span class="s2">&#34;</span><span class="nv">%userprofile%</span><span class="s2">\AppData\Local\iconcache.db&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">del</span> <span class="s2">&#34;</span><span class="nv">%userprofile%</span><span class="s2">\AppData\Local\iconcache.db&#34;</span> /f /q
+</span></span><span class="line"><span class="cl"><span class="k">start</span> explorer
+</span></span><span class="line"><span class="cl"><span class="k">pause</span>
+</span></span></code></pre></div><p>用同样的方法运行这段代码即可。</p>
+<p>不会这种操作的可以自行搜索 <code>去快捷方式箭头</code> 即可找到一大堆工具。</p>
+<h2 id="任务栏透明">任务栏透明</h2>
+<p>TranslucentTB 可以完美解决，绿色开源，小巧强大。</p>
+<p>轻量级（占用几 MB 内存且几乎不占用 CPU）的实用程序，可使 Windows 任务栏在 Windows 10 上半透明/透明。</p>
+<h3 id="半机翻介绍">半机翻介绍</h3>
+<ul>
+<li>先进的<strong>颜色选择器</strong>，支持 Alpha 和实时预览，可更改任务栏的颜色。</li>
+<li><strong>任务栏状态</strong>（选择一种 - 可以在除“正常”以外的每种状态下自定义颜色）：
+<ul>
+<li><strong>Blur</strong>：将使任务栏稍微模糊。</li>
+<li><strong>Clear</strong>：透明的任务栏。</li>
+<li><strong>Normal</strong>：常规 Windows 样式。（好像 TranslucentTB 没有运行）</li>
+<li><strong>Opaque</strong>：没有透明度。</li>
+<li><strong>Fluent</strong>：仅 Windows 10 April 2018 更新及更新。将使任务栏的外观类似于 Microsoft 的 Fluent Design 准则。</li>
+</ul>
+</li>
+<li><strong>Dynamic</strong>模式（可以一起使用，并且它们各自提供您可以自定义的任务栏状态和颜色）：
+<ul>
+<li><strong>Dynamic Windows</strong>：如果当前窗口最大化，则将任务栏更改为其他外观。</li>
+<li><strong>Dynamic Start Menu</strong>：打开开始菜单时将更改任务栏外观。</li>
+<li><strong>Dynamic Cortana</strong>：打开 Cortana（或禁用 Cortana 的搜索菜单）时，将更改任务栏的外观。</li>
+<li><strong>Dynamic Timeline/Task View</strong>：打开时间轴（或旧版本的任务视图）时，将更改任务栏外观。</li>
+</ul>
+</li>
+</ul>
+<h3 id="下载地址">下载地址</h3>
+<p><a href="https://github.com/TranslucentTB/TranslucentTB">GayHub 项目地址</a></p>
+<p><a href="https://github.com/TranslucentTB/TranslucentTB/releases">GayHub 发布地址</a></p>
+<p><a href="https://www.microsoft.com/store/apps/9PF4KZ2VN4W9">微软商店（推荐）</a></p>
+<h3 id="用法">用法</h3>
+<p>下载安装完毕之后默认就会透明，在托盘图标上右键即可对效果进行设置，记得勾选 <code>Open at boot</code> ，这样就能开机启动了。</p>
+<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uJXJ1.png" alt="设置界面"  />
+</p>
+<p>对照上面的介绍，并运用初中英语知识，最多再加 Google Translate 我们就可以完成这款软件的设置，透明任务栏√GET。</p>
+<h2 id="桌面图标修改">桌面图标修改</h2>
+<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="桌面图标"  />
+</p>
+<p>如上图所示，我对所有应用的快捷方式图标都进行了修改，这一步就是考验耐心……</p>
+<h3 id="获取图标">获取图标</h3>
+<p>图标用的是 <a href="ttps://www.coolapk.com/apk/me.morirain.dev.iconpack.pure">Pure 轻雨 图标包</a>，下载 APK 文件后使用解压文件解压即可获取图标。</p>
+<p>推荐使用 <a href="https://www.voidtools.com/">Everything 搜索</a> 来找图标。</p>
+<p>复制解压后文件的目录，粘贴到搜索框，最后加 <code>空格 + 关键词</code> 就能快速搜索到图标。可以在 Everything 的 <code>搜索</code> 菜单中选择仅搜索图像，在 <code>视图</code> 菜单中选择查看 <code>中图标</code> ，可以获得较好的搜索体验</p>
+<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uNqoQ.png" alt="快速搜索图标"  />
+</p>
+<p>将需要的图标复制到一个新文件夹里，等待转换格式。</p>
+<h3 id="转换格式">转换格式</h3>
+<p>从图标包提取出来的图标一般为 PNG 格式，但 Windows 系统的快捷方式图标需要 ico 格式，所有要进行转换。</p>
+<p>使用 <a href="https://convertico.com/">CONVERTICO</a> 即可完成在线转换。</p>
+<h3 id="设置图标">设置图标</h3>
+<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3udss0.md.png" alt="更改图标"  />
+</p>
+<p>右键图标 &ndash;&gt; 更改图标 &ndash;&gt; 选择图标 &ndash;&gt; 确认保存即可</p>
+<h2 id="windows-磁贴">Windows 磁贴</h2>
+<p>这一部分我没有做，以下内容来自少数派。</p>
+<p>在 Windows 8 中，传统 Win 32 应用在开始屏幕菜单中的磁贴背景颜色和图标是可以自行定义的，但在 Windows 10 中，微软却取消了这个颇受好评的设计，使得所有 Win 32 应用的磁贴颜色都跟随主题颜色，非常单调且难以辨识。</p>
+<p>在本节，我将以微信为例，教大家通过创建磁贴配置文件的方式更改 Win 32 应用的磁贴背景颜色及图标。</p>
+<p>首先右键点击开始屏幕中的「微信」磁贴，选择「打开文件所在的位置」，然后再次右键点击出现的快捷方式，跳转到微信的实际安装目录。</p>
+<p><a href="https://sspai.com/post/41307">收好这份美化技巧合辑，让你的 Windows 从此与众不同</a></p>
+]]></content:encoded></item><item><title>Windows 美化入门笔记</title><link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link><pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate><guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid><description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description><content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
 <p><img loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png" alt="Microsoft Fluent Design System"  />
 </p>
 <p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
