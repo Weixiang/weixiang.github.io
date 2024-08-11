@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>魔法 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E9%AD%94%E6%B3%95/</link><description>Recent content in 魔法 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Mon, 13 Jul 2020 03:39:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E9%AD%94%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<h2 id="请注意由于-v2ray-项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>魔法 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E9%AD%94%E6%B3%95/</link><description>Recent content in 魔法 on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Mon, 13 Jul 2020 03:39:00 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E9%AD%94%E6%B3%95/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<blockquote>
+<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p>
+</blockquote>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
@@ -108,15 +110,15 @@
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;security&#34;</span><span class="p">:</span> <span class="s2">&#34;tls&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tlsSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;allowInsecure&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;serverName&#34;</span><span class="p">:</span> <span class="s2">&#34;outsite.xyz&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;serverName&#34;</span><span class="p">:</span> <span class="s2">&#34;v2ray.com&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tcpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;kcpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;wsSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;connectionReuse&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/os&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/v2ray&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;outsite.xyz&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;v2ray.com&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;httpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -385,8 +387,14 @@
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
 <p>[Ask Ubuntu]: <a href="https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13</a> &ldquo;apt.conf “Acquire::http:Proxy ”proxyserver:port&rdquo; seems not to be used (Ubuntu 13.04 under Virtual Box on Win7)&quot;</p>
-]]></content:encoded></item><item><title>Project V 连接工具</title><link>https://weixiang.github.io/posts/project-v-connection-tools/</link><pubDate>Mon, 14 Oct 2019 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid><description>魔法企划 Project V 的连接工具的收集与记录。</description><content:encoded><![CDATA[<p>2022 年 1 月 28 日 更新：
+]]></content:encoded></item><item><title>Project V 连接工具</title><link>https://weixiang.github.io/posts/project-v-connection-tools/</link><pubDate>Mon, 14 Oct 2019 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid><description>魔法企划 Project V 的连接工具的收集与记录。</description><content:encoded><![CDATA[<blockquote>
+<p>2022 年 1 月 28 日 更新：
 本文章部分已经过时，现在大部分情况下可以用 Clash 解决，iOS 除外。</p>
+</blockquote>
+<blockquote>
+<p>2024 年 8 月 11 日更新：
+Clash 也没了……</p>
+</blockquote>
 <hr>
 <h3 id="v2raynwindows">v2rayN（Windows）</h3>
 <ul>
@@ -439,19 +447,19 @@
 <p>没有绝对中立的媒体，不能完全信任任何一个媒体。看到新闻事件，冷静分析，独立思考，不跟风，不沸腾，不公开评论。</p>
 <h2 id="目前已知的不信任站点">目前已知的不信任站点</h2>
 <ul>
-<li>人⬛日报 [数据删除]</li>
-<li>共青⬛中央 [数据删除]</li>
-<li>观察⬛网 [数据删除]</li>
-<li>环⬛时报 [数据删除]</li>
-<li>BB⬛ 中文网 [数据删除]</li>
-<li>德⬛之声中文网 [数据删除]</li>
-<li>纽⬛时报中文网 [数据删除]</li>
-<li>华尔⬛日报中文网 [数据删除]</li>
-<li>中国数⬛时代 [数据删除]</li>
-<li>大⬛元 [数据删除]</li>
-<li>亚洲自⬛电台 [数据删除]</li>
-<li>苹⬛日报 [数据删除]</li>
-<li>维⬛百科中文站（涉及政治类词条） [数据删除]</li>
+<li>人█日报 [数据删除]</li>
+<li>共青█中央 [数据删除]</li>
+<li>观察█网 [数据删除]</li>
+<li>环█时报 [数据删除]</li>
+<li>BB█ 中文网 [数据删除]</li>
+<li>德█之声中文网 [数据删除]</li>
+<li>纽█时报中文网 [数据删除]</li>
+<li>华尔█日报中文网 [数据删除]</li>
+<li>中国数█时代 [数据删除]</li>
+<li>大█元 [数据删除]</li>
+<li>亚洲自█电台 [数据删除]</li>
+<li>苹█日报 [数据删除]</li>
+<li>维█百科中文站（涉及政治类词条） [数据删除]</li>
 </ul>
 <h2 id="符合以下条件的均以不信任处理">符合以下条件的均以不信任处理</h2>
 <ul>

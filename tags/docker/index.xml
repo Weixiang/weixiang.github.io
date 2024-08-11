@@ -304,11 +304,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--hostname qinglong <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>whyour/qinglong:2.15.1
-</span></span></code></pre></div><h2 id="初始化配置">初始化配置</h2>
-<p>Telegram 通知</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">青龙酱 @qinglongneko_bot:
-</span></span><span class="line"><span class="cl">5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs
-</span></span><span class="line"><span class="cl">chat ID: 762466672
 </span></span></code></pre></div><h2 id="修改配置文件">修改配置文件</h2>
 <p>修改 <code>config.sh</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 代理地址，支持HTTP/SOCK5，例如 http://127.0.0.1:7890</span>
@@ -316,9 +311,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">## 3. Telegram</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写自己申请@BotFather的Token，如10xxx4:AAFcqxxxxgER5uw</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;**********:******************************&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写 @getuseridbot 中获取到的纯数字ID</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;762466672&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;**********&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## Telegram 代理IP（选填）</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写代理IP地址，代理类型为 http，比如您代理是 http://127.0.0.1:1080，则填写 &#34;127.0.0.1&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 如需使用，请自行解除下一行的注释</span>
@@ -352,9 +347,8 @@
 </span></span></code></pre></div><h4 id="获取-cookie">获取 Cookie</h4>
 <p>前往京东手机版登录 <a href="https://m.jd.com">https://m.jd.com</a></p>
 <p>使用开发者工具查看 Network 即可获取到 Cookie：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">wxa_level=1; retina=1; cid=9; jxsid=16699509190885388739; appCode=ms0ca95114; webp=1; visitkey=1249950452605824; autoOpenApp_downCloseDate_jd_homePage=1669950921684_1; __jdv=122270672%7Cdirect%7C-%7Cnone%7C-%7C1669950926563; __jda=122270672.1249950452605824.1669950926.1669950926.1669950926.1; jxsid_s_u=https%3A//home.m.jd.com/myJd/home.action; sc_width=1600; shshshfpa=a8234b55-dcb2-9af1-c72d-be11ed866e80-1669950926; shshshfpb=vYIdL0wj44gegWlQFkrq50g; _gia_s_local_fingerprint=4e1452bcc38f34ab00ac72e811873a6c; jcap_dvzw_fp=BvUs1NA_wULHUxuuy6zFm4C4xuDBQwrduSoYOMmCfd6FPyWqpE6FE2t1Bs40UckY4Pzvzw==; whwswswws=; TrackerID=MBifKm6C7gbtp2KOeos2-Y10uPu3NRHCvvNd9SrEIeWYTbX2FN6IhVi5ntDiqHvuaTXmumZaQuykRtKALJBOusUjDnrjm90cb6lW0opT4tI; pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow; pt_token=ffd4aooz; pwdt_id=YoungRightNow; sfstoken=tk01me3771d6ca8sMSsxKzIrMXgxcTI/2kucqBmBAxS8fA56xCjpxtVQYNi3rd6aXiaZSyNnPAukFyj0eXzG2L8lkeFk; wqmnx1=MDEyNjM4M3Blb2hpOTBpIHMwO3BpNixlci5hNzM3YTVXRFUp; __wga=1669950985249.1669950926561.1669950926561.1669950926561.2.1; PPRD_P=UUID.1249950452605824; jxsid_s_t=1669950985284; shshshfp=35d83b5801d164b43d9d46801e698399; shshshsID=c7b112dc50f8480c053fd31c71f09b80_4_1669950985373
-</span></span></code></pre></div><p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow;
+<p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-****************************************; pt_pin=**********;
 </span></span></code></pre></div><p>将其添加到环境变量，命名为 <code>JD_COOKIE</code></p>
 <h3 id="b-站">B 站</h3>
 <h4 id="安装环境">安装环境</h4>
@@ -372,8 +366,7 @@
 </span></span><span class="line"><span class="cl">文件后缀：sh
 </span></span></code></pre></div><h4 id="获取-cookie-1">获取 Cookie</h4>
 <p>使用 <strong>隐私窗口</strong> 登录 B 站，后打开 <a href="https://api.bilibili.com/x/web-interface/nav">https://api.bilibili.com/x/web-interface/nav</a> 获取 Cookie</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">innersign=0; buvid3=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; b_nut=1669966878; i-wanna-go-back=-1; b_ut=7; fingerprint=0a9efc29b8fed4d0365f270f3f7904b3; buvid_fp=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; buvid_fp_plain=undefined; SESSDATA=e9445373%2C1685518911%2Cdd48b%2Ac2; bili_jct=2a7a08693db3b1086a994f62f3654c41; DedeUserID=98986975; DedeUserID__ckMd5=94d06abde6852f18; sid=79s8qs4l
-</span></span></code></pre></div><p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
+<p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
 <h4 id="配置推送">配置推送</h4>
 <p>Telegram：添加以下环境变量</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__botToken
@@ -388,9 +381,8 @@
 </span></span><span class="line"><span class="cl">文件后缀：py
 </span></span></code></pre></div><h4 id="获取-cookie-2">获取 Cookie</h4>
 <p>打开 <a href="http://hoyolab.com/">http://hoyolab.com/</a> 登录获取</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mi18nLang=en-us; _MHYUUID=206721dd-fce2-4f41-816c-2ef23dece4db; G_ENABLED_IDPS=google; DEVICEFP_SEED_ID=f06fe6a1ab2644b8; DEVICEFP_SEED_TIME=1669967915701; DEVICEFP=38d7eb6858d40; ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487; cookie_token=fCLAp4azi7IDRdPnEPNZlp6jx6irHnhXIOsU3VsJ; account_id=171580487
-</span></span></code></pre></div><p>其中只用到</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487;
+<p>其中只用到</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33********************; ltuid=**********;
 </span></span></code></pre></div><p>分别填入环境变量，名为 <code>LTOKEN</code> 和 <code>LTUID</code></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.dujin.org/18884.html">https://www.dujin.org/18884.html</a></p>

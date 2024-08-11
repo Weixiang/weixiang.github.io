@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Arduino on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/arduino/</link><description>Recent content in Arduino on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sun, 27 Feb 2022 12:45:47 +0000</lastBuildDate><atom:link href="https://weixiang.github.io/categories/arduino/index.xml" rel="self" type="application/rss+xml"/><item><title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title><link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link><pubDate>Sun, 27 Feb 2022 12:45:47 +0000</pubDate><guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid><description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description><content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
-<p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣軟市傳製片廠的 DJI OM 3 提供拍摄。</p>
+<p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣州市傳製片廠的 DJI OM 3 提供拍摄。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/02/0035c99d58fc0555.webp"/> 
 </figure>
@@ -19,7 +19,7 @@
 <p>如果你觉得这个产品还有点意思的话，欢迎关注我，也欢迎给我提意见或建议，您的支持和关注就是我创作的最大动力！</p>
 <h2 id="版权声明">版权声明</h2>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="https://weixiang.github.io">weixiang.github.io</a> 发布。</p>
-]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description><content:encoded><![CDATA[<h3 id="一模块化设计">一、模块化设计</h3>
+]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description><content:encoded><![CDATA[<h2 id="一模块化设计">一、模块化设计</h2>
 <p>所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
 <p><strong>户外主机</strong>：Mini 百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD 显示实时数据，支持 ZigBee 协议，可使用 SD 卡记录数据，高精度 ADC 转换，冬季自动恒温等。</p>
 <figure>
@@ -44,7 +44,7 @@
         </figcaption>
 </figure>
 
-<h3 id="二应用范围及特点">二、应用范围及特点</h3>
+<h2 id="二应用范围及特点">二、应用范围及特点</h2>
 <p>本作品采用模块化设计，成本可控，用户可根据自己的需求选用不同功能、不同类型，不同精度的传感器或功能模块，以满足不同需求，减少不必要的开支。</p>
 <p>所有模块均可接入一个或多个物联平台，实现数据自动上传、设备联动、警报、大数据分析、远程升级、远程控制等功能，可用于对接智能家居、智慧农业、智慧城市等物联网应用。软硬件均采用了开源协议，修改代码或硬件设计即可实现不同的功能，接入不同的平台，和不同的设备联动等。</p>
 <p>采用 16 位 ADC 芯片进行数据采集，宽电压供电，芯片内部有精密参考电压和可编程增益调节 (PGA)，因此无论对微弱信号还是变化幅度较大的信号，都可进行精确的采集与转换。</p>
@@ -100,7 +100,7 @@
   <figcaption>手机应用</figcaption>
   
 </figure>
-<h3 id="三改进之处">三、改进之处</h3>
+<h2 id="三改进之处">三、改进之处</h2>
 <p>增强防水性能，使用防水黑胶密封精密部件，增加防水胶条。</p>
 <p>增加固定支架，固定孔等，使其更易于在户外安装使用。</p>
 <figure>

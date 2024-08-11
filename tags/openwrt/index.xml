@@ -115,8 +115,7 @@
 <p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
 <p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
 <p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
-]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<h1 id="自己编译-openwrt">自己编译 OpenWRT</h1>
-<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
+]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
 <h2 id="编译准备">编译准备</h2>
 <p>不要用<code>root</code>用户进行编译操作，因此需要先新建一个用户，并且授予<code>root</code>权限</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Login via SSH</span>

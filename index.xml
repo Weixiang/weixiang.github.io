@@ -238,7 +238,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics 谷歌统计--&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-133816799-2&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-**********&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">gtag</span><span class="p">()</span> <span class="p">{</span>
@@ -246,7 +246,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-133816799-2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-**********&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Baidu Tongji 百度统计--&gt;</span>
@@ -254,7 +254,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">_hmt</span> <span class="o">=</span> <span class="nx">_hmt</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">hm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?cb3832ee43b34e6bfd3556bd054c7d26&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?********************&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hm</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})();</span>
@@ -1851,8 +1851,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
 <p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
 <p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
-]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h1 id="使用群晖-web-station-搭建-heimdall-导航页">使用群晖 Web Station 搭建 Heimdall 导航页</h1>
-<h2 id="安装环境">安装环境</h2>
+]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h2 id="安装环境">安装环境</h2>
 <p>在套件中心安装 Web Station，随后选择安装 PHP 7.4，Nginx 默认已经安装。</p>
 <h2 id="创建网站">创建网站</h2>
 <p>在 Web Station 中新建一个虚拟主机，在 web 中新建一个文件夹作为文档根目录，PHP 选择 PHP 7.4。</p>
@@ -2010,11 +2009,6 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--hostname qinglong <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>whyour/qinglong:2.15.1
-</span></span></code></pre></div><h2 id="初始化配置">初始化配置</h2>
-<p>Telegram 通知</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">青龙酱 @qinglongneko_bot:
-</span></span><span class="line"><span class="cl">5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs
-</span></span><span class="line"><span class="cl">chat ID: 762466672
 </span></span></code></pre></div><h2 id="修改配置文件">修改配置文件</h2>
 <p>修改 <code>config.sh</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 代理地址，支持HTTP/SOCK5，例如 http://127.0.0.1:7890</span>
@@ -2022,9 +2016,9 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">## 3. Telegram</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写自己申请@BotFather的Token，如10xxx4:AAFcqxxxxgER5uw</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;**********:******************************&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写 @getuseridbot 中获取到的纯数字ID</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;762466672&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;**********&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## Telegram 代理IP（选填）</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写代理IP地址，代理类型为 http，比如您代理是 http://127.0.0.1:1080，则填写 &#34;127.0.0.1&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 如需使用，请自行解除下一行的注释</span>
@@ -2058,9 +2052,8 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></code></pre></div><h4 id="获取-cookie">获取 Cookie</h4>
 <p>前往京东手机版登录 <a href="https://m.jd.com">https://m.jd.com</a></p>
 <p>使用开发者工具查看 Network 即可获取到 Cookie：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">wxa_level=1; retina=1; cid=9; jxsid=16699509190885388739; appCode=ms0ca95114; webp=1; visitkey=1249950452605824; autoOpenApp_downCloseDate_jd_homePage=1669950921684_1; __jdv=122270672%7Cdirect%7C-%7Cnone%7C-%7C1669950926563; __jda=122270672.1249950452605824.1669950926.1669950926.1669950926.1; jxsid_s_u=https%3A//home.m.jd.com/myJd/home.action; sc_width=1600; shshshfpa=a8234b55-dcb2-9af1-c72d-be11ed866e80-1669950926; shshshfpb=vYIdL0wj44gegWlQFkrq50g; _gia_s_local_fingerprint=4e1452bcc38f34ab00ac72e811873a6c; jcap_dvzw_fp=BvUs1NA_wULHUxuuy6zFm4C4xuDBQwrduSoYOMmCfd6FPyWqpE6FE2t1Bs40UckY4Pzvzw==; whwswswws=; TrackerID=MBifKm6C7gbtp2KOeos2-Y10uPu3NRHCvvNd9SrEIeWYTbX2FN6IhVi5ntDiqHvuaTXmumZaQuykRtKALJBOusUjDnrjm90cb6lW0opT4tI; pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow; pt_token=ffd4aooz; pwdt_id=YoungRightNow; sfstoken=tk01me3771d6ca8sMSsxKzIrMXgxcTI/2kucqBmBAxS8fA56xCjpxtVQYNi3rd6aXiaZSyNnPAukFyj0eXzG2L8lkeFk; wqmnx1=MDEyNjM4M3Blb2hpOTBpIHMwO3BpNixlci5hNzM3YTVXRFUp; __wga=1669950985249.1669950926561.1669950926561.1669950926561.2.1; PPRD_P=UUID.1249950452605824; jxsid_s_t=1669950985284; shshshfp=35d83b5801d164b43d9d46801e698399; shshshsID=c7b112dc50f8480c053fd31c71f09b80_4_1669950985373
-</span></span></code></pre></div><p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow;
+<p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-****************************************; pt_pin=**********;
 </span></span></code></pre></div><p>将其添加到环境变量，命名为 <code>JD_COOKIE</code></p>
 <h3 id="b-站">B 站</h3>
 <h4 id="安装环境">安装环境</h4>
@@ -2078,8 +2071,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">文件后缀：sh
 </span></span></code></pre></div><h4 id="获取-cookie-1">获取 Cookie</h4>
 <p>使用 <strong>隐私窗口</strong> 登录 B 站，后打开 <a href="https://api.bilibili.com/x/web-interface/nav">https://api.bilibili.com/x/web-interface/nav</a> 获取 Cookie</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">innersign=0; buvid3=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; b_nut=1669966878; i-wanna-go-back=-1; b_ut=7; fingerprint=0a9efc29b8fed4d0365f270f3f7904b3; buvid_fp=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; buvid_fp_plain=undefined; SESSDATA=e9445373%2C1685518911%2Cdd48b%2Ac2; bili_jct=2a7a08693db3b1086a994f62f3654c41; DedeUserID=98986975; DedeUserID__ckMd5=94d06abde6852f18; sid=79s8qs4l
-</span></span></code></pre></div><p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
+<p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
 <h4 id="配置推送">配置推送</h4>
 <p>Telegram：添加以下环境变量</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__botToken
@@ -2094,17 +2086,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">文件后缀：py
 </span></span></code></pre></div><h4 id="获取-cookie-2">获取 Cookie</h4>
 <p>打开 <a href="http://hoyolab.com/">http://hoyolab.com/</a> 登录获取</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mi18nLang=en-us; _MHYUUID=206721dd-fce2-4f41-816c-2ef23dece4db; G_ENABLED_IDPS=google; DEVICEFP_SEED_ID=f06fe6a1ab2644b8; DEVICEFP_SEED_TIME=1669967915701; DEVICEFP=38d7eb6858d40; ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487; cookie_token=fCLAp4azi7IDRdPnEPNZlp6jx6irHnhXIOsU3VsJ; account_id=171580487
-</span></span></code></pre></div><p>其中只用到</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487;
+<p>其中只用到</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33********************; ltuid=**********;
 </span></span></code></pre></div><p>分别填入环境变量，名为 <code>LTOKEN</code> 和 <code>LTUID</code></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.dujin.org/18884.html">https://www.dujin.org/18884.html</a></p>
 <p><a href="https://github.com/RayWangQvQ/BiliBiliToolPro">https://github.com/RayWangQvQ/BiliBiliToolPro</a></p>
 <p><a href="https://github.com/FlechazoPh/QLDependency">https://github.com/FlechazoPh/QLDependency</a></p>
 <p><a href="https://github.com/Ethiner/hoyolab_daily_login">https://github.com/Ethiner/hoyolab_daily_login</a></p>
-]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<h1 id="自己编译-openwrt">自己编译 OpenWRT</h1>
-<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
+]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
 <h2 id="编译准备">编译准备</h2>
 <p>不要用<code>root</code>用户进行编译操作，因此需要先新建一个用户，并且授予<code>root</code>权限</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Login via SSH</span>
@@ -2492,7 +2482,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span></code></pre></div>]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x193F2                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 9E 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x193F9                         One Of Option: Android, Value (8 bit): 0x1 {09 07 9F 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19400                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 A0 01 00 00 02}
@@ -2500,44 +2490,44 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">0x1940E                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 A1 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19415                 End One Of {29 02}
 </span></span></code></pre></div><p>下面是华擎的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x19C82                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 E2 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x19C89                         One Of Option: Android, Value (8 bit): 0x1 {09 07 E3 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19C90                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 E4 01 00 00 02}
 </span></span><span class="line"><span class="cl">0x19C97                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 E5 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19C9E                 End One Of {29 02}
 </span></span></code></pre></div><p>可以发现缺少了一项</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
 </span></span></code></pre></div><p>这就是问题所在。</p>
 <h2 id="升级-bios">升级 BIOS</h2>
-<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。
-前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a>
-下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。
-华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a>
-下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。
-具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
+<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。</p>
+<p>前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a></p>
+<p>下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。</p>
+<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
+<p>下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。</p>
+<p>具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
 </p>
 <h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
-<p>首先建议选择 UEFI 进行引导。
-下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。
-此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
-这里放一个两个下载链接，若失效可自行搜索下载。
-<a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a>
-<a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
+<p>首先建议选择 UEFI 进行引导。</p>
+<p>下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。</p>
+<p>此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
+这里放一个两个下载链接，若失效可自行搜索下载。</p>
+<p><a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a></p>
+<p><a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
 <h2 id="修改-bios">修改 BIOS</h2>
-<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。
-会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：
-<img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
-
-输入命令：</p>
+<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。</p>
+<p>会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：</p>
+<p><img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
+</p>
+<p>输入命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">amisetupwriter 0x4E2 0x3
 </span></span></code></pre></div><p>然后输入 <code>exit</code> 退出，重启完工。
 实测 DSM7 效果，开机一分半左右，传输速度基本达到千兆水平。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a>
-<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
+<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a></p>
+<p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
@@ -2883,10 +2873,8 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">ua</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/MicroMessenger/i</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&#34;micromessenger&#34;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 这里警告框会阻塞当前页面继续加载
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;请勿使用微信打开 Outsite！\n请将链接复制到 Safari、Chrome 或 Edge 打开！&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// 以下代码是用 javascript 强行关闭当前页面
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kd">var</span> <span class="nx">opened</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&#34;about:blank&#34;</span><span class="p">,</span> <span class="s2">&#34;_self&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;请勿使用微信打开);
+</span></span></span><span class="line"><span class="cl"><span class="s2">        var opened = window.open(&#34;</span><span class="nx">about</span><span class="o">:</span><span class="nx">blank</span><span class="s2">&#34;, &#34;</span><span class="nx">_self</span><span class="err">&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">opened</span><span class="p">.</span><span class="nx">opener</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">opened</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -2910,21 +2898,21 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">avatar</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;.item img&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">footer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&#34;div.is-size-7&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">footer</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Powered by Outsite Project&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">footer</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Powered by Nezha&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">footer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s2">&#34;visible&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">avatar</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://my.outsite.space/images/user/static/outsite-logo-s.svg&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">avatar</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://raw.githubusercontent.com/naiba/nezha/master/resource/static/brand.svg&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">avatar</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">visibility</span> <span class="o">=</span> <span class="s2">&#34;visible&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-133816799-1&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-**********&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-133816799-1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-**********&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">$crisp</span><span class="o">=</span><span class="p">[];</span><span class="nb">window</span><span class="p">.</span><span class="nx">CRISP_WEBSITE_ID</span><span class="o">=</span><span class="s2">&#34;103e95b6-3b0c-4f8a-9185-349951c14825&#34;</span><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">d</span><span class="o">=</span><span class="nb">document</span><span class="p">;</span><span class="nx">s</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://client.crisp.chat/l.js&#34;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="kr">async</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);})();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -3071,7 +3059,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title><link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link><pubDate>Sun, 27 Feb 2022 12:45:47 +0000</pubDate><guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid><description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description><content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
-<p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣軟市傳製片廠的 DJI OM 3 提供拍摄。</p>
+<p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣州市傳製片廠的 DJI OM 3 提供拍摄。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/02/0035c99d58fc0555.webp"/> 
 </figure>
@@ -3750,10 +3738,10 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
 ]]></content:encoded></item><item><title>隐私政策</title><link>https://weixiang.github.io/privacy/</link><pubDate>Fri, 02 Jul 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/privacy/</guid><description>隐私政策 Privacy &amp;amp; Data</description><content:encoded><![CDATA[<p><em>本版发布日期：2021 年 7 月 2 日</em></p>
 <p><em>生效日期：2021 年 7 月 2 日</em></p>
-<p>Jacob’s Thoughts（联系方式：jacob.ruan#outlook.com）运营的 Jacob’s Thoughts 站点（以下或称“我们”）<strong>注重保护用户个人信息及个人隐私</strong>，您在使用我们的服务时，我们可能会收集和使用您的相关信息。</p>
+<p>Jacob’s Thoughts（联系方式：𝒋𝒂𝒄𝒐𝒃.𝒓𝒖𝒂𝒏(𝒂𝒕)𝒐𝒖𝒕𝒍𝒐𝒐𝒌.𝒄𝒐𝒎）运营的 Jacob’s Thoughts 站点（以下或称“我们”）<strong>注重保护用户个人信息及个人隐私</strong>，您在使用我们的服务时，我们可能会收集和使用您的相关信息。</p>
 <p>我们希望通过本《隐私政策》向您说明，在使用 Jacob’s Thoughts 站点的所有相关服务（包括但不限于网络资讯、网络社交等，以下称“Jacob’s Thoughts 站点”或“服务”）时，我们如何收集、使用、存储、分享这些信息，以及我们为您提供的访问、更新、控制和保护这些信息的方式。<strong>其中，有关您个人信息权益的条款等重要内容我们已用加粗形式提示，请特别关注。</strong></p>
 <p><strong>如果您不同意本隐私政策的任何内容，您可以选择停止使用 Jacob’s Thoughts 站点。当您使用或继续使用我们的服务，即意味着同意我们按照本《隐私政策》收集、使用、储存和分享您的相关信息。</strong></p>
-<p>如对本《隐私政策》或相关事宜有任何问题，请通过 jacob.ruan#outlook.com 与我们联系。</p>
+<p>如对本《隐私政策》或相关事宜有任何问题，请通过 𝒋𝒂𝒄𝒐𝒃.𝒓𝒖𝒂𝒏(𝒂𝒕)𝒐𝒖𝒕𝒍𝒐𝒐𝒌.𝒄𝒐𝒎 与我们联系。</p>
 <h2 id="目录">目录</h2>
 <p>一、我们如何收集和使用个人信息</p>
 <p>二、我们如何使用 cookie 或同类技术</p>
@@ -3859,7 +3847,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h3 id="3-退出登录">3. 退出登录</h3>
 <p>已登录状态下，在网站中选择右上角的【我的】tab，进入【更多设置】。拉到最底部，会看到【退出登录】按钮，点击即可。</p>
 <h3 id="4-注销">4. 注销</h3>
-<p>请发送邮件至 jacob.ruan#outlook.com；</p>
+<p>请发送邮件至 𝒋𝒂𝒄𝒐𝒃.𝒓𝒖𝒂𝒏(𝒂𝒕)𝒐𝒖𝒕𝒍𝒐𝒐𝒌.𝒄𝒐𝒎；</p>
 <h3 id="5-新闻内容定向推送开关设置">5. 新闻内容定向推送开关设置</h3>
 <p>在浏览器设置中进入进入【更多设置】-【隐私设置】，可开启或关闭【允许网站追踪】开关。关闭后，您看到的信息将不依赖于您的个性化行为。</p>
 <h3 id="6-敏感权限设置">6. 敏感权限设置</h3>
@@ -3869,11 +3857,13 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>我们根据国家相关法律法规的规定保护未成年人的个人信息，只会在法律允许、父母或其他监护人明确同意或保护未成年人所必要的情况下收集、使用、储存、共享、转让或披露未成年人的个人信息。</p>
 <h2 id="七隐私政策的修订和通知">七、《隐私政策》的修订和通知</h2>
 <p>为了给您提供更好的服务，Jacob’s Thoughts 站点及相关服务将不时更新与变化，我们会适时修订本隐私政策的条款，该等修订构成本隐私政策的一部分。</p>
-<p>当本隐私政策更新后，我们会在 Jacob’s Thoughts 站点发出更新版本，并在更新后的条款生效前通过官方网站（jacobruan.com）公告，并将以站内信等适当的方式提醒您相关内容的更新，以便您及时了解本隐私政策的最新版本。</p>
+<p>当本隐私政策更新后，我们会在 Jacob’s Thoughts 站点发出更新版本，并在更新后的条款生效前通过官方网站（weixiang.github.io）公告，并将以站内信等适当的方式提醒您相关内容的更新，以便您及时了解本隐私政策的最新版本。</p>
 <h2 id="八联系我们">八、联系我们</h2>
-<p>当您有其他的投诉、建议、未成年人个人信息相关问题或需要删除所有访问记录时，您可以将您的问题发送至 jacob.ruan#outlook.com。</p>
+<p>当您有其他的投诉、建议、未成年人个人信息相关问题或需要删除所有访问记录时，您可以将您的问题发送至 𝒋𝒂𝒄𝒐𝒃.𝒓𝒖𝒂𝒏(𝒂𝒕)𝒐𝒖𝒕𝒍𝒐𝒐𝒌.𝒄𝒐𝒎。</p>
 <p>我们将尽快审核所涉问题，并在验证您的用户身份后的十五个工作日内予以回复。</p>
-]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
+]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<blockquote>
+<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
+</blockquote>
 <p>Pi- <a href="https://pi-hole.net/trademark-rules-and-brand-guidelines/">hole®</a>是一个<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">DNS 沉洞服务器</a>，无需安装任何客户端软件即可保护您的设备免受有害内容的<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">侵害</a>。</p>
 <ul>
 <li><strong>易于安装</strong>：安装程序将引导您完成整个过程，并且<a href="https://www.youtube.com/watch?v=vKWjx1AQYgs">只需不到十分钟的时间</a></li>
@@ -3986,7 +3976,9 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <hr>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<h2 id="请注意由于-v2ray-项目变动本文的操作方法已经失效但仍具一定参考价值">请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</h2>
+]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0000</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<blockquote>
+<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p>
+</blockquote>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
@@ -4096,15 +4088,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;security&#34;</span><span class="p">:</span> <span class="s2">&#34;tls&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tlsSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;allowInsecure&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;serverName&#34;</span><span class="p">:</span> <span class="s2">&#34;outsite.xyz&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;serverName&#34;</span><span class="p">:</span> <span class="s2">&#34;v2ray.com&#34;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;tcpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;kcpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;wsSettings&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;connectionReuse&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/os&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;/v2ray&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">          <span class="nt">&#34;headers&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;outsite.xyz&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;Host&#34;</span><span class="p">:</span> <span class="s2">&#34;v2ray.com&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;httpSettings&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -4634,8 +4626,14 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 
 <p>似乎是要按照上面的顺序安装 ViPER4Android 和 Audio Modification Library 才能成功如果还是失败的同学可以在评论区发出来看看有没有大佬…或者…等 ViPER4Android 的开发团队适配 Android 10 …</p>
 <p><em>感谢 XDA 上的 1dopewrx05，他在 Pixel 2 XL 主题站上分享了本方法，当然还有 The Customdroid 提供的图片和整理。</em></p>
-]]></content:encoded></item><item><title>Project V 连接工具</title><link>https://weixiang.github.io/posts/project-v-connection-tools/</link><pubDate>Mon, 14 Oct 2019 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid><description>魔法企划 Project V 的连接工具的收集与记录。</description><content:encoded><![CDATA[<p>2022 年 1 月 28 日 更新：
+]]></content:encoded></item><item><title>Project V 连接工具</title><link>https://weixiang.github.io/posts/project-v-connection-tools/</link><pubDate>Mon, 14 Oct 2019 16:00:00 +0000</pubDate><guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid><description>魔法企划 Project V 的连接工具的收集与记录。</description><content:encoded><![CDATA[<blockquote>
+<p>2022 年 1 月 28 日 更新：
 本文章部分已经过时，现在大部分情况下可以用 Clash 解决，iOS 除外。</p>
+</blockquote>
+<blockquote>
+<p>2024 年 8 月 11 日更新：
+Clash 也没了……</p>
+</blockquote>
 <hr>
 <h3 id="v2raynwindows">v2rayN（Windows）</h3>
 <ul>
@@ -4688,19 +4686,19 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>没有绝对中立的媒体，不能完全信任任何一个媒体。看到新闻事件，冷静分析，独立思考，不跟风，不沸腾，不公开评论。</p>
 <h2 id="目前已知的不信任站点">目前已知的不信任站点</h2>
 <ul>
-<li>人⬛日报 [数据删除]</li>
-<li>共青⬛中央 [数据删除]</li>
-<li>观察⬛网 [数据删除]</li>
-<li>环⬛时报 [数据删除]</li>
-<li>BB⬛ 中文网 [数据删除]</li>
-<li>德⬛之声中文网 [数据删除]</li>
-<li>纽⬛时报中文网 [数据删除]</li>
-<li>华尔⬛日报中文网 [数据删除]</li>
-<li>中国数⬛时代 [数据删除]</li>
-<li>大⬛元 [数据删除]</li>
-<li>亚洲自⬛电台 [数据删除]</li>
-<li>苹⬛日报 [数据删除]</li>
-<li>维⬛百科中文站（涉及政治类词条） [数据删除]</li>
+<li>人█日报 [数据删除]</li>
+<li>共青█中央 [数据删除]</li>
+<li>观察█网 [数据删除]</li>
+<li>环█时报 [数据删除]</li>
+<li>BB█ 中文网 [数据删除]</li>
+<li>德█之声中文网 [数据删除]</li>
+<li>纽█时报中文网 [数据删除]</li>
+<li>华尔█日报中文网 [数据删除]</li>
+<li>中国数█时代 [数据删除]</li>
+<li>大█元 [数据删除]</li>
+<li>亚洲自█电台 [数据删除]</li>
+<li>苹█日报 [数据删除]</li>
+<li>维█百科中文站（涉及政治类词条） [数据删除]</li>
 </ul>
 <h2 id="符合以下条件的均以不信任处理">符合以下条件的均以不信任处理</h2>
 <ul>
@@ -4914,7 +4912,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
 <p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
-]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description><content:encoded><![CDATA[<h3 id="一模块化设计">一、模块化设计</h3>
+]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0000</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description><content:encoded><![CDATA[<h2 id="一模块化设计">一、模块化设计</h2>
 <p>所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
 <p><strong>户外主机</strong>：Mini 百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD 显示实时数据，支持 ZigBee 协议，可使用 SD 卡记录数据，高精度 ADC 转换，冬季自动恒温等。</p>
 <figure>
@@ -4939,7 +4937,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
         </figcaption>
 </figure>
 
-<h3 id="二应用范围及特点">二、应用范围及特点</h3>
+<h2 id="二应用范围及特点">二、应用范围及特点</h2>
 <p>本作品采用模块化设计，成本可控，用户可根据自己的需求选用不同功能、不同类型，不同精度的传感器或功能模块，以满足不同需求，减少不必要的开支。</p>
 <p>所有模块均可接入一个或多个物联平台，实现数据自动上传、设备联动、警报、大数据分析、远程升级、远程控制等功能，可用于对接智能家居、智慧农业、智慧城市等物联网应用。软硬件均采用了开源协议，修改代码或硬件设计即可实现不同的功能，接入不同的平台，和不同的设备联动等。</p>
 <p>采用 16 位 ADC 芯片进行数据采集，宽电压供电，芯片内部有精密参考电压和可编程增益调节 (PGA)，因此无论对微弱信号还是变化幅度较大的信号，都可进行精确的采集与转换。</p>
@@ -4995,7 +4993,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
   <figcaption>手机应用</figcaption>
   
 </figure>
-<h3 id="三改进之处">三、改进之处</h3>
+<h2 id="三改进之处">三、改进之处</h2>
 <p>增强防水性能，使用防水黑胶密封精密部件，增加防水胶条。</p>
 <p>增加固定支架，固定孔等，使其更易于在户外安装使用。</p>
 <figure>
@@ -5454,7 +5452,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>进入 21 世纪，我国城市化表现为加速趋势，这与我国社会经济的发展是密切关联的。现阶段中国特色的城市化道路，要更加注重协调发展。具体表现在六个方面：</p>
 <p>（1）<strong>城市经济</strong>逐渐成为区域经济增长的主导力量；2、<strong>大型中心城市</strong>加速发展，辐射带动功能显著增强；3、强调以人为本，注重构造和谐的人居环境；4、<strong>控制环境污染和生态破坏</strong>，治理各种“城市病”；5、有更多的农业人口进入城市或当地的小城镇；6、运用信息化手段进一步提高城市现代化水平。</p>
 ]]></content:encoded></item><item><title>更改 Hexo 的背景颜色</title><link>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</link><pubDate>Fri, 16 Feb 2018 01:19:00 +0000</pubDate><guid>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</guid><description>这不是 2018 大年初一吗~为了迎合各大网站 APP 的传统习俗，我也把网页的主题色改了~改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</description><content:encoded><![CDATA[<p>这不是 2018 大年初一吗<del>为了迎合各大网站\APP 的传统习俗，我也把网页的主题色改了</del>改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</p>
-<h4 id="实现方法">实现方法</h4>
+<h2 id="实现方法">实现方法</h2>
 <p>打开文件：<code>themes/next/source/css/_variables/custom.styl</code></p>
 <p>添加以下内容：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 背景颜色
@@ -5466,6 +5464,10 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </p>
 ]]></content:encoded></item><item><title>Windows 10 更新后系统无法识别键盘的解决方案</title><link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link><pubDate>Tue, 13 Feb 2018 09:11:00 +0000</pubDate><guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid><description>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description><content:encoded><![CDATA[<blockquote>
 <p>非常抱歉，由于这篇文章过于古早，图片已经遗失在了互联网的长河中</p>
+</blockquote>
+<blockquote>
+<p>2024 年 8 月 11 日更新：
+图片找回来了。</p>
 </blockquote>
 <p>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</p>
 <p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.webp" alt=""  />
@@ -5533,20 +5535,22 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 ]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0000</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>
-<li>2018-02-17 启用域名 ████.tech 和 ████████.club [数据删除]</li>
+<li>2018-02-17 启用域名 <code>████.tech</code> 和 <code>████████.club</code> [数据删除]</li>
 <li>2018-9 迁移至 Coding Pages 进行托管</li>
 <li>2018-12-30 更换由 Ghost 驱动，服务器迁移至美国西海岸</li>
 <li>2019-06-26 迁移至腾讯云服务器 CVM</li>
 <li>2019-11-12 迁移服务器至美国西海岸</li>
-<li>2020-03-11 更换域名为 jacobr.xyz，暂时关闭博客，仅保留关于页面，更换为静态页面。</li>
+<li>2020-03-11 更换域名为 <code>jacobr.xyz</code>，暂时关闭博客，仅保留关于页面，更换为静态页面。</li>
 <li>2020-03-23 迁移至阿里云服务器 ECS</li>
-<li>2021-06-21 启用新域名 jacobruan.com</li>
+<li>2021-06-21 启用新域名 <code>jacobruan.com</code></li>
 <li>2021-10-08 服务器迁移至新西伯利亚</li>
 <li>2022-07-04 服务器故障，博客暂时下线</li>
 <li>2022-08-07 重新安装服务器，恢复访问</li>
 <li>2022-12-07 更新到 Ghost 5.0</li>
 <li>2023-10-14 迁移服务器至阿里云新加坡</li>
-<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub</li>
+<li>2023-06-22 域名 <code>jacobruan.com</code> 续费失败，被迫转到 <code>jacobruan.xyz</code></li>
+<li>2024-05-27 域名 <code>jacobruan.xyz</code> 到期，临时转到 <code>████████.fun</code> [数据删除]</li>
+<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub，有了比命长的域名 <code>weixiang.github.io</code></li>
 </ul>
 <p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢 Microsoft，提供了 GitHub Page 托管、GitHub Action 自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
 ]]></content:encoded></item><item><title>友情链接</title><link>https://weixiang.github.io/links/</link><pubDate>Sun, 31 Dec 2017 16:01:00 +0000</pubDate><guid>https://weixiang.github.io/links/</guid><description>我的朋友们，当然，也欢迎你来加入。</description><content:encoded><![CDATA[<h2 id="powers-wiki">Power&rsquo;s Wiki</h2>
@@ -5557,6 +5561,6 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>Talaxy 的博客。一个个人博客，记录所思所想。</p>
 <h2 id="wai-科技社">WAI 科技社</h2>
 <p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
-<p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的 STEM 学生社团，是青少年创客和 STEAM 教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</p>
+<p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由学生自发、由信息科组提供指导与支持的 STEM 学生社团，是青少年创客和 STEAM 教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
 ]]></content:encoded></item></channel></rss>

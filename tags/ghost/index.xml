@@ -238,7 +238,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics 谷歌统计--&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-133816799-2&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-**********&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">gtag</span><span class="p">()</span> <span class="p">{</span>
@@ -246,7 +246,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-133816799-2&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-**********&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Baidu Tongji 百度统计--&gt;</span>
@@ -254,7 +254,7 @@
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">_hmt</span> <span class="o">=</span> <span class="nx">_hmt</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">hm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?cb3832ee43b34e6bfd3556bd054c7d26&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?********************&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hm</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">})();</span>
@@ -992,20 +992,22 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 ]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0000</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>
-<li>2018-02-17 启用域名 ████.tech 和 ████████.club [数据删除]</li>
+<li>2018-02-17 启用域名 <code>████.tech</code> 和 <code>████████.club</code> [数据删除]</li>
 <li>2018-9 迁移至 Coding Pages 进行托管</li>
 <li>2018-12-30 更换由 Ghost 驱动，服务器迁移至美国西海岸</li>
 <li>2019-06-26 迁移至腾讯云服务器 CVM</li>
 <li>2019-11-12 迁移服务器至美国西海岸</li>
-<li>2020-03-11 更换域名为 jacobr.xyz，暂时关闭博客，仅保留关于页面，更换为静态页面。</li>
+<li>2020-03-11 更换域名为 <code>jacobr.xyz</code>，暂时关闭博客，仅保留关于页面，更换为静态页面。</li>
 <li>2020-03-23 迁移至阿里云服务器 ECS</li>
-<li>2021-06-21 启用新域名 jacobruan.com</li>
+<li>2021-06-21 启用新域名 <code>jacobruan.com</code></li>
 <li>2021-10-08 服务器迁移至新西伯利亚</li>
 <li>2022-07-04 服务器故障，博客暂时下线</li>
 <li>2022-08-07 重新安装服务器，恢复访问</li>
 <li>2022-12-07 更新到 Ghost 5.0</li>
 <li>2023-10-14 迁移服务器至阿里云新加坡</li>
-<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub</li>
+<li>2023-06-22 域名 <code>jacobruan.com</code> 续费失败，被迫转到 <code>jacobruan.xyz</code></li>
+<li>2024-05-27 域名 <code>jacobruan.xyz</code> 到期，临时转到 <code>████████.fun</code> [数据删除]</li>
+<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub，有了比命长的域名 <code>weixiang.github.io</code></li>
 </ul>
 <p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢 Microsoft，提供了 GitHub Page 托管、GitHub Action 自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
 ]]></content:encoded></item><item><title>友情链接</title><link>https://weixiang.github.io/links/</link><pubDate>Sun, 31 Dec 2017 16:01:00 +0000</pubDate><guid>https://weixiang.github.io/links/</guid><description>我的朋友们，当然，也欢迎你来加入。</description><content:encoded><![CDATA[<h2 id="powers-wiki">Power&rsquo;s Wiki</h2>
@@ -1016,6 +1018,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p>Talaxy 的博客。一个个人博客，记录所思所想。</p>
 <h2 id="wai-科技社">WAI 科技社</h2>
 <p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
-<p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由博罗中学学生自发、由信息科组提供指导与支持的 STEM 学生社团，是青少年创客和 STEAM 教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。是广东省教育“双融双创”智慧共享社区项目的成员社团之一。</p>
+<p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由学生自发、由信息科组提供指导与支持的 STEM 学生社团，是青少年创客和 STEAM 教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
 ]]></content:encoded></item></channel></rss>

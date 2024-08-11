@@ -354,8 +354,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;json-file&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w"> </span><span class="c"># 限制 docker 控制台日志大小，可自行调整</span><span class="w">
-</span></span></span></code></pre></div>]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h1 id="使用群晖-web-station-搭建-heimdall-导航页">使用群晖 Web Station 搭建 Heimdall 导航页</h1>
-<h2 id="安装环境">安装环境</h2>
+</span></span></span></code></pre></div>]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h2 id="安装环境">安装环境</h2>
 <p>在套件中心安装 Web Station，随后选择安装 PHP 7.4，Nginx 默认已经安装。</p>
 <h2 id="创建网站">创建网站</h2>
 <p>在 Web Station 中新建一个虚拟主机，在 web 中新建一个文件夹作为文档根目录，PHP 选择 PHP 7.4。</p>
@@ -513,11 +512,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--hostname qinglong <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>whyour/qinglong:2.15.1
-</span></span></code></pre></div><h2 id="初始化配置">初始化配置</h2>
-<p>Telegram 通知</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">青龙酱 @qinglongneko_bot:
-</span></span><span class="line"><span class="cl">5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs
-</span></span><span class="line"><span class="cl">chat ID: 762466672
 </span></span></code></pre></div><h2 id="修改配置文件">修改配置文件</h2>
 <p>修改 <code>config.sh</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 代理地址，支持HTTP/SOCK5，例如 http://127.0.0.1:7890</span>
@@ -525,9 +519,9 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">## 3. Telegram</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写自己申请@BotFather的Token，如10xxx4:AAFcqxxxxgER5uw</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;5358861495:AAGuVuB2L3_bRUyfl3XscC9LYZxjwgIhLhs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;**********:******************************&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写 @getuseridbot 中获取到的纯数字ID</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;762466672&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;**********&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## Telegram 代理IP（选填）</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 下方填写代理IP地址，代理类型为 http，比如您代理是 http://127.0.0.1:1080，则填写 &#34;127.0.0.1&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## 如需使用，请自行解除下一行的注释</span>
@@ -561,9 +555,8 @@
 </span></span></code></pre></div><h4 id="获取-cookie">获取 Cookie</h4>
 <p>前往京东手机版登录 <a href="https://m.jd.com">https://m.jd.com</a></p>
 <p>使用开发者工具查看 Network 即可获取到 Cookie：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">wxa_level=1; retina=1; cid=9; jxsid=16699509190885388739; appCode=ms0ca95114; webp=1; visitkey=1249950452605824; autoOpenApp_downCloseDate_jd_homePage=1669950921684_1; __jdv=122270672%7Cdirect%7C-%7Cnone%7C-%7C1669950926563; __jda=122270672.1249950452605824.1669950926.1669950926.1669950926.1; jxsid_s_u=https%3A//home.m.jd.com/myJd/home.action; sc_width=1600; shshshfpa=a8234b55-dcb2-9af1-c72d-be11ed866e80-1669950926; shshshfpb=vYIdL0wj44gegWlQFkrq50g; _gia_s_local_fingerprint=4e1452bcc38f34ab00ac72e811873a6c; jcap_dvzw_fp=BvUs1NA_wULHUxuuy6zFm4C4xuDBQwrduSoYOMmCfd6FPyWqpE6FE2t1Bs40UckY4Pzvzw==; whwswswws=; TrackerID=MBifKm6C7gbtp2KOeos2-Y10uPu3NRHCvvNd9SrEIeWYTbX2FN6IhVi5ntDiqHvuaTXmumZaQuykRtKALJBOusUjDnrjm90cb6lW0opT4tI; pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow; pt_token=ffd4aooz; pwdt_id=YoungRightNow; sfstoken=tk01me3771d6ca8sMSsxKzIrMXgxcTI/2kucqBmBAxS8fA56xCjpxtVQYNi3rd6aXiaZSyNnPAukFyj0eXzG2L8lkeFk; wqmnx1=MDEyNjM4M3Blb2hpOTBpIHMwO3BpNixlci5hNzM3YTVXRFUp; __wga=1669950985249.1669950926561.1669950926561.1669950926561.2.1; PPRD_P=UUID.1249950452605824; jxsid_s_t=1669950985284; shshshfp=35d83b5801d164b43d9d46801e698399; shshshsID=c7b112dc50f8480c053fd31c71f09b80_4_1669950985373
-</span></span></code></pre></div><p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-WD1reUTBJJDTO2DoAAhAVXz0s0itFNDG4a0dRebvA; pt_pin=YoungRightNow;
+<p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-****************************************; pt_pin=**********;
 </span></span></code></pre></div><p>将其添加到环境变量，命名为 <code>JD_COOKIE</code></p>
 <h3 id="b-站">B 站</h3>
 <h4 id="安装环境">安装环境</h4>
@@ -581,8 +574,7 @@
 </span></span><span class="line"><span class="cl">文件后缀：sh
 </span></span></code></pre></div><h4 id="获取-cookie-1">获取 Cookie</h4>
 <p>使用 <strong>隐私窗口</strong> 登录 B 站，后打开 <a href="https://api.bilibili.com/x/web-interface/nav">https://api.bilibili.com/x/web-interface/nav</a> 获取 Cookie</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">innersign=0; buvid3=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; b_nut=1669966878; i-wanna-go-back=-1; b_ut=7; fingerprint=0a9efc29b8fed4d0365f270f3f7904b3; buvid_fp=660FAF33-BA5D-A272-1CFF-336AE5046A8678278infoc; buvid_fp_plain=undefined; SESSDATA=e9445373%2C1685518911%2Cdd48b%2Ac2; bili_jct=2a7a08693db3b1086a994f62f3654c41; DedeUserID=98986975; DedeUserID__ckMd5=94d06abde6852f18; sid=79s8qs4l
-</span></span></code></pre></div><p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
+<p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
 <h4 id="配置推送">配置推送</h4>
 <p>Telegram：添加以下环境变量</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__botToken
@@ -597,9 +589,8 @@
 </span></span><span class="line"><span class="cl">文件后缀：py
 </span></span></code></pre></div><h4 id="获取-cookie-2">获取 Cookie</h4>
 <p>打开 <a href="http://hoyolab.com/">http://hoyolab.com/</a> 登录获取</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">mi18nLang=en-us; _MHYUUID=206721dd-fce2-4f41-816c-2ef23dece4db; G_ENABLED_IDPS=google; DEVICEFP_SEED_ID=f06fe6a1ab2644b8; DEVICEFP_SEED_TIME=1669967915701; DEVICEFP=38d7eb6858d40; ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487; cookie_token=fCLAp4azi7IDRdPnEPNZlp6jx6irHnhXIOsU3VsJ; account_id=171580487
-</span></span></code></pre></div><p>其中只用到</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33CNWL6rju9PfpUJA4zA; ltuid=171580487;
+<p>其中只用到</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33********************; ltuid=**********;
 </span></span></code></pre></div><p>分别填入环境变量，名为 <code>LTOKEN</code> 和 <code>LTUID</code></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.dujin.org/18884.html">https://www.dujin.org/18884.html</a></p>
@@ -609,7 +600,7 @@
 ]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x193F2                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 9E 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x193F9                         One Of Option: Android, Value (8 bit): 0x1 {09 07 9F 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19400                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 A0 01 00 00 02}
@@ -617,44 +608,44 @@
 </span></span><span class="line"><span class="cl">0x1940E                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 A1 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19415                 End One Of {29 02}
 </span></span></code></pre></div><p>下面是华擎的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x19C82                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 E2 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x19C89                         One Of Option: Android, Value (8 bit): 0x1 {09 07 E3 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19C90                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 E4 01 00 00 02}
 </span></span><span class="line"><span class="cl">0x19C97                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 E5 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19C9E                 End One Of {29 02}
 </span></span></code></pre></div><p>可以发现缺少了一项</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
 </span></span></code></pre></div><p>这就是问题所在。</p>
 <h2 id="升级-bios">升级 BIOS</h2>
-<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。
-前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a>
-下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。
-华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a>
-下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。
-具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
+<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。</p>
+<p>前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a></p>
+<p>下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。</p>
+<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
+<p>下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。</p>
+<p>具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
 </p>
 <h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
-<p>首先建议选择 UEFI 进行引导。
-下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。
-此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
-这里放一个两个下载链接，若失效可自行搜索下载。
-<a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a>
-<a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
+<p>首先建议选择 UEFI 进行引导。</p>
+<p>下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。</p>
+<p>此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
+这里放一个两个下载链接，若失效可自行搜索下载。</p>
+<p><a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a></p>
+<p><a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
 <h2 id="修改-bios">修改 BIOS</h2>
-<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。
-会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：
-<img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
-
-输入命令：</p>
+<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。</p>
+<p>会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：</p>
+<p><img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
+</p>
+<p>输入命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">amisetupwriter 0x4E2 0x3
 </span></span></code></pre></div><p>然后输入 <code>exit</code> 退出，重启完工。
 实测 DSM7 效果，开机一分半左右，传输速度基本达到千兆水平。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a>
-<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
+<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a></p>
+<p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 

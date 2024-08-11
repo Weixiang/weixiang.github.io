@@ -74,7 +74,7 @@
 ]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x193F2                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 9E 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x193F9                         One Of Option: Android, Value (8 bit): 0x1 {09 07 9F 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19400                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 A0 01 00 00 02}
@@ -82,44 +82,44 @@
 </span></span><span class="line"><span class="cl">0x1940E                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 A1 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19415                 End One Of {29 02}
 </span></span></code></pre></div><p>下面是华擎的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
 </span></span><span class="line"><span class="cl">0x19C82                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 E2 01 30 00 00}
 </span></span><span class="line"><span class="cl">0x19C89                         One Of Option: Android, Value (8 bit): 0x1 {09 07 E3 01 00 00 01}
 </span></span><span class="line"><span class="cl">0x19C90                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 E4 01 00 00 02}
 </span></span><span class="line"><span class="cl">0x19C97                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 E5 01 00 00 04}
 </span></span><span class="line"><span class="cl">0x19C9E                 End One Of {29 02}
 </span></span></code></pre></div><p>可以发现缺少了一项</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
 </span></span></code></pre></div><p>这就是问题所在。</p>
 <h2 id="升级-bios">升级 BIOS</h2>
-<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。
-前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a>
-下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。
-华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a>
-下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。
-具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
+<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。</p>
+<p>前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a></p>
+<p>下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。</p>
+<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
+<p>下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。</p>
+<p>具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
 </p>
 <h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
-<p>首先建议选择 UEFI 进行引导。
-下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。
-此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
-这里放一个两个下载链接，若失效可自行搜索下载。
-<a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a>
-<a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
+<p>首先建议选择 UEFI 进行引导。</p>
+<p>下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。</p>
+<p>此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
+这里放一个两个下载链接，若失效可自行搜索下载。</p>
+<p><a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a></p>
+<p><a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
 <h2 id="修改-bios">修改 BIOS</h2>
-<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。
-会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：
-<img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
-
-输入命令：</p>
+<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。</p>
+<p>会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：</p>
+<p><img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
+</p>
+<p>输入命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">amisetupwriter 0x4E2 0x3
 </span></span></code></pre></div><p>然后输入 <code>exit</code> 退出，重启完工。
 实测 DSM7 效果，开机一分半左右，传输速度基本达到千兆水平。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a>
-<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a>
-<a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
+<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a></p>
+<p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
+<p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
