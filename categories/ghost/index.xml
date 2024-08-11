@@ -1,4 +1,401 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Mon, 05 Aug 2024 16:48:36 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<p>为什么从 Ghost 换到 Hugo？</p>
+<p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
+<p><del>买不起服务器了，就换回静态博客了。</del></p>
+<p>本文记录一下 Ghost 多年的使用体验和一些小技巧。</p>
+<p>永远喜欢 Casper 主题。</p>
+<h2 id="code-injection">Code injection</h2>
+<p>代码注入是修改 Ghost 主题最方便的方法，而且不受主题更新影响。下面是我使用 Ghost 多年攒下来的 Code inject 方案，包含了字体、图片、样式、插件等各个方面的自定义。</p>
+<h3 id="site-header">Site header</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 自动黑化 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="s2">&#34;(prefers-color-scheme: dark)&#34;</span><span class="p">).</span><span class="nx">matches</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;dark-mode&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">-moz-selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="p">::</span><span class="nd">-webkit-selection</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">background</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 黑色图底 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">has-cover</span> <span class="p">.</span><span class="nc">site-header-content</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 替换图片 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.site-header-cover&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">newSrcset</span> <span class="o">=</span> <span class="s1">&#39;https://api.dujin.org/bing/1366.php 300w, https://api.dujin.org/bing/1366.php 600w, https://api.dujin.org/bing/1920.php 1000w, https://api.dujin.org/bing/1920.php 2000w&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">newSrc</span> <span class="o">=</span> <span class="s1">&#39;https://api.dujin.org/bing/1920.php&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">srcset</span> <span class="o">=</span> <span class="nx">newSrcset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">newSrc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="p">.</span><span class="nx">alt</span> <span class="o">=</span> <span class="s2">&#34;Jacob&#39;s Thoughts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全局字体 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">/*@import url(&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="c">    @import url(&#39;https://fonts.googleapis.com/css2?family=Noto+Serif+SC&amp;display=swap&#39;);*/</span>
+</span></span><span class="line"><span class="cl">    <span class="c">/* 引入 Google Fonts */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">font-family</span><span class="o">:</span> <span class="s2">&#34;ChineseFont&#34;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">src</span><span class="o">:</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;PingFang SC&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Microsoft YaHei&#34;</span><span class="o">),</span> <span class="nt">local</span><span class="o">(</span><span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">unicode-range</span><span class="o">:</span> <span class="nt">U</span><span class="o">+</span><span class="nt">2E80-A4CF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">F900-FAFF</span><span class="o">,</span> <span class="nt">U</span><span class="o">+</span><span class="nt">FE30-FE4F</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-sans-serif</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;HarmonyOS_Regular&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="s2">&#34;Source Han Sans SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Sans CJK SC&#34;</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Micro Hei&#34;</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-serif</span><span class="p">:</span> <span class="n">STZhongsong</span><span class="p">,</span> <span class="n">STSong</span><span class="p">,</span> <span class="s1">&#39;Noto Serif SC&#39;</span><span class="p">,</span> <span class="s2">&#34;Noto Serif CJK&#34;</span><span class="p">,</span> <span class="n">PMingLiu</span><span class="p">,</span> <span class="n">SimSun</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Bitmap Song&#34;</span><span class="p">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="kc">serif</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">--font-mono</span><span class="p">:</span> <span class="n">ChineseFont</span><span class="p">,</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Cascadia Code&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Mono&#34;</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 覆写默认字体变量 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">body</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="k">font-family</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 网页正文字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-title</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">article-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 文章卡片标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-excerpt</span> <span class="nt">p</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">blockquote</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ol</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ul</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">dl</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.6</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 文章正文字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="nt">pre</span><span class="o">)&gt;</span><span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F5F5F5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#F0F0F0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#096DD9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/*  段落内代码样式 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">code</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">kbd</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">samp</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 统一代码字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">h1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h2</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h3</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h4</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h5</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">h6</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">site-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">text-shadow</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">black</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 首页标题字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">author-profile</span> <span class="nt">h1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">article-byline-meta</span> <span class="nt">h4</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 作者名片字体 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">blockquote</span> <span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 引用字体大小 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.2</span><span class="kt">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">.2</span><span class="kt">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">focus</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-bottom</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span> <span class="kc">solid</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">post-card-image</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c">/* 圆角图片 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 全局滚动条 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-track</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span> <span class="kc">inset</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#424242</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="k">box-shadow</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#686868</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-image</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">::</span><span class="nd">-webkit-scrollbar-thumb</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">)</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 代码高亮 prism.js --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg==&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!--
+</span></span></span><span class="line"><span class="cl"><span class="c">&lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.min.css&#34; integrity=&#34;sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==&#34; crossorigin=&#34;anonymous&#34; referrerpolicy=&#34;no-referrer&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.css&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-Dqf5696xtofgH089BgZJo2lSWTvev4GFo+gA2o4GullFY65rzQVQLQVlzLvYwTo0Bb2Gpb6IqwxYWtoMonfdhQ==&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">code</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s1">&#39;language-&#39;</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="nt">language-</span><span class="o">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">2.4</span><span class="kt">rem</span> <span class="mf">3.2</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nt">html</span><span class="p">.</span><span class="nc">dark-mode</span> <span class="p">.</span><span class="nc">gh-content</span> <span class="nt">code</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="mh">#030303</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Global site tag (gtag.js) - Google Analytics 谷歌统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=UA-**********&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">gtag</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;js&#34;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">gtag</span><span class="p">(</span><span class="s2">&#34;config&#34;</span><span class="p">,</span> <span class="s2">&#34;UA-**********&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Baidu Tongji 百度统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">_hmt</span> <span class="o">=</span> <span class="nx">_hmt</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">hm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&#34;https://hm.baidu.com/hm.js?********************&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hm</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})();</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;baidu-site-verification&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;code-SpwhprNdN8&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- busuanzi 统计--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- DisqusJS --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 图标库 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-+oRH6u1nDGSm3hH8poU85YFIVTdSnS2f+texdPGrURaJh8hzmhMiZrQth6l56P4ZQmxeZzd2DqVEMqQoJ8J89A==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="s2">&#34;Font Awesome 6 Brands&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-style</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-weight</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">font-variant</span><span class="p">:</span> <span class="kc">normal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text-rendering</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kp">-webkit-</span><span class="n">font-smoothing</span><span class="p">:</span> <span class="n">antialiased</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-head-menu</span> <span class="p">.</span><span class="nc">nav-github</span> <span class="nt">a</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span><span class="k">content</span><span class="p">:</span> <span class="s2">&#34;\f09b&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 阅读进度条 --&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">z-index</span><span class="p">:</span> <span class="mi">999</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span> <span class="c">/* Progress bar height */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background</span><span class="p">:</span> <span class="mh">#c5d2d9</span><span class="p">;</span> <span class="c">/* Progress bar background color */</span>
+</span></span><span class="line"><span class="cl">  <span class="kp">-webkit-</span><span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">     <span class="kp">-moz-</span><span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span> <span class="c">/* Hide default progress bar */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span><span class="p">::</span><span class="nd">-webkit-progress-bar</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">reading-progress</span><span class="p">::</span><span class="nd">-webkit-progress-value</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">ghost</span><span class="o">-</span><span class="n">accent</span><span class="o">-</span><span class="kc">color</span><span class="p">);</span> <span class="c">/* Progress bar color */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h3 id="site-footer">Site footer</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 代码高亮 prism.js --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-RDQSW3KoqJMiX0L/UBgwBmH1EmRYp8LBOiLaA8rBHIy+7OGP/7Gxg8vbt8wG4ZYd29P0Fnoq6+LOytCqx3cyoQ==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/toolbar/prism-toolbar.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-st608h+ZqzliahyzEpETxzU0f7z7a9acN6AFvYmHvpFhmcFuKT8a22TT5TpKpjDa3pt3Wv7Z3SdQBCBdDPhyWA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-/kVH1uXuObC0iYgxxCKY41JdWOkKOxorFVmip+YVifKsJ4Au/87EisD1wty7vxN2kAhnWh6Yc8o/dSAXj6Oz7A==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-ZqfG//sXQwAA7DOArFJyMmZQ3knKe+0ft3tPQZPvDPJR04IatmhVO5pTazVV+fLVDYSy28PhoBeUj5wxGRiGAA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-json.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- AddThis 分享组件 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61109cb1d502ff5d&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- Cookie Consent 提示框 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js&#34;</span> <span class="na">data-cfasync</span><span class="o">=</span><span class="s">&#34;false&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">cookieconsent</span><span class="p">.</span><span class="nx">initialise</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">palette</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">popup</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#252e39&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">button</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">background</span><span class="o">:</span> <span class="s2">&#34;#005ba4&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">theme</span><span class="o">:</span> <span class="s2">&#34;edgeless&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">position</span><span class="o">:</span> <span class="s2">&#34;bottom-right&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 标题特效 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://unpkg.com/typewriter-effect@latest/dist/core.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.site-title + p&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">typewriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Typewriter</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">loop</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">delay</span><span class="o">:</span> <span class="mi">75</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">typewriter</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;Writing my &lt;strong&gt;thoughts&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;stories&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">750</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;ideas&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;life&lt;/strong&gt;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteChars</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">typeString</span><span class="p">(</span><span class="s1">&#39;&lt;strong&gt;cats&lt;/strong&gt; on the web&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">pauseFor</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">deleteAll</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 版权特效 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">poweredByLink</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.gh-powered-by a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">poweredByLink</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">&#39;自豪地使用 Ghost&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">copyrightSection</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.copyright&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">copyrightSection</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">copyrightSection</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">link</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">link</span><span class="p">.</span><span class="nx">textContent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="kd">var</span> <span class="nx">updatedText</span> <span class="o">=</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;© &#39;</span><span class="p">,</span> <span class="s1">&#39;© 2016-&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">link</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">updatedText</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>关于我</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
 <p>我是 Jacob，这里是我的个人博客。</p>
 <p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
 <p>纯文大学生，但热爱的是硬件与编程。</p>
@@ -38,158 +435,17 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
 <p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
-]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
-但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。</p>
-<p>DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
-<blockquote>
-<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p>
-</blockquote>
-<p>此前本站就在用 DisqusJS 1.3 作为评论支持，趁着这次升级版本记录一下操作。</p>
-<blockquote>
-<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p>
-</blockquote>
-<h2 id="添加头文件">添加头文件</h2>
-<p>在<code>Code Injection</code>中的<code>Site Header</code>添加 DisqusJS 的头文件即可</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/disqusjs.es2015.umd.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="修改主题">修改主题</h2>
-<p>下载主题源码，在需要展示评论的地方创建一个 DisqusJS 容器，并添加配置：</p>
-<p>配置如何获取，请参考官方文档 <a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;disqusjs&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">disqusjs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DisqusJS</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">shortname</span><span class="o">:</span> <span class="s1">&#39;你的 Disqus Forum 的 shortname&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">siteName</span><span class="o">:</span> <span class="s1">&#39;你站点的名称&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">identifier</span><span class="o">:</span> <span class="s1">&#39;ghost-{{comment_id}}&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{url absolute=&#34;true&#34;}}&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">api</span><span class="o">:</span> <span class="s1">&#39;https://替换为你的反代域名/disqus/api/&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">apikey</span><span class="o">:</span> <span class="s1">&#39;DisqusJS 向 API 发起请求时使用的 API Key&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;你的站点的 Disqus Moderator 的用户名&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">adminLabel</span><span class="o">:</span> <span class="s1">&#39;你想显示在 Disqus Moderator Badge 中的文字&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h3 id="配置-disqus-application">配置 Disqus Application</h3>
-<p>在 <a href="https://disqus.com/api/applications/">Disqus API Application</a> 处注册一个 Application。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vepaH&amp;originHeight=520&amp;originWidth=1054&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
-<p>点击新创建的 Application，获取你的 API Key（公钥）。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=n2k7W&amp;originHeight=306&amp;originWidth=644&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
-<p>在 Application 的 Settings 页面设置你使用 DisqusJS 时的域名。Disqus API 会检查 API 请求的 Referrer 和 Origin。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=tIQea&amp;originHeight=267&amp;originWidth=710&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
-<h2 id="配置-disqusjs-参数">配置 DisqusJS 参数</h2>
-<p><strong>shortname</strong> <code>{string}</code></p>
-<ul>
-<li>你的 Disqus Forum 的 shortname，你可以在 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Shortname</a> 获取你的 shortname</li>
-<li><strong>必须</strong>，无默认值</li>
-</ul>
-<p><strong>siteName</strong> <code>{string}</code></p>
-<ul>
-<li>你站点的名称，将会显示在「评论基础模式」的 header 中；该配置应该和 <a href="https://disqus.com/admin/settings/general/">Disqus Admin - Settings - General - Website Name</a> 一致</li>
-<li>非必须，无默认值</li>
-</ul>
-<p><strong>identifier</strong> <code>{string}</code></p>
-<ul>
-<li>当前页面的 identifier，用来区分不同页面</li>
-<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
-</ul>
-<p><strong>url</strong> <code>{string}</code></p>
-<ul>
-<li>当前页面的 URL，Disqus 的爬虫会爬取该 URL 获取页面相关信息</li>
-<li><strong>建议</strong>，默认值为 <code>document.location.origin + document.location.pathname + document.location.search</code></li>
-</ul>
-<p><strong>title</strong> <code>{string}</code></p>
-<ul>
-<li>当前页面的标题，如果没有设置默认为当前页面的标题。当页面标题中有其他信息（比如站点名称）而不想在 Disqus 中展示时，可以设置此项。</li>
-<li>非必须，默认值为 <code>document.title</code></li>
-</ul>
-<p><strong>api</strong> <code>{string}</code></p>
-<ul>
-<li>DisqusJS 请求的 API Endpoint，通常情况下你应该配置一个 Disqus API 的反代并填入反代的地址。你也可以直接使用 DISQUS 官方 API 的 Endpoint <code>https://disqus.com/api/</code>，或是使用我搭建的 Disqus API 反代 Endpoint <code>https://disqus.skk.moe/disqus/</code>。如有必要可以阅读关于搭建反代的 <a href="https://github.com/SukkaW/DisqusJS#%E8%B0%83%E8%AF%95%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8--%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3">相关内容</a></li>
-<li><strong>建议</strong>，默认值为 <code>https://disqus.skk.moe/disqus/</code></li>
-</ul>
-<p><strong>apikey</strong> <code>{string | string[]}</code></p>
-<ul>
-<li>DisqusJS 向 API 发起请求时使用的 API Key，你应该在配置 Disqus Application 时获取了 API Key</li>
-<li>DisqusJS 支持填入一个 包含多个 API Key 的数组，每次请求时会随机使用其中一个；如果你只填入一个 API Key，可以填入 string 或 Array。</li>
-<li><strong>必填</strong>，无默认值</li>
-</ul>
-<p><strong>nesting</strong> <code>{number}</code></p>
-<ul>
-<li>最大评论嵌套数；超过嵌套层数的评论，会不论从属关系显示在同一层级下</li>
-<li>非必须，默认值为 <code>4</code></li>
-</ul>
-<p><strong>nocomment</strong> <code>{string}</code></p>
-<ul>
-<li>没有评论时的提示语（对应 Disqus Admin - Settings - Community - Comment Count Link - Zero comments）</li>
-<li>非必须，默认值为 <code>这里冷冷清清的，一条评论都没有</code></li>
-</ul>
-<hr>
-<p>以下配置和 Disqus Moderator Badge 相关，缺少一个都不会显示 Badge
-<strong>admin</strong> <code>{string}</code></p>
-<ul>
-<li>你的站点的 Disqus Moderator 的用户名（也就是你的用户名）。你可以在 <a href="https://disqus.com/home/settings/account/">Disqus - Settings - Account - Username</a> 获取你的 Username</li>
-<li>非必须，无默认值</li>
-</ul>
-<p><strong>adminLabel</strong> <code>{string}</code></p>
-<ul>
-<li>你想显示在 Disqus Moderator Badge 中的文字。该配置应和 <a href="https://disqus.com/admin/settings/community/">Disqus Admin - Settings - Community - Moderator Badge Text</a> 相同</li>
-<li>非必须，无默认值</li>
-<li></li>
-</ul>
-<h2 id="渲染评论">渲染评论</h2>
-<p>最后，让 DisqusJS 实例将评论组件渲染到页面上：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">disqusjs</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;disqusjs&#39;</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 你也可以传入一个 CSS 选择器
-</span></span></span><span class="line"><span class="cl"><span class="c1">// disqusjs.render(&#39;#disqusjs&#39;);
-</span></span></span></code></pre></div><p>在 Casper 主题中，完成之后的<code>post.hbs</code>评论部分长这样：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;article-comments gh-canvas&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="c">&lt;!-- DisqusJS 评论区--&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;disqusjs&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">disqusjs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DisqusJS</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">shortname</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">siteName</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">identifier</span><span class="o">:</span> <span class="s1">&#39;ghost-{{comment_id}}&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;{{url absolute=&#34;true&#34;}}&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">api</span><span class="o">:</span> <span class="s1">&#39;https://domain.com/disqus/api/&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">apikey</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">admin</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">adminLabel</span><span class="o">:</span> <span class="s1">&#39;xxxxxxxx&#39;</span>
-</span></span><span class="line"><span class="cl">                <span class="p">});</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="nx">disqusjs</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;disqusjs&#39;</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">            <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>修改完成后重新打包为 zip，上传到 Ghost 更新主题即可。</p>
-<h2 id="反向代理">反向代理</h2>
-<p>在站点配置中添加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kn">...</span>
-</span></span><span class="line"><span class="cl">  <span class="c1"># for hexo-theme-next disqusjs.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="s">location</span> <span class="s">/disqus/api/</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kn">proxy_pass</span> <span class="s">https://disqus.com/api/</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="kn">...</span>
-</span></span><span class="line"><span class="cl"><span class="err">}</span>
-</span></span></code></pre></div><p>完成后重启 nginx 服务：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">service nginx reload
-</span></span></code></pre></div><p>打开 <code>https://domain.com/disqus/api/3.0/threads/list.json</code> （<code>domain.com</code>是你 nginx 配的域名）验证一下，是否配置成功：返回如下内容即可。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;code&#34;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="nt">&#34;response&#34;</span><span class="p">:</span><span class="s2">&#34;Invalid API key&#34;</span><span class="p">}</span>
-</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
-<p><a href="https://github.com/SukkaW/DisqusJS">https://github.com/SukkaW/DisqusJS</a>
-<a href="https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/">https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/</a>
-<a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
-<h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-</p>
-<p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
+]]></content:encoded></item><item><title>文章传送门</title><link>https://weixiang.github.io/portal/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/portal/</guid><description>文章分类传送门</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
+<p><a href="/tags/">话题页 - 传送门🚪→</a></p>
+<iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
+<p>+++</p>
+<h2 id="分类">分类</h2>
+<p><a href="/categories/">分类页 - 传送门🚪→</a></p>
+<iframe src="/categories" width=100% height="400" frameborder=0 scrolling=no></iframe>
+<p>+++</p>
+<h2 id="系列">系列</h2>
+<p><a href="/series/">系列页 - 传送门🚪→</a></p>
+<iframe src="/series" width=100% height="400" frameborder=0 scrolling=no></iframe>
 ]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。</p>
 <p>DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
@@ -342,39 +598,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 </p>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>Flarum 使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/flarum-uses-tencent-cloud-cos-storage/</link><pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/flarum-uses-tencent-cloud-cos-storage/</guid><description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description><content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
-<h2 id="安装-fof-upload-插件">安装 FoF Upload 插件</h2>
-<p>原作帖子地址：<a href="https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension">https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer require fof/upload
-</span></span></code></pre></div><h2 id="获取配置参数">获取配置参数</h2>
-<p>原理很简单，插件支持 AWS S3 及其兼容协议，腾讯云的 COS 也兼容 AWS S3 协议，所以直接填进去就能用，当然参数也要填对。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
-<p>本文不再赘述创建存储桶取得 Key 之类的基本操作，可以参考下面：</p>
-<p>腾讯云官方 AWS S3 配置指南：<a href="https://cloud.tencent.com/document/product/436/41284">https://cloud.tencent.com/document/product/436/41284</a></p>
-<blockquote>
-<p>Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。</p>
-</blockquote>
-<h2 id="配置-fof-upload">配置 FoF Upload</h2>
-<p>在 Flarum 后台，进入 FoF Upload 配置页。</p>
-<h3 id="文件链接前缀">文件链接前缀</h3>
-<p>找到“存储设置 - 文件链接前缀 / 对象存储 CDN 或访问域名（含 http/https）”，在里面填入你的腾讯云域名前缀。</p>
-<p>格式为 <code>https://&lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.myqcloud.com</code></p>
-<p>例如 <code>//jacob-1234567890.cos.ap-guangzhou.myqcloud.com</code></p>
-<h3 id="aws-s3-存储设置">AWS S3 存储设置</h3>
-<p>找到“AWS S3 存储设置”，依次填入。</p>
-<ul>
-<li>Key：即腾讯云的 <code>SecretKey</code></li>
-<li>Secret：即腾讯云的 <code>SecretId</code></li>
-<li>存储空间（Bucket）:即腾讯云的存储桶名称 <code>BucketName-APPID</code></li>
-<li>地域（Region）:即腾讯云的地域 <code>Region</code></li>
-</ul>
-<h3 id="高级-s3-存储设置">高级 S3 存储设置</h3>
-<p>找到“AWS S3 存储设置”，依次填入。</p>
-<ul>
-<li>访问域名（Endpoint）：<code>https://cos.&lt;Region&gt;.myqcloud.com</code> （<code>&lt;Region&gt;</code>替换为你的，如<code>ap-guangzhou</code>）</li>
-<li>使用 path-style 访问域名：关闭</li>
-<li>访问控制列表（ACL）：<code>public-read</code> （即共有读私有写）</li>
-</ul>
-<p>应用于上传对象的读写权限 ACL（默认私有读写）。有关可用的值，请参阅：<a href="https://iflarum.cn/aws-s3acl">https://iflarum.cn/aws-s3acl</a></p>
 ]]></content:encoded></item><item><title>Flarum 使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link><pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate><guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid><description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description><content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
 <h2 id="安装-fof-upload-插件">安装 FoF Upload 插件</h2>
 <p>原作帖子地址：<a href="https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension">https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension</a></p>
@@ -408,39 +631,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <li>访问控制列表（ACL）：<code>public-read</code> （即共有读私有写）</li>
 </ul>
 <p>应用于上传对象的读写权限 ACL（默认私有读写）。有关可用的值，请参阅：<a href="https://iflarum.cn/aws-s3acl">https://iflarum.cn/aws-s3acl</a></p>
-]]></content:encoded></item><item><title>Ghost 博客使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/ghost-blog-uses-tencent-cloud-cos-storage/</link><pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/ghost-blog-uses-tencent-cloud-cos-storage/</guid><description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
-<h2 id="安装-ghost-qcloud-cos-模块">安装 ghost-qcloud-cos 模块</h2>
-<p>使用命令安装</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install ghost-qcloud-cos
-</span></span></code></pre></div><p>在目录下创建文件夹</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p content/adapters/storage
-</span></span></code></pre></div><p>在<code>content/adapters/storage</code>创建<code>cos-store.js</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">//  content/adapters/storage/cos-store.js
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ghost-qcloud-cos&#39;</span><span class="p">);</span>
-</span></span></code></pre></div><h2 id="配置设置文件">配置设置文件</h2>
-<p>在<code>config.production.json</code>中添加</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;storage&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;active&#34;</span><span class="p">:</span> <span class="s2">&#34;cos-store&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cos-store&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;baseUrl&#34;</span><span class="p">:</span> <span class="s2">&#34;Base Url(Allowed to be empty)&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;basePath&#34;</span><span class="p">:</span> <span class="s2">&#34;图片存放路径，不填写默认为/ghost/content/images/&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;rename&#34;</span><span class="p">:</span> <span class="s2">&#34;是否重命名为 MD5 文件名，布尔值，默认为 false&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;SecretId&#34;</span><span class="p">:</span> <span class="s2">&#34;Secret Id&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;SecretKey&#34;</span><span class="p">:</span> <span class="s2">&#34;Secret Key&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Bucket&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxx-123456&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Region&#34;</span><span class="p">:</span> <span class="s2">&#34;ap-chengdu&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="重启一下">重启一下</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ghost restart
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo systemctl restart ghost_yoursite-com <span class="c1"># CentOS 要用这个</span>
-</span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
-<p><a href="https://github.com/ZhelinCheng/ghost-qcloud-cos">https://github.com/ZhelinCheng/ghost-qcloud-cos</a></p>
 ]]></content:encoded></item><item><title>Ghost 博客使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link><pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid><description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description><content:encoded><![CDATA[<blockquote>
 <p>本文 Ghost version: 4.32.1</p>
 </blockquote>
@@ -474,42 +664,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 </span></span><span class="line"><span class="cl">sudo systemctl restart ghost_yoursite-com <span class="c1"># CentOS 要用这个</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://github.com/ZhelinCheng/ghost-qcloud-cos">https://github.com/ZhelinCheng/ghost-qcloud-cos</a></p>
-]]></content:encoded></item><item><title>Ghost 博客配置邮件系统</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/configuring-ghost-blog-mail-settings/</link><pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/configuring-ghost-blog-mail-settings/</guid><description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
-<p>Ghost 是一个年轻的博客系统，迭代速度之快使得互联网上许多相关的教程已经过时，特别是邮件配置方面。
-经过多次尝试，终于得出了邮件系统的正确配置方法，在此记录。<strong>以网易域名邮箱为例：</strong></p>
-<h2 id="修改配置文件">修改配置文件</h2>
-<p>编辑<code>config.production.json</code>，将<code>mail</code>修改为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;mail&#34;</span><span class="err">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;transport&#34;</span><span class="p">:</span> <span class="s2">&#34;SMTP&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#39;Your Blog&#39; &lt;blog@yoursite.com&gt;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;options&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;smtp.ym.163.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">994</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;secureConnection&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;blog@yoursite.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;pass&#34;</span><span class="p">:</span> <span class="s2">&#34;yourpassword&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></div><h2 id="使用-mailgun">使用 Mailgun</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;mail&#34;</span><span class="err">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transport&#34;</span><span class="p">:</span> <span class="s2">&#34;SMTP&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;options&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;service&#34;</span><span class="p">:</span> <span class="s2">&#34;Mailgun&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host&#34;</span><span class="p">:</span> <span class="s2">&#34;smtp.mailgun.org&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;port&#34;</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;secure&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;auth&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="s2">&#34;postmaster@example.mailgun.org&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;pass&#34;</span><span class="p">:</span> <span class="s2">&#34;1234567890&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
-</span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
-<p><a href="https://ghost.org/docs/config/#mail">https://ghost.org/docs/config/#mail</a></p>
 ]]></content:encoded></item><item><title>Ghost 博客配置邮件系统</title><link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link><pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate><guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid><description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description><content:encoded><![CDATA[<blockquote>
 <p>本文 Ghost version: 4.32.1</p>
 </blockquote>
@@ -546,56 +700,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 </span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/config/#mail">https://ghost.org/docs/config/#mail</a></p>
-]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
-<h2 id="创建用户">创建用户</h2>
-<p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd &lt;user&gt; -m
-</span></span><span class="line"><span class="cl">passwd &lt;user&gt;
-</span></span></code></pre></div><p>输入<code>&lt;user&gt;</code>的密码，输入时不显示</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">visudo
-</span></span></code></pre></div><p>找到，在下面加入新行，参照上一行的格式</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## Allow root to run any commands anywhere</span>
-</span></span><span class="line"><span class="cl">root    <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span>       ALL
-</span></span><span class="line"><span class="cl">&lt;user&gt;  <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span>       ALL
-</span></span></code></pre></div><h2 id="安装-nodejs">安装 Node.JS</h2>
-<p>下载并执行脚本</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum -y install curl
-</span></span><span class="line"><span class="cl">curl -sL https://rpm.nodesource.com/setup_14.x <span class="p">|</span> sudo bash -
-</span></span></code></pre></div><p>安装 Node.js 14.x 和 npm</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo yum install -y nodejs
-</span></span></code></pre></div><p>使用<code>node -v</code>查看安装是否成功</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ node -v
-</span></span><span class="line"><span class="cl">v14.0.0
-</span></span></code></pre></div><p>安装 Yarn 包管理器（可选）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -sL https://dl.yarnpkg.com/rpm/yarn.repo <span class="p">|</span> sudo tee /etc/yum.repos.d/yarn.repo
-</span></span><span class="line"><span class="cl">sudo yum install yarn
-</span></span></code></pre></div><h2 id="安装-ghost-cli">安装 Ghost-CLI</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo npm install ghost-cli@latest -g
-</span></span></code></pre></div><h2 id="创建网站">创建网站</h2>
-<p>在宝塔面板中创建一个静态网站，创建数据库，然后删除目录下<strong>所有</strong>文件。</p>
-<h3 id="更改目录权限">更改目录权限</h3>
-<p>更改所有者为新建的<code>&lt;user&gt;</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chown -R &lt;user&gt;:&lt;user&gt; /www/wwwroot/sitename.com/
-</span></span></code></pre></div><p>赋予 775 权限</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod -R <span class="m">775</span> /www/wwwroot/sitename.com/
-</span></span></code></pre></div><h2 id="安装-ghost">安装 Ghost</h2>
-<p>定位到网站目录后，执行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ghost install
-</span></span></code></pre></div><p>按照提示填入信息即可。</p>
-<h2 id="启动-ghost">启动 Ghost</h2>
-<p>CentOS 环境下 Ghost 启动会报错，需要用以下命令启动。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl start ghost_yoursite-com
-</span></span></code></pre></div><h2 id="设置-nginx-反向代理">设置 Nginx 反向代理</h2>
-<p>在宝塔面板中设置反向代理，编辑配置添加<code>proxy_set_header X-Forwarded-Proto $scheme;</code></p>
-<h2 id="故障排查">故障排查</h2>
-<p>测试运行：<code>ghost run</code>
-查看状态：<code>ghost status</code>
-运行列表：<code>ghost ls</code>
-修改配置：<code>ghost setup</code>
-查看日志：<code>ghost log</code></p>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
-<a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
 ]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate><guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
 <h2 id="创建用户">创建用户</h2>
 <p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>
@@ -646,95 +750,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
-<blockquote>
-<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
-</blockquote>
-<p>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。Ghost 官方也给出了对应的指引：<a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a></p>
-<p>在本指南中，我将展示如何将代码示例添加到您的 Ghost 站点，以及如何使用代码语法高亮显示对其进行自定义。</p>
-<h2 id="引入-prismjs">引入 Prism.js</h2>
-<p>在「Code injection」的「Site Header」中添加 Prism.js 的样式表：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><p>在「Site Footer」中添加 Prism.js 的脚本：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>至此代码高亮已经可用。</p>
-<h2 id="添加自己常用的语言">添加自己常用的语言</h2>
-<blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
-<p>Prism.js 默认配置仅包含 <code>Markup + HTML + XML + SVG + MathML + SSML + Atom + RSS</code> 这几种语言的高亮规则，如果你常用的语言不在内，则需要自己手动添加。</p>
-<p>在 <a href="https://cdnjs.com/libraries/prism">https://cdnjs.com/libraries/prism</a> 搜索自己需要的语言，添加进 <code>Site Footer</code> 中 <code>prism.min.js</code> 的后面即可。</p>
-<p>我添加了 Bash 和 json 的支持。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-bash.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-ZqfG//sXQwAA7DOArFJyMmZQ3knKe+0ft3tPQZPvDPJR04IatmhVO5pTazVV+fLVDYSy28PhoBeUj5wxGRiGAA==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-json.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha512-QXFMVAusM85vUYDaNgcYeU3rzSlc+bTV4JvkfJhjxSHlQEo+ig53BtnGkvFTiNJh8D+wv6uWAQ2vJaVmxe8d3w==&#34;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span> <span class="na">referrerpolicy</span><span class="o">=</span><span class="s">&#34;no-referrer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="进阶配置">进阶配置</h2>
-<p>默认的主题有点丑，来改造一下。</p>
-<p>就像 Ghost 主题的其余部分一样，代码块可以使用标准 CSS 和 JavaScript 进行完全自定义。</p>
-<p>Prism.js 库附带了一个广泛的<a href="https://prismjs.com/">主题</a>和<a href="https://prismjs.com/#plugins">插件</a>列表，以进一步自定义您的代码示例的外观。</p>
-<h3 id="更换主题">更换主题</h3>
-<p>更改为 Tomorrow Night 主题，其余主题可以在<a href="https://prismjs.com/">Prism.js 官网</a>找到：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><h3 id="自建主题">自建主题</h3>
-<p>从 Ghost 官网抄来的，我觉得比 Tomorrow Night 主题好看，目前本站用的就是这个。
-在「Site Header」中添加样式：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">pre</span><span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="nt">language-</span><span class="o">]</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">background</span><span class="p">:</span> <span class="mh">#202328</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#fff</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="kt">em</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">max-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">2.4</span><span class="kt">rem</span> <span class="mf">3.2</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h3 id="复制按钮">复制按钮</h3>
-<p>在「Site Header」中添加工具栏：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.css&#34;</span> <span class="p">/&gt;</span>
-</span></span></code></pre></div><p>在「Site Footer」中添加工具栏和复制组件：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h3 id="显示行号">显示行号</h3>
-<p>在「Code injection」的「Site Footer」中添加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;pre[class*=language-]&#39;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">node</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;line-numbers&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">});</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">Prism</span><span class="p">.</span><span class="nx">highlightAll</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="行内代码样式更改">行内代码样式更改</h2>
-<blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
-<p><code>这个东西就是行内代码.</code></p>
-<p>Casper 自带的行内代码样式不太好看，换掉。</p>
-<p>从语雀那里抄来的：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">gh-content</span> <span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="nt">pre</span><span class="o">)&gt;</span><span class="nt">code</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">mono</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#F5F5F5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#F0F0F0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">6</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#096DD9</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span></code></pre></div><h2 id="后记">后记</h2>
-<p>正如上文所说，Prism.js 还有很多各式各样花里胡哨的功能，感兴趣的可以研究下 <a href="https://prismjs.com/">Prism.js 官网</a> 的内容。</p>
-<h2 id="参考文献">参考文献</h2>
-<p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
-<p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
 ]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
 <p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
@@ -824,50 +839,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
 <p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
-]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/change-font-for-ghost-blog/</guid><description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
-<p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
-<h2 id="字体定义">字体定义</h2>
-<p>Ghost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
-<p>在「Site Header」中添加以下代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="nv">--font-sans-serif</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">--font-serif</span><span class="p">:</span> <span class="n">Georgia</span><span class="p">,</span> <span class="n">STZhongsong</span><span class="p">,</span> <span class="s2">&#34;Times New Roman&#34;</span><span class="p">,</span> <span class="n">Times</span><span class="p">,</span> <span class="n">PMingLiu</span><span class="p">,</span> <span class="n">STSong</span><span class="p">,</span> <span class="n">SimSun</span><span class="p">,</span> <span class="s2">&#34;WenQuanYi Bitmap Song&#34;</span><span class="p">,</span> <span class="s2">&#34;Noto Serif CJK&#34;</span><span class="p">,</span> <span class="kc">serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">--font-mono</span><span class="p">:</span> <span class="n">JetBrainsMono</span><span class="p">,</span> <span class="s2">&#34;Source Code Pro&#34;</span><span class="p">,</span> <span class="n">Monaco</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Courier New&#34;</span><span class="p">,</span> <span class="n">Courier</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>代码中的三个变量分别对应的就是「无衬线字体」、「衬线字体」和「等宽字体」，可以参考上一篇文章，根据自己的喜好进行更改。</p>
-<p>对于无衬线字体，我选择用「Segoe UI」作为优先，保障 Windows 用户的体验，这款字体也是 Microsoft 的御用品牌字体。其次用「PingFang SC」苹方，确保 Apple 用户的体验。最后用「&ldquo;Apple Color Emoji&rdquo;, &ldquo;Segoe UI Emoji&rdquo;, &ldquo;Segoe UI Symbol&rdquo;」三个特殊字体加入对 Emoji 和特殊符号的支持。这里是学习了 GitHub 的做法。如果你想把所有特殊符号都渲染为 Emoji，可以学习简书的做法，把这一堆字体提到最前。</p>
-<p>至于衬线字体，我保留了 Ghost 原装的 Georgia 字体，这款英文衬线字体确实很漂亮。然后我使用了我个人比较喜欢的「STZhongsong」华文中宋，这款字体党政风满满，听说是党政专用标题字体。最后依然加入了对 Emoji 和特殊符号的支持。</p>
-<p>最后是代码中使用的等宽字体，用的是「JetBrainsMono, &ldquo;Source Code Pro&rdquo;」，这两款也是我用的最多的代码编辑器字体。当然了，考虑到普通用户的设备上大概率不会安装这种字体，建议再加一行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">import</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#39;</span><span class="o">)</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>使用 Web Font 来渲染等宽字体，保障显示准确。</p>
-<h2 id="设置正文字体">设置正文字体</h2>
-<p>我的博客主要以技术类的文章为主，所以我想用「非衬线字体」作为我的正文字体。「Casper」主题默认的正文字体是「衬线字体」而且对于中文来说字体偏大了。</p>
-<p>我们可以通过重新定义 Body 和文章部分的字体来更改正文字体。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">font-family</span><span class="p">:</span> <span class="o">-</span><span class="n">apple-system</span><span class="p">,</span> <span class="n">BlinkMacSystemFont</span><span class="p">,</span> <span class="s2">&#34;Segoe UI&#34;</span><span class="p">,</span> <span class="s2">&#34;PingFang SC&#34;</span><span class="p">,</span> <span class="s2">&#34;Hiragino Sans GB&#34;</span><span class="p">,</span> <span class="s2">&#34;Microsoft YaHei&#34;</span><span class="p">,</span> <span class="s2">&#34;Helvetica Neue&#34;</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="n">Arial</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">,</span> <span class="s2">&#34;Apple Color Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Emoji&#34;</span><span class="p">,</span> <span class="s2">&#34;Segoe UI Symbol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">blockquote</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ol</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">ul</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">dl</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">gh-content</span><span class="o">&gt;</span><span class="nt">p</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"><span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="kc">sans-serif</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">line-height</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>这里把正文字体设置为了无衬线字体，并且把字体大小调整为 16px，行间距为 1.8。</p>
-<h2 id="参考文献">参考文献</h2>
-<p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
 ]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
 <h2 id="字体定义">字体定义</h2>
@@ -1037,85 +1008,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <h2 id="八联系我们">八、联系我们</h2>
 <p>当您有其他的投诉、建议、未成年人个人信息相关问题或需要删除所有访问记录时，您可以将您的问题发送至 𝒋𝒂𝒄𝒐𝒃.𝒓𝒖𝒂𝒏(𝒂𝒕)𝒐𝒖𝒕𝒍𝒐𝒐𝒌.𝒄𝒐𝒎。</p>
 <p>我们将尽快审核所涉问题，并在验证您的用户身份后的十五个工作日内予以回复。</p>
-]]></content:encoded></item><item><title>社团 Ghost 博客调较记录</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/a-record-of-optimizing-the-ghost-blog-for-waitech/</link><pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid><description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description><content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
-<h3 id="新增评论区">新增评论区</h3>
-<p>大家终于可以愉快地畅所欲言啦！</p>
-<p><del>而且因为我们服务器在新加坡，不受中国大陆法律限制，也没有敏感词蛤蛤蛤</del></p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955834-732004-image.png" alt="Image description"  />
-</p>
-<p>采用的是<a href="https://valine.js.org/">Valine</a>作为我们的评论系统，快速、简洁且高效、无后端。
-获取</p>
-<p>在 Code Injection 的 Footer 部分填入</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;//unpkg.com/valine/dist/Valine.min.js&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"> <span class="k">new</span> <span class="nx">Valine</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#vcomments&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">appId</span><span class="o">:</span> <span class="s1">&#39;&lt;APP ID&gt;&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">appKey</span><span class="o">:</span> <span class="s1">&#39;&lt;APP Key&gt;&#39;</span>
-</span></span><span class="line"><span class="cl"> <span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>然后再在<code>post.hbs</code>里被注释掉的<code>Comment</code>部分添加这个就好了</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col-md-12&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;vcomments&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>参考：<a href="https://www.zuojl.com/ghost-comment-valine/">Ghost 博客添加 Valine 评论系统</a></p>
-<h3 id="新增邮件订阅">新增邮件订阅</h3>
-<p>大家可以在首页和每篇文章的下面找到这个订阅按钮</p>
-<p>将你的邮箱输进去，以后有文章更新就会通过邮件通知你啦~</p>
-<p><img loading="lazy" src="https://camo.githubusercontent.com/7ed58d9ed28f4a3a6d30b0152621cb0bec8c42d9ccecf9349e9f48c28174f963/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f656465762f696d6167652f75706c6f61642f76313538333739323932382f6c6965626c696e672f6c6965626c696e672d70726f6d6f2d6465736b746f702e6a7067" alt="邮件订阅"  />
-</p>
-<p>参考：<a href="https://github.com/eddiesigner/liebling/wiki">eddiesigner/liebling</a></p>
-<h3 id="接入了-google-广告">接入了 Google 广告</h3>
-<p>为什么要接广告？</p>
-<p><del>你当我们服务器是大风吹来的吗！</del></p>
-<p>能补贴一下服务器的运营费用，顺便还能给文章作者一些报酬。</p>
-<p>广告是 Google 根据你的兴趣个性化推荐的哦！所以每个人看到的都不太一样</p>
-<p>下面是某位不愿意透露姓名的同学看到的情形</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955902-729164-image.png" alt="Image description"  />
-</p>
-<p>Google 广告接入还是很方便的</p>
-<p>在 Google Adsense 申请就好，然后 Google 就会给一段神秘代码</p>
-<p>像这样</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">adsbygoogle</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">adsbygoogle</span> <span class="o">||</span> <span class="p">[]).</span><span class="nx">push</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">google_ad_client</span><span class="o">:</span> <span class="s2">&#34;ca-pub-这里应该是你的个人编号&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">enable_page_level_ads</span><span class="o">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">  <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>然后就把这段代码扔进 Code Injection 的 Head 部分就好了</p>
-<p>然后 Google 广告就会自动霸占你的网站了</p>
-<p>记得在 Google Adsense 的设置里调整一下广告出现的频率，以免广告太多影响阅读体验。</p>
-<p>参考：<a href="https://ghost.org/integrations/google-adsense/">Google AdSense + Ghost</a></p>
-<h3 id="接入了统计系统">接入了统计系统</h3>
-<p>我们站点一共接入了三个统计系统，分别是 Google Analytics，百度统计 和 不蒜子统计。</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955940-794386-image.png" alt=""  />
-</p>
-<p>上面是百度统计的效果图，就是能分析一下站点的访问量什么的。</p>
-<p><del>又没有多少人来统计个屁</del></p>
-<p>百度和 Google 的接入都很方便，直接注册然后按提示获取代码就好了。</p>
-<p>然后把获取到的代码扔进 Code Injection 的 Head 部分。</p>
-<p><del>Head 部分都快成垃圾场了</del></p>
-<p>不蒜子统计和前两个有点区别，这个是拿来展示的。</p>
-<p>比如页面底部的访问量统计，每篇文章的“热度”都是用它做的。</p>
-<p>方法也还算简单</p>
-<p>先把这个填入 Code Injection 的 Head 部分</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"> <span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>把这段代码扔进<code>footer.hbs</code>合适的地方就可以了</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_container_site_pv&#34;</span><span class="p">&gt;</span>本站总访问量<span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;busuanzi_value_site_pv&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>次<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>文章阅读量“热度”的方法也类似，改<code>post.hbs</code>就好了。</p>
-<p>参考：<a href="https://ibruce.info/">不如</a></p>
-<h3 id="新增了作者页面">新增了作者页面</h3>
-<p>效果（已失效）：<a href="http://waitech.top/authors/">Authors</a></p>
-<p>参考：<a href="https://github.com/eddiesigner/liebling/wiki">eddiesigner/liebling</a></p>
-<h3 id="在底部加了一个-qq-群按钮">在底部加了一个 QQ 群按钮</h3>
-<h3 id="完成了本站的邮件系统">完成了本站的邮件系统</h3>
-<p>等我有空再写（要写国庆作业了……</p>
-<h3 id="更新记录">更新记录</h3>
-<ul>
-<li>2022 年 1 月 25 日 文章迁移及表述调整</li>
-</ul>
 ]]></content:encoded></item><item><title>社团 Ghost 博客调较记录</title><link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link><pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid><description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description><content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
 <h3 id="新增评论区">新增评论区</h3>
 <p>大家终于可以愉快地畅所欲言啦！</p>
@@ -1195,24 +1087,15 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
 <ul>
 <li>2022 年 1 月 25 日 文章迁移及表述调整</li>
 </ul>
-]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
-<p>2022 年 1 月 25 日 更新</p>
-</blockquote>
-<p>如你所见，这是我开始写博客以来的第一篇文章，时过境迁，很多东西都不一样了，看个乐就好。还有一件事，现在我用的博客是基于 Ghost 的。</p>
-<hr>
-<p>断断续续地花了一个星期时间，终于把这个博客网站重新搭建了起来。其实这个网站在 2017 年的 8 月份就已经上线，但由于学业等原因，网站一直处于挂着的状态，现在趁着假期又将网站重新构建，优化添加了不少东西，也准备开始定期发布文章了。</p>
-<p>我想的是可以在这个站点写下自己所想的，记一些笔记，并不期盼会有多少人看到，其实最终大部分都是写给自己看的吧！重点是我的文笔也不算好……</p>
-<p>开始享受纯粹的 Hexo 写作吧！</p>
-<p>这个网站使用了 <code>HEXO</code> 作为博客系统，这是一个非常好用的博客系统，还有很多优秀的主题和插件可以选，还有 Markdown 的写作方式。网站同时托管于 <code>Github Page</code> 和 <code>Coding Page</code> 上，也使用了腾讯云的存储服务。感兴趣的同学可以来与我交流哦~</p>
-<p>Tips：这个站点有两个服务器，由于众所周知的原因，国内站（Coding）可能会速度比较快一些，你可以根据自己的网络情况在网页底部进行切换~</p>
-<p>嗯就是这样，没了。最后放上一张我最近拍的风景照~</p>
-<figure>
-    <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/e195e7f8e4c9fb65.webp"
-         alt="江西南昌"/> <figcaption>
-            <p>江西南昌</p>
-        </figcaption>
-</figure>
-
+]]></content:encoded></item><item><title>你好，Ghost</title><link>https://weixiang.github.io/posts/hello-ghost/</link><pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-ghost/</guid><description>第一次使用 Ghost 博客，有什么感觉呢？</description><content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的 Ghost。</p>
+<p>从我开始接触博客起，从最初的 Hexo，到后来的 WordPress，再到现在你看到的 Ghost，博客平台换的多，实际生产的内容却寥寥无几，在每一次博客的迁移过程中又丢失过一些文章，最后收获的不是知识的贮藏，而是各种博客平台的安装迁移方法。</p>
+<p>在我为 WordPress 臃肿的系统、找不到我钟意主题时，我在互联网的角落中发现了这个名为 Ghost 的博客系统。简洁的设计风格使我第一眼就看中了它，而它精简的系统也使我的辣鸡服务器不必再为 WordPress 而气喘吁吁。</p>
+<p>花费了我整整半天的时间，总算是把 Ghost 搭建起来了，这次搭建 Ghost 花费了我不少力气，并不是说 Ghost 不易用，而是我选择了一个我没有用过的船新操作——使用 Docker，还有一个原因是 Ghost 相关的中文资料还不够完善，很多教程都已经过时。虽然过程有点坎坷，不过好处是学会了一点点 Docker 的概念和基本用法。
+嗯，可以在 Ghost 养老了吧。</p>
+<p>接下来的三百多天，可能是对我极为重要的日子。逝者如斯夫，不舍昼夜。不知不觉中，我也迈入了高三的行列，准备着应对人生中最为重要的考试之一——高考。这个博客在这三百多天中，可能是不会更新了。这是这个新的博客的第一篇文章，短时间内也不会有第二篇了吧。</p>
+<p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
+<p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
 ]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
 <p>2022 年 1 月 25 日 更新</p>
 </blockquote>
@@ -1231,27 +1114,6 @@ This work by <a href="https://blog.jacobdev.fun/">Jacob Ruan</a> is licensed und
         </figcaption>
 </figure>
 
-]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
-<ul>
-<li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>
-<li>2018-02-17 启用域名 <code>████.tech</code> 和 <code>████████.club</code> [数据删除]</li>
-<li>2018-9 迁移至 Coding Pages 进行托管</li>
-<li>2018-12-30 更换由 Ghost 驱动，服务器迁移至美国西海岸</li>
-<li>2019-06-26 迁移至腾讯云服务器 CVM</li>
-<li>2019-11-12 迁移服务器至美国西海岸</li>
-<li>2020-03-11 更换域名为 <code>jacobr.xyz</code>，暂时关闭博客，仅保留关于页面，更换为静态页面。</li>
-<li>2020-03-23 迁移至阿里云服务器 ECS</li>
-<li>2021-06-21 启用新域名 <code>jacobruan.com</code></li>
-<li>2021-10-08 服务器迁移至新西伯利亚</li>
-<li>2022-07-04 服务器故障，博客暂时下线</li>
-<li>2022-08-07 重新安装服务器，恢复访问</li>
-<li>2022-12-07 更新到 Ghost 5.0</li>
-<li>2023-10-14 迁移服务器至阿里云新加坡</li>
-<li>2023-06-22 域名 <code>jacobruan.com</code> 续费失败，被迫转到 <code>jacobruan.xyz</code></li>
-<li>2024-05-27 域名 <code>jacobruan.xyz</code> 到期，临时转到 <code>████████.fun</code> [数据删除]</li>
-<li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub，有了比命长的域名 <code>weixiang.github.io</code></li>
-</ul>
-<p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢 Microsoft，提供了 GitHub Page 托管、GitHub Action 自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
 ]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>

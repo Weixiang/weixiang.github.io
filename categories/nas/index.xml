@@ -1,76 +1,240 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sat, 28 Oct 2023 03:57:20 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
-<p>2024 年 8 月 8 日更新：</p>
-<p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
-<hr>
-<p>由于群晖 Docker 套件，其 Bridge 网桥默认的网段为 172 段，很容易和现有网段冲突，导致发包错误，需要避开才可正常通信。</p>
-<h2 id="docker-配置文件位置">Docker 配置文件位置</h2>
-<p>先开启 DSM 的 SSH 登录，然后通过 SSH 连接到 DSM。</p>
-<p>DSM7.2 前，使用以下命令。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /var/packages/Docker/etc/dockerd.json
-</span></span></code></pre></div><p>DSM7.2 后 Docker 更名为 Container Manager，并升级了 UI 以便于更新和清理容器。因此路径也需要更改。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo vim /var/packages/ContainerManager/etc/dockerd.json
-</span></span></code></pre></div><p>清空内容小技巧：</p>
-<ol>
-<li>（vi 进入文件后）在命令模式下，先执行 gg(跳转光标至文件首行)；</li>
-<li>再执行 dG，这样就清空了整个文件。</li>
-</ol>
-<h2 id="修改配置文件">修改配置文件</h2>
-<p>DSM7.2 前，使用以下配置。</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 06 Feb 2024 11:06:34 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
+<p>编辑配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
+</span></span></code></pre></div><p>添加</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/Docker/var/docker&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.1/24&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default-address-pools&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.0/24&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">24</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;ipv6&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;fixed-cidr-v6&#34;</span><span class="p">:</span> <span class="s2">&#34;fd00::/80&#34;</span><span class="p">,</span>  <span class="err">#</span> <span class="err">IPv6前缀可以自定义，请确保符合规则</span> 
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;experimental&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"> <span class="nt">&#34;ip6tables&#34;</span><span class="p">:</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>DSM7.2 后，使用以下配置。</p>
+</span></span></code></pre></div><p>重启 Docker</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl restart docker
+</span></span></code></pre></div><h2 id="检查">检查</h2>
+<p>查看 docker 网络 IPv6 状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker network inspect bridge
+</span></span></code></pre></div><p>测试网络状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run --rm -it busybox ping -6 -c4 www.google.com
+</span></span></code></pre></div><h2 id="qbittorrent-使用示例">qBittorrent 使用示例</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">qbittorrent</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">linuxserver/qbittorrent:4.4.1    </span><span class="w"> </span><span class="c"># 之前很多小伙伴反馈默认 latest 版本会出现 rss 功能无法使用的情况，这边咕咕还是建议大家选择一个特定的版本（一般 PT 站点貌似也会推荐特定版本）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">qbittorrent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PUID=1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">PGID=1000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">TZ=Asia/Shanghai</span><span class="w"> </span><span class="c"># 你的时区</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">UMASK_SET=022</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">WEBUI_PORT=8081</span><span class="w"> </span><span class="c"># 将此处修改成你欲使用的 WEB 管理平台端口 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/root/data/docker_data/qBittorrent/config:/config</span><span class="w"> </span><span class="c"># 绝对路径请修改为自己的 config 文件夹</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/root/data/docker_data/qBittorrent/downloads:/downloads</span><span class="w"> </span><span class="c"># 绝对路径请修改为自己的 downloads 文件夹</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 要使用的映射下载端口与内部下载端口，可保持默认，安装完成后在管理页面仍然可以改成其他端口。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6881</span><span class="p">:</span><span class="m">6881</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6881</span><span class="p">:</span><span class="m">6881</span><span class="l">/udp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 此处 WEB UI 目标端口与内部端口务必保证相同，见问题 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">8081</span><span class="p">:</span><span class="m">8081</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l">bridge      </span><span class="w"> </span><span class="c"># 网络模式选择刚才配置的桥接 bridge</span><span class="w">
+</span></span></span></code></pre></div><p>进入容器测试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> qbittorrent ping6 -c4 youtube.com
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://blog.laoda.de/archives/docker-qbittorrent-ipv6/">https://blog.laoda.de/archives/docker-qbittorrent-ipv6/</a></p>
+]]></content:encoded></item><item><title>使用 Docker 部署 File Browser</title><link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link><pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid><description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description><content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">touch /volume1/docker/filebrowser/.filebrowser.json
+</span></span><span class="line"><span class="cl">touch /volume1/docker/filebrowser/filebrowser.db
+</span></span></code></pre></div><p>编辑配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /volume1/docker/filebrowser/.filebrowser.json
+</span></span></code></pre></div><p>填入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;port&#34;</span>: 80,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;baseURL&#34;</span>: <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;address&#34;</span>: <span class="s2">&#34;&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;log&#34;</span>: <span class="s2">&#34;stdout&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;database&#34;</span>: <span class="s2">&#34;/database/filebrowser.db&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;root&#34;</span>: <span class="s2">&#34;/srv&#34;</span>,
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;locale&#34;</span>: <span class="s2">&#34;zh-cn&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>默认配置参考：<a href="https://github.com/filebrowser/filebrowser/blob/master/docker/root/defaults/settings.json">https://github.com/filebrowser/filebrowser/blob/master/docker/root/defaults/settings.json</a></p>
+<h2 id="启动容器">启动容器</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1:/srv <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/filebrowser/filebrowser.db:/database.db <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/filebrowser/.filebrowser.json:/.filebrowser.json <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -u <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 8980:80 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    filebrowser/filebrowser
+</span></span></code></pre></div><p>默认账号密码：<code>admin</code></p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a></p>
+<p><a href="https://www.iszy.cc/posts/filebrowser2-setup-docker/">https://www.iszy.cc/posts/filebrowser2-setup-docker/</a></p>
+<p><a href="https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504">https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504</a></p>
+]]></content:encoded></item><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
+<p>开启硬件直通：BIOS 中打开硬件直通相关选项（VT-d &amp; VMX）
+编辑 Grub</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/default/grub
+</span></span></code></pre></div><p>注释原条目，并增加开启参数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;quiet intel_iommu=on&#34;</span>
+</span></span></code></pre></div><p>如果你的 pcie 设备分组有问题也可以换成这一行对分组拆分（直通遇到问题都可以尝试这个）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&#34;quiet intel_iommu=on pcie_acs_override=downstream&#34;</span>
+</span></span></code></pre></div><p>更新 grub</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">update-grub
+</span></span></code></pre></div><p>上传启动镜像：将镜像 img 扩展名修改为 iso，直接通过 PVE 后台上传
+创建虚拟机并设置直通：修改配置文件命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/pve/qemu-server/<span class="o">[</span>虚拟机编号<span class="o">]</span>.conf
+</span></span></code></pre></div><h2 id="lxc-容器配置">LXC 容器配置</h2>
+<p>为容器加入渲染器硬件，并关闭 AppArmor（部分显卡可能需要更新内核才能找到渲染器）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/pve/lxc/<span class="o">[</span>CT_ID<span class="o">]</span>.conf
+</span></span></code></pre></div><p>加入硬件参数：（可先用<code>ls -l /dev/dri</code>查询）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">lxc.cgroup2.devices.allow: c 226:0 rwm
+</span></span><span class="line"><span class="cl">lxc.cgroup2.devices.allow: c 226:128 rwm
+</span></span><span class="line"><span class="cl">lxc.cgroup2.devices.allow: c 29:0 rwm
+</span></span><span class="line"><span class="cl">lxc.mount.entry: /dev/dri dev/dri none bind,optional,create<span class="o">=</span>dir
+</span></span><span class="line"><span class="cl">lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create<span class="o">=</span>file
+</span></span><span class="line"><span class="cl">lxc.apparmor.profile: unconfined
+</span></span></code></pre></div><h2 id="挂载-smb-目录">挂载 SMB 目录</h2>
+<p>安装 SMB 组件并创建共享目录（目录可自定义）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">apt install cifs-utils -y
+</span></span><span class="line"><span class="cl">mkdir /mnt/nas/video
+</span></span></code></pre></div><p>创建密码文件（注意保护文件，此处为明文密码）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano ~/.smbcredentials
+</span></span></code></pre></div><p>设置 SMB 登录密码，自行替换：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">username</span><span class="o">=</span>jellyfin
+</span></span><span class="line"><span class="cl"><span class="nv">password</span><span class="o">=</span>share_password
+</span></span></code></pre></div><p>修改自动挂载文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/fstab
+</span></span></code></pre></div><p>加入挂载位置，自行替换</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">//192.168.1.3/video /mnt/nas/video cifs <span class="nv">credentials</span><span class="o">=</span>/root/.smbcredentials,iocharset<span class="o">=</span>utf8 <span class="m">0</span> <span class="m">0</span>
+</span></span></code></pre></div><p>验证
+通过指定挂载点来挂载共享：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mount /mnt/nas/video
+</span></span></code></pre></div><p>查看</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">df -h
+</span></span></code></pre></div><h2 id="安装-jellyfin">安装 Jellyfin</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -v /volume1/docker/jellyfin/config:/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -v /volume1/docker/jellyfin/cache:/cache <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -e <span class="nv">HTTP_PROXY</span><span class="o">=</span>http://192.168.1.5:7890/ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -e <span class="nv">HTTPS_PROXY</span><span class="o">=</span>http://192.168.1.5:7890/ <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> -e <span class="nv">NO_PROXY</span><span class="o">=</span>localhost,192.168.1.5,.example.com <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --name jellyfin <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --user 0:0 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --net<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --device<span class="o">=</span>/dev/dri:/dev/dri <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/mnt/nas,target<span class="o">=</span>/media <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> --restart<span class="o">=</span>unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> nyanmisaka/jellyfin
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89">https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89</a></p>
+<p><a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux">https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux</a></p>
+]]></content:encoded></item><item><title>PVE LXC Debian 12 容器换源与安装 Docker</title><link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link><pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate><guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid><description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description><content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
+<p>创建容器时<strong>取消勾选无特权容器！</strong></p>
+<p>创建容器时<strong>取消勾选无特权容器！</strong></p>
+<p>创建容器时<strong>取消勾选无特权容器！</strong></p>
+<p>创建完毕后在 PVE Host 内执行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat &gt;&gt; /etc/pve/lxc/<span class="o">[</span>LXC_ID<span class="o">]</span>.conf <span class="s">&lt;&lt; EOL
+</span></span></span><span class="line"><span class="cl"><span class="s">lxc.apparmor.profile: unconfined
+</span></span></span><span class="line"><span class="cl"><span class="s">EOL</span>
+</span></span></code></pre></div><h2 id="换源">换源</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apt/sources.list
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/deb.debian.org/mirrors.ustc.edu.cn/g&#39;</span> /etc/apt/sources.list.d/debian.sources
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g&#39;</span> /etc/apt/sources.list
+</span></span></code></pre></div><p>更新</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt update <span class="o">&amp;&amp;</span> apt upgrade -y
+</span></span></code></pre></div><h2 id="魔法">魔法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">HTTP_PROXY</span><span class="o">=</span>http://192.168.1.5:7890/
+</span></span><span class="line"><span class="cl"><span class="nv">HTTPS_PROXY</span><span class="o">=</span>http://192.168.1.5:7890/
+</span></span><span class="line"><span class="cl"><span class="nv">NO_PROXY</span><span class="o">=</span>localhost,192.168.1.5,.example.com
+</span></span></code></pre></div><h2 id="安装-docker">安装 Docker</h2>
+<p>安装 Docker</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install curl -y
+</span></span><span class="line"><span class="cl">curl -sSL https://get.daocloud.io/docker <span class="p">|</span> sh
+</span></span></code></pre></div><h2 id="设置镜像源和容器网段">设置镜像源和容器网段</h2>
+<p>编辑<code>daemon.json</code>文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
+</span></span></code></pre></div><p>填入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/ContainerManager/var/docker&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.1/24&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default-address-pools&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;base&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.0/24&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">24</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.1/24&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>提醒：配置不可省略 data-root 路径，否则配置不生效。</p>
-<h2 id="重启-docker">重启 Docker</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl daemon-reload
-</span></span><span class="line"><span class="cl">systemctl restart pkgctl-Docker <span class="c1"># DSM7.2前</span>
-</span></span><span class="line"><span class="cl">systemctl restart pkgctl-ContainerManager <span class="c1"># DSM7.2后</span>
-</span></span></code></pre></div><h2 id="附录常见国内加速镜像源">附录：常见国内加速镜像源</h2>
+</span></span></code></pre></div><p>重启 Docker 生效</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl restart docker
+</span></span></code></pre></div><h2 id="安装-portainer-ce">安装 Portainer CE</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart<span class="o">=</span>always -v /var/run/docker.sock:/var/run/docker.sock -v /volume1/docker/portainer:/data portainer/portainer-ce:latest
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://ihnic.com/index.php/archives/12/">https://ihnic.com/index.php/archives/12/</a></p>
+<p><a href="https://docs.portainer.io/start/install-ce/server/docker/linux">https://docs.portainer.io/start/install-ce/server/docker/linux</a></p>
+<p><a href="https://mirrors.ustc.edu.cn/help/debian.html">https://mirrors.ustc.edu.cn/help/debian.html</a></p>
+]]></content:encoded></item><item><title>群晖 DSM 研究笔记</title><link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link><pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid><description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+<h2 id="编译-tinycore-redpill-引导">编译 tinycore-redpill 引导</h2>
+<h3 id="dsm-安装完成后无限重启">DSM 安装完成后无限重启？</h3>
+<p>引导与 pat 版本不一致导致的，断网安装可以避免安装过程中自动更新。</p>
+<h2 id="使用">使用</h2>
+<h3 id="指定源拉取镜像">指定源拉取镜像</h3>
+<p>使用 SSH 进入终端，用命令手动从加速地址拉取</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker pull z7cqdx7o.mirror.aliyuncs.com/homeassistant/home-assistant
+</span></span></code></pre></div><h3 id="国内加速地址">国内加速地址</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;registry-mirrors&#34;</span><span class="err">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">]</span>
-</span></span></code></pre></div><p>阿里云镜像加速器获取：<a href="https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images">https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</a></p>
-<h2 id="参考文献">参考文献</h2>
-<p><a href="https://www.ithome.com/0/680/524.htm">https://www.ithome.com/0/680/524.htm</a>
-<a href="https://cr.console.aliyun.com">https://cr.console.aliyun.com</a>
-<a href="https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images">https://help.aliyun.com/zh/acr/user-guide/accelerate-the-pulls-of-docker-official-images</a>
-<a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a>
-<a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
-<a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
-<a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
+</span></span></code></pre></div><h3 id="docker-配置文件位置">Docker 配置文件位置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vi /var/packages/Docker/etc/dockerd.json
+</span></span></code></pre></div><ol>
+<li>（vi 进入文件后）在命令模式下，先执行 gg (跳转光标至文件首行)；</li>
+<li>再执行 dG，这样就清空了整个文件。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.100.1/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/Docker/var/docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="重启-docker">重启 Docker</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl restart pkgctl-Docker
+</span></span></code></pre></div><h2 id="docker-服务">Docker 服务</h2>
+<h3 id="家庭助理">家庭助理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name homeassistant <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --privileged <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --restart<span class="o">=</span>unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /volume1/docker/homeassistant:/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --network<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ghcr.io/home-assistant/home-assistant:stable
+</span></span></code></pre></div><h3 id="广告过滤">广告过滤</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/work:/opt/adguardhome/work<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/conf:/opt/adguardhome/conf<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 53:53/tcp -p 53:53/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 67:67/udp -p 68:68/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 80:80/tcp -p 443:443/tcp -p 443:443/udp -p 3000:3000/tcp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 853:853/tcp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 784:784/udp -p 853:853/udp -p 8853:8853/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 5443:5443/tcp -p 5443:5443/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d adguard/adguardhome
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a></p>
+<p><a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a></p>
+<p><a href="https://github.com/whyour/qinglong">https://github.com/whyour/qinglong</a></p>
+<p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
+<p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
 ]]></content:encoded></item><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>2024 年 8 月 8 日更新：</p>
 <p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
@@ -144,7 +308,404 @@
 <a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
 <a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
 <a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
+]]></content:encoded></item><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
+<h2 id="路由器准备">路由器准备</h2>
+<h3 id="解锁-telnet">解锁 Telnet</h3>
+<p>进入小米路由器后台<code>192.168.31.1</code>，通过固件升级，刷入开发版固件 <a href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a></p>
+<h3 id="计算-root-密码">计算 root 密码</h3>
+<p>通过 SN 码在 <a href="https://www.oxygen7.cn/miwifi/">https://www.oxygen7.cn/miwifi/</a> 计算出密码。</p>
+<h3 id="解锁-ssh">解锁 SSH</h3>
+<p>通过 Telnet 连接到路由器，账号为<code>root</code>，密码为上一步得到的结果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">telnet</span> <span class="mf">192.168</span><span class="p">.</span><span class="py">31</span><span class="p">.</span><span class="py">1</span>
+</span></span></code></pre></div><p>通过命令解锁 SSH</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">ssh_en</span><span class="o">=</span><span class="m">1</span> <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="nv">uart_en</span><span class="o">=</span><span class="m">1</span> <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="nv">boot_wait</span><span class="o">=</span>on <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="nv">bootdelay</span><span class="o">=</span><span class="m">3</span> <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="nv">flag_try_sys1_failed</span><span class="o">=</span><span class="m">0</span> <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="nv">flag_try_sys2_failed</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_boot_rootfs</span><span class="o">=</span><span class="m">0</span> <span class="p">&amp;</span> nvram <span class="nb">set</span> <span class="s2">&#34;boot_fw1=run boot_rd_img;bootm&#34;</span>
+</span></span><span class="line"><span class="cl">nvram <span class="nb">set</span> <span class="nv">flag_boot_success</span><span class="o">=</span><span class="m">1</span> <span class="p">&amp;</span> nvram commit <span class="p">&amp;</span> /etc/init.d/dropbear <span class="nb">enable</span> <span class="p">&amp;</span> /etc/init.d/dropbear start
+</span></span></code></pre></div><p>SSH 连接到路由器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">root</span><span class="nv">@192</span><span class="p">.</span><span class="py">168</span><span class="p">.</span><span class="py">31</span><span class="p">.</span><span class="py">1</span>
+</span></span></code></pre></div><p>刷写 OpenWrt 自定义固件，其中<code>/tmp/factory.bin</code>替换为需要刷写的固件路径。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mtd -r write /tmp/factory.bin firmware
+</span></span></code></pre></div><h2 id="编译固件">编译固件</h2>
+<p>X-Wrt 是一个面向普通用户的路由系统，它基于 OpenWrt 项目做了许多易用性的改进，目标是成为一个标准化的普通用户可以轻松使用的路由器系统。
+建议使用 Ubuntu 系统作为编译环境，这里以 Ubuntu 18.04 作为例子，其他版本也是可以的。特别注意的是，整个编译过程，都是用普通用户操作，不要用 root 用户操作。</p>
+<h3 id="切换到普通用户">切换到普通用户</h3>
+<p>添加用户。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Create a new user and follow prompts</span>
+</span></span><span class="line"><span class="cl">adduser &lt;user&gt;
+</span></span></code></pre></div><p>授予用户 root 权限，并切换为该用户。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add user to superuser group to unlock admin privileges</span>
+</span></span><span class="line"><span class="cl">usermod -aG sudo &lt;user&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Then log in as the new user</span>
+</span></span><span class="line"><span class="cl">su - &lt;user&gt;
+</span></span></code></pre></div><h3 id="安装软件包">安装软件包</h3>
+<p>安装编译所需要的软件包</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install build-essential ecj fastjar file flex g++ gcc-multilib g++-multilib gawk gettext git git-core java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev python python3 python3-distutils subversion unzip wget zlib1g-dev rsync qemu-utils
+</span></span></code></pre></div><h3 id="下载源码">下载源码</h3>
+<p>下载 x-wrt 源码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/x-wrt/x-wrt.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> x-wrt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#更新代码tag:</span>
+</span></span><span class="line"><span class="cl">git fetch origin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#列出可以使用的版本tag:</span>
+</span></span><span class="line"><span class="cl">git tag
+</span></span><span class="line"><span class="cl"><span class="c1">#注意摁 q 键结束</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#或者直接获取最新发布版本</span>
+</span></span><span class="line"><span class="cl">git describe --tags <span class="k">$(</span>git rev-list --tags --max-count<span class="o">=</span>1<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#选择并切换到指定的版本tag:</span>
+</span></span><span class="line"><span class="cl">git checkout -f &lt;tag-name&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#例如</span>
+</span></span><span class="line"><span class="cl">git checkout -f 21.10_b202112032317
+</span></span><span class="line"><span class="cl"><span class="c1">#或者</span>
+</span></span><span class="line"><span class="cl">git checkout -f <span class="k">$(</span>git describe --tags <span class="k">$(</span>git rev-list --tags --max-count<span class="o">=</span>1<span class="k">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#更新代码:</span>
+</span></span><span class="line"><span class="cl">./scripts/feeds update -a
+</span></span><span class="line"><span class="cl">./scripts/feeds install -a
+</span></span></code></pre></div><p>下载 OpenClash 源码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 同步源码</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> package/luci-app-openclash/luci-app-openclash
+</span></span><span class="line"><span class="cl">git pull
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 也可以直接拷贝 `luci-app-openclash` 文件夹至其他 `OpenWrt` 项目的 `Package` 目录下随固件编译</span>
+</span></span></code></pre></div><h3 id="修改配置">修改配置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 拷贝设备模板</span>
+</span></span><span class="line"><span class="cl">cp feeds/x/rom/lede/config.mediatek.mt7622 .config
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 上面已经cp 拷贝了模版配置到 .config</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 例如 cp feeds/x/rom/lede/config.mediatek.mt7622 .config</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 下面继续操作和修改</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#1 执行</span>
+</span></span><span class="line"><span class="cl">make menuconfig
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp" alt=""  />
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
+</span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#4 再次执行 make menuconfig 然后立刻退出保存</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#5 最后一次 执行 make menuconfig 自定义选择你需要的软件包</span>
+</span></span></code></pre></div><h3 id="配置模板">配置模板</h3>
+<p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。定位到各个子菜单，选择对应的软件包。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp" alt=""  />
+</p>
+<h3 id="添加软件包">添加软件包</h3>
+<p>要编译到固件里面，就要选择<code>&lt;*&gt;</code>，如果只选择<code>&lt;M&gt;</code>只是编译成软件包<code>ipk</code>，不会打包进入固件。
+进入<code>LuCI - Applications</code>子菜单下面，选择自己想要的应用
+常见的软件包：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl">luci-app-aria2 ARRIA2 下载工具
+</span></span><span class="line"><span class="cl">luci-app-ddns DDNS 工具
+</span></span><span class="line"><span class="cl">luci-app-mwan3 MWAN3 负载均衡
+</span></span><span class="line"><span class="cl">luci-app-openvpn OPENVPN
+</span></span><span class="line"><span class="cl">luci-app-ksmbd Ksmbd 文件网络共享（samba 文件共享）
+</span></span><span class="line"><span class="cl">luci-app-upnp UPNP 设置
+</span></span><span class="line"><span class="cl">luci-app-wireguard WireGuard 配置界面
+</span></span><span class="line"><span class="cl">luci-app-natcap 远程界面管理模块和全锥形 nat 实现模块
+</span></span><span class="line"><span class="cl">luci-app-natflow-users 用户认证（用户流量显示）模块
+</span></span><span class="line"><span class="cl">luci-app-openclash OpenClash 插件
+</span></span></code></pre></div><p>进入<code>Kernel modules - USB Support</code>菜单，选择 USB 支持的驱动
+进入<code>Kernel modules - Filesystems</code>菜单，选择需要支持的文件系统，比如 ext4,ntfs,vfat 等
+进入<code>Kernel modules - Wireless Drivers</code>菜单，选择无线支持的驱动，如果需要挂卡的驱动，也是在这里找</p>
+<h3 id="执行编译">执行编译</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make -j1 <span class="nv">V</span><span class="o">=</span>s
+</span></span><span class="line"><span class="cl"><span class="c1"># j1 为单核编译</span>
+</span></span></code></pre></div><p>生成的包在<code>bin/targets/</code>下面
+如果需要再次修改配置编译，只要不是换设备，都可以直接 <code>make menuconfig</code> 修改后就编译，如果需要修改设备，请从拷贝模版配置的地方重新开始配置。</p>
+<h2 id="安装固件">安装固件</h2>
+<p>从<code>bin/targets/</code>下载得到编译完成的<code>factory</code>固件
+通过 SSH 连接到路由器，刷写 OpenWrt 固件，其中/tmp/factory.bin 替换为需要刷写的固件路径。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mtd -r write /tmp/factory.bin firmware
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
+<p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
+<p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
+]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h2 id="安装环境">安装环境</h2>
+<p>在套件中心安装 Web Station，随后选择安装 PHP 7.4，Nginx 默认已经安装。</p>
+<h2 id="创建网站">创建网站</h2>
+<p>在 Web Station 中新建一个虚拟主机，在 web 中新建一个文件夹作为文档根目录，PHP 选择 PHP 7.4。</p>
+<p>在 <a href="https://github.com/linuxserver/Heimdall/releases">https://github.com/linuxserver/Heimdall/releases</a> 下载最新源码，解压放入文档根目录中。</p>
+<h2 id="安装网站">安装网站</h2>
+<p>SSH 登录到群晖中，定位到 heimdall 的文件夹</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /volume1/web/heimdall/
+</span></span></code></pre></div><p>复制 env 文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cp .env.example .env
+</span></span></code></pre></div><p>生成 key</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/volume1/@appstore/PHP7.4/usr/local/bin/php74 artisan key:generate
+</span></span></code></pre></div><p>提示 <code>Application key set successfully.</code> 即成功。</p>
+<h2 id="添加伪静态规则">添加伪静态规则</h2>
+<p>切换到 root</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -i
+</span></span></code></pre></div><p>查看网站配置目录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /usr/local/etc/nginx/sites-enabled/server.webstation-vhost.conf
+</span></span></code></pre></div><p>类似这样</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">listen</span>      <span class="mi">1010</span> <span class="s">default_server</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">listen</span>      <span class="s">[::]:1010</span> <span class="s">default_server</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">server_name</span> <span class="s">_</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">include</span> <span class="s">conf.d/.webstation.error_page.default.conf*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">include</span> <span class="s">conf.d/.webstation.error_page.default.resource.conf*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">root</span>    <span class="s">&#34;/volume1/web/heimdall&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">index</span>    <span class="s">index.html</span>  <span class="s">index.htm</span>  <span class="s">index.cgi</span>  <span class="s">index.php</span>  <span class="s">index.php5</span> <span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">\.(php[345]?|phtml)</span>$ <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">fastcgi_pass</span> <span class="s">unix:/run/php-fpm/php-182b445b-6caf-469f-acaa-a763582ba8db.sock</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kn">include</span> <span class="s">fastcgi.conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">include</span> <span class="s">/usr/local/etc/nginx/conf.d/fd25cdf2-2438-4855-b10d-1db7450c9e8b/user.conf*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>可知目录在 <code>/usr/local/etc/nginx/conf.d/fd25cdf2-2438-4855-b10d-1db7450c9e8b</code></p>
+<p>定位到目录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/etc/nginx/conf.d/fd25cdf2-2438-4855-b10d-1db7450c9e8b
+</span></span></code></pre></div><p>创建并编辑用户配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch user.conf
+</span></span><span class="line"><span class="cl">vim user.conf
+</span></span></code></pre></div><p>在其中写入配置</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://github.com/linuxserver/Heimdall">https://github.com/linuxserver/Heimdall</a></p>
+<p><a href="https://post.smzdm.com/p/a07mx329/">https://post.smzdm.com/p/a07mx329/</a></p>
+<p><a href="https://www.simaek.com/archives/298/">https://www.simaek.com/archives/298/</a></p>
+]]></content:encoded></item><item><title>使用 SakuraFrp 内网穿透 DSM</title><link>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</link><pubDate>Wed, 19 Jul 2023 16:19:16 +0800</pubDate><guid>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</guid><description>使用 SakuraFrp 内网穿透 DSM 和 HomeAssistant。SakuraFrp 是免费的内网穿透服务。SakuraFrp 是由 KasuganoSora 开发、维护的一个共享内网穿透管理平台，长期提供免费的内网穿透服务。</description><content:encoded><![CDATA[<h2 id="docker-部署-sakurafrp-客户端">Docker 部署 SakuraFrp 客户端</h2>
+<p>参考官方文档：<a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
+<ol>
+<li>安装 Docker 套件</li>
+<li>拉取镜像：<strong>natfrp/frpc</strong></li>
+<li>在打开 Docker 套件的 <strong>网络</strong> 页面，查看 <code>bridge</code> 网络的 <strong>子网</strong>，把 <strong>最后一个</strong> <code>0</code> 换成 <code>1</code> 作为 <strong>本地 IP</strong>。举个例子，子网 <code>172.17.0.0/16</code> 对应的 <strong>本地 IP</strong> 就是 <code>172.17.0.1</code>。</li>
+<li>前往 Sakura Frp 管理面板使用之前获取到的信息创建一条 <strong>TCP 隧道</strong>，本地 IP 填写上面获取到的 IP，例如<code>172.17.0.1</code>，端口选择 5001，即 DSM 的 HTTPS 端口。</li>
+<li>在隧道列表中点击刚才创建的隧道右边三个点，选择 <strong>配置文件</strong> 并在弹出的对话框中复制隧道的 <strong>启动参数</strong>，类似于这样的<code>-f 6i862oypc561ipo5ku9uz895o40jh73:7605087</code>。</li>
+<li>新建容器，镜像选择<strong>natfrp/frpc</strong>，选择开机自启。</li>
+<li>转到 <strong>环境</strong> 标签，在 <strong>命令</strong> 处粘贴 <strong>启动参数</strong>，然后点击上面的 <strong>新增</strong> 按钮分别填写 <code>LANG</code> 和 <code>en_US.UTF-8</code></li>
+<li>启动后可以在日志中看到访问 URL。</li>
+</ol>
+<h2 id="启动多个隧道">启动多个隧道</h2>
+<p>使用以下参数即可启动多个隧道，参考 <a href="https://doc.natfrp.com/faq/frpc.html">https://doc.natfrp.com/faq/frpc.html</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-f &lt;访问密钥&gt;:&lt;隧道ID&gt;,&lt;另外一个隧道ID&gt;,&lt;更多隧道ID&gt;,n&lt;节点ID&gt;,n&lt;另外一个节点ID&gt;,...
+</span></span></code></pre></div><p>例如</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-f 6i862oypc561ipo5ku9uz895o40jh73:7605087,7605086,7605085
+</span></span></code></pre></div><h2 id="ssl-证书配置">SSL 证书配置</h2>
+<blockquote>
+<p>官方文档有说明：<a href="https://doc.natfrp.com/frpc/ssl.html">https://doc.natfrp.com/frpc/ssl.html</a></p>
+</blockquote>
+<p>但尝试过后发现无法使用，原因未知（浪费 5 个小时</p>
+<p>最后使用 DSM 自带的反向代理解决。</p>
+<p>首先，准备一个域名，使用 CNAME 解析到 SakuraFrp 的节点地址，参考 <a href="https://doc.natfrp.com/app/http.html#setup-dns">https://doc.natfrp.com/app/http.html#setup-dns</a></p>
+<p>接着给域名申请一个 SSL 证书，格式选择 Nginx，下载保存。</p>
+<h3 id="dsm">DSM</h3>
+<p>直接在 DSM 的安全设置中，选择添加证书，选择刚刚自己申请的证书，并且设为默认证书，替代原有自签证书即可。</p>
+<p>SakuraFrp 面板穿透配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">本地 IP：172.17.0.1  # 根据自己 Docker 网卡设置
+</span></span><span class="line"><span class="cl">本地端口：5001
+</span></span><span class="line"><span class="cl">自动 HTTPS：禁用
+</span></span></code></pre></div><p>就可以使用<code>https://自己域名地址:穿透后端口号</code>访问了。</p>
+<h3 id="home-assistant">Home Assistant</h3>
+<p>在 DSM 的登录门户设置中，选择高级 - 反向代理服务器，添加一个反向代理。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">来源：
+</span></span><span class="line"><span class="cl">协议：HTTPS
+</span></span><span class="line"><span class="cl">主机名：*
+</span></span><span class="line"><span class="cl">端口：8124
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">目的地：
+</span></span><span class="line"><span class="cl">协议：HTTP
+</span></span><span class="line"><span class="cl">主机名：127.0.0.1
+</span></span><span class="line"><span class="cl">端口：8123
+</span></span></code></pre></div><p>SakuraFrp 面板穿透配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">本地 IP：172.17.0.1  # 根据自己 Docker 网卡设置
+</span></span><span class="line"><span class="cl">本地端口：8124
+</span></span><span class="line"><span class="cl">自动 HTTPS：禁用
+</span></span></code></pre></div><p>Home Assistant App 配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">内部 URL：http://NAS 局域网 IP 地址:8123
+</span></span><span class="line"><span class="cl">外部 URL：https://自己域名地址：穿透后端口号
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
+]]></content:encoded></item><item><title>ZeroTier-One 私有 MOON 节点搭建</title><link>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</link><pubDate>Wed, 19 Jul 2023 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</guid><description>由于 ZeroTier 在国内并没有中转节点，导致速度非常缓慢，可以通过自己搭建 Moon 节点来提升使用体验。ZeroTier 是一款非常简单易用的内网穿透工具，不需要配置，就能实现虚拟局域网的组建，让你可以在外也能连回家中、学校、办公室的电脑获取资料，数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+<p>登录到服务器，一键安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s https://install.zerotier.com/ <span class="p">|</span> sudo bash
+</span></span></code></pre></div><p>启动服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl start zerotier-one.service
+</span></span></code></pre></div><p>添加自启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> zerotier-one.service
+</span></span></code></pre></div><h2 id="moon-配置">MOON 配置</h2>
+<p>加入网络，执行完后去管理页面把 Auth 打勾允许加入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo zerotier-cli join 1d71939404759fc5
+</span></span></code></pre></div><p>生成 moon 配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /var/lib/zerotier-one/
+</span></span><span class="line"><span class="cl">sudo zerotier-idtool initmoon identity.public &gt; moon.json
+</span></span></code></pre></div><p>编辑配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vi moon.json
+</span></span></code></pre></div><p>填入 IP 地址</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="s2">&#34;stableEndpoints&#34;</span>: <span class="o">[</span><span class="s2">&#34;47.242.224.64/9993&#34;</span><span class="o">]</span>
+</span></span></code></pre></div><p>执行签名</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-idtool genmoon moon.json
+</span></span></code></pre></div><p>创建 moon 文件夹，将生成的签名文件移动进去</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mkdir moons.d
+</span></span><span class="line"><span class="cl">sudo mv 0000004c725ecec8.moon moons.d/
+</span></span></code></pre></div><p>重启服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl restart zerotier-one
+</span></span></code></pre></div><h2 id="客户端配置">客户端配置</h2>
+<p>添加 MOON</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli orbit 4c725ecec8 4c725ecec8
+</span></span></code></pre></div><p>查看状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli listpeers
+</span></span></code></pre></div>]]></content:encoded></item><item><title>群晖部署青龙面板</title><link>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</link><pubDate>Wed, 19 Jul 2023 16:18:18 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</guid><description>本文记录在群晖 DSM 上使用 Docker 部署青龙面板。青龙，又名苍龙，在中国传统文化中是四象之一、天之四灵之一。青龙面板是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台</description><content:encoded><![CDATA[<h2 id="启动容器">启动容器</h2>
+<p>Docker 镜像可能更新有延迟，可以通过将 <code>latest</code> 替换为版本号，来指定拉取最新版本。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -dit <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/config:/ql/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/log:/ql/log <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/db:/ql/db <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 5600:5600 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name qinglong <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--hostname qinglong <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>whyour/qinglong:latest
+</span></span></code></pre></div><p>指定版本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -dit <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/config:/ql/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/log:/ql/log <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/db:/ql/db <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 5600:5600 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name qinglong <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--hostname qinglong <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>whyour/qinglong:2.15.1
+</span></span></code></pre></div><h2 id="修改配置文件">修改配置文件</h2>
+<p>修改 <code>config.sh</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 代理地址，支持HTTP/SOCK5，例如 http://127.0.0.1:7890</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ProxyUrl</span><span class="o">=</span><span class="s2">&#34;http://192.168.31.166:7890&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 3. Telegram</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 下方填写自己申请@BotFather的Token，如10xxx4:AAFcqxxxxgER5uw</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_BOT_TOKEN</span><span class="o">=</span><span class="s2">&#34;**********:******************************&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 下方填写 @getuseridbot 中获取到的纯数字ID</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_USER_ID</span><span class="o">=</span><span class="s2">&#34;**********&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Telegram 代理IP（选填）</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 下方填写代理IP地址，代理类型为 http，比如您代理是 http://127.0.0.1:1080，则填写 &#34;127.0.0.1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 如需使用，请自行解除下一行的注释</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_PROXY_HOST</span><span class="o">=</span><span class="s2">&#34;192.168.31.166&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## Telegram 代理端口（选填）</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 下方填写代理端口号，代理类型为 http，比如您代理是 http://127.0.0.1:1080，则填写 &#34;1080&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 如需使用，请自行解除下一行的注释</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TG_PROXY_PORT</span><span class="o">=</span><span class="s2">&#34;7890&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## ql repo命令拉取脚本时需要拉取的文件后缀，直接写文件后缀名即可</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RepoFileExtensions</span><span class="o">=</span><span class="s2">&#34;js py sh&#34;</span>
+</span></span></code></pre></div><h2 id="安装常用依赖">安装常用依赖</h2>
+<p>进入容器执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -fsSL https://ghproxy.com/https://raw.githubusercontent.com/FlechazoPh/QLDependency/main/Shell/QLOneKeyDependency.sh <span class="p">|</span> sh
+</span></span></code></pre></div><p>完成后重启容器</p>
+<h2 id="开始使用">开始使用</h2>
+<h3 id="京东">京东</h3>
+<h4 id="拉取脚本">拉取脚本</h4>
+<p>任务定时建议 <code>50 7-23/2 * * *</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># KingRan/KR（集合库）</span>
+</span></span><span class="line"><span class="cl">ql repo https://github.com/KingRan/KR.git <span class="s2">&#34;jd_|jx_|jdCookie&#34;</span> <span class="s2">&#34;activity|backUp&#34;</span> <span class="s2">&#34;^jd[^_]|USER|utils|function|sign|sendNotify|ql|JDJR&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 6dylan6/jdpro（集合库）</span>
+</span></span><span class="line"><span class="cl">ql repo https://github.com/6dylan6/jdpro.git <span class="s2">&#34;jd_|jx_|jddj_&#34;</span> <span class="s2">&#34;backUp&#34;</span> <span class="s2">&#34;^jd[^_]|USER|JD|function|sendNotify&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># gys619/Absinthe（集合库）</span>
+</span></span><span class="line"><span class="cl">ql repo https://github.com/gys619/Absinthe.git <span class="s2">&#34;jd_|jx_|jddj_|gua_|getJDCookie|wskey&#34;</span> <span class="s2">&#34;activity|backUp&#34;</span> <span class="s2">&#34;^jd[^_]|USER|utils|ZooFaker_Necklace|JDJRValidator_|sign_graphics_validate|jddj_cookie|function|ql|magic|JDJR|JD&#34;</span> <span class="s2">&#34;main&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># zero205/JD_tencent_scf</span>
+</span></span><span class="line"><span class="cl">ql repo https://github.com/zero205/JD_tencent_scf.git <span class="s2">&#34;jd_|jx_|jdCookie&#34;</span> <span class="s2">&#34;backUp|icon&#34;</span> <span class="s2">&#34;^jd[^_]|USER|sendNotify|sign_graphics_validate|JDJR|JDSign|ql&#34;</span> <span class="s2">&#34;main&#34;</span>
+</span></span></code></pre></div><h4 id="获取-cookie">获取 Cookie</h4>
+<p>前往京东手机版登录 <a href="https://m.jd.com">https://m.jd.com</a></p>
+<p>使用开发者工具查看 Network 即可获取到 Cookie：</p>
+<p>其中只需要 <code>pt_key</code> 与 <code>pt_pin</code> 两个，分号不可少：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">pt_key=AAJjiW4IADB_2Pgyapctjm8mnz3OvE8Jv-****************************************; pt_pin=**********;
+</span></span></code></pre></div><p>将其添加到环境变量，命名为 <code>JD_COOKIE</code></p>
+<h3 id="b-站">B 站</h3>
+<h4 id="安装环境">安装环境</h4>
+<p>进入容器执行，完成后重启容器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装 dotnet 环境</span>
+</span></span><span class="line"><span class="cl">curl -sSL https://ghproxy.com/https://raw.githubusercontent.com/RayWangQvQ/BiliBiliToolPro/main/qinglong/ray-dotnet-install.sh <span class="p">|</span> bash /dev/stdin
+</span></span></code></pre></div><h4 id="拉取脚本-1">拉取脚本</h4>
+<p>添加订阅</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">名称：Bilibili
+</span></span><span class="line"><span class="cl">类型：公开仓库
+</span></span><span class="line"><span class="cl">链接：https://github.com/RayWangQvQ/BiliBiliToolPro.git
+</span></span><span class="line"><span class="cl">定时类型：crontab
+</span></span><span class="line"><span class="cl">定时规则：2 2 28 * *
+</span></span><span class="line"><span class="cl">白名单：bili_task_.+\.sh
+</span></span><span class="line"><span class="cl">文件后缀：sh
+</span></span></code></pre></div><h4 id="获取-cookie-1">获取 Cookie</h4>
+<p>使用 <strong>隐私窗口</strong> 登录 B 站，后打开 <a href="https://api.bilibili.com/x/web-interface/nav">https://api.bilibili.com/x/web-interface/nav</a> 获取 Cookie</p>
+<p>保存到环境变量，命名为 <code>Ray_BiliBiliCookies__1</code></p>
+<h4 id="配置推送">配置推送</h4>
+<p>Telegram：添加以下环境变量</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__botToken
+</span></span><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__chatId
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Ray_Serilog__WriteTo__3__Args__proxy
+</span></span><span class="line"><span class="cl"># 代理格式为 user:password@host:port
+</span></span></code></pre></div><h3 id="原神国际版">原神国际版</h3>
+<h4 id="拉取脚本-2">拉取脚本</h4>
+<p>订阅添加</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">地址：https://github.com/Ethiner/hoyolab_daily_login
+</span></span><span class="line"><span class="cl">文件后缀：py
+</span></span></code></pre></div><h4 id="获取-cookie-2">获取 Cookie</h4>
+<p>打开 <a href="http://hoyolab.com/">http://hoyolab.com/</a> 登录获取</p>
+<p>其中只用到</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ltoken=dTpY78eoKW5SbvLocxdI33********************; ltuid=**********;
+</span></span></code></pre></div><p>分别填入环境变量，名为 <code>LTOKEN</code> 和 <code>LTUID</code></p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://www.dujin.org/18884.html">https://www.dujin.org/18884.html</a></p>
+<p><a href="https://github.com/RayWangQvQ/BiliBiliToolPro">https://github.com/RayWangQvQ/BiliBiliToolPro</a></p>
+<p><a href="https://github.com/FlechazoPh/QLDependency">https://github.com/FlechazoPh/QLDependency</a></p>
+<p><a href="https://github.com/Ethiner/hoyolab_daily_login">https://github.com/Ethiner/hoyolab_daily_login</a></p>
+]]></content:encoded></item><item><title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title><link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link><pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate><guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid><description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description><content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#我们使用https下载软件源</span>
+</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/http:/https:/g&#39;</span> /etc/opkg/distfeeds.conf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#更新官方源信息</span>
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate update
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#列出软件包</span>
+</span></span><span class="line"><span class="cl">opkg list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install luci-app-shadowsocks-libev
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-config
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-local
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-redir
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-rules
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-server
+</span></span><span class="line"><span class="cl">opkg --no-check-certificate install shadowsocks-libev-ss-tunnel
+</span></span></code></pre></div><h2 id="配置-shadowsocks-libev">配置 Shadowsocks-libev</h2>
+<p>进入<code>Shadowsocks-libev</code>插件页进行配置</p>
+<ol>
+<li>在<code>Remote Servers</code>页面，编辑默认的服务器信息，改为自己的，将<code>Disable</code>取消勾选。</li>
+<li>在<code>Local Instances</code>页面，启用<code>ss_local.cfg013015</code>（后面为随机数字）。</li>
+</ol>
+<p>此时已经可以通过 Socks5 连接到路由器来使用代理。</p>
+<h2 id="配置透明代理">配置透明代理</h2>
+<ol>
+<li>在<code>Local Instances</code>页面，启用<code>ss_redir.hi</code>。</li>
+<li>在<code>Redir Rules - 常规设置</code>页面，将<code>Disable</code>取消勾选。</li>
+<li>在<code>Redir Rules - Destination Settings</code>页面，将<code>Dst default</code>改为<code>forward</code>。</li>
+<li>同上一页面，在<code>Dst ip/net bypass</code>填写需要排除的 IP</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 常用排除 IP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.0.0/16
+</span></span><span class="line"><span class="cl">172.16.0.0/12
+</span></span><span class="line"><span class="cl">10.0.0.0/8
+</span></span></code></pre></div>]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
@@ -193,148 +754,6 @@
 <p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a></p>
 <p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
 <p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
-<h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
-本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
-<h2 id="破题">破题</h2>
-<p>参考其他主板的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
-</span></span><span class="line"><span class="cl">0x193F2                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 9E 01 30 00 00}
-</span></span><span class="line"><span class="cl">0x193F9                         One Of Option: Android, Value (8 bit): 0x1 {09 07 9F 01 00 00 01}
-</span></span><span class="line"><span class="cl">0x19400                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 A0 01 00 00 02}
-</span></span><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
-</span></span><span class="line"><span class="cl">0x1940E                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 A1 01 00 00 04}
-</span></span><span class="line"><span class="cl">0x19415                 End One Of {29 02}
-</span></span></code></pre></div><p>下面是华擎的 BIOS</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19C71                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x48A, VarStore: 0x1, QuestionId: 0x273E, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 E0 01 E1 01 3E 27 01 00 8A 04 14 10 00 04 00}
-</span></span><span class="line"><span class="cl">0x19C82                         One Of Option: Windows, Value (8 bit): 0x0 (default) {09 07 E2 01 30 00 00}
-</span></span><span class="line"><span class="cl">0x19C89                         One Of Option: Android, Value (8 bit): 0x1 {09 07 E3 01 00 00 01}
-</span></span><span class="line"><span class="cl">0x19C90                         One Of Option: Win7, Value (8 bit): 0x2 {09 07 E4 01 00 00 02}
-</span></span><span class="line"><span class="cl">0x19C97                         One Of Option: MSDOS, Value (8 bit): 0x4 {09 07 E5 01 00 00 04}
-</span></span><span class="line"><span class="cl">0x19C9E                 End One Of {29 02}
-</span></span></code></pre></div><p>可以发现缺少了一项</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x19407                         One Of Option: Intel Linux, Value (8 bit): 0x3 {09 07 A2 01 00 00 03}
-</span></span></code></pre></div><p>这就是问题所在。</p>
-<h2 id="升级-bios">升级 BIOS</h2>
-<p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。</p>
-<p>前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a></p>
-<p>下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。</p>
-<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
-<p>下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。</p>
-<p>具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
-<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
-</p>
-<h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
-<p>首先建议选择 UEFI 进行引导。</p>
-<p>下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。</p>
-<p>此工具可以在互联网上找到，常见用途是强行给 10 代以上的主板装 Windows 7（奇怪的要求
-这里放一个两个下载链接，若失效可自行搜索下载。</p>
-<p><a href="https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ">https://mega.nz/folder/NC5CXLQS#YNCi_9IDn18y7axbdNyRMQ</a></p>
-<p><a href="https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA">https://pan.baidu.com/wap/init?surl=H4suGj8pwVPw2oAZsCn1dA</a> （提取码：jzhu）</p>
-<h2 id="修改-bios">修改 BIOS</h2>
-<p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。</p>
-<p>会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：</p>
-<p><img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
-</p>
-<p>输入命令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">amisetupwriter 0x4E2 0x3
-</span></span></code></pre></div><p>然后输入 <code>exit</code> 退出，重启完工。
-实测 DSM7 效果，开机一分半左右，传输速度基本达到千兆水平。</p>
-<h2 id="参考文献">参考文献</h2>
-<p><a href="http://www.gebi1.com/thread-302113-1-1.html">http://www.gebi1.com/thread-302113-1-1.html</a></p>
-<p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
-<p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
-<h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
-本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate><guid>https://weixiang.github.io/posts---%E5%89%AF%E6%9C%AC/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
-<p>假期给家里组了一台 NAS，万由 401 机箱 + 华擎 J3455。</p>
-<p>没想到过程比预想中要曲折许多，买了才知道，华擎 J3455 是著名的“妖板”。</p>
-<p>安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有 DSM 中各种奇奇怪怪的 Bug……</p>
-<p>总之，敢碰华擎 J3455 的都是勇士。</p>
-<p>听说是驱动问题造成的，自己编译引导可以一定程度上缓解这些问题。</p>
-<p>于是就有了下面的笔记。</p>
-<blockquote>
-<p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p>
-</blockquote>
-<h2 id="制作-tinycore-redpill-启动盘">制作 tinycore-redpill 启动盘</h2>
-<p>前往项目：<a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a>
-这里采用了 llm-y2k 修改的换源版镜像：</p>
-<blockquote>
-<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p>
-</blockquote>
-<p>Tinycore-redpill 在国内网络基本无法使用，U 盘引导 NAS 实体机编译时几乎无法完成，遂修改部分代码以适应国内网络环境，目前已可正常使用。</p>
-<p>下载镜像文件，根据设备情况选择不同的引导镜像，我这里选用了<code>[tinycore-redpill-uefi.v0.8.0.0.img.gz](https://github.com/llm-y2k/tinycore-redpill/blob/cn/tinycore-redpill-uefi.v0.8.0.0.img.gz)</code>。</p>
-<p>使用任意引导盘制作工具，如 Rufus，烧录进 U 盘即可。</p>
-<h2 id="启动-tinycore-redpill">启动 tinycore-redpill</h2>
-<p>将烧写完成的 U 盘插入目标设备，选择从 U 盘启动即可进入系统，点击下图图标进入终端。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg" alt=""  />
-</p>
-<p>使用<code>ifconfig</code>命令查看设备 IP 地址</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg" alt=""  />
-</p>
-<p>使用任意 SSH 工具连接到上面的 IP，账号为<code>tc</code>，密码为<code>P@ssw0rd</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh tc@192.168.0.243
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg" alt=""  />
-</p>
-<h2 id="更新脚本">更新脚本</h2>
-<p>首先更新脚本</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo curl https://raw.0z.gs/llm-y2k/tinycore-redpill/main/rploader-cn.sh<span class="p">|</span>bash -s fullupgrade
-</span></span></code></pre></div><p>授予执行权限</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod <span class="m">777</span> *.sh
-</span></span></code></pre></div><h2 id="生成配置">生成配置</h2>
-<p>输入如下命令开始配置编译文件</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh serialgen DS918+ now
-</span></span><span class="line"><span class="cl">或者
-</span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh serialgen DS3615xs now
-</span></span><span class="line"><span class="cl">这里设置nas机型，推荐选择918和3615两种中的一种
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIGHP.jpg" alt=""  />
-</p>
-<p>配置盘序文件</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh satamap now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg" alt=""  />
-</p>
-<p>生成 U 盘 VID、PID 信息</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh identifyusb now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg" alt=""  />
-</p>
-<h2 id="开始编译">开始编译</h2>
-<p>配置完成后，正式开始编译，根据机器和网络速度，耗时可能会比较长，耐心等待即可。
-建议上游做好代理设置，跑起来会比较顺利。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 根据前面所选机型输入编译命令</span>
-</span></span><span class="line"><span class="cl">918：
-</span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build apollolake-7.0.1-42218
-</span></span><span class="line"><span class="cl">3615：
-</span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build bromolow-7.0.1-42218
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg" alt=""  />
-</p>
-<p>curl 35 错误不妨休息一下，过会再试，curl 60 错误不妨检查下 Nas 机器本地时间是否正确。
-由于网络原因，可能个别驱动下载失败，别慌，重新再次编译即可。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg" alt=""  />
-</p>
-<p>编译成功！切换到 winscp 去下载生成的文件</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg" alt=""  />
-</p>
-<h2 id="备份引导">备份引导</h2>
-<p>下载引导镜像文件，做好备份有备无患，此引导镜像相当于为此设备定制。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg" alt=""  />
-</p>
-<p>最后回到 putty，正式存盘，一定要存盘！一定要存盘！一定要存盘！</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo filetool.sh -b
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg" alt=""  />
-</p>
-<p>最后重启设备</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg" alt=""  />
-</p>
-<p>理论上会自动引导进入 DSM 的安装界面，如果没有，可以将上面备份的镜像写入 U 盘，再进行引导。接下来就是常规的 DSM 安装流程了。</p>
-<h2 id="参考文献">参考文献</h2>
-<p><a href="https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/">https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/</a></p>
-<p><a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a></p>
-<p><a href="https://github.com/pocopico/tinycore-redpill">https://github.com/pocopico/tinycore-redpill</a></p>
 <h2 id="版权声明">版权声明</h2>
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
