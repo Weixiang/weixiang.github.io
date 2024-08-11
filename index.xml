@@ -1559,6 +1559,9 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <li>在【禁用函数】中，删除 <code>putenv</code>、 <code>pcntl_signal</code>以及 <code>proc_open</code></li>
 <li>设置 PHP 配置如下</li>
 </ol>
+<blockquote>
+<p>2024 年 8 月 11 日更新： 根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code></p>
+</blockquote>
 <p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
 <p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
 <h2 id="安装-composer">安装 Composer</h2>
@@ -1591,9 +1594,11 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><strong>root</strong>：需要在路径后面加上 <code>public</code>，比如原本是 <code>root /www/wwwroot/example.com;</code>，需要修改为<code>root /www/wwwroot/example.com/public;</code>。</p>
 <p>引入 Flarum 提供的伪静态配置，在 <code>server name</code> 下方加上 <code>include /www/wwwroot/example.com/.nginx.conf;</code>，网站目录不要忘记更换成自己的。</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11</a></p>
-<p><a href="https://discuss.flarum.org.cn/d/2195/2">https://discuss.flarum.org.cn/d/2195</a></p>
-<p><a href="https://docs.flarum.org/install/">https://docs.flarum.org/install/</a></p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11</a></li>
+<li><a href="https://discuss.flarum.org.cn/d/2195/2">https://discuss.flarum.org.cn/d/2195</a></li>
+<li><a href="https://docs.flarum.org/install/">https://docs.flarum.org/install/</a></li>
+</ul>
 ]]></content:encoded></item><item><title>华硕飞行堡垒 9 安装 Windows11</title><link>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</link><pubDate>Mon, 25 Sep 2023 14:25:04 +0800</pubDate><guid>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</guid><description>以 FX506HCB 为例，记录安装 Windows11 系统，解决驱动问题。</description><content:encoded><![CDATA[<p>以<code>FX506HCB</code>为例，记录安装 Windows11 系统。</p>
 <h2 id="写入-windows11-镜像">写入 Windows11 镜像</h2>
 <ol>
