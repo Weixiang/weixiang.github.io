@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 26 Dec 2023 09:25:59 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 26 Dec 2023 09:25:59 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
 <p>开启硬件直通：BIOS 中打开硬件直通相关选项（VT-d &amp; VMX）
 编辑 Grub</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/default/grub
@@ -98,7 +98,71 @@
 <p><a href="https://ihnic.com/index.php/archives/12/">https://ihnic.com/index.php/archives/12/</a></p>
 <p><a href="https://docs.portainer.io/start/install-ce/server/docker/linux">https://docs.portainer.io/start/install-ce/server/docker/linux</a></p>
 <p><a href="https://mirrors.ustc.edu.cn/help/debian.html">https://mirrors.ustc.edu.cn/help/debian.html</a></p>
-]]></content:encoded></item><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0000</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+]]></content:encoded></item><item><title>群晖 DSM 研究笔记</title><link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link><pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid><description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+<h2 id="编译-tinycore-redpill-引导">编译 tinycore-redpill 引导</h2>
+<h3 id="dsm-安装完成后无限重启">DSM 安装完成后无限重启？</h3>
+<p>引导与 pat 版本不一致导致的，断网安装可以避免安装过程中自动更新。</p>
+<h2 id="使用">使用</h2>
+<h3 id="指定源拉取镜像">指定源拉取镜像</h3>
+<p>使用 SSH 进入终端，用命令手动从加速地址拉取</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker pull z7cqdx7o.mirror.aliyuncs.com/homeassistant/home-assistant
+</span></span></code></pre></div><h3 id="国内加速地址">国内加速地址</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;registry-mirrors&#34;</span><span class="err">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span></code></pre></div><h3 id="docker-配置文件位置">Docker 配置文件位置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vi /var/packages/Docker/etc/dockerd.json
+</span></span></code></pre></div><ol>
+<li>（vi 进入文件后）在命令模式下，先执行 gg (跳转光标至文件首行)；</li>
+<li>再执行 dG，这样就清空了整个文件。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.100.1/24&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/Docker/var/docker&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="重启-docker">重启 Docker</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl restart pkgctl-Docker
+</span></span></code></pre></div><h2 id="docker-服务">Docker 服务</h2>
+<h3 id="家庭助理">家庭助理</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker run -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name homeassistant <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --privileged <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --restart<span class="o">=</span>unless-stopped <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /volume1/docker/homeassistant:/config <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --network<span class="o">=</span>host <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ghcr.io/home-assistant/home-assistant:stable
+</span></span></code></pre></div><h3 id="广告过滤">广告过滤</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/work:/opt/adguardhome/work<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/conf:/opt/adguardhome/conf<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 53:53/tcp -p 53:53/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 67:67/udp -p 68:68/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 80:80/tcp -p 443:443/tcp -p 443:443/udp -p 3000:3000/tcp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 853:853/tcp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 784:784/udp -p 853:853/udp -p 8853:8853/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 5443:5443/tcp -p 5443:5443/udp<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d adguard/adguardhome
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<p><a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a></p>
+<p><a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a></p>
+<p><a href="https://github.com/whyour/qinglong">https://github.com/whyour/qinglong</a></p>
+<p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
+<p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
+]]></content:encoded></item><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>2024 年 8 月 8 日更新：</p>
 <p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
 <hr>
@@ -171,70 +235,6 @@
 <a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
 <a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
 <a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>群晖 DSM 研究笔记</title><link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link><pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid><description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
-<h2 id="编译-tinycore-redpill-引导">编译 tinycore-redpill 引导</h2>
-<h3 id="dsm-安装完成后无限重启">DSM 安装完成后无限重启？</h3>
-<p>引导与 pat 版本不一致导致的，断网安装可以避免安装过程中自动更新。</p>
-<h2 id="使用">使用</h2>
-<h3 id="指定源拉取镜像">指定源拉取镜像</h3>
-<p>使用 SSH 进入终端，用命令手动从加速地址拉取</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker pull z7cqdx7o.mirror.aliyuncs.com/homeassistant/home-assistant
-</span></span></code></pre></div><h3 id="国内加速地址">国内加速地址</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="s2">&#34;registry-mirrors&#34;</span><span class="err">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">]</span>
-</span></span></code></pre></div><h3 id="docker-配置文件位置">Docker 配置文件位置</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vi /var/packages/Docker/etc/dockerd.json
-</span></span></code></pre></div><ol>
-<li>（vi 进入文件后）在命令模式下，先执行 gg (跳转光标至文件首行)；</li>
-<li>再执行 dG，这样就清空了整个文件。</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;bip&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.100.1/24&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;data-root&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/packages/Docker/var/docker&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;db&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;registry-mirrors&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://hub-mirror.c.163.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://z7cqdx7o.mirror.aliyuncs.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;storage-driver&#34;</span><span class="p">:</span> <span class="s2">&#34;btrfs&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="重启-docker">重启 Docker</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl daemon-reload
-</span></span><span class="line"><span class="cl">systemctl restart pkgctl-Docker
-</span></span></code></pre></div><h2 id="docker-服务">Docker 服务</h2>
-<h3 id="家庭助理">家庭助理</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo docker run -d <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name homeassistant <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --privileged <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --restart<span class="o">=</span>unless-stopped <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -e <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /volume1/docker/homeassistant:/config <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --network<span class="o">=</span>host <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  ghcr.io/home-assistant/home-assistant:stable
-</span></span></code></pre></div><h3 id="广告过滤">广告过滤</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/work:/opt/adguardhome/work<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /volume1/docker/conf:/opt/adguardhome/conf<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 53:53/tcp -p 53:53/udp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 67:67/udp -p 68:68/udp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 80:80/tcp -p 443:443/tcp -p 443:443/udp -p 3000:3000/tcp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 853:853/tcp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 784:784/udp -p 853:853/udp -p 8853:8853/udp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -p 5443:5443/tcp -p 5443:5443/udp<span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d adguard/adguardhome
-</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
-<p><a href="https://community.synology.com/enu/forum/17/post/107492">https://community.synology.com/enu/forum/17/post/107492</a></p>
-<p><a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a></p>
-<p><a href="https://github.com/whyour/qinglong">https://github.com/whyour/qinglong</a></p>
-<p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
-<p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
 ]]></content:encoded></item><item><title>HomeLab 搭建笔记</title><link>https://weixiang.github.io/posts/homelab-deployment-record/</link><pubDate>Thu, 27 Jul 2023 13:12:04 +0800</pubDate><guid>https://weixiang.github.io/posts/homelab-deployment-record/</guid><description>Homelab 是指可在家中搭建的实验（折腾）环境，用于进行实验和学习。本文记录了一次 HomeLab 的搭建过程，包含多个服务的配置，主要使用 Docker 和群晖 DSM 构成。</description><content:encoded><![CDATA[<h2 id="adguard-home">AdGuard Home</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
@@ -597,7 +597,7 @@
 <p><a href="https://github.com/RayWangQvQ/BiliBiliToolPro">https://github.com/RayWangQvQ/BiliBiliToolPro</a></p>
 <p><a href="https://github.com/FlechazoPh/QLDependency">https://github.com/FlechazoPh/QLDependency</a></p>
 <p><a href="https://github.com/Ethiner/hoyolab_daily_login">https://github.com/Ethiner/hoyolab_daily_login</a></p>
-]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0000</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
+]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
@@ -650,7 +650,7 @@
 <p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
 
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0000</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>假期给家里组了一台 NAS，万由 401 机箱 + 华擎 J3455。</p>
 <p>没想到过程比预想中要曲折许多，买了才知道，华擎 J3455 是著名的“妖板”。</p>
 <p>安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有 DSM 中各种奇奇怪怪的 Bug……</p>
