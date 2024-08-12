@@ -1499,21 +1499,27 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <li><strong>MySQL 8.0.23+</strong> or <strong>MariaDB 10.0.5+</strong></li>
 <li><strong>SSH (command-line) access</strong> to run Composer</li>
 </ul>
+<p>宝塔 7.0.7 及以上使用默认的一键安装配置即可。</p>
 <h2 id="安装宝塔面板">安装宝塔面板</h2>
 <p>安装完成后，选择一键安装 LNMP 环境。</p>
 <h2 id="配置-php-环境">配置 PHP 环境</h2>
 <p>在软件商店，配置 PHP。</p>
 <ol>
 <li>在【安装扩展】中，安装 <code>fileinfo</code>、<code>opcache</code>、<code>exif</code>、<code>bz2</code>、<code>pdo_pgsql</code></li>
-<li>在【禁用函数】中，删除 <code>putenv</code>、 <code>pcntl_signal</code>以及 <code>proc_open</code></li>
+<li>在【禁用函数】中，删除 <code>putenv</code>、 <code>pcntl_signal</code> 以及 <code>proc_open</code></li>
 <li>设置 PHP 配置如下</li>
 </ol>
 <blockquote>
-<p>2024 年 8 月 11 日更新： 根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code></p>
+<p>2024 年 8 月 11 日更新：
+根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code></p>
 </blockquote>
 <p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
 <p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
 <h2 id="安装-composer">安装 Composer</h2>
+<blockquote>
+<p>2024 年 8 月 12 日更新：
+宝塔版本 7.0.7 默认的 PHP 8.3 插件似乎已经自带了 Composer，不用另外安装了。</p>
+</blockquote>
 <p>更新软件包并安装依赖</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
 </span></span><span class="line"><span class="cl">sudo apt install curl php-cli php-mbstring git unzip
@@ -1531,7 +1537,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">php -r <span class="s2">&#34;unlink(&#39;composer-setup.php&#39;);&#34;</span>
 </span></span></code></pre></div><h2 id="安装-flarum">安装 Flarum</h2>
 <p>前往宝塔面板 – 【网站】 – 【添加站点】，同时创建用于 Flarum 的数据库。最后提交。</p>
-<p>务必注意！数据库字符集一定要是 utf8mb4，至于为什么是 utf8mb4，参考：<a href="https://www.jianshu.com/p/6967ce16a202">https://www.jianshu.com/p/6967ce16a202</a></p>
+<p>务必注意！数据库字符集一定要是 <code>utf8mb4</code>，至于为什么是 <code>utf8mb4</code>，参考：<a href="https://www.jianshu.com/p/6967ce16a202">https://www.jianshu.com/p/6967ce16a202</a></p>
 <p>配置 SSL 证书，请注意开启“强制 HTTPS”！</p>
 <p>删除文章目录下的<strong>所有</strong>文件。</p>
 <h3 id="下载-flarum">下载 Flarum</h3>
@@ -1540,14 +1546,20 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></code></pre></div><h2 id="配置运行">配置运行</h2>
 <h3 id="修改-nginx-配置">修改 Nginx 配置</h3>
 <p>进入宝塔面板，打开站点设置，修改网站配置文件：</p>
-<p><strong>root</strong>：需要在路径后面加上 <code>public</code>，比如原本是 <code>root /www/wwwroot/example.com;</code>，需要修改为<code>root /www/wwwroot/example.com/public;</code>。</p>
+<p><strong>root</strong>：需要在路径后面加上 <code>public</code>，比如原本是 <code>root /www/wwwroot/example.com;</code>，需要修改为 <code>root /www/wwwroot/example.com/public;</code>。</p>
 <p>引入 Flarum 提供的伪静态配置，在 <code>server name</code> 下方加上 <code>include /www/wwwroot/example.com/.nginx.conf;</code>，网站目录不要忘记更换成自己的。</p>
-<h2 id="参考文献">参考文献</h2>
+<h2 id="权限修改">权限修改</h2>
+<p>若搭建完成后，页面出现权限报错，无法启动，则需要修改根目录权限为 775，同时所有权为 www。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">chmod <span class="m">775</span> -R /path/to/directory
+</span></span><span class="line"><span class="cl">chown -R www-data:www-data /path/to/directory
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-debian-11</a></li>
 <li><a href="https://discuss.flarum.org.cn/d/2195/2">https://discuss.flarum.org.cn/d/2195</a></li>
 <li><a href="https://docs.flarum.org/install/">https://docs.flarum.org/install/</a></li>
 </ul>
+<h2 id="更新记录">更新记录</h2>
+<p>2024 年 8 月 12 日：更新宝塔 7.0.7 安装</p>
 ]]></content:encoded></item><item><title>华硕飞行堡垒 9 安装 Windows11</title><link>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</link><pubDate>Mon, 25 Sep 2023 14:25:04 +0800</pubDate><guid>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</guid><description>以 FX506HCB 为例，记录安装 Windows11 系统，解决驱动问题。</description><content:encoded><![CDATA[<p>以<code>FX506HCB</code>为例，记录安装 Windows11 系统。</p>
 <h2 id="写入-windows11-镜像">写入 Windows11 镜像</h2>
 <ol>
