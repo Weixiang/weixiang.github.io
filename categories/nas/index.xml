@@ -1,4 +1,242 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.131.0</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 06 Feb 2024 11:06:34 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale是一种基于Wireguard的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用P2P连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
+<p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
+<p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
+<p>Linux 使用这个命令即可一键安装：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -fsSL https://tailscale.com/install.sh <span class="p">|</span> sh
+</span></span></code></pre></div><p>群晖 DSM 直接进套件中心搜索 Tailscale 即可安装。</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp" alt="Tailscale套件"  />
+</p>
+<p>这里唯一需要注意的地方是，若在国内使用，账号登陆要选择国内可以直连的平台，例如微软或苹果，使用谷歌账号登陆会导致终端无法正常上线，除非可以解决网络问题。</p>
+<h2 id="derper-中继节点">Derper 中继节点</h2>
+<p>某些网络不佳的情况下，P2P 无法打洞成功，流量将通过 Tailscale 的中继节点，也称为 Derper，进行流量的转发。</p>
+<p>但由于 Tailscale 在中国大陆境内并没有中继节点，会导致速度非常缓慢，影响使用体验。</p>
+<p>可以通过自己搭建 Derper 节点来解决这个问题。</p>
+<p>官方提供也提供了操作手册：</p>
+<p><a href="https://tailscale.com/kb/1118/custom-derp-servers/">Custom DERP Servers · Tailscale Docs</a></p>
+<h2 id="docker-部署-derper">Docker 部署 Derper</h2>
+<p>官方提供的操作手册步骤较为复杂，幸运的是，已经有大佬打包好了 Docker 镜像。</p>
+<p><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></p>
+<p>根据文档，我的 Docker 容器配置如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.8&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">derper</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">fredliang/derper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">derper</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_CERT_MODE=manual </span><span class="w"> </span><span class="c"># 手动设置证书</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_ADDR=:13477 </span><span class="w"> </span><span class="c"># 中转端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_HTTP_PORT=13476 </span><span class="w"> </span><span class="c"># 用不到也可以填入 -1 关闭 HTTP 服务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_STUN_PORT=13478 </span><span class="w"> </span><span class="c"># STUN 打洞端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_DOMAIN=derper.example.com </span><span class="w"> </span><span class="c"># 服务器域名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">DERP_VERIFY_CLIENTS=true </span><span class="w"> </span><span class="c"># 验证客户端身份，防止白嫖</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;13477:13477&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;13478:13478/udp&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock </span><span class="w"> </span><span class="c"># tailscale 客户端进程，用于验证客户端身份</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./certs:/app/certs </span><span class="w"> </span><span class="c"># SSL 证书存放地址</span><span class="w">
+</span></span></span></code></pre></div><p>如果不喜欢 compose，也有配置一样的命令版：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -dit <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--name derper <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-v ./certs:/app/certs <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_CERT_MODE</span><span class="o">=</span>manual <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_ADDR</span><span class="o">=</span>:13477 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_HTTP_PORT</span><span class="o">=</span><span class="m">13476</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_STUN_PORT</span><span class="o">=</span><span class="m">13478</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_DOMAIN</span><span class="o">=</span>derper.example.com <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-e <span class="nv">DERP_VERIFY_CLIENTS</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 13477:13477 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>-p 13478:13478/udp <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>fredliang/derper
+</span></span></code></pre></div><p>为了防止自己搭建的 Derper 被白嫖，这里选择开启 <code>DERP_VERIFY_CLIENTS</code> 客户端验证功能，服务器将通过本地的 Tailscale 客户端，验证使用 Derper 的是否为本账号下的客户端。</p>
+<p>需要提前在服务器内运行一个 Tailscale 客户端，参考上面的客户端部署方法即可。</p>
+<h2 id="添加-nginx-反向代理--并不需要"><del>添加 Nginx 反向代理</del>  (并不需要)</h2>
+<p><del>宝塔面板 - 网站 - 反向代理中，添加一个项目，使用 <code>derper.example.com</code> 域名，配置自动申请 Let&rsquo;s Encrypt 证书。</del> （最后只用到了自动申请证书的功能）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">location</span> <span class="s">^~</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:13476</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-Real-Port</span> <span class="nv">$remote_port</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">REMOTE-HOST</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_connect_timeout</span> <span class="s">60s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_send_timeout</span> <span class="s">600s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_read_timeout</span> <span class="s">600s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">Upgrade</span> <span class="nv">$http_upgrade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="nv">$connection_upgrade</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="证书部署">证书部署</h2>
+<p>证书命名格式为 <code>derper.example.com.crt</code> 和 <code>derper.example.com.key</code>，放置在执行目录下的 <code>certs</code> 文件夹内即可。</p>
+<p>我这里使用了 Let&rsquo;s Encrypt 的证书，通过宝塔面板自动申请，通过计划任务每天自动更新一份到目录下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">source_crt</span><span class="o">=</span><span class="s2">&#34;/www/server/panel/vhost/cert/derper.example.com/fullchain.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">target_crt</span><span class="o">=</span><span class="s2">&#34;/docker/derper/certs/derper.example.com.crt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">source_key</span><span class="o">=</span><span class="s2">&#34;/www/server/panel/vhost/cert/derper.example.com/privkey.pem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">target_key</span><span class="o">=</span><span class="s2">&#34;/docker/derper/certs/derper.example.com.key&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查文件是否相同</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> diff -q <span class="s2">&#34;</span><span class="nv">$source_crt</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$target_crt</span><span class="s2">&#34;</span> <span class="p">&amp;</span>&gt; /dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;文件内容相同，无需复制。&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    cp <span class="s2">&#34;</span><span class="nv">$source_crt</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$target_crt</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    cp <span class="s2">&#34;</span><span class="nv">$source_key</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$target_key</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;文件已复制。&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><h2 id="添加-access-controls-规则">添加 Access Controls 规则</h2>
+<p>进入 Tailscale 后台，选择 Access Controls 配置。</p>
+<p><a href="https://login.tailscale.com/admin/acls/file">https://login.tailscale.com/admin/acls/file</a></p>
+<p>在下面的配置文件中，在最后添加自己的 Derper。</p>
+<p>我的配置如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="c1">// Example/default ACLs for unrestricted connections.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Declare static groups of users. Use autogroups for all users or users with a specific role.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;groups&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	&#34;group:example&#34;: [&#34;alice@example.com&#34;, &#34;bob@example.com&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Define the tags which can be applied to devices and by which users.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;tagOwners&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	&#34;tag:example&#34;: [&#34;autogroup:admin&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Define access control lists for users, groups, autogroups, tags,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// Tailscale IP addresses, and subnet ranges.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;acls&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Allow all connections.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// Comment this section out if you want to define specific restrictions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span><span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;accept&#34;</span><span class="p">,</span> <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">],</span> <span class="nt">&#34;dst&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*:*&#34;</span><span class="p">]},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="c1">// Allow users in &#34;group:example&#34; to access &#34;tag:example&#34;, but only from
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// devices that are running macOS and have enabled Tailscale client auto-updating.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// {&#34;action&#34;: &#34;accept&#34;, &#34;src&#34;: [&#34;group:example&#34;], &#34;dst&#34;: [&#34;tag:example:*&#34;], &#34;srcPosture&#34;:[&#34;posture:autoUpdateMac&#34;]},
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">],</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Define postures that will be applied to all rules without any specific
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// srcPosture definition.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;defaultSrcPosture&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      &#34;posture:anyMac&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Define device posture rules requiring devices to meet
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// certain criteria to access parts of your system.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;postures&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Require devices running macOS, a stable Tailscale
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // version and auto update enabled for Tailscale.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	&#34;posture:autoUpdateMac&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:os == &#39;macos&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsAutoUpdate&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Require devices running macOS and a stable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Tailscale version.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	&#34;posture:anyMac&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:os == &#39;macos&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Define users and devices that can use Tailscale SSH.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;ssh&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// Allow all users to SSH into their own devices in check mode.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// Comment this section out if you want to define specific restrictions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;check&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;src&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:member&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;dst&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:self&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;users&#34;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&#34;autogroup:nonroot&#34;</span><span class="p">,</span> <span class="s2">&#34;root&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">],</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// Test access rules every time they&#39;re saved.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;tests&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	{
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;src&#34;: &#34;alice@example.com&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;accept&#34;: [&#34;tag:example&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;deny&#34;: [&#34;100.101.102.103:443&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	},
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;derpMap&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;OmitDefaultRegions&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Regions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nt">&#34;900&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionID&#34;</span><span class="p">:</span>   <span class="mi">900</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionCode&#34;</span><span class="p">:</span> <span class="s2">&#34;myderp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionName&#34;</span><span class="p">:</span> <span class="s2">&#34;Guangzhou&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="nt">&#34;Nodes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">					<span class="p">{</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;Name&#34;</span><span class="p">:</span>     <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;RegionID&#34;</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;HostName&#34;</span><span class="p">:</span> <span class="s2">&#34;derper.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;DERPPort&#34;</span><span class="p">:</span> <span class="mi">13477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;STUNPort&#34;</span><span class="p">:</span> <span class="mi">13478</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">						<span class="nt">&#34;STUNOnly&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">					<span class="p">},</span>
+</span></span><span class="line"><span class="cl">				<span class="p">],</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="测试-derper">测试 Derper</h2>
+<p>在客户端的终端中，输入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">tailscale</span> <span class="n">netcheck</span>
+</span></span><span class="line"><span class="cl"><span class="n">tailscale</span> <span class="n">ping</span> <span class="n">客户端名称</span>
+</span></span></code></pre></div><p>即可查看连接情况。</p>
+<p>输出如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">PowerShell</span> <span class="mf">7.4</span><span class="p">.</span><span class="py">4</span>
+</span></span><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">jacob</span><span class="p">&gt;</span> <span class="n">tailscale</span> <span class="n">netcheck</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Report</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">UDP</span><span class="err">:</span> <span class="n">true</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">IPv4</span><span class="err">:</span> <span class="n">yes</span><span class="p">,</span> <span class="mf">183.233</span><span class="p">.</span><span class="py">233</span><span class="p">.</span><span class="mf">159</span><span class="err">:</span><span class="mf">11451</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">IPv6</span><span class="err">:</span> <span class="n">no</span><span class="p">,</span> <span class="n">but</span> <span class="n">OS</span> <span class="n">has</span> <span class="n">support</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">MappingVariesByDestIP</span><span class="err">:</span> <span class="n">true</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">PortMapping</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">CaptivePortal</span><span class="err">:</span> <span class="n">false</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">Nearest</span> <span class="n">DERP</span><span class="err">:</span> <span class="n">Guangzhou</span>
+</span></span><span class="line"><span class="cl">        <span class="p">*</span> <span class="n">DERP</span> <span class="n">latency</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">myderp</span><span class="err">:</span> <span class="n">18ms</span>    <span class="p">(</span><span class="n">Guangzhou</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">blr</span><span class="err">:</span> <span class="mf">133</span><span class="p">.</span><span class="py">9ms</span> <span class="p">(</span><span class="n">Bangalore</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">lax</span><span class="err">:</span> <span class="mf">159</span><span class="p">.</span><span class="py">3ms</span> <span class="p">(</span><span class="n">Los</span> <span class="n">Angeles</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">sea</span><span class="err">:</span> <span class="mf">175</span><span class="p">.</span><span class="py">3ms</span> <span class="p">(</span><span class="n">Seattle</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">sfo</span><span class="err">:</span> <span class="mf">185</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">San</span> <span class="n">Francisco</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">dfw</span><span class="err">:</span> <span class="mf">190</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Dallas</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">den</span><span class="err">:</span> <span class="mf">195</span><span class="p">.</span><span class="py">6ms</span> <span class="p">(</span><span class="n">Denver</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">tor</span><span class="err">:</span> <span class="mf">215</span><span class="p">.</span><span class="py">7ms</span> <span class="p">(</span><span class="n">Toronto</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">fra</span><span class="err">:</span> <span class="n">222ms</span>   <span class="p">(</span><span class="n">Frankfurt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">par</span><span class="err">:</span> <span class="n">222ms</span>   <span class="p">(</span><span class="n">Paris</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">lhr</span><span class="err">:</span> <span class="mf">225</span><span class="p">.</span><span class="py">6ms</span> <span class="p">(</span><span class="n">London</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">mia</span><span class="err">:</span> <span class="mf">227</span><span class="p">.</span><span class="py">3ms</span> <span class="p">(</span><span class="n">Miami</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">nyc</span><span class="err">:</span> <span class="mf">228</span><span class="p">.</span><span class="py">9ms</span> <span class="p">(</span><span class="n">New</span> <span class="n">York</span> <span class="n">City</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">ord</span><span class="err">:</span> <span class="mf">234</span><span class="p">.</span><span class="py">2ms</span> <span class="p">(</span><span class="n">Chicago</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">ams</span><span class="err">:</span> <span class="mf">236</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Amsterdam</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">waw</span><span class="err">:</span> <span class="mf">241</span><span class="p">.</span><span class="py">5ms</span> <span class="p">(</span><span class="n">Warsaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">hnl</span><span class="err">:</span> <span class="mf">243</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Honolulu</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">tok</span><span class="err">:</span> <span class="mf">244</span><span class="p">.</span><span class="py">1ms</span> <span class="p">(</span><span class="n">Tokyo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">mad</span><span class="err">:</span> <span class="mf">255</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Madrid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">hkg</span><span class="err">:</span> <span class="mf">283</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Hong</span> <span class="n">Kong</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">sin</span><span class="err">:</span> <span class="mf">302</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Singapore</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">dbi</span><span class="err">:</span> <span class="mf">330</span><span class="p">.</span><span class="py">3ms</span> <span class="p">(</span><span class="n">Dubai</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">nai</span><span class="err">:</span> <span class="mf">415</span><span class="p">.</span><span class="py">9ms</span> <span class="p">(</span><span class="n">Nairobi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">jnb</span><span class="err">:</span> <span class="mf">432</span><span class="p">.</span><span class="py">4ms</span> <span class="p">(</span><span class="n">Johannesburg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">sao</span><span class="err">:</span> <span class="mf">432</span><span class="p">.</span><span class="py">8ms</span> <span class="p">(</span><span class="n">São</span> <span class="n">Paulo</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">-</span> <span class="n">syd</span><span class="err">:</span> <span class="mf">547</span><span class="p">.</span><span class="py">2ms</span> <span class="p">(</span><span class="n">Sydney</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">jacob</span><span class="p">&gt;</span> <span class="n">tailscale</span> <span class="n">ping</span> <span class="n">diskstation</span>
+</span></span><span class="line"><span class="cl"><span class="n">pong</span> <span class="n">from</span> <span class="n">diskstation</span> <span class="p">(</span><span class="mf">100.233</span><span class="p">.</span><span class="py">64</span><span class="p">.</span><span class="mf">44</span><span class="p">)</span> <span class="n">via</span> <span class="mf">192.233</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="mf">2</span><span class="err">:</span><span class="mf">41641</span> <span class="k">in</span> <span class="n">755ms</span>
+</span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
+<ul>
+<li><a href="https://xz.aliyun.com/t/12151">Tailscale在内网渗透中利用的研究 - 先知社区</a></li>
+<li><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></li>
+<li><a href="https://tailscale.com/kb/1118/custom-derp-servers/">Custom DERP Servers · Tailscale Docs</a></li>
+<li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
+<li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale使用自定义derper服务器（docker部署） - 且炼时光</a></li>
+</ul>
+]]></content:encoded></item><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
 <p>编辑配置</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
 </span></span></code></pre></div><p>添加</p>
