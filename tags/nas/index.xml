@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P2P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NAS on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/nas/</link><description>Recent content in NAS on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/nas/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<p>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P2P 连接，在一些情况下，速度也很可观。</p>
+<h2 id="tailscale-部署">Tailscale 部署</h2>
 <p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
 <p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
 <p>Linux 使用这个命令即可一键安装：</p>
@@ -36,7 +37,74 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">/var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock </span><span class="w"> </span><span class="c"># tailscale 客户端进程，用于验证客户端身份</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./certs:/app/certs </span><span class="w"> </span><span class="c"># SSL 证书存放地址</span><span class="w">
-</span></span></span></code></pre></div><p>如果不喜欢 compose，也有配置一样的命令版：</p>
+</span></span></span></code></pre></div><p>以下是各变量功能的翻译：</p>
+<table>
+<thead>
+<tr>
+<th>环境变量</th>
+<th>是否必需</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DERP_DOMAIN</td>
+<td>是</td>
+<td>DERP 服务器的主机名</td>
+<td>your-hostname.com</td>
+</tr>
+<tr>
+<td>DERP_CERT_DIR</td>
+<td>否</td>
+<td>存储 LetsEncrypt 证书的目录（如果地址的端口是:443）</td>
+<td>/app/certs</td>
+</tr>
+<tr>
+<td>DERP_CERT_MODE</td>
+<td>否</td>
+<td>获取证书的模式，可选项：manual（手动），letsencrypt</td>
+<td>letsencrypt</td>
+</tr>
+<tr>
+<td>DERP_ADDR</td>
+<td>否</td>
+<td>监听服务器地址</td>
+<td>:443</td>
+</tr>
+<tr>
+<td>DERP_STUN</td>
+<td>否</td>
+<td>也运行一个 STUN 服务器</td>
+<td>true</td>
+</tr>
+<tr>
+<td>DERP_STUN_PORT</td>
+<td>否</td>
+<td>提供 STUN 服务的 UDP 端口</td>
+<td>3478</td>
+</tr>
+<tr>
+<td>DERP_HTTP_PORT</td>
+<td>否</td>
+<td>提供 HTTP 服务的端口，设置为 -1 可禁用</td>
+<td>80</td>
+</tr>
+<tr>
+<td>DERP_VERIFY_CLIENTS</td>
+<td>否</td>
+<td>通过本地的 tailscaled 实例验证连接到此 DERP 服务器的客户端</td>
+<td>false</td>
+</tr>
+<tr>
+<td>DERP_VERIFY_CLIENT_URL</td>
+<td>否</td>
+<td>如果非空，指定允许客户端连接的准入控制器 URL</td>
+<td>&quot;&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>如果不喜欢 compose，也有配置一样的命令版：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -dit <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--name derper <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>--restart always <span class="se">\
@@ -235,8 +303,7 @@
 <li><a href="https://tailscale.com/kb/1118/custom-derp-servers/">Custom DERP Servers · Tailscale Docs</a></li>
 <li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
 <li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale 使用自定义 derper 服务器（docker 部署） - 且炼时光</a></li>
-</ul>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
+</ul>]]></content:encoded></item><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
 <p>开启硬件直通：BIOS 中打开硬件直通相关选项（VT-d &amp; VMX）
 编辑 Grub</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/default/grub

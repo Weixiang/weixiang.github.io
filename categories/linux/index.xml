@@ -206,7 +206,7 @@
 </ol>
 <blockquote>
 <p>2024 年 8 月 11 日更新：
-根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code></p>
+根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code> 、<code>exif</code></p>
 </blockquote>
 <p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
 <p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
