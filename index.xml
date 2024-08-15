@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale是一种基于Wireguard的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用P2P连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jacob's Thoughts</title><link>https://weixiang.github.io/</link><description>Recent content on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P2P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
 <p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
 <p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
 <p>Linux 使用这个命令即可一键安装：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -fsSL https://tailscale.com/install.sh <span class="p">|</span> sh
 </span></span></code></pre></div><p>群晖 DSM 直接进套件中心搜索 Tailscale 即可安装。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp" alt="Tailscale套件"  />
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp" alt="Tailscale 套件"  />
 </p>
 <p>这里唯一需要注意的地方是，若在国内使用，账号登陆要选择国内可以直连的平台，例如微软或苹果，使用谷歌账号登陆会导致终端无法正常上线，除非可以解决网络问题。</p>
 <h2 id="derper-中继节点">Derper 中继节点</h2>
@@ -95,92 +95,92 @@
 <p>我的配置如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="c1">// Example/default ACLs for unrestricted connections.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Declare static groups of users. Use autogroups for all users or users with a specific role.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;groups&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	&#34;group:example&#34;: [&#34;alice@example.com&#34;, &#34;bob@example.com&#34;],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span><span class="line"><span class="cl"> <span class="c1">// Declare static groups of users. Use autogroups for all users or users with a specific role.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// &#34;groups&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//   &#34;group:example&#34;: [&#34;alice@example.com&#34;, &#34;bob@example.com&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// },
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Define the tags which can be applied to devices and by which users.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;tagOwners&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	&#34;tag:example&#34;: [&#34;autogroup:admin&#34;],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span><span class="line"><span class="cl"> <span class="c1">// Define the tags which can be applied to devices and by which users.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// &#34;tagOwners&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//   &#34;tag:example&#34;: [&#34;autogroup:admin&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// },
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Define access control lists for users, groups, autogroups, tags,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// Tailscale IP addresses, and subnet ranges.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;acls&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// Allow all connections.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// Comment this section out if you want to define specific restrictions.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span><span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;accept&#34;</span><span class="p">,</span> <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">],</span> <span class="nt">&#34;dst&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*:*&#34;</span><span class="p">]},</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">// Define access control lists for users, groups, autogroups, tags,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// Tailscale IP addresses, and subnet ranges.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nt">&#34;acls&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Allow all connections.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// Comment this section out if you want to define specific restrictions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span><span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;accept&#34;</span><span class="p">,</span> <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">],</span> <span class="nt">&#34;dst&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;*:*&#34;</span><span class="p">]},</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">		<span class="c1">// Allow users in &#34;group:example&#34; to access &#34;tag:example&#34;, but only from
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// devices that are running macOS and have enabled Tailscale client auto-updating.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// {&#34;action&#34;: &#34;accept&#34;, &#34;src&#34;: [&#34;group:example&#34;], &#34;dst&#34;: [&#34;tag:example:*&#34;], &#34;srcPosture&#34;:[&#34;posture:autoUpdateMac&#34;]},
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Allow users in &#34;group:example&#34; to access &#34;tag:example&#34;, but only from
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// devices that are running macOS and have enabled Tailscale client auto-updating.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// {&#34;action&#34;: &#34;accept&#34;, &#34;src&#34;: [&#34;group:example&#34;], &#34;dst&#34;: [&#34;tag:example:*&#34;], &#34;srcPosture&#34;:[&#34;posture:autoUpdateMac&#34;]},
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// Define postures that will be applied to all rules without any specific
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// srcPosture definition.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;defaultSrcPosture&#34;: [
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      &#34;posture:anyMac&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ],
+</span></span><span class="line"><span class="cl"> <span class="c1">// Define postures that will be applied to all rules without any specific
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// srcPosture definition.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// &#34;defaultSrcPosture&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;posture:anyMac&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// ],
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Define device posture rules requiring devices to meet
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// certain criteria to access parts of your system.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;postures&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Require devices running macOS, a stable Tailscale
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // version and auto update enabled for Tailscale.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	&#34;posture:autoUpdateMac&#34;: [
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:os == &#39;macos&#39;&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsAutoUpdate&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Require devices running macOS and a stable
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//      // Tailscale version.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	&#34;posture:anyMac&#34;: [
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:os == &#39;macos&#39;&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	    &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 	],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// },
+</span></span><span class="line"><span class="cl"> <span class="c1">// Define device posture rules requiring devices to meet
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// certain criteria to access parts of your system.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// &#34;postures&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      // Require devices running macOS, a stable Tailscale
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      // version and auto update enabled for Tailscale.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//  &#34;posture:autoUpdateMac&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;node:os == &#39;macos&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;node:tsAutoUpdate&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//  ],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      // Require devices running macOS and a stable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      // Tailscale version.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//  &#34;posture:anyMac&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;node:os == &#39;macos&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//      &#34;node:tsReleaseTrack == &#39;stable&#39;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//  ],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// },
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// Define users and devices that can use Tailscale SSH.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;ssh&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// Allow all users to SSH into their own devices in check mode.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="c1">// Comment this section out if you want to define specific restrictions.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;check&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&#34;src&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:member&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&#34;dst&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:self&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&#34;users&#34;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&#34;autogroup:nonroot&#34;</span><span class="p">,</span> <span class="s2">&#34;root&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">		<span class="p">},</span>
-</span></span><span class="line"><span class="cl">	<span class="p">],</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">// Define users and devices that can use Tailscale SSH.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nt">&#34;ssh&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Allow all users to SSH into their own devices in check mode.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// Comment this section out if you want to define specific restrictions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;action&#34;</span><span class="p">:</span> <span class="s2">&#34;check&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;src&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:member&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;dst&#34;</span><span class="p">:</span>    <span class="p">[</span><span class="s2">&#34;autogroup:self&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;users&#34;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&#34;autogroup:nonroot&#34;</span><span class="p">,</span> <span class="s2">&#34;root&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="c1">// Test access rules every time they&#39;re saved.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// &#34;tests&#34;: [
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	{
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;src&#34;: &#34;alice@example.com&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;accept&#34;: [&#34;tag:example&#34;],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  		&#34;deny&#34;: [&#34;100.101.102.103:443&#34;],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">//  	},
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ],
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nt">&#34;derpMap&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&#34;OmitDefaultRegions&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Regions&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&#34;900&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionID&#34;</span><span class="p">:</span>   <span class="mi">900</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionCode&#34;</span><span class="p">:</span> <span class="s2">&#34;myderp&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">				<span class="nt">&#34;RegionName&#34;</span><span class="p">:</span> <span class="s2">&#34;Guangzhou&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">				<span class="nt">&#34;Nodes&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">					<span class="p">{</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;Name&#34;</span><span class="p">:</span>     <span class="s2">&#34;1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;RegionID&#34;</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;HostName&#34;</span><span class="p">:</span> <span class="s2">&#34;derper.example.com&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;DERPPort&#34;</span><span class="p">:</span> <span class="mi">13477</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;STUNPort&#34;</span><span class="p">:</span> <span class="mi">13478</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">						<span class="nt">&#34;STUNOnly&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">					<span class="p">},</span>
-</span></span><span class="line"><span class="cl">				<span class="p">],</span>
-</span></span><span class="line"><span class="cl">			<span class="p">},</span>
-</span></span><span class="line"><span class="cl">		<span class="p">},</span>
-</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="c1">// Test access rules every time they&#39;re saved.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// &#34;tests&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//   {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//    &#34;src&#34;: &#34;alice@example.com&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//    &#34;accept&#34;: [&#34;tag:example&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//    &#34;deny&#34;: [&#34;100.101.102.103:443&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">//   },
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="c1">// ],
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="nt">&#34;derpMap&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;OmitDefaultRegions&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Regions&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="nt">&#34;900&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;RegionID&#34;</span><span class="p">:</span>   <span class="mi">900</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;RegionCode&#34;</span><span class="p">:</span> <span class="s2">&#34;myderp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;RegionName&#34;</span><span class="p">:</span> <span class="s2">&#34;Guangzhou&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;Nodes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">     <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Name&#34;</span><span class="p">:</span>     <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;RegionID&#34;</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;HostName&#34;</span><span class="p">:</span> <span class="s2">&#34;derper.example.com&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;DERPPort&#34;</span><span class="p">:</span> <span class="mi">13477</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;STUNPort&#34;</span><span class="p">:</span> <span class="mi">13478</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;STUNOnly&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">   <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"> <span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="测试-derper">测试 Derper</h2>
 <p>在客户端的终端中，输入</p>
@@ -230,11 +230,11 @@
 </span></span><span class="line"><span class="cl"><span class="n">pong</span> <span class="n">from</span> <span class="n">diskstation</span> <span class="p">(</span><span class="mf">100.233</span><span class="p">.</span><span class="py">64</span><span class="p">.</span><span class="mf">44</span><span class="p">)</span> <span class="n">via</span> <span class="mf">192.233</span><span class="p">.</span><span class="py">1</span><span class="p">.</span><span class="mf">2</span><span class="err">:</span><span class="mf">41641</span> <span class="k">in</span> <span class="n">755ms</span>
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <ul>
-<li><a href="https://xz.aliyun.com/t/12151">Tailscale在内网渗透中利用的研究 - 先知社区</a></li>
+<li><a href="https://xz.aliyun.com/t/12151">Tailscale 在内网渗透中利用的研究 - 先知社区</a></li>
 <li><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></li>
 <li><a href="https://tailscale.com/kb/1118/custom-derp-servers/">Custom DERP Servers · Tailscale Docs</a></li>
 <li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
-<li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale使用自定义derper服务器（docker部署） - 且炼时光</a></li>
+<li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale 使用自定义 derper 服务器（docker 部署） - 且炼时光</a></li>
 </ul>
 ]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
