@@ -1,5 +1,281 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>文章 on Jacob's Thoughts</title><link>https://weixiang.github.io/posts/</link><description>Recent content in 文章 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 20:30:14 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo + GitHub 博客自动化部署</title><link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link><pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate><guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid><description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description><content:encoded><![CDATA[<p>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</p>
-<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>文章 on Jacob's Thoughts</title><link>https://weixiang.github.io/posts/</link><description>Recent content in 文章 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 15 Aug 2024 16:47:48 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian + Hugo 博客写作与自动化发布解决方案</title><link>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</link><pubDate>Thu, 15 Aug 2024 16:47:48 +0800</pubDate><guid>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</guid><description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。Obsidian 是一款简约、功能强大的基于 Markdown 存储格式的的笔记应用程序。本文将这两个强大的工具结合，旨在打造一个舒适的博客写作与知识管理工作流。</description><content:encoded><![CDATA[<h2 id="hugo-博客搭建与自动化发布配置">Hugo 博客搭建与自动化发布配置</h2>
+<p>接上一篇文章，已经完成了博客文章上传到 GitHub 后自动化发布到 GitHub Pages。在此基础上，使用 Obsidian 作为写作平台，实现博客写作的舒适工作流。</p>
+<p><img loading="lazy" src="posts/hugo-github-blog-building-and-automated-deployment" alt="Hugo &#43; GitHub 博客自动化部署 - 传送门 →"  />
+</p>
+<h2 id="下载与初始化-obsidian">下载与初始化 Obsidian</h2>
+<p>没什么好说的，下载安装即可，然后按着新手引导创建一个库即可。</p>
+<p><a href="https://obsidian.md/">Obsidian - Sharpen your thinking</a></p>
+<p>Obsidian 是使用 Markdown 语法的闭源笔记软件。用户可以在笔记间建立双向链接，并且可以探索这些笔记连接形成的关系图谱。该软件旨在帮助用户以一种灵活的、非线性的方式来组织和构架他们的想法和知识。Obsidian 对个人使用免费，商业使用则需购买许可。</p>
+<p>安装完毕后，进入 Obsidian 设置，允许第三方插件，便于后续操作。</p>
+<h2 id="添加文章模板">添加文章模板</h2>
+<p>Obsidian 中新建一个文件夹，用于存放模板。新建一篇文章，里面根据自己的需求，填入文章的模板，用于快速创建 Hugo 的文章元数据，可以参考我的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: &#34;{{title}}&#34;
+</span></span><span class="line"><span class="cl">date: &#34;{{date}}&#34;
+</span></span><span class="line"><span class="cl">slug: &#34;blog-post-slug&#34;
+</span></span><span class="line"><span class="cl">tags:
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> &#34;标签&#34;
+</span></span><span class="line"><span class="cl">categories:
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> &#34;分类&#34;
+</span></span><span class="line"><span class="cl">description: &#34;描述&#34;
+</span></span><span class="line"><span class="cl">summary: &#34;摘要&#34;
+</span></span><span class="line"><span class="cl">cover.image: &#34;https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/d535bf1f2d4be47d.webp&#34;
+</span></span><span class="line"><span class="cl">draft: false
+</span></span><span class="line"><span class="cl">share: false # 只有此项为 true 时，文章才会被上传
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">从这里开始撰写正文……
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## 参考文献
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 参考文献 1
+</span></span></code></pre></div><h2 id="核心出装enveloppe">核心出装：Enveloppe</h2>
+<p>Enveloppe 是一个能够将指定文章推送到指定 GitHub 目录的插件。</p>
+<p><a href="https://github.com/Enveloppe/obsidian-enveloppe">GitHub - Enveloppe/obsidian-enveloppe: Enveloppe helps you to publish your notes on a GitHub repository from your Obsidian Vault, for free!</a></p>
+<blockquote>
+<p><strong>Enveloppe：Obsidian GitHub 保险库发布者</strong></p>
+<p>免费在您自己的 GitHub 存储库中发布您的笔记，并随心所欲地处理它们。✨</p>
+<p>这使您能够设置任何模板：Jekyll、Mkdocs、Hugo 或自定义模板！</p>
+</blockquote>
+<p>在插件市场中，搜索 Enveloppe 安装即可。</p>
+<h3 id="配置-envelope">配置 Envelope</h3>
+<p>进入 Envelope 的设置，选择第一页配置 <code>GitHub config</code></p>
+<table>
+<thead>
+<tr>
+<th>GitHub config</th>
+<th>填写内容</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GitHub username</code></td>
+<td>GitHub 用户名</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Repository name</code></td>
+<td>源码仓库名称</td>
+<td></td>
+</tr>
+<tr>
+<td><code>GitHub token</code></td>
+<td>个人令牌</td>
+<td></td>
+</tr>
+<tr>
+<td><code>Main branch</code></td>
+<td><code>main</code></td>
+<td>仓库的主分支名称</td>
+</tr>
+<tr>
+<td><code>Automatically merge pull requests</code></td>
+<td>开启</td>
+<td>自动通过合并请求</td>
+</tr>
+<tr>
+<td>第二页配置 <code>File paths</code>：</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>File paths</th>
+<th>填写内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Root folder</code></td>
+<td><code>content/posts</code></td>
+</tr>
+<tr>
+<td>第三页配置，<code>Content</code>：</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Content</th>
+<th>填写内容</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[[Wikilinks]] to [MDlinks](links)</code></td>
+<td>开启</td>
+<td>自动转换链接格式</td>
+</tr>
+<tr>
+<td><code>Text replacer</code></td>
+<td>见下表</td>
+<td>正则式替换功能</td>
+</tr>
+</tbody>
+</table>
+<p>Text replacer 规则：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>查找</th>
+<th>替换</th>
+<th>运行时机</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文章引用</td>
+<td><code>/[^\(]+\.md/</code></td>
+<td><code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code></td>
+<td>↓</td>
+<td>将 obsidian 文章之间的引用转化为 hugo 中的格式，在 obsidian 文章之间引用是没有 md 后缀的，因此执行该替换的时间是等文章使用插件转化后再执行，据此后面的箭头向下。</td>
+</tr>
+<tr>
+<td>文章封面</td>
+<td><code>/cover\.image/</code></td>
+<td><code>cover:\n image</code></td>
+<td>↑</td>
+<td>将一级 key 转为二级，因为 obsidian 不支持多层级属性。</td>
+</tr>
+</tbody>
+</table>
+<p>由于 Hugo 的勾使渲染机制，请将<code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code>中的<code>删掉我</code>去除后再使用，下面的配置文件同样。</p>
+<p>其他的部分不怎么需要调整了，可以参考我的配置文件，在右上角可以导入我的配置再修改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;github&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;branch&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;automaticallyMergePR&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dryRun&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;folderName&#34;</span><span class="p">:</span> <span class="s2">&#34;enveloppe&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tokenPath&#34;</span><span class="p">:</span> <span class="s2">&#34;%configDir%/plugins/%pluginID%/env&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;api&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;tiersForApi&#34;</span><span class="p">:</span> <span class="s2">&#34;Github Free/Pro/Team (default)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hostname&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;workflow&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;commitMessage&#34;</span><span class="p">:</span> <span class="s2">&#34;[PUBLISHER] Merge&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;verifiedRepo&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;upload&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;behavior&#34;</span><span class="p">:</span> <span class="s2">&#34;fixed&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;defaultName&#34;</span><span class="p">:</span> <span class="s2">&#34;content/posts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;rootFolder&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;yamlFolderKey&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;frontmatterTitle&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;title&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;replaceTitle&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;replacePath&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;autoclean&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;includeAttachments&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;excluded&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;folderNote&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;rename&#34;</span><span class="p">:</span> <span class="s2">&#34;index.md&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;addTitle&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;title&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;metadataExtractorPath&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;conversion&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;hardbreak&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dataview&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;censorText&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;entry&#34;</span><span class="p">:</span> <span class="s2">&#34;/[^\\(]+\\.md/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;replace&#34;</span><span class="p">:</span> <span class="s2">&#34;{删掉我{&lt; relref \&#34;$&amp;\&#34; &gt;*/}}&#34;</span><span class="p">,</span> <span class="c1">// 请将`{删掉我{&lt; relref &#34;$&amp;&#34; &gt;*/}}`中的`删掉我`去除后再使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;flags&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;after&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;entry&#34;</span><span class="p">:</span> <span class="s2">&#34;fm=jpg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;replace&#34;</span><span class="p">:</span> <span class="s2">&#34;auto=format&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;flags&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;after&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;entry&#34;</span><span class="p">:</span> <span class="s2">&#34;/cover\\.image/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;replace&#34;</span><span class="p">:</span> <span class="s2">&#34;cover:\\n image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;flags&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;after&#34;</span><span class="p">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;tags&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;inline&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;exclude&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;links&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;internal&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;unshared&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;wiki&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;slugify&#34;</span><span class="p">:</span> <span class="s2">&#34;disable&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;embed&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;attachments&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;overrideAttachments&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;keySendFile&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;notes&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;folder&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;convertEmbedToLinks&#34;</span><span class="p">:</span> <span class="s2">&#34;keep&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;charConvert&#34;</span><span class="p">:</span> <span class="s2">&#34;-&gt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;unHandledObsidianExt&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;sendSimpleLinks&#34;</span><span class="p">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;plugin&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;shareKey&#34;</span><span class="p">:</span> <span class="s2">&#34;share&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;excludedFolder&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;copyLink&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;links&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;removePart&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;transform&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;toUri&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;slugify&#34;</span><span class="p">:</span> <span class="s2">&#34;lower&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;applyRegex&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;setFrontmatterKey&#34;</span><span class="p">:</span> <span class="s2">&#34;Set&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tabsId&#34;</span><span class="p">:</span> <span class="s2">&#34;help&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="推送文章到-github">推送文章到 GitHub</h2>
+<p>右键选中文章，选择 Upload 即可。</p>
+<p>或者可以使用命令 <code>Envelope</code> ，在选项中选择 Upload。</p>
+<h2 id="一些有用的插件">一些有用的插件</h2>
+<ul>
+<li>自动获取链接标题： <a href="https://github.com/zolrath/obsidian-auto-link-title">GitHub - zolrath/obsidian-auto-link-title: Automatically fetch the titles of pasted links</a></li>
+<li>自动格式化文章：<a href="https://github.com/Yaozhuwa/easy-typing-obsidian">GitHub - Yaozhuwa/easy-typing-obsidian: This is a plugin of obsidian for users writing in an easy way.</a></li>
+<li>快速插入 Unsplash 图片：<a href="https://github.com/cloudy9101/obsidian-image-inserter">GitHub - cloudy9101/obsidian-image-inserter: An Obsidian plugin helps users easily search and insert images to editors from Unsplash.</a></li>
+<li>另一个自动格式化插件： <a href="https://github.com/platers/obsidian-linter">GitHub - platers/obsidian-linter: An Obsidian plugin that formats and styles your notes with a focus on configurability and extensibility.</a></li>
+<li>配合 PicGo 上传文章图片： <a href="https://github.com/renmu123/obsidian-image-auto-upload-plugin">GitHub - renmu123/obsidian-image-auto-upload-plugin: auto upload image with picgo</a></li>
+</ul>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li><a href="https://enveloppe.github.io/">https://enveloppe.github.io/</a></li>
+<li><a href="https://sspai.com/post/85262">使用 Obsidian 免费建个人博客 - 少数派</a></li>
+</ul>
+]]></content:encoded></item><item><title>Hugo + GitHub 博客自动化部署</title><link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link><pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate><guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid><description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description><content:encoded><![CDATA[<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
 <p>参考官方文档：<a href="https://docs.github.com/zh/repositories/creating-and-managing-repositories/quickstart-for-repositories">仓库快速入门 - GitHub 文档</a></p>
 <p>一共需要创建两个仓库，分别如下：</p>
 <table>
@@ -513,8 +789,8 @@
 <li><a href="https://github.com/CaiJimmy/hugo-theme-stack-starter">GitHub - CaiJimmy/hugo-theme-stack-starter: A quickstart template to create a Hugo blog using hugo-theme-stack</a></li>
 <li><a href="https://stack.jimmycai.com/">Stack | Card-style Hugo theme designed for bloggers</a></li>
 <li><a href="https://docs.github.com/zh/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">在 GitHub Actions 中使用机密 - GitHub 文档</a></li>
-</ul>]]></content:encoded></item><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<p>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P2P 连接，在一些情况下，速度也很可观。</p>
-<h2 id="tailscale-部署">Tailscale 部署</h2>
+</ul>
+]]></content:encoded></item><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
 <p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
 <p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
 <p>Linux 使用这个命令即可一键安装：</p>
@@ -818,7 +1094,8 @@
 <li><a href="https://tailscale.com/kb/1118/custom-derp-servers/">Custom DERP Servers · Tailscale Docs</a></li>
 <li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
 <li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale 使用自定义 derper 服务器（docker 部署） - 且炼时光</a></li>
-</ul>]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+</ul>
+]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
 <p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
 <p><del>买不起服务器了，就换回静态博客了。</del></p>
