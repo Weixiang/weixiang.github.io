@@ -1,22 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>美化 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E7%BE%8E%E5%8C%96/</link><description>Recent content in 美化 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 21 Feb 2020 10:21:00 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 美化入门笔记</title><link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link><pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate><guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid><description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description><content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
-<p><img loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png" alt="Microsoft Fluent Design System"  />
-</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>美化 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E7%BE%8E%E5%8C%96/</link>
+    <description>Recent content in 美化 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Fri, 21 Feb 2020 10:21:00 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E7%BE%8E%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 美化入门笔记</title>
+      <link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link>
+      <pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid>
+      <description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description>
+      <content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
+<p><img alt="Microsoft Fluent Design System" loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png"></p>
 <p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
 <blockquote>
-<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
-</blockquote>
+<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p></blockquote>
 <blockquote>
-<p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p>
-</blockquote>
+<p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p></blockquote>
 <p>这篇文章记录了我的一些方法，留作记录，也能帮助一些同学简单复刻这些操作，能加以创新当然会更加好啦。</p>
 <p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202 年了还在用一个 14 年前的系统……（截至发文还能白嫖升级）</p>
 <h2 id="最终效果">最终效果</h2>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png" alt="图标隐藏"  />
-
-<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="图片显示"  />
-
-<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKmss.md.png" alt="滑动关机"  />
-</p>
+<p><img alt="图标隐藏" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png">
+<img alt="图片显示" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png">
+<img alt="滑动关机" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKmss.md.png"></p>
 <h2 id="快捷方式箭头">快捷方式箭头</h2>
 <p>按照惯例呢，我们先从最基础的开始，强迫症必做。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">taskkill /f /im explorer.exe
@@ -65,26 +76,22 @@
 <p><a href="https://www.microsoft.com/store/apps/9PF4KZ2VN4W9">微软商店（推荐）</a></p>
 <h3 id="用法">用法</h3>
 <p>下载安装完毕之后默认就会透明，在托盘图标上右键即可对效果进行设置，记得勾选 <code>Open at boot</code> ，这样就能开机启动了。</p>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uJXJ1.png" alt="设置界面"  />
-</p>
+<p><img alt="设置界面" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uJXJ1.png"></p>
 <p>对照上面的介绍，并运用初中英语知识，最多再加 Google Translate 我们就可以完成这款软件的设置，透明任务栏√GET。</p>
 <h2 id="桌面图标修改">桌面图标修改</h2>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="桌面图标"  />
-</p>
+<p><img alt="桌面图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png"></p>
 <p>如上图所示，我对所有应用的快捷方式图标都进行了修改，这一步就是考验耐心……</p>
 <h3 id="获取图标">获取图标</h3>
-<p>图标用的是 <a href="ttps://www.coolapk.com/apk/me.morirain.dev.iconpack.pure">Pure 轻雨 图标包</a>，下载 APK 文件后使用解压文件解压即可获取图标。</p>
+<p>图标用的是 <a href="#ZgotmplZ">Pure 轻雨 图标包</a>，下载 APK 文件后使用解压文件解压即可获取图标。</p>
 <p>推荐使用 <a href="https://www.voidtools.com/">Everything 搜索</a> 来找图标。</p>
 <p>复制解压后文件的目录，粘贴到搜索框，最后加 <code>空格 + 关键词</code> 就能快速搜索到图标。可以在 Everything 的 <code>搜索</code> 菜单中选择仅搜索图像，在 <code>视图</code> 菜单中选择查看 <code>中图标</code> ，可以获得较好的搜索体验</p>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uNqoQ.png" alt="快速搜索图标"  />
-</p>
+<p><img alt="快速搜索图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uNqoQ.png"></p>
 <p>将需要的图标复制到一个新文件夹里，等待转换格式。</p>
 <h3 id="转换格式">转换格式</h3>
 <p>从图标包提取出来的图标一般为 PNG 格式，但 Windows 系统的快捷方式图标需要 ico 格式，所有要进行转换。</p>
 <p>使用 <a href="https://convertico.com/">CONVERTICO</a> 即可完成在线转换。</p>
 <h3 id="设置图标">设置图标</h3>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3udss0.md.png" alt="更改图标"  />
-</p>
+<p><img alt="更改图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3udss0.md.png"></p>
 <p>右键图标 &ndash;&gt; 更改图标 &ndash;&gt; 选择图标 &ndash;&gt; 确认保存即可</p>
 <h2 id="windows-磁贴">Windows 磁贴</h2>
 <p>这一部分我没有做，以下内容来自少数派。</p>
@@ -92,4 +99,7 @@
 <p>在本节，我将以微信为例，教大家通过创建磁贴配置文件的方式更改 Win 32 应用的磁贴背景颜色及图标。</p>
 <p>首先右键点击开始屏幕中的「微信」磁贴，选择「打开文件所在的位置」，然后再次右键点击出现的快捷方式，跳转到微信的实际安装目录。</p>
 <p><a href="https://sspai.com/post/41307">收好这份美化技巧合辑，让你的 Windows 从此与众不同</a></p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

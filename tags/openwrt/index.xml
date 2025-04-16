@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OpenWRT on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/openwrt/</link><description>Recent content in OpenWRT on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 19 Jul 2023 16:31:53 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/openwrt/index.xml" rel="self" type="application/rss+xml"/><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OpenWRT on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/openwrt/</link>
+    <description>Recent content in OpenWRT on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Wed, 19 Jul 2023 16:31:53 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/openwrt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为红米 AX6S 编译 X-Wrt</title>
+      <link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link>
+      <pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid>
+      <description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description>
+      <content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
 <h2 id="路由器准备">路由器准备</h2>
 <h3 id="解锁-telnet">解锁 Telnet</h3>
 <p>进入小米路由器后台<code>192.168.31.1</code>，通过固件升级，刷入开发版固件 <a href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a></p>
@@ -73,8 +90,7 @@
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -83,8 +99,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#5 最后一次 执行 make menuconfig 自定义选择你需要的软件包</span>
 </span></span></code></pre></div><h3 id="配置模板">配置模板</h3>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp"></p>
 <h3 id="添加软件包">添加软件包</h3>
 <p>要编译到固件里面，就要选择<code>&lt;*&gt;</code>，如果只选择<code>&lt;M&gt;</code>只是编译成软件包<code>ipk</code>，不会打包进入固件。
 进入<code>LuCI - Applications</code>子菜单下面，选择自己想要的应用
@@ -115,7 +130,15 @@
 <p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
 <p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
 <p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
-]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>自己编译 OpenWRT</title>
+      <link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link>
+      <pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid>
+      <description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description>
+      <content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
 <h2 id="编译准备">编译准备</h2>
 <p>不要用<code>root</code>用户进行编译操作，因此需要先新建一个用户，并且授予<code>root</code>权限</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Login via SSH</span>
@@ -170,8 +193,7 @@
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -183,8 +205,7 @@
 </span></span></code></pre></div><h2 id="配置目标可选项">配置目标（可选项）</h2>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。</p>
 <p>定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp"></p>
 <h3 id="添加自定义源">添加自定义源</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 进入openwrt目录</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/openwrt
@@ -356,7 +377,15 @@
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a></p>
 <p><a href="https://github.com/skyformat99/eqos/blob/master/README_ZH.md">https://github.com/skyformat99/eqos/blob/master/README_ZH.md</a></p>
 <p><a href="https://xiaohai.co/build-openwrt-firmware/">https://xiaohai.co/build-openwrt-firmware/</a></p>
-]]></content:encoded></item><item><title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title><link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link><pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate><guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid><description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description><content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title>
+      <link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link>
+      <pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid>
+      <description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description>
+      <content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#我们使用https下载软件源</span>
 </span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/http:/https:/g&#39;</span> /etc/opkg/distfeeds.conf
 </span></span><span class="line"><span class="cl">
@@ -393,4 +422,7 @@
 </span></span><span class="line"><span class="cl">192.168.0.0/16
 </span></span><span class="line"><span class="cl">172.16.0.0/12
 </span></span><span class="line"><span class="cl">10.0.0.0/8
-</span></span></code></pre></div>]]></content:encoded></item></channel></rss>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

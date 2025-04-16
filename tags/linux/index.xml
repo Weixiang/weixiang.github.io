@@ -1,11 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Linux on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/linux/</link><description>Recent content in Linux on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/linux/</link>
+    <description>Recent content in Linux on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Wed, 14 Aug 2024 15:26:32 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tailscale 内网穿透与 Derper 中继节点搭建</title>
+      <link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link>
+      <pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid>
+      <description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description>
+      <content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
 <p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
 <p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
 <p>Linux 使用这个命令即可一键安装：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -fsSL https://tailscale.com/install.sh <span class="p">|</span> sh
 </span></span></code></pre></div><p>群晖 DSM 直接进套件中心搜索 Tailscale 即可安装。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp" alt="Tailscale 套件"  />
-</p>
+<p><img alt="Tailscale 套件" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp"></p>
 <p>这里唯一需要注意的地方是，若在国内使用，账号登陆要选择国内可以直连的平台，例如微软或苹果，使用谷歌账号登陆会导致终端无法正常上线，除非可以解决网络问题。</p>
 <h2 id="derper-中继节点">Derper 中继节点</h2>
 <p>某些网络不佳的情况下，P2P 无法打洞成功，流量将通过 Tailscale 的中继节点，也称为 Derper，进行流量的转发。</p>
@@ -38,70 +54,70 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./certs:/app/certs </span><span class="w"> </span><span class="c"># SSL 证书存放地址</span><span class="w">
 </span></span></span></code></pre></div><p>以下是各变量功能的翻译：</p>
 <table>
-<thead>
-<tr>
-<th>环境变量</th>
-<th>是否必需</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DERP_DOMAIN</td>
-<td>是</td>
-<td>DERP 服务器的主机名</td>
-<td>your-hostname.com</td>
-</tr>
-<tr>
-<td>DERP_CERT_DIR</td>
-<td>否</td>
-<td>存储 LetsEncrypt 证书的目录（如果地址的端口是:443）</td>
-<td>/app/certs</td>
-</tr>
-<tr>
-<td>DERP_CERT_MODE</td>
-<td>否</td>
-<td>获取证书的模式，可选项：manual（手动），letsencrypt</td>
-<td>letsencrypt</td>
-</tr>
-<tr>
-<td>DERP_ADDR</td>
-<td>否</td>
-<td>监听服务器地址</td>
-<td>:443</td>
-</tr>
-<tr>
-<td>DERP_STUN</td>
-<td>否</td>
-<td>也运行一个 STUN 服务器</td>
-<td>true</td>
-</tr>
-<tr>
-<td>DERP_STUN_PORT</td>
-<td>否</td>
-<td>提供 STUN 服务的 UDP 端口</td>
-<td>3478</td>
-</tr>
-<tr>
-<td>DERP_HTTP_PORT</td>
-<td>否</td>
-<td>提供 HTTP 服务的端口，设置为 -1 可禁用</td>
-<td>80</td>
-</tr>
-<tr>
-<td>DERP_VERIFY_CLIENTS</td>
-<td>否</td>
-<td>通过本地的 tailscaled 实例验证连接到此 DERP 服务器的客户端</td>
-<td>false</td>
-</tr>
-<tr>
-<td>DERP_VERIFY_CLIENT_URL</td>
-<td>否</td>
-<td>如果非空，指定允许客户端连接的准入控制器 URL</td>
-<td>&quot;&quot;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>环境变量</th>
+          <th>是否必需</th>
+          <th>描述</th>
+          <th>默认值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DERP_DOMAIN</td>
+          <td>是</td>
+          <td>DERP 服务器的主机名</td>
+          <td>your-hostname.com</td>
+      </tr>
+      <tr>
+          <td>DERP_CERT_DIR</td>
+          <td>否</td>
+          <td>存储 LetsEncrypt 证书的目录（如果地址的端口是:443）</td>
+          <td>/app/certs</td>
+      </tr>
+      <tr>
+          <td>DERP_CERT_MODE</td>
+          <td>否</td>
+          <td>获取证书的模式，可选项：manual（手动），letsencrypt</td>
+          <td>letsencrypt</td>
+      </tr>
+      <tr>
+          <td>DERP_ADDR</td>
+          <td>否</td>
+          <td>监听服务器地址</td>
+          <td>:443</td>
+      </tr>
+      <tr>
+          <td>DERP_STUN</td>
+          <td>否</td>
+          <td>也运行一个 STUN 服务器</td>
+          <td>true</td>
+      </tr>
+      <tr>
+          <td>DERP_STUN_PORT</td>
+          <td>否</td>
+          <td>提供 STUN 服务的 UDP 端口</td>
+          <td>3478</td>
+      </tr>
+      <tr>
+          <td>DERP_HTTP_PORT</td>
+          <td>否</td>
+          <td>提供 HTTP 服务的端口，设置为 -1 可禁用</td>
+          <td>80</td>
+      </tr>
+      <tr>
+          <td>DERP_VERIFY_CLIENTS</td>
+          <td>否</td>
+          <td>通过本地的 tailscaled 实例验证连接到此 DERP 服务器的客户端</td>
+          <td>false</td>
+      </tr>
+      <tr>
+          <td>DERP_VERIFY_CLIENT_URL</td>
+          <td>否</td>
+          <td>如果非空，指定允许客户端连接的准入控制器 URL</td>
+          <td>&quot;&quot;</td>
+      </tr>
+  </tbody>
 </table>
 <p>如果不喜欢 compose，也有配置一样的命令版：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -dit <span class="se">\
@@ -303,7 +319,15 @@
 <li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
 <li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale 使用自定义 derper 服务器（docker 部署） - 且炼时光</a></li>
 </ul>
-]]></content:encoded></item><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>为 Docker 配置 IPv6</title>
+      <link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link>
+      <pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid>
+      <description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description>
+      <content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
 <p>编辑配置</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
 </span></span></code></pre></div><p>添加</p>
@@ -347,7 +371,15 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> qbittorrent ping6 -c4 youtube.com
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://blog.laoda.de/archives/docker-qbittorrent-ipv6/">https://blog.laoda.de/archives/docker-qbittorrent-ipv6/</a></p>
-]]></content:encoded></item><item><title>使用 Docker 部署 File Browser</title><link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link><pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid><description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description><content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 Docker 部署 File Browser</title>
+      <link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid>
+      <description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description>
+      <content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">touch /volume1/docker/filebrowser/.filebrowser.json
 </span></span><span class="line"><span class="cl">touch /volume1/docker/filebrowser/filebrowser.db
 </span></span></code></pre></div><p>编辑配置</p>
@@ -376,7 +408,15 @@
 <p><a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a></p>
 <p><a href="https://www.iszy.cc/posts/filebrowser2-setup-docker/">https://www.iszy.cc/posts/filebrowser2-setup-docker/</a></p>
 <p><a href="https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504">https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504</a></p>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>PVE LXC Debian 12 容器安装 Jellyfin</title>
+      <link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link>
+      <pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid>
+      <description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description>
+      <content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
 <p>开启硬件直通：BIOS 中打开硬件直通相关选项（VT-d &amp; VMX）
 编辑 Grub</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/default/grub
@@ -435,7 +475,15 @@
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89">https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89</a></p>
 <p><a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux">https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux</a></p>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器换源与安装 Docker</title><link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link><pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate><guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid><description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description><content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>PVE LXC Debian 12 容器换源与安装 Docker</title>
+      <link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid>
+      <description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description>
+      <content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
@@ -476,7 +524,15 @@
 <p><a href="https://ihnic.com/index.php/archives/12/">https://ihnic.com/index.php/archives/12/</a></p>
 <p><a href="https://docs.portainer.io/start/install-ce/server/docker/linux">https://docs.portainer.io/start/install-ce/server/docker/linux</a></p>
 <p><a href="https://mirrors.ustc.edu.cn/help/debian.html">https://mirrors.ustc.edu.cn/help/debian.html</a></p>
-]]></content:encoded></item><item><title>群晖 DSM 研究笔记</title><link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link><pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid><description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖 DSM 研究笔记</title>
+      <link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link>
+      <pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid>
+      <description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description>
+      <content:encoded><![CDATA[<h2 id="安装">安装</h2>
 <h2 id="编译-tinycore-redpill-引导">编译 tinycore-redpill 引导</h2>
 <h3 id="dsm-安装完成后无限重启">DSM 安装完成后无限重启？</h3>
 <p>引导与 pat 版本不一致导致的，断网安装可以避免安装过程中自动更新。</p>
@@ -540,7 +596,15 @@
 <p><a href="https://github.com/whyour/qinglong">https://github.com/whyour/qinglong</a></p>
 <p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
 <p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title>
+      <link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link>
+      <pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid>
+      <description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description>
+      <content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>2024 年 8 月 8 日更新：</p>
 <p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
 <hr>
@@ -613,7 +677,15 @@
 <a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
 <a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
 <a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>FRP 部署笔记</title><link>https://weixiang.github.io/posts/frp-deployment-notes/</link><pubDate>Fri, 13 Oct 2023 02:12:06 +0800</pubDate><guid>https://weixiang.github.io/posts/frp-deployment-notes/</guid><description>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议，且支持 P2P 通信。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</description><content:encoded><![CDATA[<h2 id="服务端">服务端</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>FRP 部署笔记</title>
+      <link>https://weixiang.github.io/posts/frp-deployment-notes/</link>
+      <pubDate>Fri, 13 Oct 2023 02:12:06 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/frp-deployment-notes/</guid>
+      <description>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议，且支持 P2P 通信。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</description>
+      <content:encoded><![CDATA[<h2 id="服务端">服务端</h2>
 <p>下载安装包</p>
 <p>在 <a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a> 中下载对应架构的安装包，解压放置到 /usr/local 目录下。</p>
 <p>使用 Docker</p>
@@ -729,7 +801,15 @@
 </span></span><span class="line"><span class="cl"><span class="na">plugin_local_addr</span> <span class="o">=</span> <span class="s">172.17.0.1:5000</span>
 </span></span><span class="line"><span class="cl"><span class="na">plugin_crt_path</span> <span class="o">=</span> <span class="s">/etc/frp/example.com.pem</span>
 </span></span><span class="line"><span class="cl"><span class="na">plugin_key_path</span> <span class="o">=</span> <span class="s">/etc/frp/example.com.key</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>Debian 11 宝塔安装 Flarum</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description><content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>Debian 11 宝塔安装 Flarum</title>
+      <link>https://weixiang.github.io/posts/debian11-baotapanel-installation-flarum/</link>
+      <pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/debian11-baotapanel-installation-flarum/</guid>
+      <description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description>
+      <content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
 <ul>
 <li><strong>Apache</strong> (with mod_rewrite enabled) or <strong>Nginx</strong></li>
 <li><strong>PHP 8.0+</strong> with the following extensions: curl, dom, fileinfo, gd, json, mbstring, openssl, pdo_mysql, tokenizer, zip</li>
@@ -748,15 +828,13 @@
 </ol>
 <blockquote>
 <p>2024 年 8 月 11 日更新：
-根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code> 、<code>exif</code></p>
-</blockquote>
+根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code> 、<code>exif</code></p></blockquote>
 <p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
 <p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
 <h2 id="安装-composer">安装 Composer</h2>
 <blockquote>
 <p>2024 年 8 月 12 日更新：
-宝塔版本 7.0.7 默认的 PHP 8.3 插件似乎已经自带了 Composer，不用另外安装了。</p>
-</blockquote>
+宝塔版本 7.0.7 默认的 PHP 8.3 插件似乎已经自带了 Composer，不用另外安装了。</p></blockquote>
 <p>更新软件包并安装依赖</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
 </span></span><span class="line"><span class="cl">sudo apt install curl php-cli php-mbstring git unzip
@@ -797,7 +875,15 @@
 </ul>
 <h2 id="更新记录">更新记录</h2>
 <p>2024 年 8 月 12 日：更新宝塔 7.0.7 安装</p>
-]]></content:encoded></item><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>为红米 AX6S 编译 X-Wrt</title>
+      <link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link>
+      <pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid>
+      <description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description>
+      <content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
 <h2 id="路由器准备">路由器准备</h2>
 <h3 id="解锁-telnet">解锁 Telnet</h3>
 <p>进入小米路由器后台<code>192.168.31.1</code>，通过固件升级，刷入开发版固件 <a href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a></p>
@@ -872,8 +958,7 @@
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -882,8 +967,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#5 最后一次 执行 make menuconfig 自定义选择你需要的软件包</span>
 </span></span></code></pre></div><h3 id="配置模板">配置模板</h3>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp"></p>
 <h3 id="添加软件包">添加软件包</h3>
 <p>要编译到固件里面，就要选择<code>&lt;*&gt;</code>，如果只选择<code>&lt;M&gt;</code>只是编译成软件包<code>ipk</code>，不会打包进入固件。
 进入<code>LuCI - Applications</code>子菜单下面，选择自己想要的应用
@@ -914,7 +998,15 @@
 <p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
 <p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
 <p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
-]]></content:encoded></item><item><title>ZeroTier-One 私有 MOON 节点搭建</title><link>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</link><pubDate>Wed, 19 Jul 2023 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</guid><description>由于 ZeroTier 在国内并没有中转节点，导致速度非常缓慢，可以通过自己搭建 Moon 节点来提升使用体验。ZeroTier 是一款非常简单易用的内网穿透工具，不需要配置，就能实现虚拟局域网的组建，让你可以在外也能连回家中、学校、办公室的电脑获取资料，数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>ZeroTier-One 私有 MOON 节点搭建</title>
+      <link>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</link>
+      <pubDate>Wed, 19 Jul 2023 16:18:31 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</guid>
+      <description>由于 ZeroTier 在国内并没有中转节点，导致速度非常缓慢，可以通过自己搭建 Moon 节点来提升使用体验。ZeroTier 是一款非常简单易用的内网穿透工具，不需要配置，就能实现虚拟局域网的组建，让你可以在外也能连回家中、学校、办公室的电脑获取资料，数据。</description>
+      <content:encoded><![CDATA[<h2 id="安装">安装</h2>
 <p>登录到服务器，一键安装</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s https://install.zerotier.com/ <span class="p">|</span> sudo bash
 </span></span></code></pre></div><p>启动服务</p>
@@ -943,7 +1035,15 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli orbit 4c725ecec8 4c725ecec8
 </span></span></code></pre></div><p>查看状态</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli listpeers
-</span></span></code></pre></div>]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>自己编译 OpenWRT</title>
+      <link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link>
+      <pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid>
+      <description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description>
+      <content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
 <h2 id="编译准备">编译准备</h2>
 <p>不要用<code>root</code>用户进行编译操作，因此需要先新建一个用户，并且授予<code>root</code>权限</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Login via SSH</span>
@@ -998,8 +1098,7 @@
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -1011,8 +1110,7 @@
 </span></span></code></pre></div><h2 id="配置目标可选项">配置目标（可选项）</h2>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。</p>
 <p>定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp"></p>
 <h3 id="添加自定义源">添加自定义源</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 进入openwrt目录</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/openwrt
@@ -1184,7 +1282,15 @@
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a></p>
 <p><a href="https://github.com/skyformat99/eqos/blob/master/README_ZH.md">https://github.com/skyformat99/eqos/blob/master/README_ZH.md</a></p>
 <p><a href="https://xiaohai.co/build-openwrt-firmware/">https://xiaohai.co/build-openwrt-firmware/</a></p>
-]]></content:encoded></item><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0800</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Windows11 安装 WLS2 Ubuntu 子系统</title>
+      <link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link>
+      <pubDate>Tue, 25 Apr 2023 13:13:45 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid>
+      <description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description>
+      <content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
 <p>首先需要去 BIOS 开启虚拟化，各品牌电脑不一致。
 RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。</p>
 <h2 id="安装-wls2">安装 WLS2</h2>
@@ -1222,7 +1328,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/install">https://learn.microsoft.com/en-us/windows/wsl/install</a>
 <a href="https://zhuanlan.zhihu.com/p/466001838">https://zhuanlan.zhihu.com/p/466001838</a>
 <a href="https://zinglix.xyz/2020/04/18/wsl2-proxy/">https://zinglix.xyz/2020/04/18/wsl2-proxy/</a></p>
-]]></content:encoded></item><item><title>Docker 部署 MySQL 8.0</title><link>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</link><pubDate>Wed, 07 Dec 2022 05:42:29 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</guid><description>使用 Docker Compose 部署 MySQL 8.0 数据库服务器，数据持久化，以及配置远程访问权限。</description><content:encoded><![CDATA[<h2 id="配置文件">配置文件</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Docker 部署 MySQL 8.0</title>
+      <link>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</link>
+      <pubDate>Wed, 07 Dec 2022 05:42:29 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</guid>
+      <description>使用 Docker Compose 部署 MySQL 8.0 数据库服务器，数据持久化，以及配置远程访问权限。</description>
+      <content:encoded><![CDATA[<h2 id="配置文件">配置文件</h2>
 <p>将以下内容存为 <code>stack.yml</code>，此处为了不与本机已有的 MySQL 5.x 冲突，重新映射了端口。</p>
 <p>需要提前建好 <code>/www/server/mysql8/mysql</code> 目录和 <code>my.cnf</code> 文件。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.1&#39;</span><span class="w">
@@ -1267,7 +1381,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a></p>
 <p><a href="http://netsite.win/2018/06/13/mysql/mysql8%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%8F%8A%E6%8E%88%E6%9D%83-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5-%E5%9D%91/">http://netsite.win/2018/06/13/mysql/mysql8%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%8F%8A%E6%8E%88%E6%9D%83-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5-%E5%9D%91/</a></p>
-]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>自己动手编译 DSM7 引导</title>
+      <link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link>
+      <pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid>
+      <description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>假期给家里组了一台 NAS，万由 401 机箱 + 华擎 J3455。</p>
 <p>没想到过程比预想中要曲折许多，买了才知道，华擎 J3455 是著名的“妖板”。</p>
 <p>安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有 DSM 中各种奇奇怪怪的 Bug……</p>
@@ -1275,28 +1397,23 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>听说是驱动问题造成的，自己编译引导可以一定程度上缓解这些问题。</p>
 <p>于是就有了下面的笔记。</p>
 <blockquote>
-<p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p>
-</blockquote>
+<p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p></blockquote>
 <h2 id="制作-tinycore-redpill-启动盘">制作 tinycore-redpill 启动盘</h2>
 <p>前往项目：<a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a>
 这里采用了 llm-y2k 修改的换源版镜像：</p>
 <blockquote>
-<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p>
-</blockquote>
+<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p></blockquote>
 <p>Tinycore-redpill 在国内网络基本无法使用，U 盘引导 NAS 实体机编译时几乎无法完成，遂修改部分代码以适应国内网络环境，目前已可正常使用。</p>
 <p>下载镜像文件，根据设备情况选择不同的引导镜像，我这里选用了<code>[tinycore-redpill-uefi.v0.8.0.0.img.gz](https://github.com/llm-y2k/tinycore-redpill/blob/cn/tinycore-redpill-uefi.v0.8.0.0.img.gz)</code>。</p>
 <p>使用任意引导盘制作工具，如 Rufus，烧录进 U 盘即可。</p>
 <h2 id="启动-tinycore-redpill">启动 tinycore-redpill</h2>
 <p>将烧写完成的 U 盘插入目标设备，选择从 U 盘启动即可进入系统，点击下图图标进入终端。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg"></p>
 <p>使用<code>ifconfig</code>命令查看设备 IP 地址</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg"></p>
 <p>使用任意 SSH 工具连接到上面的 IP，账号为<code>tc</code>，密码为<code>P@ssw0rd</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh tc@192.168.0.243
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg"></p>
 <h2 id="更新脚本">更新脚本</h2>
 <p>首先更新脚本</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo curl https://raw.0z.gs/llm-y2k/tinycore-redpill/main/rploader-cn.sh<span class="p">|</span>bash -s fullupgrade
@@ -1308,16 +1425,13 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">或者
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh serialgen DS3615xs now
 </span></span><span class="line"><span class="cl">这里设置nas机型，推荐选择918和3615两种中的一种
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIGHP.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIGHP.jpg"></p>
 <p>配置盘序文件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh satamap now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg"></p>
 <p>生成 U 盘 VID、PID 信息</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh identifyusb now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg"></p>
 <h2 id="开始编译">开始编译</h2>
 <p>配置完成后，正式开始编译，根据机器和网络速度，耗时可能会比较长，耐心等待即可。
 建议上游做好代理设置，跑起来会比较顺利。</p>
@@ -1326,44 +1440,44 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build apollolake-7.0.1-42218
 </span></span><span class="line"><span class="cl">3615：
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build bromolow-7.0.1-42218
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg"></p>
 <p>curl 35 错误不妨休息一下，过会再试，curl 60 错误不妨检查下 Nas 机器本地时间是否正确。
 由于网络原因，可能个别驱动下载失败，别慌，重新再次编译即可。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg"></p>
 <p>编译成功！切换到 winscp 去下载生成的文件</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg"></p>
 <h2 id="备份引导">备份引导</h2>
 <p>下载引导镜像文件，做好备份有备无患，此引导镜像相当于为此设备定制。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg"></p>
 <p>最后回到 putty，正式存盘，一定要存盘！一定要存盘！一定要存盘！</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo filetool.sh -b
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg"></p>
 <p>最后重启设备</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg"></p>
 <p>理论上会自动引导进入 DSM 的安装界面，如果没有，可以将上面备份的镜像写入 U 盘，再进行引导。接下来就是常规的 DSM 安装流程了。</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/">https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/</a></p>
 <p><a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a></p>
 <p><a href="https://github.com/pocopico/tinycore-redpill">https://github.com/pocopico/tinycore-redpill</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>Flarum 站点服务器迁移笔记</title><link>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</link><pubDate>Mon, 08 Aug 2022 05:55:00 +0800</pubDate><guid>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</guid><description>记录一次使用宝塔面板进行 Flarum 论坛网站服务器迁移的过程。</description><content:encoded><![CDATA[<h2 id="备份原站点">备份原站点</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Flarum 站点服务器迁移笔记</title>
+      <link>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</link>
+      <pubDate>Mon, 08 Aug 2022 05:55:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</guid>
+      <description>记录一次使用宝塔面板进行 Flarum 论坛网站服务器迁移的过程。</description>
+      <content:encoded><![CDATA[<h2 id="备份原站点">备份原站点</h2>
 <p>将网站目录及数据库打包，妥善保管。</p>
 <h2 id="部署新站点">部署新站点</h2>
 <p>在新服务器进行 Flarum 站点的全新部署，具体可参考
 <a href="https://discuss.flarum.org.cn/d/2195">https://discuss.flarum.org.cn/d/2195</a></p>
 <p>无需配置新站点，站点可以正常打开就行，到下图这一步即可，不用填写信息，稍后会直接从配置文件进行恢复。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2020/10/15/0THoQI.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2020/10/15/0THoQI.png"></p>
 <h2 id="恢复备份">恢复备份</h2>
 <ol>
 <li>将站点及数据库备份上传到新服务器，解压到一个新文件夹，不要覆盖直接新站点。</li>
@@ -1375,10 +1489,17 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><a href="https://www.wapriaily.com/flarum-pagoda-perfect-migration-tutorial/">https://www.wapriaily.com/flarum-pagoda-perfect-migration-tutorial/</a>
 <a href="https://discuss.flarum.org.cn/d/2195">https://discuss.flarum.org.cn/d/2195</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>哪吒监控探针部署</title><link>https://weixiang.github.io/posts/nezha-monitoring-deployment/</link><pubDate>Tue, 19 Jul 2022 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/nezha-monitoring-deployment/</guid><description>哪吒监控是一款轻量化的服务器监控和运维工具，提供实时性能监控与告警通知。作为开源项目，它支持企业自托管，保护数据隐私，并支持多语言。</description><content:encoded><![CDATA[<h2 id="准备工作">准备工作</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>哪吒监控探针部署</title>
+      <link>https://weixiang.github.io/posts/nezha-monitoring-deployment/</link>
+      <pubDate>Tue, 19 Jul 2022 16:18:31 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/nezha-monitoring-deployment/</guid>
+      <description>哪吒监控是一款轻量化的服务器监控和运维工具，提供实时性能监控与告警通知。作为开源项目，它支持企业自托管，保护数据隐私，并支持多语言。</description>
+      <content:encoded><![CDATA[<h2 id="准备工作">准备工作</h2>
 <p>获取 Github/Jihulab 的 Client ID 和密钥：</p>
 <p>哪吒监控接入 Github、Gitlab、Jihulab、Gitee 作为后台管理员账号</p>
 <ul>
@@ -1501,7 +1622,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">$crisp</span><span class="o">=</span><span class="p">[];</span><span class="nb">window</span><span class="p">.</span><span class="nx">CRISP_WEBSITE_ID</span><span class="o">=</span><span class="s2">&#34;103e95b6-3b0c-4f8a-9185-349951c14825&#34;</span><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">d</span><span class="o">=</span><span class="nb">document</span><span class="p">;</span><span class="nx">s</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://client.crisp.chat/l.js&#34;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="kr">async</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);})();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://nezha.wiki/">https://nezha.wiki/</a></p>
-]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate><guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title>
+      <link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link>
+      <pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid>
+      <description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description>
+      <content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
 <h2 id="创建用户">创建用户</h2>
 <p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd &lt;user&gt; -m
@@ -1551,9 +1680,16 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<blockquote>
-<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>用 Pi-hole 搭建一个树莓派黑洞</title>
+      <link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link>
+      <pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid>
+      <description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p></blockquote>
 <p>Pi- <a href="https://pi-hole.net/trademark-rules-and-brand-guidelines/">hole®</a>是一个<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">DNS 沉洞服务器</a>，无需安装任何客户端软件即可保护您的设备免受有害内容的<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">侵害</a>。</p>
 <ul>
 <li><strong>易于安装</strong>：安装程序将引导您完成整个过程，并且<a href="https://www.youtube.com/watch?v=vKWjx1AQYgs">只需不到十分钟的时间</a></li>
@@ -1586,23 +1722,18 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><strong>因为众所周知的原因，安装过程可能需要魔法！</strong></p>
 <p>如果你和我一样在这里卡了很久或者直接 error 了，说明你需要使用魔法。</p>
 <p>至于具体操作请自己 Google 一下吧，我这里也不太好直接向麻瓜们直接展示对吧。（搜索关键词：树莓派 + 魔法名称）</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp"></p>
 <p>安装完毕，记下访问地址和密码。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp"></p>
 <h2 id="调整-pi-hole-的设置">调整 Pi-hole 的设置</h2>
 <p>用浏览器访问刚刚的地址就能看到主页了，或者也可以访问 <a href="http://pi.hole/admin">http://pi.hole/admin</a></p>
 <p>主页展示的是 Pi-hole 的实时运行状态，点击 Login 输入记下的密码即可登录到控制台。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp"></p>
 <p>控制台就是这样的，现在可以开始调整 Pi-hole 的设置来获得更好的体验了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp"></p>
 <h3 id="添加-hosts-源">添加 hosts 源</h3>
 <p>实际上，Pi-hole 使用的是 hosts 方式对广告进行过滤（类似 AdAway），所以 hosts 源的好坏直接决定了用户体验。自带的 host 对于我国网络环境来说可能会水土不服，下面推荐几个知名 hosts 源，可以到  Settings - Blocklists 里面添加自定义源，添加一个之后按 Save 保存，全部添加完成后按 Save and Update 来更新 host 并保存设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp"></p>
 <ul>
 <li><a href="https://github.com/vokins/yhosts">yhosts</a>：可以说是国内比较老牌的知名 hosts，定期有更新，但作者主观屏蔽了一些非广告网站，可以用下面的命令手动添加白名单来解决不够客观的问题：</li>
 </ul>
@@ -1618,8 +1749,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h3 id="添加国内-dns-服务器">添加国内 DNS 服务器</h3>
 <p>Pi-hole 在安装时已经设置过一次 DNS 服务器了，但因为是国外的 DNS 服务，速度可能会比较慢，通过添加国内的 DNS 服务可以提高速度。</p>
 <p>进入 Settings - DNS - Upstream DNS Servers 就可以添加 DNS 服务器了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp"></p>
 <h4 id="国内常见公共-dns-服务">国内常见公共 DNS 服务</h4>
 <h5 id="腾讯-dnspod">腾讯 DNSPod</h5>
 <p><a href="https://www.dnspod.cn/Products/Public.DNS">https://www.dnspod.cn/Products/Public.DNS</a></p>
@@ -1627,38 +1757,33 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：119.29.29.29 / 119.28.28.28
 </span></span></code></pre></div><blockquote>
 <p>这是 DNSPod 建立的公共 DNS，之后 DNSPod 被腾讯收购以后由腾讯云负责运营。腾讯 DNSPod 公共 DNS 配置了 Anycast，节点囊括了腾讯云所有可用区的节点（包括海外），所以速度还是不错的，并且除了支持 ECS 以外还有一些关于 DNS 出口选择优化的加成，所以 CDN 解析结果相对准确很多。但是 SLA 却并不优秀 —— <del>曾经</del> 经常遭遇 DDoS 攻击导致无法解析。除此以外，由于相对出名、使用人数较多，是运营商重点劫持的对象。</p>
-<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p>
-</blockquote>
+<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p></blockquote>
 <h5 id="阿里云公共-dns">阿里云公共 DNS</h5>
 <p><a href="http://www.alidns.com">http://www.alidns.com</a></p>
 <p>Anycast：成都、深圳、杭州</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：223.5.5.5 / 223.6.6.6
 </span></span><span class="line"><span class="cl">IPv6：2400:3200::1 / 2400:3200:baba::1
 </span></span></code></pre></div><blockquote>
-<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p>
-</blockquote>
+<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p></blockquote>
 <h5 id="南京信风公共-dns">南京信风公共 DNS</h5>
 <p><a href="https://www.114dns.com/">https://www.114dns.com/</a></p>
 <p>Anycast：南京、济南、芝加哥</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：114.114.114.114 / 114.114.115.115
 </span></span></code></pre></div><blockquote>
-<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p>
-</blockquote>
+<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p></blockquote>
 <h5 id="cnnic-公共-dns">CNNIC 公共 DNS</h5>
 <p><a href="http://www.sdns.cn/">http://www.sdns.cn/</a>
 北京、杭州、香港</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：1.2.4.8 / 210.2.4.8
 </span></span></code></pre></div><blockquote>
-<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p>
-</blockquote>
+<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p></blockquote>
 <h5 id="百度公共-dns">百度公共 DNS</h5>
 <p>北京、南京、深圳
 <a href="https://dudns.baidu.com/">https://dudns.baidu.com/</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：180.76.76.76
 </span></span><span class="line"><span class="cl">IPv6：2400:da00::6666
 </span></span></code></pre></div><blockquote>
-<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p>
-</blockquote>
+<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p></blockquote>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
@@ -1666,16 +1791,21 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <hr>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<blockquote>
-<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派使用 V2Ray 魔法上网</title>
+      <link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link>
+      <pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid>
+      <description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p></blockquote>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
-</p>
+<p><img alt="image-20200410145120973" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp"></p>
 <p>啊不好意思放错了，应该是这张：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp" alt="File:VPN overview-en.svg"  />
-</p>
+<p><img alt="File:VPN overview-en.svg" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp"></p>
 <p>我们这篇文章要实现的目标是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
 </span></span><span class="line"><span class="cl">A(你的设备/树莓派) --&gt; B(树莓派 Privoxy)
@@ -2042,20 +2172,26 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>将代理设置配置为指向树莓派后，在浏览器中打开下面的地址</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://config.privoxy.org/
 </span></span></code></pre></div><p>如果一切运行正常，可以看到 Privoxy 的欢迎界面：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp" alt="image-20200414115516257"  />
-</p>
+<p><img alt="image-20200414115516257" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp"></p>
 <p>如果显示的是 <strong>Privoxy is not being used</strong> ，就要检查一下检查代理设置是否正确了。</p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派魔法的安装与配置，你可以开始使用你的树莓派访问真正的互联网，并为局域网内的其他设备提供魔法代理服务。</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
 <p>[Ask Ubuntu]: <a href="https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13</a> &ldquo;apt.conf “Acquire::http:Proxy ”proxyserver:port&rdquo; seems not to be used (Ubuntu 13.04 under Virtual Box on Win7)&quot;</p>
-]]></content:encoded></item><item><title>树莓派的安装与初始化</title><link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link><pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate><guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid><description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description><content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派的安装与初始化</title>
+      <link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link>
+      <pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid>
+      <description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description>
+      <content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
 <p>Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统。</p>
 <p>Raspberry Pi® “树莓派”是 2012 年问世的 ARM 计算机，旨在为儿童和所有的计算机爱好者提供一套廉价的编程学习与硬件 DIY 平台。树莓派基于 ARM11，具有 1080P 高清视频解析能力，附带用于硬件开发的 GPIO 接口，使用 Linux 操作系统。售价仅 $25~$35。</p>
 <p>Raspbian 系统是 Debian 7.0/wheezy 的定制版本。得益于 Debian 从 7.0/wheezy 开始引入的“带硬件浮点加速的 ARM 架构”(armhf)，Debian 7.0 在树莓派上的运行性能有了很大提升。Raspbian 默认使用 LXDE 桌面，内置 C 和 Python 编译器。</p>
@@ -2075,47 +2211,40 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="安装-raspbain-系统到-sd-卡">安装 Raspbain 系统到 SD 卡</h2>
 <p>对于新手用户，树莓派官方建议使用 <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi Imager</a>，将系统镜像写入 SD 卡。也可以使用 balenaEtcher，Win32DiskImager 或 imgFlasher 等工具进行烧录，接有屏幕、键鼠的同学也可以使用 <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a> 来部署系统。</p>
 <p>下面以 <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a> 为例</p>
-<h3 id="下载安装--raspberry-pi-imagerhttpswwwraspberrypiorgdownloads">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
+<h3 id="下载安装--raspberry-pi-imager">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
 <p>Raspberry Pi Imager 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span>
 </span></span></code></pre></div><p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
 <p>安装后打开的软件界面是这样的，是不是超级简单：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp" alt="Raspberry Pi Imager"  />
-</p>
+<p><img alt="Raspberry Pi Imager" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp"></p>
 <h3 id="格式化-sd-卡">格式化 SD 卡</h3>
 <p>首先要格式化 SD 卡，在第一项 Choose OS 里选择 Erase，然后选好要格式化的 SD 卡，最后点 Write 即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp" alt="image-20200409181322292"  />
-</p>
+<p><img alt="image-20200409181322292" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp"></p>
 <h3 id="烧录镜像">烧录镜像</h3>
 <p>在 Choose OS 里选择第一项 Raspbain 即可，软件会自动下载并烧录进去，如果要使用本地的镜像文件，要注意文件路径中不要有中文。</p>
 <p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp" alt="image-20200409181731951"  />
-</p>
+<p><img alt="image-20200409181731951" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp"></p>
 <p>等进度条跑满，系统镜像就烧写完成啦。</p>
 <h2 id="开启-ssh-功能">开启 SSH 功能</h2>
 <p>在树莓派将来的使用中，我们要用 SSH 的方式连接树莓派并对其进行操作，但为了安全起见，这个功能默认是关闭的，所以我们需要在 SD 卡的根目录创建一个叫“SSH”的文件，才能开启树莓派的 SSH 功能。</p>
 <p>在“此电脑”中找到一个叫“boot”的盘，新建一个 TXT，命名为 <code>SSH</code> 即可，注意不要有后缀！
 如果找不到“boot”这个盘，重新拔插一下读卡器即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp" alt="image-20200409183711203"  />
-</p>
+<p><img alt="image-20200409183711203" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp"></p>
 <h2 id="启动树莓派并找到它">启动树莓派并找到它</h2>
 <h3 id="启动树莓派">启动树莓派</h3>
 <p>插入烧写好系统的 SD 卡，用网线把树莓派和路由器连接起来，如果有键鼠显示器也要先连接上，最后插上电源，等待树莓派启动即可。</p>
 <h3 id="查找树莓派的地址">查找树莓派的地址</h3>
 <p>使用浏览器登录路由器的管理页面，一般为 <code>192.168.1.1</code>，输入管理密码（路由器背面可以找到），进入“终端管理”界面，查看树莓派的 IP 地址。最好给树莓派设置一个固定 IP 地址方便后续使用。此步骤不同品牌的路由器操作方法略有不同，不过都大同小异。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp" alt="image-20200409194420317"  />
-</p>
+<p><img alt="image-20200409194420317" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp"></p>
 <h2 id="使用-ssh-连接到树莓派">使用 SSH 连接到树莓派</h2>
 <p>以 Xshell 为例</p>
 <p>Xshell 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.netsarang.com/zh/xshell/
 </span></span></code></pre></div><p>打开 Xshell，在左上角点击新建图标，填入名称，树莓派的 IP 地址，点击连接即可。</p>
 <p>树莓派默认的账户是 <code>pi</code> ，默认密码是 <code>raspberry</code> 。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp" alt="image-20200409195033479"  />
-</p>
+<p><img alt="image-20200409195033479" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp"></p>
 <p>如下图时即连接成功：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp" alt="image-20200409195326223"  />
-</p>
+<p><img alt="image-20200409195326223" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp"></p>
 <h2 id="给树莓派换上国内源">给树莓派换上国内源</h2>
 <p>因为众所周知的原因，树莓派的默认源速度感人，换上国内的源可以显著提高使用体验。</p>
 <p>以清华大学源为例</p>
@@ -2138,28 +2267,26 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>在 SSH 终端中输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo raspi-config
 </span></span></code></pre></div><p>即可进入下面的配置模式，罗列了扩展系统分区，修改密码，启动设置等等，然后按着图片找到 VNC 选项打开即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp" alt="image-20200409200744520"  />
-</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp" alt="image-20200409200759386"  />
-</p>
+<p><img alt="image-20200409200744520" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp"></p>
+<p><img alt="image-20200409200759386" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp"></p>
 <h3 id="连接到树莓派">连接到树莓派</h3>
 <p>下载 VNC 客户端</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">realvnc</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">connect</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">viewer</span><span class="o">/</span>
 </span></span></code></pre></div><p>打开 VNC 软件，输入树莓派的 IP 地址、账户名密码（上一节有），即可连接。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp" alt="image-20200409201641067"  />
-</p>
+<p><img alt="image-20200409201641067" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp"></p>
 <h3 id="完成剩余的设置">完成剩余的设置</h3>
 <p>连接成功后即可看到树莓派的桌面和欢迎界面。</p>
 <p>在欢迎界面中完成剩余的设置，修改地区、语言、时区、密码等，连接上 WiFi。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp" alt="image-20200409201733135"  />
-</p>
+<p><img alt="image-20200409201733135" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp"></p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

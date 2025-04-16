@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ghost on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/ghost/</link><description>Recent content in Ghost on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml"/><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ghost on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/ghost/</link>
+    <description>Recent content in Ghost on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Wed, 07 Aug 2024 16:02:46 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/ghost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ghost 博客使用记录</title>
+      <link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link>
+      <pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid>
+      <description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description>
+      <content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
 <p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
 <p><del>买不起服务器了，就换回静态博客了。</del></p>
@@ -395,7 +412,15 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>关于我</title><link>https://weixiang.github.io/about/</link><pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate><guid>https://weixiang.github.io/about/</guid><description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description><content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>https://weixiang.github.io/about/</link>
+      <pubDate>Mon, 05 Aug 2024 16:48:36 +0800</pubDate>
+      <guid>https://weixiang.github.io/about/</guid>
+      <description>我是 Jacob，很高兴认识你。I&amp;#39;m Jacob, nice to meet you.</description>
+      <content:encoded><![CDATA[<h3 id="你好">你好！👋</h3>
 <p>我是 Jacob，这里是我的个人博客。</p>
 <p>正如博客的名字，我在这里记录我的想法、知识，分享我的发现。</p>
 <p>纯文大学生，但热爱的是硬件与编程。</p>
@@ -412,8 +437,7 @@
 <p>本站采用 Hugo 驱动，主题为 PaperMod。</p>
 <p>博客更新记录：<a href="/posts/blog-update-log">传送门→</a></p>
 <h3 id="版权声明">版权声明</h3>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本站文章除特别声明外，均由 <a href="https://weixiang.github.io/">Jacob Ruan</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可。</p>
 <hr>
 <p>English Version. (By Google Translate)</p>
@@ -427,15 +451,22 @@
 <p>Outside of my studies, I also enjoy programming, Arduino, international pop music and secondary culture. I&rsquo;m also a fan of Harry Potter.</p>
 <h3 id="copyright">Copyright</h3>
 <p>Unless otherwise stated, the post of this website adopts the CC License.</p>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License"  />
-
+<p><img alt="Creative Commons License" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
 <h3 id="contact-me">Contact me</h3>
 <p>If you are interested in making new friends, You can find me in the following ways:</p>
 <p>Email (Base 64): <code>amFjb2IucnVhbkBvdXRsb29rLmNvbQ==</code></p>
 <p>WeChat (Base 64): <code>aHR0cHM6Ly91LndlY2hhdC5jb20vTUFHQzNfdWQzN0J2bVdWX0lDT3hqeEE=</code></p>
 <p>GitHub: <a href="https://github.com/Weixiang">https://github.com/Weixiang</a></p>
-]]></content:encoded></item><item><title>文章传送门</title><link>https://weixiang.github.io/portal/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/portal/</guid><description>文章分类传送门</description><content:encoded><![CDATA[<h2 id="话题">话题</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>文章传送门</title>
+      <link>https://weixiang.github.io/portal/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/portal/</guid>
+      <description>文章分类传送门</description>
+      <content:encoded><![CDATA[<h2 id="话题">话题</h2>
 <p><a href="/tags/">话题页 - 传送门🚪→</a></p>
 <iframe src="/tags" width=100% height="400" frameborder=0 scrolling=no ></iframe>
 <p>+++</p>
@@ -446,16 +477,22 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <h2 id="系列">系列</h2>
 <p><a href="/series/">系列页 - 传送门🚪→</a></p>
 <iframe src="/series" width=100% height="400" frameborder=0 scrolling=no></iframe>
-]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 使用 DisqusJS 3.0 评论</title>
+      <link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link>
+      <pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid>
+      <description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description>
+      <content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。</p>
 <p>DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <blockquote>
-<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p>
-</blockquote>
+<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p></blockquote>
 <p>此前本站就在用 DisqusJS 1.3 作为评论支持，趁着这次升级版本记录一下操作。</p>
 <blockquote>
-<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p>
-</blockquote>
+<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p></blockquote>
 <h2 id="添加头文件">添加头文件</h2>
 <p>在<code>Code Injection</code>中的<code>Site Header</code>添加 DisqusJS 的头文件即可</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
@@ -479,14 +516,11 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h3 id="配置-disqus-application">配置 Disqus Application</h3>
 <p>在 <a href="https://disqus.com/api/applications/">Disqus API Application</a> 处注册一个 Application。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vepaH&amp;originHeight=520&amp;originWidth=1054&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&crop=0&crop=1&crop=1&id=vepaH&originHeight=520&originWidth=1054&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <p>点击新创建的 Application，获取你的 API Key（公钥）。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=n2k7W&amp;originHeight=306&amp;originWidth=644&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&crop=0&crop=1&crop=1&id=n2k7W&originHeight=306&originWidth=644&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <p>在 Application 的 Settings 页面设置你使用 DisqusJS 时的域名。Disqus API 会检查 API 请求的 Referrer 和 Origin。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=tIQea&amp;originHeight=267&amp;originWidth=710&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&crop=0&crop=1&crop=1&id=tIQea&originHeight=267&originWidth=710&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <h2 id="配置-disqusjs-参数">配置 DisqusJS 参数</h2>
 <p><strong>shortname</strong> <code>{string}</code></p>
 <ul>
@@ -544,8 +578,17 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p><strong>adminLabel</strong> <code>{string}</code></p>
 <ul>
 <li>你想显示在 Disqus Moderator Badge 中的文字。该配置应和 <a href="https://disqus.com/admin/settings/community/">Disqus Admin - Settings - Community - Moderator Badge Text</a> 相同</li>
-<li>非必须，无默认值</li>
-<li></li>
+<li>
+<table>
+  <thead>
+      <tr>
+          <th>非必须，无默认值</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</li>
 </ul>
 <h2 id="渲染评论">渲染评论</h2>
 <p>最后，让 DisqusJS 实例将评论组件渲染到页面上：</p>
@@ -595,10 +638,17 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <a href="https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/">https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/</a>
 <a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></p>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>Flarum 使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link><pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate><guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid><description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description><content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Flarum 使用腾讯云 COS 对象存储</title>
+      <link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid>
+      <description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description>
+      <content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
 <h2 id="安装-fof-upload-插件">安装 FoF Upload 插件</h2>
 <p>原作帖子地址：<a href="https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension">https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer require fof/upload
@@ -607,8 +657,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p>本文不再赘述创建存储桶取得 Key 之类的基本操作，可以参考下面：</p>
 <p>腾讯云官方 AWS S3 配置指南：<a href="https://cloud.tencent.com/document/product/436/41284">https://cloud.tencent.com/document/product/436/41284</a></p>
 <blockquote>
-<p>Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。</p>
-</blockquote>
+<p>Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。</p></blockquote>
 <h2 id="配置-fof-upload">配置 FoF Upload</h2>
 <p>在 Flarum 后台，进入 FoF Upload 配置页。</p>
 <h3 id="文件链接前缀">文件链接前缀</h3>
@@ -631,9 +680,16 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <li>访问控制列表（ACL）：<code>public-read</code> （即共有读私有写）</li>
 </ul>
 <p>应用于上传对象的读写权限 ACL（默认私有读写）。有关可用的值，请参阅：<a href="https://iflarum.cn/aws-s3acl">https://iflarum.cn/aws-s3acl</a></p>
-]]></content:encoded></item><item><title>Ghost 博客使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link><pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid><description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 博客使用腾讯云 COS 对象存储</title>
+      <link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid>
+      <description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文 Ghost version: 4.32.1</p></blockquote>
 <h2 id="安装-ghost-qcloud-cos-模块">安装 ghost-qcloud-cos 模块</h2>
 <p>使用命令安装</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install ghost-qcloud-cos
@@ -664,9 +720,16 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span><span class="line"><span class="cl">sudo systemctl restart ghost_yoursite-com <span class="c1"># CentOS 要用这个</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://github.com/ZhelinCheng/ghost-qcloud-cos">https://github.com/ZhelinCheng/ghost-qcloud-cos</a></p>
-]]></content:encoded></item><item><title>Ghost 博客配置邮件系统</title><link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link><pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate><guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid><description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 博客配置邮件系统</title>
+      <link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link>
+      <pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid>
+      <description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文 Ghost version: 4.32.1</p></blockquote>
 <p>Ghost 是一个年轻的博客系统，迭代速度之快使得互联网上许多相关的教程已经过时，特别是邮件配置方面。
 经过多次尝试，终于得出了邮件系统的正确配置方法，在此记录。<strong>以网易域名邮箱为例：</strong></p>
 <h2 id="修改配置文件">修改配置文件</h2>
@@ -700,7 +763,15 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/config/#mail">https://ghost.org/docs/config/#mail</a></p>
-]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate><guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title>
+      <link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link>
+      <pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid>
+      <description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description>
+      <content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
 <h2 id="创建用户">创建用户</h2>
 <p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd &lt;user&gt; -m
@@ -750,10 +821,17 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>用 Prism.js 为 Ghost 博客添加代码高亮</title>
+      <link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link>
+      <pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid>
+      <description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
-<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
-</blockquote>
+<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p></blockquote>
 <p>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。Ghost 官方也给出了对应的指引：<a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a></p>
 <p>在本指南中，我将展示如何将代码示例添加到您的 Ghost 站点，以及如何使用代码语法高亮显示对其进行自定义。</p>
 <h2 id="引入-prismjs">引入 Prism.js</h2>
@@ -764,8 +842,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span></code></pre></div><p>至此代码高亮已经可用。</p>
 <h2 id="添加自己常用的语言">添加自己常用的语言</h2>
 <blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
+<p>2022 年 1 月 16 日更新</p></blockquote>
 <p>Prism.js 默认配置仅包含 <code>Markup + HTML + XML + SVG + MathML + SSML + Atom + RSS</code> 这几种语言的高亮规则，如果你常用的语言不在内，则需要自己手动添加。</p>
 <p>在 <a href="https://cdnjs.com/libraries/prism">https://cdnjs.com/libraries/prism</a> 搜索自己需要的语言，添加进 <code>Site Footer</code> 中 <code>prism.min.js</code> 的后面即可。</p>
 <p>我添加了 Bash 和 json 的支持。</p>
@@ -816,8 +893,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="行内代码样式更改">行内代码样式更改</h2>
 <blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
+<p>2022 年 1 月 16 日更新</p></blockquote>
 <p><code>这个东西就是行内代码.</code></p>
 <p>Casper 自带的行内代码样式不太好看，换掉。</p>
 <p>从语雀那里抄来的：</p>
@@ -839,7 +915,15 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
 <p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
-]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>给 Ghost 博客更换字体</title>
+      <link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link>
+      <pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid>
+      <description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
 <h2 id="字体定义">字体定义</h2>
 <p>Ghost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
@@ -883,12 +967,19 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 </span></span></code></pre></div><p>这里把正文字体设置为了无衬线字体，并且把字体大小调整为 16px，行间距为 1.8。</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
-]]></content:encoded></item><item><title>社团 Ghost 博客调较记录</title><link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link><pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid><description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description><content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>社团 Ghost 博客调较记录</title>
+      <link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link>
+      <pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid>
+      <description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description>
+      <content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
 <h3 id="新增评论区">新增评论区</h3>
 <p>大家终于可以愉快地畅所欲言啦！</p>
 <p><del>而且因为我们服务器在新加坡，不受中国大陆法律限制，也没有敏感词蛤蛤蛤</del></p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955834-732004-image.png" alt="Image description"  />
-</p>
+<p><img alt="Image description" loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955834-732004-image.png"></p>
 <p>采用的是<a href="https://valine.js.org/">Valine</a>作为我们的评论系统，快速、简洁且高效、无后端。
 获取</p>
 <p>在 Code Injection 的 Footer 部分填入</p>
@@ -909,8 +1000,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <h3 id="新增邮件订阅">新增邮件订阅</h3>
 <p>大家可以在首页和每篇文章的下面找到这个订阅按钮</p>
 <p>将你的邮箱输进去，以后有文章更新就会通过邮件通知你啦~</p>
-<p><img loading="lazy" src="https://camo.githubusercontent.com/7ed58d9ed28f4a3a6d30b0152621cb0bec8c42d9ccecf9349e9f48c28174f963/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f656465762f696d6167652f75706c6f61642f76313538333739323932382f6c6965626c696e672f6c6965626c696e672d70726f6d6f2d6465736b746f702e6a7067" alt="邮件订阅"  />
-</p>
+<p><img alt="邮件订阅" loading="lazy" src="https://camo.githubusercontent.com/7ed58d9ed28f4a3a6d30b0152621cb0bec8c42d9ccecf9349e9f48c28174f963/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f656465762f696d6167652f75706c6f61642f76313538333739323932382f6c6965626c696e672f6c6965626c696e672d70726f6d6f2d6465736b746f702e6a7067"></p>
 <p>参考：<a href="https://github.com/eddiesigner/liebling/wiki">eddiesigner/liebling</a></p>
 <h3 id="接入了-google-广告">接入了 Google 广告</h3>
 <p>为什么要接广告？</p>
@@ -918,8 +1008,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p>能补贴一下服务器的运营费用，顺便还能给文章作者一些报酬。</p>
 <p>广告是 Google 根据你的兴趣个性化推荐的哦！所以每个人看到的都不太一样</p>
 <p>下面是某位不愿意透露姓名的同学看到的情形</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955902-729164-image.png" alt="Image description"  />
-</p>
+<p><img alt="Image description" loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955902-729164-image.png"></p>
 <p>Google 广告接入还是很方便的</p>
 <p>在 Google Adsense 申请就好，然后 Google 就会给一段神秘代码</p>
 <p>像这样</p>
@@ -936,8 +1025,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p>参考：<a href="https://ghost.org/integrations/google-adsense/">Google AdSense + Ghost</a></p>
 <h3 id="接入了统计系统">接入了统计系统</h3>
 <p>我们站点一共接入了三个统计系统，分别是 Google Analytics，百度统计 和 不蒜子统计。</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955940-794386-image.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955940-794386-image.png"></p>
 <p>上面是百度统计的效果图，就是能分析一下站点的访问量什么的。</p>
 <p><del>又没有多少人来统计个屁</del></p>
 <p>百度和 Google 的接入都很方便，直接注册然后按提示获取代码就好了。</p>
@@ -962,7 +1050,15 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <ul>
 <li>2022 年 1 月 25 日 文章迁移及表述调整</li>
 </ul>
-]]></content:encoded></item><item><title>你好，Ghost</title><link>https://weixiang.github.io/posts/hello-ghost/</link><pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-ghost/</guid><description>第一次使用 Ghost 博客，有什么感觉呢？</description><content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的 Ghost。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>你好，Ghost</title>
+      <link>https://weixiang.github.io/posts/hello-ghost/</link>
+      <pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hello-ghost/</guid>
+      <description>第一次使用 Ghost 博客，有什么感觉呢？</description>
+      <content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的 Ghost。</p>
 <p>从我开始接触博客起，从最初的 Hexo，到后来的 WordPress，再到现在你看到的 Ghost，博客平台换的多，实际生产的内容却寥寥无几，在每一次博客的迁移过程中又丢失过一些文章，最后收获的不是知识的贮藏，而是各种博客平台的安装迁移方法。</p>
 <p>在我为 WordPress 臃肿的系统、找不到我钟意主题时，我在互联网的角落中发现了这个名为 Ghost 的博客系统。简洁的设计风格使我第一眼就看中了它，而它精简的系统也使我的辣鸡服务器不必再为 WordPress 而气喘吁吁。</p>
 <p>花费了我整整半天的时间，总算是把 Ghost 搭建起来了，这次搭建 Ghost 花费了我不少力气，并不是说 Ghost 不易用，而是我选择了一个我没有用过的船新操作——使用 Docker，还有一个原因是 Ghost 相关的中文资料还不够完善，很多教程都已经过时。虽然过程有点坎坷，不过好处是学会了一点点 Docker 的概念和基本用法。
@@ -971,9 +1067,16 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
 <p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
-]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
-<p>2022 年 1 月 25 日 更新</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>您好，世界</title>
+      <link>https://weixiang.github.io/posts/hello-hexo/</link>
+      <pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hello-hexo/</guid>
+      <description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>2022 年 1 月 25 日 更新</p></blockquote>
 <p>如你所见，这是我开始写博客以来的第一篇文章，时过境迁，很多东西都不一样了，看个乐就好。还有一件事，现在我用的博客是基于 Ghost 的。</p>
 <hr>
 <p>断断续续地花了一个星期时间，终于把这个博客网站重新搭建了起来。其实这个网站在 2017 年的 8 月份就已经上线，但由于学业等原因，网站一直处于挂着的状态，现在趁着假期又将网站重新构建，优化添加了不少东西，也准备开始定期发布文章了。</p>
@@ -989,7 +1092,15 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
         </figcaption>
 </figure>
 
-]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>站点更新记录</title>
+      <link>https://weixiang.github.io/posts/blog-update-log/</link>
+      <pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/blog-update-log/</guid>
+      <description>本站点自创立以来的更新记录</description>
+      <content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>
 <li>2018-02-17 启用域名 <code>████.tech</code> 和 <code>████████.club</code> [数据删除]</li>
@@ -1010,7 +1121,15 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub，有了比命长的域名 <code>weixiang.github.io</code></li>
 </ul>
 <p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢 Microsoft，提供了 GitHub Page 托管、GitHub Action 自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
-]]></content:encoded></item><item><title>友情链接</title><link>https://weixiang.github.io/links/</link><pubDate>Sun, 31 Dec 2017 16:01:00 +0800</pubDate><guid>https://weixiang.github.io/links/</guid><description>我的朋友们，当然，也欢迎你来加入。</description><content:encoded><![CDATA[<h2 id="powers-wiki">Power&rsquo;s Wiki</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>友情链接</title>
+      <link>https://weixiang.github.io/links/</link>
+      <pubDate>Sun, 31 Dec 2017 16:01:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/links/</guid>
+      <description>我的朋友们，当然，也欢迎你来加入。</description>
+      <content:encoded><![CDATA[<h2 id="powers-wiki">Power&rsquo;s Wiki</h2>
 <p><a href="https://wiki-power.com/">https://wiki-power.com/</a></p>
 <p>Power Lin 的知识库</p>
 <h2 id="雪山深处">雪山深处</h2>
@@ -1020,4 +1139,7 @@ This work by <a href="https://weixiang.github.io/">Jacob Ruan</a> is licensed un
 <p><a href="https://www.waitech.cn">https://www.waitech.cn</a></p>
 <p>WAI 科技社 (Who Am I Science &amp; Technology Club) 是由学生自发、由信息科组提供指导与支持的 STEM 学生社团，是青少年创客和 STEAM 教育的学习和分享交流平台，在这里共享知识、交流技术，一起分享创造的喜悦。</p>
 <p>欢迎在下面的评论区交换友链 : )</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

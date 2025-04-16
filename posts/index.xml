@@ -1,4 +1,203 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>文章 on Jacob's Thoughts</title><link>https://weixiang.github.io/posts/</link><description>Recent content in 文章 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 15 Aug 2024 16:47:48 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian + Hugo 博客写作与自动化发布解决方案</title><link>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</link><pubDate>Thu, 15 Aug 2024 16:47:48 +0800</pubDate><guid>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</guid><description>Obsidian 是一款简约、功能强大的基于 Markdown 存储格式的的笔记应用程序。Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文将这两个强大的工具结合，旨在打造一个舒适的博客写作与知识管理工作流。</description><content:encoded><![CDATA[<h2 id="hugo-博客搭建与自动化发布配置">Hugo 博客搭建与自动化发布配置</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>文章 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/posts/</link>
+    <description>Recent content in 文章 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Tue, 15 Apr 2025 21:36:21 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 STM32CubeIDE 开发 STM32F103C8</title>
+      <link>https://weixiang.github.io/posts/developing-for-stm32f103c8-using-stm32cubeide/</link>
+      <pubDate>Tue, 15 Apr 2025 21:36:21 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/developing-for-stm32f103c8-using-stm32cubeide/</guid>
+      <description>STM32CubeIDE 是一体式多操作系统开发工具，是 STM32Cube 软件生态系统的一部分。本文利用 STM32CubeIDE 搭建 STM32F103C8 的开发环境。</description>
+      <content:encoded><![CDATA[<p>本文基于版本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">STM32CubeIDE
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Version: 1.18.1
+</span></span><span class="line"><span class="cl">Build: 24813_20250409_2138 (UTC)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(C) 2025 STMicroelectronics ALL RIGHTS RESERVED
+</span></span></code></pre></div><h2 id="下载与安装-stm32cubeide">下载与安装 STM32CubeIDE</h2>
+<p><a href="https://www.st.com.cn/zh/development-tools/stm32cubeide.html">STM32CubeIDE - STM32 的集成开发环境 - 意法半导体 STMicroelectronics</a></p>
+<p>需要注册登录后，填写一些信息才可以下载。</p>
+<p>安装过程一路选“是”即可。</p>
+<h2 id="配置-stm32cubeide">配置 STM32CubeIDE</h2>
+<p>双击桌面图标运行，提示选择工作空间，选择为一个不含中文的路径即可。</p>
+<h3 id="安装语言包">安装语言包</h3>
+<p>C，点击 <code>Add</code>，在 <code>Name</code> 栏填入 <code>language</code>；<code>Location</code> 栏填入下面的链接，然后点击添加，在弹出来的界面选择简体中文语言包，安装后按提示重启软件即可。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">https://mirrors.ustc.edu.cn/eclipse/technology/babel/update-site/latest/
+</span></span></code></pre></div><h3 id="安装固件包">安装固件包</h3>
+<p>在 STM32CubeIDE 菜单栏选择 <code>Help - Configuration Tool - Manage Embedded Software Packages</code>，安装所需平台的 MCU 包即可。此处安装 STM32F1 系列最新固件包。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/427f0b620c513520.png"></p>
+<p>等待下载完成后，关闭界面。</p>
+<h2 id="配置项目">配置项目</h2>
+<p>选择 <code>文件 - 新建 - STM32 Project</code>，进入芯片选择界面，输入芯片型号后选择。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/be782ed09be1a62c.png"></p>
+<p>点击下一步，在 <code>Project Name</code> 中填写项目的名称。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/fccf753661b93f1c.png"></p>
+<p>点击完成，进入工程设置页面。</p>
+<h2 id="配置芯片">配置芯片</h2>
+<p>SYS</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/bdf0cbff4201046c.png"></p>
+<p>RCC</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/8044b3853d8a7731.png"></p>
+<p>时钟，此处需要参考数据手册，若与本文同型号可照抄。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/799a4eb22c9330ce.png"></p>
+<p>若需要使用 FreeRTOS，可在此处添加。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/898f40e512fa1f39.png"></p>
+<p>配置代码生成器</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/336d532fcb882587.png"></p>
+<p>配置 LED 指示灯，根据原理图，将 LED 连接的 GPIO 设置为 <code>GPIO_Output</code>，并且给引脚取名为 LED。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/cc0260878d2d6d4e.png"></p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/58980534a030786c.png"></p>
+<p>最后点击菜单栏中的保存图标，开始生成代码。</p>
+<p>若使用 RTOS 会有一个时钟警告，点击 Yes 确认即可。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/f3991d7a82838d85.png"></p>
+<h2 id="编写第一份代码">编写第一份代码</h2>
+<h3 id="裸机版">裸机版</h3>
+<p>在 <code>/Core/Src/main.c</code> 中，找到主函数的大循环，添加：</p>
+<p>按下 <code>Alt + /</code> 可以进行代码自动补全。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="cm">/* USER CODE END WHILE */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">HAL_GPIO_TogglePin</span><span class="p">(</span><span class="n">LED_GPIO_Port</span><span class="p">,</span> <span class="n">LED_Pin</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">HAL_Delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="cm">/* USER CODE BEGIN 3 */</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* USER CODE END 3 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="rtos-版">RTOS 版</h3>
+<p>在 RTOS 配置中，添加一个任务</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/b1a2632aa7a462f4.png"></p>
+<p>在 <code>/Core/Src/freertos.c</code> 中，找到任务函数，添加</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* USER CODE BEGIN Header_myLEDTask_handle */</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @brief Function implementing the myLEDTask thread.
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @param argument: Not used
+</span></span></span><span class="line"><span class="cl"><span class="cm">* @retval None
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* USER CODE END Header_myLEDTask_handle */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">myLEDTask_handle</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">argument</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE BEGIN myLEDTask_handle */</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* Infinite loop */</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="p">(;;)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">HAL_GPIO_TogglePin</span><span class="p">(</span><span class="n">LED_GPIO_Port</span><span class="p">,</span> <span class="n">LED_Pin</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">osDelay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* USER CODE END myLEDTask_handle */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="烧录程序到开发版">烧录程序到开发版</h2>
+<p>将开发版连接到烧录器上。</p>
+<table>
+  <thead>
+      <tr>
+          <th>烧录器</th>
+          <th>STM32 (Blue Pill)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SWDIO</td>
+          <td>PA13 / DIO</td>
+      </tr>
+      <tr>
+          <td>SWCLK</td>
+          <td>PA14 / CLK</td>
+      </tr>
+      <tr>
+          <td>GND</td>
+          <td>GND</td>
+      </tr>
+      <tr>
+          <td>VCC</td>
+          <td>3.3V / 有外部电源则不接</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="添加运行配置">添加运行配置</h3>
+<p>菜单选择 <code>运行 - 运行配置</code></p>
+<h3 id="st-link">ST-LINK</h3>
+<p>若使用 ST-LINK，无需特别配置即可使用。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/7993451e425e9a4e.png"></p>
+<h3 id="openocd--dap-link">OpenOCD / DAP-LINK</h3>
+<p>若使用其他调试器，如 DAP-LINK 则需要进行手动配置，此处以 PWLink2 Lite 为例。</p>
+<p>先按下图进行配置，点击应用后，会在项目路径下生成一个 <code>项目名称 Debug.cfg</code> 文件。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/d109f03cf214855e.png"></p>
+<p>点击该 <code>项目名称 Debug.cfg</code> 文件，进行修改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># This is an genericBoard board with a single STM32F103C8Tx chip</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Generated by STM32CubeIDE</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Take care that such file, as generated, may be overridden without any early notice. Please have a look to debug launch configuration setup(s)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="o">[</span>find interface/cmsis-dap.cfg<span class="o">]</span>  <span class="c1"># 修改为 cmsis-dap.cfg</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> WORKAREASIZE 0x5000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">transport <span class="k">select</span> swd <span class="c1"># 修改为 swd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> CHIPNAME STM32F103C8Tx
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> BOARDNAME genericBoard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enable debug when in low power modes</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> ENABLE_LOW_POWER <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Stop Watchdog counters when halt</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> STOP_WATCHDOG <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># STlink Debug clock frequency</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> CLOCK_FREQ <span class="m">8000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reset configuration</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># use hardware reset, connect under reset</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># connect_assert_srst needed if low power mode application running (WFI...)</span>
+</span></span><span class="line"><span class="cl">reset_config srst_only srst_nogate connect_assert_srst
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> CONNECT_UNDER_RESET <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> CORE_RESET <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ACCESS PORT NUMBER</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> AP_NUM <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># GDB PORT</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> GDB_PORT <span class="m">3333</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># BCTM CPU variables</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="o">[</span>find target/stm32f1x.cfg<span class="o">]</span>
+</span></span></code></pre></div><p>修改完毕后，回到运行配置，修改该选项，保存即可。</p>
+<p><img alt="image.png" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2025/04/ab620b88eb408439.png"></p>
+<h3 id="编译并下载">编译并下载</h3>
+<p>菜单栏中点击🔨锤子图标（构建）进行编译，然后点击绿色播放（运行）将代码写入开发板。部分开发板需要在写入完成后，手动按下重置按钮才会运行新程序。</p>
+<h2 id="参考文献">参考文献</h2>
+<ul>
+<li><a href="https://www.yahboom.com/public/upload/upload-html/1701740971/STM32CubeIDE%E5%AE%89%E8%A3%85-%E4%BD%BF%E7%94%A8.html">STM32CubeIDE 安装 - 使用</a></li>
+<li><a href="https://wiki-power.com/CubeMX%E4%B8%8ECubeIDE%E9%81%BF%E5%9D%91/">CubeMX 与 CubeIDE 避坑 - Power&rsquo;s Wiki</a></li>
+<li><a href="https://docs.powerwriter.com/docs/faq/powerwriter/base/Debugger/">3.1.7：调试器使用教程 | PowerWriter 文档中心</a></li>
+<li><a href="https://www.cnblogs.com/armfly/p/17614371.html">H7-TOOL 的高速 DAPLINK 用于新版 STM32CubeIDE V1.13 及其以上版本的超简单实现方法（2023-08-08） - 硬汉嵌入式 - 博客园</a></li>
+<li><a href="https://blog.csdn.net/xddwg521125/article/details/134540203">STM32CubeIDE(CUBE-MX)&mdash;-快速移植 FreeRTOS 实战_stm32cubeide freertos-CSDN 博客</a></li>
+<li><a href="https://doc.embedfire.com/mcu/stm32/f103/hal_general/zh/latest/doc/chapter12/chapter12.html">11. GPIO 输出—使用固件库点亮 LED — [野火]STM32 HAL 库开发实战指南——基于 F103 系列开发板 文档</a></li>
+<li><a href="https://doc.embedfire.com/linux/stm32mp1/hal/zh/latest/doc/chapter5/chapter5.html">5. 使用 STM32CubeIDE 新建工程 — [野火]STM32MP1-M4 内核 HAL 库开发实战指南——基于 STM32MP157 开发板 文档</a></li>
+<li><a href="https://github.com/openocd-org/openocd">GitHub - openocd-org/openocd: Official OpenOCD Read-Only Mirror (no pull requests)</a></li>
+<li><a href="https://freertos.org/zh-cn-cmn-s/Documentation/02-Kernel/03-Supported-devices/01-FreeRTOS-porting-guide">新建 FreeRTOS 移植 - FreeRTOS™</a></li>
+</ul>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Obsidian &#43; Hugo 博客写作与自动化发布解决方案</title>
+      <link>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</link>
+      <pubDate>Thu, 15 Aug 2024 16:47:48 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</guid>
+      <description>Obsidian 是一款简约、功能强大的基于 Markdown 存储格式的的笔记应用程序。Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文将这两个强大的工具结合，旨在打造一个舒适的博客写作与知识管理工作流。</description>
+      <content:encoded><![CDATA[<h2 id="hugo-博客搭建与自动化发布配置">Hugo 博客搭建与自动化发布配置</h2>
 <p>接上一篇文章，已经完成了博客文章上传到 GitHub 后自动化发布到 GitHub Pages。在此基础上，使用 Obsidian 作为写作平台，实现博客写作的舒适工作流。</p>
 <p><a href="posts/hugo-github-blog-building-and-automated-deployment">Hugo + GitHub 博客自动化部署 - 传送门 →</a></p>
 <h2 id="下载与初始化-obsidian">下载与初始化 Obsidian</h2>
@@ -34,118 +233,117 @@
 <blockquote>
 <p><strong>Enveloppe：Obsidian GitHub 保险库发布者</strong></p>
 <p>免费在您自己的 GitHub 存储库中发布您的笔记，并随心所欲地处理它们。✨</p>
-<p>这使您能够设置任何模板：Jekyll、Mkdocs、Hugo 或自定义模板！</p>
-</blockquote>
+<p>这使您能够设置任何模板：Jekyll、Mkdocs、Hugo 或自定义模板！</p></blockquote>
 <p>在插件市场中，搜索 Enveloppe 安装即可。</p>
 <h3 id="配置-envelope">配置 Envelope</h3>
 <p>进入 Envelope 的设置，选择第一页配置 <code>GitHub config</code></p>
 <table>
-<thead>
-<tr>
-<th>GitHub config</th>
-<th>填写内容</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GitHub username</code></td>
-<td>GitHub 用户名</td>
-<td></td>
-</tr>
-<tr>
-<td><code>Repository name</code></td>
-<td>源码仓库名称</td>
-<td></td>
-</tr>
-<tr>
-<td><code>GitHub token</code></td>
-<td>个人令牌</td>
-<td></td>
-</tr>
-<tr>
-<td><code>Main branch</code></td>
-<td><code>main</code></td>
-<td>仓库的主分支名称</td>
-</tr>
-<tr>
-<td><code>Automatically merge pull requests</code></td>
-<td>开启</td>
-<td>自动通过合并请求</td>
-</tr>
-<tr>
-<td>第二页配置 <code>File paths</code>：</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>GitHub config</th>
+          <th>填写内容</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>GitHub username</code></td>
+          <td>GitHub 用户名</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>Repository name</code></td>
+          <td>源码仓库名称</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>GitHub token</code></td>
+          <td>个人令牌</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>Main branch</code></td>
+          <td><code>main</code></td>
+          <td>仓库的主分支名称</td>
+      </tr>
+      <tr>
+          <td><code>Automatically merge pull requests</code></td>
+          <td>开启</td>
+          <td>自动通过合并请求</td>
+      </tr>
+      <tr>
+          <td>第二页配置 <code>File paths</code>：</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>File paths</th>
-<th>填写内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Root folder</code></td>
-<td><code>content/posts</code></td>
-</tr>
-<tr>
-<td>第三页配置，<code>Content</code>：</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>File paths</th>
+          <th>填写内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Root folder</code></td>
+          <td><code>content/posts</code></td>
+      </tr>
+      <tr>
+          <td>第三页配置，<code>Content</code>：</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>Content</th>
-<th>填写内容</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[[Wikilinks]] to [MDlinks](links)</code></td>
-<td>开启</td>
-<td>自动转换链接格式</td>
-</tr>
-<tr>
-<td><code>Text replacer</code></td>
-<td>见下表</td>
-<td>正则式替换功能</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Content</th>
+          <th>填写内容</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>[[Wikilinks]] to [MDlinks](links)</code></td>
+          <td>开启</td>
+          <td>自动转换链接格式</td>
+      </tr>
+      <tr>
+          <td><code>Text replacer</code></td>
+          <td>见下表</td>
+          <td>正则式替换功能</td>
+      </tr>
+  </tbody>
 </table>
 <p>Text replacer 规则：</p>
 <table>
-<thead>
-<tr>
-<th>功能</th>
-<th>查找</th>
-<th>替换</th>
-<th>运行时机</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>文章引用</td>
-<td><code>/[^\(]+\.md/</code></td>
-<td><code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code></td>
-<td>↓</td>
-<td>将 obsidian 文章之间的引用转化为 hugo 中的格式，在 obsidian 文章之间引用是没有 md 后缀的，因此执行该替换的时间是等文章使用插件转化后再执行，据此后面的箭头向下。</td>
-</tr>
-<tr>
-<td>文章封面</td>
-<td><code>/cover\.image/</code></td>
-<td><code>cover:\n image</code></td>
-<td>↑</td>
-<td>将一级 key 转为二级，因为 obsidian 不支持多层级属性。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>查找</th>
+          <th>替换</th>
+          <th>运行时机</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>文章引用</td>
+          <td><code>/[^\(]+\.md/</code></td>
+          <td><code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code></td>
+          <td>↓</td>
+          <td>将 obsidian 文章之间的引用转化为 hugo 中的格式，在 obsidian 文章之间引用是没有 md 后缀的，因此执行该替换的时间是等文章使用插件转化后再执行，据此后面的箭头向下。</td>
+      </tr>
+      <tr>
+          <td>文章封面</td>
+          <td><code>/cover\.image/</code></td>
+          <td><code>cover:\n image</code></td>
+          <td>↑</td>
+          <td>将一级 key 转为二级，因为 obsidian 不支持多层级属性。</td>
+      </tr>
+  </tbody>
 </table>
 <p>由于 Hugo 的勾使渲染机制，请将<code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code>中的<code>删掉我</code>去除后再使用，下面的配置文件同样。</p>
 <p>其他的部分不怎么需要调整了，可以参考我的配置文件，在右上角可以导入我的配置再修改：</p>
@@ -274,35 +472,43 @@
 <li><a href="https://enveloppe.github.io/">https://enveloppe.github.io/</a></li>
 <li><a href="https://sspai.com/post/85262">使用 Obsidian 免费建个人博客 - 少数派</a></li>
 </ul>
-]]></content:encoded></item><item><title>Hugo + GitHub 博客自动化部署</title><link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link><pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate><guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid><description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description><content:encoded><![CDATA[<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Hugo &#43; GitHub 博客自动化部署</title>
+      <link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link>
+      <pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid>
+      <description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description>
+      <content:encoded><![CDATA[<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
 <p>参考官方文档：<a href="https://docs.github.com/zh/repositories/creating-and-managing-repositories/quickstart-for-repositories">仓库快速入门 - GitHub 文档</a></p>
 <p>一共需要创建两个仓库，分别如下：</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">简称</th>
-<th>名称</th>
-<th>用途</th>
-<th>Action</th>
-<th>Pages</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">源码仓库</td>
-<td>随意，这里以 <code>你的用户名/blog</code> 为例</td>
-<td>存放 Hugo 博客的源码、文章等，执行 Action 生成静态页面</td>
-<td>是</td>
-<td>否</td>
-</tr>
-<tr>
-<td style="text-align:left">页面仓库</td>
-<td>必须是 <code>你的用户名/你的用户名.github.io</code> 的格式</td>
-<td>存放静态页面提供 Web 服务</td>
-<td>否</td>
-<td>是</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">简称</th>
+          <th>名称</th>
+          <th>用途</th>
+          <th>Action</th>
+          <th>Pages</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">源码仓库</td>
+          <td>随意，这里以 <code>你的用户名/blog</code> 为例</td>
+          <td>存放 Hugo 博客的源码、文章等，执行 Action 生成静态页面</td>
+          <td>是</td>
+          <td>否</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">页面仓库</td>
+          <td>必须是 <code>你的用户名/你的用户名.github.io</code> 的格式</td>
+          <td>存放静态页面提供 Web 服务</td>
+          <td>否</td>
+          <td>是</td>
+      </tr>
+  </tbody>
 </table>
 <p>源码仓库创建后，需要克隆到本地，稍后将在其中安装 Hugo。</p>
 <p>页面仓库创建后，并且打开 Pages 功能，用于静态页面托管。参考官方文档：<a href="https://docs.github.com/zh/pages/getting-started-with-github-pages/creating-a-github-pages-site">创建 GitHub Pages 站点 - GitHub 文档</a></p>
@@ -584,7 +790,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">Title</span><span class="p">:</span><span class="w"> </span><span class="l">Thoughts, stories and ideas. </span><span class="w"> </span><span class="c"># 首页大标题</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">Content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          👋 你好！这里是 Jacob 的博客。
-</span></span></span><span class="line"><span class="cl"><span class="sd">          - 如果你觉得文章写得还不错的话，欢迎通过下面的按钮订阅我。</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          - 如果你觉得文章写得还不错的话，欢迎通过下面的按钮订阅我。</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">outputs</span><span class="p">:</span><span class="w">  </span><span class="c"># 输出设置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">HTML</span><span class="w">
@@ -789,14 +995,21 @@
 <li><a href="https://stack.jimmycai.com/">Stack | Card-style Hugo theme designed for bloggers</a></li>
 <li><a href="https://docs.github.com/zh/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">在 GitHub Actions 中使用机密 - GitHub 文档</a></li>
 </ul>
-]]></content:encoded></item><item><title>Tailscale 内网穿透与 Derper 中继节点搭建</title><link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link><pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate><guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid><description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description><content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Tailscale 内网穿透与 Derper 中继节点搭建</title>
+      <link>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</link>
+      <pubDate>Wed, 14 Aug 2024 15:26:32 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/tailscale-intranet-penetration-and-derper-construction/</guid>
+      <description>Tailscale 是一种基于 Wireguard 的多地组网的软件，他能够实现将多地主机，都聚合在一个虚拟的局域网中，让这些设备之间能够相互访问。所有的节点都直接使用 P 2 P 连接，在一些情况下，速度也很可观。</description>
+      <content:encoded><![CDATA[<h2 id="tailscale-部署">Tailscale 部署</h2>
 <p>这个没什么好说的，按着官方手册正常进行就好了，有很方便的一键安装程序，安装完之后登录同一个账户即可。</p>
 <p><a href="https://tailscale.com/kb/1347/installation">Install Tailscale · Tailscale Docs</a></p>
 <p>Linux 使用这个命令即可一键安装：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -fsSL https://tailscale.com/install.sh <span class="p">|</span> sh
 </span></span></code></pre></div><p>群晖 DSM 直接进套件中心搜索 Tailscale 即可安装。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp" alt="Tailscale 套件"  />
-</p>
+<p><img alt="Tailscale 套件" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/md/2024/08/4acbdd0e6021ee26dd409edf2ea19fcb.webp"></p>
 <p>这里唯一需要注意的地方是，若在国内使用，账号登陆要选择国内可以直连的平台，例如微软或苹果，使用谷歌账号登陆会导致终端无法正常上线，除非可以解决网络问题。</p>
 <h2 id="derper-中继节点">Derper 中继节点</h2>
 <p>某些网络不佳的情况下，P2P 无法打洞成功，流量将通过 Tailscale 的中继节点，也称为 Derper，进行流量的转发。</p>
@@ -829,70 +1042,70 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./certs:/app/certs </span><span class="w"> </span><span class="c"># SSL 证书存放地址</span><span class="w">
 </span></span></span></code></pre></div><p>以下是各变量功能的翻译：</p>
 <table>
-<thead>
-<tr>
-<th>环境变量</th>
-<th>是否必需</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DERP_DOMAIN</td>
-<td>是</td>
-<td>DERP 服务器的主机名</td>
-<td>your-hostname.com</td>
-</tr>
-<tr>
-<td>DERP_CERT_DIR</td>
-<td>否</td>
-<td>存储 LetsEncrypt 证书的目录（如果地址的端口是:443）</td>
-<td>/app/certs</td>
-</tr>
-<tr>
-<td>DERP_CERT_MODE</td>
-<td>否</td>
-<td>获取证书的模式，可选项：manual（手动），letsencrypt</td>
-<td>letsencrypt</td>
-</tr>
-<tr>
-<td>DERP_ADDR</td>
-<td>否</td>
-<td>监听服务器地址</td>
-<td>:443</td>
-</tr>
-<tr>
-<td>DERP_STUN</td>
-<td>否</td>
-<td>也运行一个 STUN 服务器</td>
-<td>true</td>
-</tr>
-<tr>
-<td>DERP_STUN_PORT</td>
-<td>否</td>
-<td>提供 STUN 服务的 UDP 端口</td>
-<td>3478</td>
-</tr>
-<tr>
-<td>DERP_HTTP_PORT</td>
-<td>否</td>
-<td>提供 HTTP 服务的端口，设置为 -1 可禁用</td>
-<td>80</td>
-</tr>
-<tr>
-<td>DERP_VERIFY_CLIENTS</td>
-<td>否</td>
-<td>通过本地的 tailscaled 实例验证连接到此 DERP 服务器的客户端</td>
-<td>false</td>
-</tr>
-<tr>
-<td>DERP_VERIFY_CLIENT_URL</td>
-<td>否</td>
-<td>如果非空，指定允许客户端连接的准入控制器 URL</td>
-<td>&quot;&quot;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>环境变量</th>
+          <th>是否必需</th>
+          <th>描述</th>
+          <th>默认值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DERP_DOMAIN</td>
+          <td>是</td>
+          <td>DERP 服务器的主机名</td>
+          <td>your-hostname.com</td>
+      </tr>
+      <tr>
+          <td>DERP_CERT_DIR</td>
+          <td>否</td>
+          <td>存储 LetsEncrypt 证书的目录（如果地址的端口是:443）</td>
+          <td>/app/certs</td>
+      </tr>
+      <tr>
+          <td>DERP_CERT_MODE</td>
+          <td>否</td>
+          <td>获取证书的模式，可选项：manual（手动），letsencrypt</td>
+          <td>letsencrypt</td>
+      </tr>
+      <tr>
+          <td>DERP_ADDR</td>
+          <td>否</td>
+          <td>监听服务器地址</td>
+          <td>:443</td>
+      </tr>
+      <tr>
+          <td>DERP_STUN</td>
+          <td>否</td>
+          <td>也运行一个 STUN 服务器</td>
+          <td>true</td>
+      </tr>
+      <tr>
+          <td>DERP_STUN_PORT</td>
+          <td>否</td>
+          <td>提供 STUN 服务的 UDP 端口</td>
+          <td>3478</td>
+      </tr>
+      <tr>
+          <td>DERP_HTTP_PORT</td>
+          <td>否</td>
+          <td>提供 HTTP 服务的端口，设置为 -1 可禁用</td>
+          <td>80</td>
+      </tr>
+      <tr>
+          <td>DERP_VERIFY_CLIENTS</td>
+          <td>否</td>
+          <td>通过本地的 tailscaled 实例验证连接到此 DERP 服务器的客户端</td>
+          <td>false</td>
+      </tr>
+      <tr>
+          <td>DERP_VERIFY_CLIENT_URL</td>
+          <td>否</td>
+          <td>如果非空，指定允许客户端连接的准入控制器 URL</td>
+          <td>&quot;&quot;</td>
+      </tr>
+  </tbody>
 </table>
 <p>如果不喜欢 compose，也有配置一样的命令版：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -dit <span class="se">\
@@ -1094,7 +1307,15 @@
 <li><a href="https://github.com/fredliang44/derper-docker">GitHub - fredliang44/derper-docker: tailscale‘s selfhosted derp-server docker image</a></li>
 <li><a href="https://always200.com/tailscale-derper-docker">我的服务器系列：tailscale 使用自定义 derper 服务器（docker 部署） - 且炼时光</a></li>
 </ul>
-]]></content:encoded></item><item><title>Ghost 博客使用记录</title><link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link><pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid><description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 博客使用记录</title>
+      <link>https://weixiang.github.io/posts/ghost-blog-user-experience/</link>
+      <pubDate>Wed, 07 Aug 2024 16:02:46 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-blog-user-experience/</guid>
+      <description>使用了多年的 Ghost 博客，先换到 Hugo，记下 Ghost 博客使用记录。</description>
+      <content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>为什么从 Ghost 换到 Hugo？</p>
 <p>Ghost 随着更新功能越来越丰富，更偏向于专业的商用 CMS 系统，对服务器性能要求越来越高了。</p>
 <p><del>买不起服务器了，就换回静态博客了。</del></p>
@@ -1491,7 +1712,15 @@
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>大厂官网字体收集</title><link>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</link><pubDate>Sat, 03 Aug 2024 16:42:10 +0800</pubDate><guid>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</guid><description>收集了常见消费电子品牌及互联网大厂的字体使用情况。</description><content:encoded><![CDATA[<h2 id="消费电子">消费电子</h2>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>大厂官网字体收集</title>
+      <link>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</link>
+      <pubDate>Sat, 03 Aug 2024 16:42:10 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/collection-of-fonts-from-big-companies-official-websites/</guid>
+      <description>收集了常见消费电子品牌及互联网大厂的字体使用情况。</description>
+      <content:encoded><![CDATA[<h2 id="消费电子">消费电子</h2>
 <h3 id="apple">Apple</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 官网 */</span>
 </span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
@@ -1633,17 +1862,23 @@
 </span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">ui-monospace</span><span class="p">,</span> <span class="n">SFMono-Regular</span><span class="p">,</span> <span class="s2">&#34;SF Mono&#34;</span><span class="p">,</span> <span class="n">Menlo</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="s2">&#34;Liberation Mono&#34;</span><span class="p">,</span> <span class="kc">monospace</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>Android 机顶盒注入原生设置</title>
+      <link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link>
+      <pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid>
+      <description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description>
+      <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
 <p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp" alt="定制设置"  />
-</p>
+<p><img alt="定制设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp"></p>
 <p>幸好我们有 root 权限，在盒子上装个 MT 管理器就能直接替换系统应用。于是我想去网上找个原生设置放进去，结果有的不能用，有的替换完干脆直接进不去系统了，又得重刷&hellip;  后来寻思我明明会逆向，为啥不自己动手，丰衣足食呢？</p>
 <h2 id="提取原生设置-apk">提取原生设置 APK</h2>
 <p>使用 MT 管理器提取 APK，查看 APK 内容。</p>
 <p>注意到我们的雷电模拟器里就有个原生设置，系统恰好也是安卓 9，提取并检查这个设置的 APK 文件，发现里面没有 lib 库，因此推断 APK 是全平台通用的，只要能装上：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp" alt="提取原生设置 APK"  />
-</p>
+<p><img alt="提取原生设置 APK" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp"></p>
 <h2 id="替换证书">替换证书</h2>
 <p>这个设置和电视盒子里已有的设置包名冲突了，只能先进行替换，替换后重启，发现设置图标消失，原生设置和定制设置都没了，于是对比两个设置的签名描述，如下：</p>
 <p>雷电模拟器设置：
@@ -1659,20 +1894,16 @@
 </span></span><span class="line"><span class="cl">        <span class="na">android:description=</span><span class="s">&#34;@string/superuser_description_more&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>幸好，安卓对 <code>/system/app</code> 下的应用只判断签名是否存在，不判断是否有效，我们可以来一出借尸还魂。</p>
 <p>首先将定制设置备份，然后在 MT 管理器两侧同时打开原生设置和定制设置，接下来将定制设置中除 <code>META-INF</code> 外的文件全部删除，然后将原生设置中除 <code>META-INF</code> 外的文件全部添加到定制设置中，全程不要进行签名（同时建议保留 v2 签名数据），这样我们就得到了披着系统级签名的原生设置：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp" alt="替换后证书"  />
-</p>
+<p><img alt="替换后证书" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp"></p>
 <h2 id="移动到系统-app-目录">移动到系统 App 目录</h2>
 <p>现在我们把这个设置再移到系统 App 目录下，例如 <code>/system/app/Setting</code>，并且设置权限为 644，所有者为 root，所有组也为 root。</p>
 <p>重启发现原生设置出现了，功能基本正常，也可以查看应用信息并清缓存了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp" alt="原生设置"  />
-</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp" alt="原生设置"  />
-</p>
+<p><img alt="原生设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp"></p>
+<p><img alt="原生设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp"></p>
 <h2 id="定制设置共存">定制设置共存</h2>
 <p>接下来要解决两个设置共存的问题，原生设置虽好，但调整屏幕分辨率比较困难，因此定制设置还是需要保留的，我们直接用 MT 的 apk 共存功能，修改定制设置的包名（因为原生设置会被第三方调用），同样不签名，然后一并放到系统 App 目录下，这里是 <code>/system/app/Setting2</code>，同样设置权限为 644，所有者和组为 root。</p>
 <p>重启电视盒子，发现两个设置都出现了，目前使用起来一切正常。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp" alt="原生设置与定制设置共存"  />
-</p>
+<p><img alt="原生设置与定制设置共存" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp"></p>
 <p>留一个思考题：目前发现无法在原生设置中通过多次点击版本号启用开发者模式，屏幕无任何提示，问如何解决？</p>
 <h2 id="还有一件事">还有一件事</h2>
 <p>该固件的默认字体被魔改了，是一种综艺体，看着挺非主流的，顺手给它改回 Noto + 思源字体了。</p>
@@ -1684,9 +1915,16 @@
 <li><a href="https://mt2.cn/guide/reverse/signature.html">APK 签名 | MT 管理器</a></li>
 <li><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></li>
 </ul>
-]]></content:encoded></item><item><title>移动魔百盒 CM201-1-YS 刷入 Android 9</title><link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link><pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate><guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid><description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description><content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="效果图"  />
-</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>移动魔百盒 CM201-1-YS 刷入 Android 9</title>
+      <link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link>
+      <pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid>
+      <description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description>
+      <content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
+<p><img alt="效果图" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp"></p>
 <h2 id="基本信息">基本信息</h2>
 <ul>
 <li>SOC：  <code>S095l3b</code></li>
@@ -1694,18 +1932,14 @@
 <li>无线网卡： <code>RTL8822CS</code></li>
 </ul>
 <h3 id="背部标签">背部标签</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp" alt="背部标签"  />
-</p>
+<p><img alt="背部标签" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp"></p>
 <h3 id="主板正面">主板正面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp" alt="主板正面"  />
-</p>
+<p><img alt="主板正面" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp"></p>
 <h3 id="主板背面">主板背面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp" alt="主板背面"  />
-</p>
+<p><img alt="主板背面" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp"></p>
 <h3 id="刷机测试点">刷机测试点</h3>
 <p>短接标号为 4R12 的黑色电阻可进入刷机模式，用于救砖。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp" alt="刷机测试点"  />
-</p>
+<p><img alt="刷机测试点" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp"></p>
 <h2 id="准备">准备</h2>
 <h3 id="下载固件">下载固件</h3>
 <p>固件名称：<code>android_tv_cm201-1-ys_s905l3b.tar.xz</code></p>
@@ -1719,19 +1953,24 @@
 <h2 id="刷机">刷机</h2>
 <p>使用双 USB-A 线，连接机顶盒的 USB1 到电脑。</p>
 <p>1、打开 USB_Burning_Tool 线刷工具，加载固件，导入成功后，默认烧录配置勾选，不用动，然后点击开始。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp" alt="USB_Burning_Tool"  />
-</p>
+<p><img alt="USB_Burning_Tool" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp"></p>
 <p>2、根据不同机器，比如 YS 代工按住 AV 口里面的复位键，CH 或者 ZG 代工短接闪存背面的 4R12 电阻两端，等等。也可通过刷机神器免拆。然后，双头 USB 线插上电脑和盒子靠近网口一端的 USB 接口，此时刷机工具自动连接识别，并开始走进度条刷机，等待刷机结束即可！（不能自动识别的可先通电，再插盒子端的 USB 接口）。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp" alt="开始刷机"  />
-</p>
+<p><img alt="开始刷机" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp"></p>
 <p>3、刷机完成后，刷机工具点“停止”，拔掉双头 USB 线，重新开机，即可正常进入刷机后的系统。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="完成效果"  />
-</p>
+<p><img alt="完成效果" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp"></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209">https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209</a></p>
 <p><a href="https://www.mydigit.cn/thread-195255-1-1.html">https://www.mydigit.cn/thread-195255-1-1.html</a></p>
 <p><a href="https://www.right.com.cn/forum/thread-8292204-1-1.html">https://www.right.com.cn/forum/thread-8292204-1-1.html</a></p>
-]]></content:encoded></item><item><title>广东广电机顶盒 APK 安装限制探究</title><link>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link><pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate><guid>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid><description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description><content:encoded><![CDATA[<h2 id="省流">省流</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>广东广电机顶盒 APK 安装限制探究</title>
+      <link>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link>
+      <pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid>
+      <description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description>
+      <content:encoded><![CDATA[<h2 id="省流">省流</h2>
 <p>没成。</p>
 <h2 id="引言">引言</h2>
 <p>垃圾广电，宽带是租的，用户侧 BGP，出口随机，2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装。</p>
@@ -2162,7 +2401,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://www.znds.com/tv-1210588-1-1.html">https://www.znds.com/tv-1210588-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-1136160-1-1.html">https://www.52pojie.cn/thread-1136160-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-710679-1-1.html">https://www.52pojie.cn/thread-710679-1-1.html</a></p>
-]]></content:encoded></item><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>为 Docker 配置 IPv6</title>
+      <link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link>
+      <pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid>
+      <description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description>
+      <content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
 <p>编辑配置</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
 </span></span></code></pre></div><p>添加</p>
@@ -2206,7 +2453,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> qbittorrent ping6 -c4 youtube.com
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://blog.laoda.de/archives/docker-qbittorrent-ipv6/">https://blog.laoda.de/archives/docker-qbittorrent-ipv6/</a></p>
-]]></content:encoded></item><item><title>使用 Docker 部署 File Browser</title><link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link><pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid><description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description><content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 Docker 部署 File Browser</title>
+      <link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid>
+      <description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description>
+      <content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">touch /volume1/docker/filebrowser/.filebrowser.json
 </span></span><span class="line"><span class="cl">touch /volume1/docker/filebrowser/filebrowser.db
 </span></span></code></pre></div><p>编辑配置</p>
@@ -2235,7 +2490,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a></p>
 <p><a href="https://www.iszy.cc/posts/filebrowser2-setup-docker/">https://www.iszy.cc/posts/filebrowser2-setup-docker/</a></p>
 <p><a href="https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504">https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504</a></p>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器安装 Jellyfin</title><link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link><pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate><guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid><description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description><content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>PVE LXC Debian 12 容器安装 Jellyfin</title>
+      <link>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</link>
+      <pubDate>Tue, 26 Dec 2023 09:25:59 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-jellyfin-in-pve-lxc-debian-12-container/</guid>
+      <description>本文记录了如何在 PVE LXC 容器中使用 Docker 安装 Jellyfin。Jellyfin 是一套多媒体应用程序软件套装，旨在组织、管理和共享数字媒体文件。</description>
+      <content:encoded><![CDATA[<h2 id="pve-配置">PVE 配置</h2>
 <p>开启硬件直通：BIOS 中打开硬件直通相关选项（VT-d &amp; VMX）
 编辑 Grub</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/default/grub
@@ -2294,7 +2557,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89">https://gitee.com/spoto/PVE_Generic_AIO/tree/master/1%E3%80%81%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8ELXC%E7%9A%84Docker%E5%AE%B9%E5%99%A8_%EF%BC%88%E6%9C%AA%E5%AE%8C%E6%88%90%EF%BC%89</a></p>
 <p><a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux">https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/8/html/managing_file_systems/proc_mounting-an-smb-share-automatically-when-the-system-boots_assembly_mounting-an-smb-share-on-red-hat-enterprise-linux</a></p>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器换源与安装 Docker</title><link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link><pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate><guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid><description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description><content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>PVE LXC Debian 12 容器换源与安装 Docker</title>
+      <link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid>
+      <description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description>
+      <content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
@@ -2335,7 +2606,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://ihnic.com/index.php/archives/12/">https://ihnic.com/index.php/archives/12/</a></p>
 <p><a href="https://docs.portainer.io/start/install-ce/server/docker/linux">https://docs.portainer.io/start/install-ce/server/docker/linux</a></p>
 <p><a href="https://mirrors.ustc.edu.cn/help/debian.html">https://mirrors.ustc.edu.cn/help/debian.html</a></p>
-]]></content:encoded></item><item><title>群晖 DSM 研究笔记</title><link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link><pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid><description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖 DSM 研究笔记</title>
+      <link>https://weixiang.github.io/posts/synology-dsm-research-notes/</link>
+      <pubDate>Sat, 28 Oct 2023 11:38:05 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/synology-dsm-research-notes/</guid>
+      <description>本文记录了一些群晖 DSM 上的小技巧。Synology DiskStation Manager (DSM) 是专为 Synology NAS 打造的人性化操作系统，直观的图形管理界面、精简的操作流程，让您轻轻松松就能存储、管理和备份数据。</description>
+      <content:encoded><![CDATA[<h2 id="安装">安装</h2>
 <h2 id="编译-tinycore-redpill-引导">编译 tinycore-redpill 引导</h2>
 <h3 id="dsm-安装完成后无限重启">DSM 安装完成后无限重启？</h3>
 <p>引导与 pat 版本不一致导致的，断网安装可以避免安装过程中自动更新。</p>
@@ -2399,7 +2678,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://github.com/whyour/qinglong">https://github.com/whyour/qinglong</a></p>
 <p><a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a></p>
 <p><a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title><link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link><pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate><guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid><description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description><content:encoded><![CDATA[<h2 id="前言">前言</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖 DSM Docker 更改 Bridge 网段及配置镜像源</title>
+      <link>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</link>
+      <pubDate>Sat, 28 Oct 2023 03:57:20 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/changing-dockers-bridge-segment-in-dsm-and-configuring-the-mirror-source/</guid>
+      <description>由于群晖 Docker 套件的 Bridge 网桥默认的网段很容易和现有网段冲突，需要避开才可正常通信。本文记录了如何更改 Container Manager 的网段和配置国内加速镜像源。</description>
+      <content:encoded><![CDATA[<h2 id="前言">前言</h2>
 <p>2024 年 8 月 8 日更新：</p>
 <p>由于某些众所周知的原因，国内 Docker 镜像已经成为历史，本文已不具有可行性，仅供参考。</p>
 <hr>
@@ -2472,7 +2759,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <a href="https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet">https://support.hyperglance.com/knowledge/changing-the-default-docker-subnet</a>
 <a href="https://www.synoforum.com/threads/docker-restart-on-cli.4678/">https://www.synoforum.com/threads/docker-restart-on-cli.4678/</a>
 <a href="https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f">https://gist.github.com/styblope/dc55e0ad2a9848f2cc3307d4819d819f</a></p>
-]]></content:encoded></item><item><title>FRP 部署笔记</title><link>https://weixiang.github.io/posts/frp-deployment-notes/</link><pubDate>Fri, 13 Oct 2023 02:12:06 +0800</pubDate><guid>https://weixiang.github.io/posts/frp-deployment-notes/</guid><description>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议，且支持 P2P 通信。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</description><content:encoded><![CDATA[<h2 id="服务端">服务端</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>FRP 部署笔记</title>
+      <link>https://weixiang.github.io/posts/frp-deployment-notes/</link>
+      <pubDate>Fri, 13 Oct 2023 02:12:06 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/frp-deployment-notes/</guid>
+      <description>frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议，且支持 P2P 通信。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。</description>
+      <content:encoded><![CDATA[<h2 id="服务端">服务端</h2>
 <p>下载安装包</p>
 <p>在 <a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a> 中下载对应架构的安装包，解压放置到 /usr/local 目录下。</p>
 <p>使用 Docker</p>
@@ -2588,7 +2883,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl"><span class="na">plugin_local_addr</span> <span class="o">=</span> <span class="s">172.17.0.1:5000</span>
 </span></span><span class="line"><span class="cl"><span class="na">plugin_crt_path</span> <span class="o">=</span> <span class="s">/etc/frp/example.com.pem</span>
 </span></span><span class="line"><span class="cl"><span class="na">plugin_key_path</span> <span class="o">=</span> <span class="s">/etc/frp/example.com.key</span>
-</span></span></code></pre></div>]]></content:encoded></item><item><title>Debian 11 宝塔安装 Flarum</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description><content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>Debian 11 宝塔安装 Flarum</title>
+      <link>https://weixiang.github.io/posts/debian11-baotapanel-installation-flarum/</link>
+      <pubDate>Wed, 11 Oct 2023 18:06:25 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/debian11-baotapanel-installation-flarum/</guid>
+      <description>本文介绍如何在 Debian 11 宝塔环境安装 Flarum。Flarum 是一款用于网络论坛的自由软件，主要用 PHP 编写，但其用户界面的代码结合了 JavaScript 和 TypeScript 两种语言。它是由两个论坛软件 FluxBB 和 esoTalk 合并而来。Flarum 被设计为具有高可扩展性的极简论坛软件。</description>
+      <content:encoded><![CDATA[<h2 id="服务器要求">服务器要求</h2>
 <ul>
 <li><strong>Apache</strong> (with mod_rewrite enabled) or <strong>Nginx</strong></li>
 <li><strong>PHP 8.0+</strong> with the following extensions: curl, dom, fileinfo, gd, json, mbstring, openssl, pdo_mysql, tokenizer, zip</li>
@@ -2607,15 +2910,13 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </ol>
 <blockquote>
 <p>2024 年 8 月 11 日更新：
-根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code> 、<code>exif</code></p>
-</blockquote>
+根据官方文档应该只需要 <code>fileinfo</code> 、<code>mbstring</code> 、<code>exif</code></p></blockquote>
 <p>最大脚本运行时间（<code>max_execution_time</code>）：600</p>
 <p>脚本内存限制（<code>memory_limit</code>）：512M 或 1024M</p>
 <h2 id="安装-composer">安装 Composer</h2>
 <blockquote>
 <p>2024 年 8 月 12 日更新：
-宝塔版本 7.0.7 默认的 PHP 8.3 插件似乎已经自带了 Composer，不用另外安装了。</p>
-</blockquote>
+宝塔版本 7.0.7 默认的 PHP 8.3 插件似乎已经自带了 Composer，不用另外安装了。</p></blockquote>
 <p>更新软件包并安装依赖</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
 </span></span><span class="line"><span class="cl">sudo apt install curl php-cli php-mbstring git unzip
@@ -2656,7 +2957,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </ul>
 <h2 id="更新记录">更新记录</h2>
 <p>2024 年 8 月 12 日：更新宝塔 7.0.7 安装</p>
-]]></content:encoded></item><item><title>华硕飞行堡垒 9 安装 Windows11</title><link>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</link><pubDate>Mon, 25 Sep 2023 14:25:04 +0800</pubDate><guid>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</guid><description>以 FX506HCB 为例，记录安装 Windows11 系统，解决驱动问题。</description><content:encoded><![CDATA[<p>以<code>FX506HCB</code>为例，记录安装 Windows11 系统。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>华硕飞行堡垒 9 安装 Windows11</title>
+      <link>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</link>
+      <pubDate>Mon, 25 Sep 2023 14:25:04 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-windows-11-on-asus-rog-zephyrus/</guid>
+      <description>以 FX506HCB 为例，记录安装 Windows11 系统，解决驱动问题。</description>
+      <content:encoded><![CDATA[<p>以<code>FX506HCB</code>为例，记录安装 Windows11 系统。</p>
 <h2 id="写入-windows11-镜像">写入 Windows11 镜像</h2>
 <ol>
 <li>制作一个驱动盘，例如 <a href="http://www.wepe.com.cn/download.html">http://www.wepe.com.cn/download.html</a></li>
@@ -2668,8 +2977,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </ol>
 <h2 id="发现问题">发现问题</h2>
 <p>系统写入完毕后重启，出现蓝屏，代码：<code>INACCESSIBLE BOOT DEVICE BSOD</code></p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101653571.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101653571.webp"></p>
 <p>进研究，该问题的原因是 Windows 未内置英特尔的 RAID 驱动，导致无法识别出电脑硬盘。</p>
 <h2 id="打上花火驱动">打上<del>花火</del>驱动</h2>
 <p>下载英特尔的 RAID 驱动：</p>
@@ -2677,7 +2985,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p>这里我们由于进入不了系统，所以需要下载独立于操作系统这个 <code>RST-f6vmdflpy-Win10-18.0.1.1138</code>，安装完毕后，即可正常按普通 Windows 安装流程进行。</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.itsk.com/thread-416713-1-1.html">https://www.itsk.com/thread-416713-1-1.html</a></p>
-]]></content:encoded></item><item><title>HomeLab 搭建笔记</title><link>https://weixiang.github.io/posts/homelab-deployment-record/</link><pubDate>Thu, 27 Jul 2023 13:12:04 +0800</pubDate><guid>https://weixiang.github.io/posts/homelab-deployment-record/</guid><description>Homelab 是指可在家中搭建的实验（折腾）环境，用于进行实验和学习。本文记录了一次 HomeLab 的搭建过程，包含多个服务的配置，主要使用 Docker 和群晖 DSM 构成。</description><content:encoded><![CDATA[<h2 id="adguard-home">AdGuard Home</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>HomeLab 搭建笔记</title>
+      <link>https://weixiang.github.io/posts/homelab-deployment-record/</link>
+      <pubDate>Thu, 27 Jul 2023 13:12:04 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/homelab-deployment-record/</guid>
+      <description>Homelab 是指可在家中搭建的实验（折腾）环境，用于进行实验和学习。本文记录了一次 HomeLab 的搭建过程，包含多个服务的配置，主要使用 Docker 和群晖 DSM 构成。</description>
+      <content:encoded><![CDATA[<h2 id="adguard-home">AdGuard Home</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --network host<span class="se">\
@@ -2796,7 +3112,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;json-file&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w"> </span><span class="c"># 限制 docker 控制台日志大小，可自行调整</span><span class="w">
-</span></span></span></code></pre></div>]]></content:encoded></item><item><title>为红米 AX6S 编译 X-Wrt</title><link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link><pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid><description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description><content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
+</span></span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>为红米 AX6S 编译 X-Wrt</title>
+      <link>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</link>
+      <pubDate>Wed, 19 Jul 2023 16:31:53 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-x-wrt-for-redmi-ax6s/</guid>
+      <description>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt。OpenClash 插件是一个可运行在 OpenWrt 上的 Clash 客户端，兼容 Shadowsocks、ShadowsocksR、Vmess、Trojan、Snell 等协议，根据灵活的规则配置实现策略代理。</description>
+      <content:encoded><![CDATA[<p>以红米 AX6S 为例，编译一个带 OpenClash 的 X-Wrt</p>
 <h2 id="路由器准备">路由器准备</h2>
 <h3 id="解锁-telnet">解锁 Telnet</h3>
 <p>进入小米路由器后台<code>192.168.31.1</code>，通过固件升级，刷入开发版固件 <a href="https://www.right.com.cn/forum/thread-8173581-1-1.html">https://www.right.com.cn/forum/thread-8173581-1-1.html</a></p>
@@ -2871,8 +3195,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800636.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -2881,8 +3204,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl"><span class="c1">#5 最后一次 执行 make menuconfig 自定义选择你需要的软件包</span>
 </span></span></code></pre></div><h3 id="配置模板">配置模板</h3>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101800617.webp"></p>
 <h3 id="添加软件包">添加软件包</h3>
 <p>要编译到固件里面，就要选择<code>&lt;*&gt;</code>，如果只选择<code>&lt;M&gt;</code>只是编译成软件包<code>ipk</code>，不会打包进入固件。
 进入<code>LuCI - Applications</code>子菜单下面，选择自己想要的应用
@@ -2913,7 +3235,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://blog.x-wrt.com/">https://blog.x-wrt.com/</a></p>
 <p><a href="https://qust.me/post/ax6s/">https://qust.me/post/ax6s/</a></p>
 <p><a href="https://github.com/vernesong/OpenClash">https://github.com/vernesong/OpenClash</a></p>
-]]></content:encoded></item><item><title>使用群晖 Web Station 搭建 Heimdall 导航页</title><link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link><pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate><guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid><description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description><content:encoded><![CDATA[<h2 id="安装环境">安装环境</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用群晖 Web Station 搭建 Heimdall 导航页</title>
+      <link>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</link>
+      <pubDate>Wed, 19 Jul 2023 16:19:43 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-synology-web-station-to-build-heimdall-navigation-page/</guid>
+      <description>Heimdall 是一个专为组织网页应用而设计的仪表盘，你可以将任意链接添加到其中。它简洁优雅，避免了链接被书签淹没的情况，还可以作为浏览器的起始页，支持通过 Google、Bing 或 DuckDuckGo 搜索。</description>
+      <content:encoded><![CDATA[<h2 id="安装环境">安装环境</h2>
 <p>在套件中心安装 Web Station，随后选择安装 PHP 7.4，Nginx 默认已经安装。</p>
 <h2 id="创建网站">创建网站</h2>
 <p>在 Web Station 中新建一个虚拟主机，在 web 中新建一个文件夹作为文档根目录，PHP 选择 PHP 7.4。</p>
@@ -2969,7 +3299,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://github.com/linuxserver/Heimdall">https://github.com/linuxserver/Heimdall</a></p>
 <p><a href="https://post.smzdm.com/p/a07mx329/">https://post.smzdm.com/p/a07mx329/</a></p>
 <p><a href="https://www.simaek.com/archives/298/">https://www.simaek.com/archives/298/</a></p>
-]]></content:encoded></item><item><title>使用 SakuraFrp 内网穿透 DSM</title><link>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</link><pubDate>Wed, 19 Jul 2023 16:19:16 +0800</pubDate><guid>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</guid><description>使用 SakuraFrp 内网穿透 DSM 和 HomeAssistant。SakuraFrp 是免费的内网穿透服务。SakuraFrp 是由 KasuganoSora 开发、维护的一个共享内网穿透管理平台，长期提供免费的内网穿透服务。</description><content:encoded><![CDATA[<h2 id="docker-部署-sakurafrp-客户端">Docker 部署 SakuraFrp 客户端</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 SakuraFrp 内网穿透 DSM</title>
+      <link>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</link>
+      <pubDate>Wed, 19 Jul 2023 16:19:16 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</guid>
+      <description>使用 SakuraFrp 内网穿透 DSM 和 HomeAssistant。SakuraFrp 是免费的内网穿透服务。SakuraFrp 是由 KasuganoSora 开发、维护的一个共享内网穿透管理平台，长期提供免费的内网穿透服务。</description>
+      <content:encoded><![CDATA[<h2 id="docker-部署-sakurafrp-客户端">Docker 部署 SakuraFrp 客户端</h2>
 <p>参考官方文档：<a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
 <ol>
 <li>安装 Docker 套件</li>
@@ -2988,8 +3326,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-f 6i862oypc561ipo5ku9uz895o40jh73:7605087,7605086,7605085
 </span></span></code></pre></div><h2 id="ssl-证书配置">SSL 证书配置</h2>
 <blockquote>
-<p>官方文档有说明：<a href="https://doc.natfrp.com/frpc/ssl.html">https://doc.natfrp.com/frpc/ssl.html</a></p>
-</blockquote>
+<p>官方文档有说明：<a href="https://doc.natfrp.com/frpc/ssl.html">https://doc.natfrp.com/frpc/ssl.html</a></p></blockquote>
 <p>但尝试过后发现无法使用，原因未知（浪费 5 个小时</p>
 <p>最后使用 DSM 自带的反向代理解决。</p>
 <p>首先，准备一个域名，使用 CNAME 解析到 SakuraFrp 的节点地址，参考 <a href="https://doc.natfrp.com/app/http.html#setup-dns">https://doc.natfrp.com/app/http.html#setup-dns</a></p>
@@ -3021,7 +3358,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">外部 URL：https://自己域名地址：穿透后端口号
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
-]]></content:encoded></item><item><title>ZeroTier-One 私有 MOON 节点搭建</title><link>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</link><pubDate>Wed, 19 Jul 2023 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</guid><description>由于 ZeroTier 在国内并没有中转节点，导致速度非常缓慢，可以通过自己搭建 Moon 节点来提升使用体验。ZeroTier 是一款非常简单易用的内网穿透工具，不需要配置，就能实现虚拟局域网的组建，让你可以在外也能连回家中、学校、办公室的电脑获取资料，数据。</description><content:encoded><![CDATA[<h2 id="安装">安装</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>ZeroTier-One 私有 MOON 节点搭建</title>
+      <link>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</link>
+      <pubDate>Wed, 19 Jul 2023 16:18:31 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-zerotier-one-private-moon-node/</guid>
+      <description>由于 ZeroTier 在国内并没有中转节点，导致速度非常缓慢，可以通过自己搭建 Moon 节点来提升使用体验。ZeroTier 是一款非常简单易用的内网穿透工具，不需要配置，就能实现虚拟局域网的组建，让你可以在外也能连回家中、学校、办公室的电脑获取资料，数据。</description>
+      <content:encoded><![CDATA[<h2 id="安装">安装</h2>
 <p>登录到服务器，一键安装</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s https://install.zerotier.com/ <span class="p">|</span> sudo bash
 </span></span></code></pre></div><p>启动服务</p>
@@ -3050,7 +3395,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli orbit 4c725ecec8 4c725ecec8
 </span></span></code></pre></div><p>查看状态</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zerotier-cli listpeers
-</span></span></code></pre></div>]]></content:encoded></item><item><title>群晖部署青龙面板</title><link>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</link><pubDate>Wed, 19 Jul 2023 16:18:18 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</guid><description>本文记录在群晖 DSM 上使用 Docker 部署青龙面板。青龙，又名苍龙，在中国传统文化中是四象之一、天之四灵之一。青龙面板是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台</description><content:encoded><![CDATA[<h2 id="启动容器">启动容器</h2>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖部署青龙面板</title>
+      <link>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</link>
+      <pubDate>Wed, 19 Jul 2023 16:18:18 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</guid>
+      <description>本文记录在群晖 DSM 上使用 Docker 部署青龙面板。青龙，又名苍龙，在中国传统文化中是四象之一、天之四灵之一。青龙面板是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台</description>
+      <content:encoded><![CDATA[<h2 id="启动容器">启动容器</h2>
 <p>Docker 镜像可能更新有延迟，可以通过将 <code>latest</code> 替换为版本号，来指定拉取最新版本。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -dit <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/config:/ql/config <span class="se">\
@@ -3156,7 +3509,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://github.com/RayWangQvQ/BiliBiliToolPro">https://github.com/RayWangQvQ/BiliBiliToolPro</a></p>
 <p><a href="https://github.com/FlechazoPh/QLDependency">https://github.com/FlechazoPh/QLDependency</a></p>
 <p><a href="https://github.com/Ethiner/hoyolab_daily_login">https://github.com/Ethiner/hoyolab_daily_login</a></p>
-]]></content:encoded></item><item><title>自己编译 OpenWRT</title><link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link><pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid><description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description><content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>自己编译 OpenWRT</title>
+      <link>https://weixiang.github.io/posts/compile-openwrt-yourself/</link>
+      <pubDate>Fri, 12 May 2023 14:21:36 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-openwrt-yourself/</guid>
+      <description>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，自己为红米 AC2100 编译一个 OpenWRT 路由器固件。</description>
+      <content:encoded><![CDATA[<p>以 X-WRT 为例，使用 Ubuntu 22.04 LTS 系统，建议使用国外服务器编译。</p>
 <h2 id="编译准备">编译准备</h2>
 <p>不要用<code>root</code>用户进行编译操作，因此需要先新建一个用户，并且授予<code>root</code>权限</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Login via SSH</span>
@@ -3211,8 +3572,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span><span class="line"><span class="cl">make menuconfig
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 2 进入 Target Profile 选择需要编译打包的设备型号，选择型号后立刻退出，保存</span>
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754249.webp"></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#3 执行下面的命令修复 .config</span>
 </span></span><span class="line"><span class="cl">sh feeds/x/rom/lede/fix-config.sh
 </span></span><span class="line"><span class="cl">
@@ -3224,8 +3584,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </span></span></code></pre></div><h2 id="配置目标可选项">配置目标（可选项）</h2>
 <p>在上述准备好的模版配置文件的基础上，执行<code>make menuconfig</code>命令进行个性化定制，增删应用。</p>
 <p>定位到各个子菜单，选择对应的软件包。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408101754239.webp"></p>
 <h3 id="添加自定义源">添加自定义源</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 进入openwrt目录</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ~/openwrt
@@ -3397,7 +3756,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a></p>
 <p><a href="https://github.com/skyformat99/eqos/blob/master/README_ZH.md">https://github.com/skyformat99/eqos/blob/master/README_ZH.md</a></p>
 <p><a href="https://xiaohai.co/build-openwrt-firmware/">https://xiaohai.co/build-openwrt-firmware/</a></p>
-]]></content:encoded></item><item><title>Windows11 安装 WLS2 Ubuntu 子系统</title><link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link><pubDate>Tue, 25 Apr 2023 13:13:45 +0800</pubDate><guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid><description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description><content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Windows11 安装 WLS2 Ubuntu 子系统</title>
+      <link>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</link>
+      <pubDate>Tue, 25 Apr 2023 13:13:45 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-wls2-ubuntu-subsystem-on-windows11/</guid>
+      <description>在 Windows11 上安装和配置 WLS2 Ubuntu 子系统，以 RedmiBook Pro 2022 锐龙版为例。</description>
+      <content:encoded><![CDATA[<h2 id="开启虚拟化功能">开启虚拟化功能</h2>
 <p>首先需要去 BIOS 开启虚拟化，各品牌电脑不一致。
 RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。</p>
 <h2 id="安装-wls2">安装 WLS2</h2>
@@ -3435,7 +3802,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/install">https://learn.microsoft.com/en-us/windows/wsl/install</a>
 <a href="https://zhuanlan.zhihu.com/p/466001838">https://zhuanlan.zhihu.com/p/466001838</a>
 <a href="https://zinglix.xyz/2020/04/18/wsl2-proxy/">https://zinglix.xyz/2020/04/18/wsl2-proxy/</a></p>
-]]></content:encoded></item><item><title>CSS 中英文使用不同字体</title><link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link><pubDate>Wed, 07 Dec 2022 11:49:25 +0800</pubDate><guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid><description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description><content:encoded><![CDATA[<p>又来捣鼓网页字体了，在此之前已经搞了几篇了</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>CSS 中英文使用不同字体</title>
+      <link>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</link>
+      <pubDate>Wed, 07 Dec 2022 11:49:25 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/set-different-fonts-for-english-and-chinese-in-css/</guid>
+      <description>在 CSS 中设置网页中的中英文使用不同的字体，优化代码阅读体验。</description>
+      <content:encoded><![CDATA[<p>又来捣鼓网页字体了，在此之前已经搞了几篇了</p>
 <p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a></p>
 <p><a href="/posts/-font-selection-and-development-guide-in-chinese-web-pages/">给 Ghost 博客更换字体</a></p>
 <p><a href="/posts/-use-of-fonts-in-design/">字体在设计中的运用</a></p>
@@ -3459,7 +3834,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>代码块中的中文就被替换为了我们指定的中文字体，就是这个效果</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I can eat glass, it doesn&#39;t hurt me.&#34;</span><span class="p">);</span> <span class="c1">// 我能吞下玻璃而不伤身体。
-</span></span></span></code></pre></div>]]></content:encoded></item><item><title>Docker 部署 MySQL 8.0</title><link>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</link><pubDate>Wed, 07 Dec 2022 05:42:29 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</guid><description>使用 Docker Compose 部署 MySQL 8.0 数据库服务器，数据持久化，以及配置远程访问权限。</description><content:encoded><![CDATA[<h2 id="配置文件">配置文件</h2>
+</span></span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>Docker 部署 MySQL 8.0</title>
+      <link>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</link>
+      <pubDate>Wed, 07 Dec 2022 05:42:29 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-mysql-8-0-using-docker/</guid>
+      <description>使用 Docker Compose 部署 MySQL 8.0 数据库服务器，数据持久化，以及配置远程访问权限。</description>
+      <content:encoded><![CDATA[<h2 id="配置文件">配置文件</h2>
 <p>将以下内容存为 <code>stack.yml</code>，此处为了不与本机已有的 MySQL 5.x 冲突，重新映射了端口。</p>
 <p>需要提前建好 <code>/www/server/mysql8/mysql</code> 目录和 <code>my.cnf</code> 文件。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.1&#39;</span><span class="w">
@@ -3504,7 +3887,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a></p>
 <p><a href="http://netsite.win/2018/06/13/mysql/mysql8%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%8F%8A%E6%8E%88%E6%9D%83-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5-%E5%9D%91/">http://netsite.win/2018/06/13/mysql/mysql8%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%8F%8A%E6%8E%88%E6%9D%83-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5-%E5%9D%91/</a></p>
-]]></content:encoded></item><item><title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title><link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link><pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate><guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid><description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description><content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>OpenWrt 安装 Shadowsocks-Libev 作透明代理</title>
+      <link>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</link>
+      <pubDate>Tue, 06 Sep 2022 14:59:51 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-shadowsocks-libev-as-a-transparent-proxy-on-openwrt/</guid>
+      <description>Shadowsocks 是一种基于 Socks5 代理方式的加密传输协议，透明代理是一种位于用户设备与互联网之间的服务器，能够在不改变请求或响应内容且无需用户配置的情况下，拦截并管理所有互联网流量，用于内容过滤、安全监控和缓存。</description>
+      <content:encoded><![CDATA[<h2 id="安装-shadowsocks-libev-插件">安装 Shadowsocks-libev 插件</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#我们使用https下载软件源</span>
 </span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/http:/https:/g&#39;</span> /etc/opkg/distfeeds.conf
 </span></span><span class="line"><span class="cl">
@@ -3541,7 +3932,15 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">192.168.0.0/16
 </span></span><span class="line"><span class="cl">172.16.0.0/12
 </span></span><span class="line"><span class="cl">10.0.0.0/8
-</span></span></code></pre></div>]]></content:encoded></item><item><title>解决华擎 J3455 主板 DSM 兼容性问题</title><link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link><pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate><guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid><description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description><content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
+</span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>解决华擎 J3455 主板 DSM 兼容性问题</title>
+      <link>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</link>
+      <pubDate>Tue, 16 Aug 2022 14:06:57 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/solve-the-dsm-compatibility-issue-of-asrock-j3455-motherboard/</guid>
+      <description>通过 AmiSetupWriter 修改隐藏的 BIOS 选项，解决了华擎 J3455 主板安装 DSM 黑群晖的兼容性问题。</description>
+      <content:encoded><![CDATA[<p>原本华擎 J3455 是最接近 DS918 原厂配置的主板，乃黑群晖之上品，但却因为华擎的骚操作，导致这款主板安装 DSM 时会出现各种奇奇怪怪的问题，启动慢，传输速度慢等等。在距离这款主板发布五年有余的 2022 年，终于水落石出。问题就出在华擎在 BIOS 中隐藏了 OS 兼容性的选项。</p>
 <h2 id="破题">破题</h2>
 <p>参考其他主板的 BIOS</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">0x193E1                 One Of: OS Selection, VarStoreInfo (VarOffset/VarName): 0x494, VarStore: 0x1, QuestionId: 0x272A, Size: 1, Min: 0x0, Max 0x4, Step: 0x0 {05 91 9C 01 9D 01 2A 27 01 00 94 04 14 10 00 04 00}
@@ -3565,11 +3964,10 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>解决这个问题，首先要将 BIOS 升级到最新的 1.8 版本，若原版本过旧，需要先升级到 1.7 再升级为 1.8。</p>
 <p>前往华擎官网下载即可：<a href="https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS">https://www.asrock.com/mb/Intel/J3455-ITX/index.cn.asp#BIOS</a></p>
 <p>下载 BIOS 时，通过 <code>中国</code> 无法下载时，可以开代理，选择 <code>全球</code> 会更快一些。</p>
-<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
+<p>华擎 J3455 P1.8 BIOS 下载地址：<a href="https://download.asrock.com/BIOS/CPU/J3455-ITX%281.80%29ROM.zip">https://download.asrock.com/BIOS/CPU/J3455-ITX(1.80)ROM.zip</a></p>
 <p>下载后 <strong>解压</strong> 到 U 盘，重启按住 F6 即可进入升级界面（图文不符）。</p>
 <p>具体可参考：<a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
-<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://www.asrock.com/support/images/BIOSUI-BIOS8-4.jpg"></p>
 <h2 id="制作-amisetupwriter-启动盘">制作 AmiSetupWriter 启动盘</h2>
 <p>首先建议选择 UEFI 进行引导。</p>
 <p>下载 <code>AmiSetupWriter</code>，解压到一个 <strong>FAT32</strong> 的空白 U 盘的根目录。</p>
@@ -3580,8 +3978,7 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <h2 id="修改-bios">修改 BIOS</h2>
 <p>将启动盘插入目标设备，启动时按 F11，选择从 U 盘启动。</p>
 <p>会出现一个终端 <code>Shell&gt;</code>，大概长这样（图文不符）：</p>
-<p><img loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg" alt="image.png"  />
-</p>
+<p><img alt="image.png" loading="lazy" src="https://winraid.level1techs.com/uploads/default/original/3X/0/5/05fae3e1ad38a4754b749860e17b9af19598d7f2.jpeg"></p>
 <p>输入命令：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">amisetupwriter 0x4E2 0x3
 </span></span></code></pre></div><p>然后输入 <code>exit</code> 退出，重启完工。
@@ -3591,10 +3988,17 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><a href="https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8">https://www.asrock.com/support/BIOSIG.cn.asp?cat=BIOS8</a></p>
 <p><a href="https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801">https://winraid.level1techs.com/t/tool-guide-ami-setup-ifr-extractor-amisetupwriter/32801</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>自己动手编译 DSM7 引导</title><link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link><pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate><guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid><description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>自己动手编译 DSM7 引导</title>
+      <link>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</link>
+      <pubDate>Fri, 12 Aug 2022 08:45:41 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/compile-your-own-dsm7-boot/</guid>
+      <description>使用 tinycore-redpill 自己动手编译黑群晖 Synology DSM7 的引导镜像，以华擎 J3455 为例。</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>假期给家里组了一台 NAS，万由 401 机箱 + 华擎 J3455。</p>
 <p>没想到过程比预想中要曲折许多，买了才知道，华擎 J3455 是著名的“妖板”。</p>
 <p>安装各种出错，启动时间巨长（至少十分钟），网速飘忽不定，还有 DSM 中各种奇奇怪怪的 Bug……</p>
@@ -3602,28 +4006,23 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>听说是驱动问题造成的，自己编译引导可以一定程度上缓解这些问题。</p>
 <p>于是就有了下面的笔记。</p>
 <blockquote>
-<p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p>
-</blockquote>
+<p>事实证明确实靠谱，比用通用引导稳定了不少，目前已经平稳运行两周有余。感谢 pocopico 和 llm-y2k 两位开发者。</p></blockquote>
 <h2 id="制作-tinycore-redpill-启动盘">制作 tinycore-redpill 启动盘</h2>
 <p>前往项目：<a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a>
 这里采用了 llm-y2k 修改的换源版镜像：</p>
 <blockquote>
-<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p>
-</blockquote>
+<p>pocopico 发布的<a href="https://github.com/pocopico/tinycore-redpill">Tinycore-redpill</a>实现编译 DSM7 引导的自动化，省去繁琐的手工操作部分，造福了广大玩家。但由于众所周知的原因，</p></blockquote>
 <p>Tinycore-redpill 在国内网络基本无法使用，U 盘引导 NAS 实体机编译时几乎无法完成，遂修改部分代码以适应国内网络环境，目前已可正常使用。</p>
 <p>下载镜像文件，根据设备情况选择不同的引导镜像，我这里选用了<code>[tinycore-redpill-uefi.v0.8.0.0.img.gz](https://github.com/llm-y2k/tinycore-redpill/blob/cn/tinycore-redpill-uefi.v0.8.0.0.img.gz)</code>。</p>
 <p>使用任意引导盘制作工具，如 Rufus，烧录进 U 盘即可。</p>
 <h2 id="启动-tinycore-redpill">启动 tinycore-redpill</h2>
 <p>将烧写完成的 U 盘插入目标设备，选择从 U 盘启动即可进入系统，点击下图图标进入终端。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIK9e.md.jpg"></p>
 <p>使用<code>ifconfig</code>命令查看设备 IP 地址</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIM1H.jpg"></p>
 <p>使用任意 SSH 工具连接到上面的 IP，账号为<code>tc</code>，密码为<code>P@ssw0rd</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh tc@192.168.0.243
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI3nI.jpg"></p>
 <h2 id="更新脚本">更新脚本</h2>
 <p>首先更新脚本</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo curl https://raw.0z.gs/llm-y2k/tinycore-redpill/main/rploader-cn.sh<span class="p">|</span>bash -s fullupgrade
@@ -3635,16 +4034,13 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">或者
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh serialgen DS3615xs now
 </span></span><span class="line"><span class="cl">这里设置nas机型，推荐选择918和3615两种中的一种
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIGHP.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIGHP.jpg"></p>
 <p>配置盘序文件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh satamap now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIYAf.jpg"></p>
 <p>生成 U 盘 VID、PID 信息</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ./rploader-cn.sh identifyusb now
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAItN8.jpg"></p>
 <h2 id="开始编译">开始编译</h2>
 <p>配置完成后，正式开始编译，根据机器和网络速度，耗时可能会比较长，耐心等待即可。
 建议上游做好代理设置，跑起来会比较顺利。</p>
@@ -3653,46 +4049,45 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build apollolake-7.0.1-42218
 </span></span><span class="line"><span class="cl">3615：
 </span></span><span class="line"><span class="cl">sudo ./rploader-cn.sh build bromolow-7.0.1-42218
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIN4S.jpg"></p>
 <p>curl 35 错误不妨休息一下，过会再试，curl 60 错误不妨检查下 Nas 机器本地时间是否正确。
 由于网络原因，可能个别驱动下载失败，别慌，重新再次编译即可。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAId3Q.jpg"></p>
 <p>编译成功！切换到 winscp 去下载生成的文件</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIa9g.jpg"></p>
 <h2 id="备份引导">备份引导</h2>
 <p>下载引导镜像文件，做好备份有备无患，此引导镜像相当于为此设备定制。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAI0js.md.jpg"></p>
 <p>最后回到 putty，正式存盘，一定要存盘！一定要存盘！一定要存盘！</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo filetool.sh -b
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIDun.jpg"></p>
 <p>最后重启设备</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo reboot
-</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg" alt=""  />
-</p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://s1.ax1x.com/2022/03/19/qAIrBq.jpg"></p>
 <p>理论上会自动引导进入 DSM 的安装界面，如果没有，可以将上面备份的镜像写入 U 盘，再进行引导。接下来就是常规的 DSM 安装流程了。</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/">https://www.openos.org/threads/0-8-0-3dsm7tinycore-redpill.4050/</a></p>
 <p><a href="https://github.com/llm-y2k/tinycore-redpill">https://github.com/llm-y2k/tinycore-redpill</a></p>
 <p><a href="https://github.com/pocopico/tinycore-redpill">https://github.com/pocopico/tinycore-redpill</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，发布于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>Ghost 使用 DisqusJS 3.0 评论</title><link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link><pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid><description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description><content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 使用 DisqusJS 3.0 评论</title>
+      <link>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</link>
+      <pubDate>Thu, 11 Aug 2022 09:56:57 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-uses-disqusjs-3-0-comment-plugin/</guid>
+      <description>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件，本文记录一次 DisqusJS 在 Ghost 博客上的安装过程。</description>
+      <content:encoded><![CDATA[<p>由于 Ghost 不自带评论系统，所以如果想在文章中添加评论区的话，就必须使用第三方的评论系统，其中最合适的就是 Disqus。
 但因为众所周知的原因，在世界上的某些地区是无法使用 Disqus 这样的 404 评论系统的。</p>
 <p>DisqusJS 的出现，可以一定程度上缓解这个问题。</p>
 <blockquote>
-<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p>
-</blockquote>
+<p>DisqusJS 是一个基于 Disqus API 和 React 开发的 Embed 插件。DisqusJS 通过 Disqus API 渲染只读的评论列表，搭配反向代理可以实现在网络审查地区加载 Disqus 评论列表；支持自动检测访客是否能够访问 Disqus、并自动选择加载原生 Disqus（评论完整模式）或 DisqusJS 提供的评论基础模式。</p></blockquote>
 <p>此前本站就在用 DisqusJS 1.3 作为评论支持，趁着这次升级版本记录一下操作。</p>
 <blockquote>
-<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p>
-</blockquote>
+<p>Tips：本文基于 DisqusJS 的新版本 3.0 进行操作。</p></blockquote>
 <h2 id="添加头文件">添加头文件</h2>
 <p>在<code>Code Injection</code>中的<code>Site Header</code>添加 DisqusJS 的头文件即可</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css&#34;</span><span class="p">&gt;</span>
@@ -3716,14 +4111,11 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h3 id="配置-disqus-application">配置 Disqus Application</h3>
 <p>在 <a href="https://disqus.com/api/applications/">Disqus API Application</a> 处注册一个 Application。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vepaH&amp;originHeight=520&amp;originWidth=1054&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb71f99369d.png#crop=0&crop=0&crop=1&crop=1&id=vepaH&originHeight=520&originWidth=1054&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <p>点击新创建的 Application，获取你的 API Key（公钥）。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=n2k7W&amp;originHeight=306&amp;originWidth=644&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb723acbe07.png#crop=0&crop=0&crop=1&crop=1&id=n2k7W&originHeight=306&originWidth=644&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <p>在 Application 的 Settings 页面设置你使用 DisqusJS 时的域名。Disqus API 会检查 API 请求的 Referrer 和 Origin。</p>
-<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=tIQea&amp;originHeight=267&amp;originWidth=710&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt=""  />
-</p>
+<p><img loading="lazy" src="https://i.loli.net/2018/10/08/5bbb735b9d2a4.png#crop=0&crop=0&crop=1&crop=1&id=tIQea&originHeight=267&originWidth=710&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="></p>
 <h2 id="配置-disqusjs-参数">配置 DisqusJS 参数</h2>
 <p><strong>shortname</strong> <code>{string}</code></p>
 <ul>
@@ -3781,8 +4173,17 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><strong>adminLabel</strong> <code>{string}</code></p>
 <ul>
 <li>你想显示在 Disqus Moderator Badge 中的文字。该配置应和 <a href="https://disqus.com/admin/settings/community/">Disqus Admin - Settings - Community - Moderator Badge Text</a> 相同</li>
-<li>非必须，无默认值</li>
-<li></li>
+<li>
+<table>
+  <thead>
+      <tr>
+          <th>非必须，无默认值</th>
+      </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</li>
 </ul>
 <h2 id="渲染评论">渲染评论</h2>
 <p>最后，让 DisqusJS 实例将评论组件渲染到页面上：</p>
@@ -3832,17 +4233,23 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <a href="https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/">https://yrom.net/blog/2018/10/18/Use-DisqusJS-for-comment/</a>
 <a href="https://ghost.org/integrations/disqus/">https://ghost.org/integrations/disqus/</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></p>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>Flarum 站点服务器迁移笔记</title><link>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</link><pubDate>Mon, 08 Aug 2022 05:55:00 +0800</pubDate><guid>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</guid><description>记录一次使用宝塔面板进行 Flarum 论坛网站服务器迁移的过程。</description><content:encoded><![CDATA[<h2 id="备份原站点">备份原站点</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Flarum 站点服务器迁移笔记</title>
+      <link>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</link>
+      <pubDate>Mon, 08 Aug 2022 05:55:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/flarum-web-server-migration-notes/</guid>
+      <description>记录一次使用宝塔面板进行 Flarum 论坛网站服务器迁移的过程。</description>
+      <content:encoded><![CDATA[<h2 id="备份原站点">备份原站点</h2>
 <p>将网站目录及数据库打包，妥善保管。</p>
 <h2 id="部署新站点">部署新站点</h2>
 <p>在新服务器进行 Flarum 站点的全新部署，具体可参考
 <a href="https://discuss.flarum.org.cn/d/2195">https://discuss.flarum.org.cn/d/2195</a></p>
 <p>无需配置新站点，站点可以正常打开就行，到下图这一步即可，不用填写信息，稍后会直接从配置文件进行恢复。</p>
-<p><img loading="lazy" src="https://s1.ax1x.com/2020/10/15/0THoQI.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://s1.ax1x.com/2020/10/15/0THoQI.png"></p>
 <h2 id="恢复备份">恢复备份</h2>
 <ol>
 <li>将站点及数据库备份上传到新服务器，解压到一个新文件夹，不要覆盖直接新站点。</li>
@@ -3854,10 +4261,17 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p><a href="https://www.wapriaily.com/flarum-pagoda-perfect-migration-tutorial/">https://www.wapriaily.com/flarum-pagoda-perfect-migration-tutorial/</a>
 <a href="https://discuss.flarum.org.cn/d/2195">https://discuss.flarum.org.cn/d/2195</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>哪吒监控探针部署</title><link>https://weixiang.github.io/posts/nezha-monitoring-deployment/</link><pubDate>Tue, 19 Jul 2022 16:18:31 +0800</pubDate><guid>https://weixiang.github.io/posts/nezha-monitoring-deployment/</guid><description>哪吒监控是一款轻量化的服务器监控和运维工具，提供实时性能监控与告警通知。作为开源项目，它支持企业自托管，保护数据隐私，并支持多语言。</description><content:encoded><![CDATA[<h2 id="准备工作">准备工作</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>哪吒监控探针部署</title>
+      <link>https://weixiang.github.io/posts/nezha-monitoring-deployment/</link>
+      <pubDate>Tue, 19 Jul 2022 16:18:31 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/nezha-monitoring-deployment/</guid>
+      <description>哪吒监控是一款轻量化的服务器监控和运维工具，提供实时性能监控与告警通知。作为开源项目，它支持企业自托管，保护数据隐私，并支持多语言。</description>
+      <content:encoded><![CDATA[<h2 id="准备工作">准备工作</h2>
 <p>获取 Github/Jihulab 的 Client ID 和密钥：</p>
 <p>哪吒监控接入 Github、Gitlab、Jihulab、Gitee 作为后台管理员账号</p>
 <ul>
@@ -3980,12 +4394,18 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span><span class="nb">window</span><span class="p">.</span><span class="nx">$crisp</span><span class="o">=</span><span class="p">[];</span><span class="nb">window</span><span class="p">.</span><span class="nx">CRISP_WEBSITE_ID</span><span class="o">=</span><span class="s2">&#34;103e95b6-3b0c-4f8a-9185-349951c14825&#34;</span><span class="p">;(</span><span class="kd">function</span><span class="p">(){</span><span class="nx">d</span><span class="o">=</span><span class="nb">document</span><span class="p">;</span><span class="nx">s</span><span class="o">=</span><span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;script&#34;</span><span class="p">);</span><span class="nx">s</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://client.crisp.chat/l.js&#34;</span><span class="p">;</span><span class="nx">s</span><span class="p">.</span><span class="kr">async</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&#34;head&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">s</span><span class="p">);})();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://nezha.wiki/">https://nezha.wiki/</a></p>
-]]></content:encoded></item><item><title>一种 AI 防疫快速通行及自动追溯辅助数据系统</title><link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link><pubDate>Sun, 15 May 2022 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid><description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description><content:encoded><![CDATA[<blockquote>
-<p>本文为 2022 年校内互联网 + 创业创新大赛的讲稿，在此记录，文章作者为我与 Solitude 同学。</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>一种 AI 防疫快速通行及自动追溯辅助数据系统</title>
+      <link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link>
+      <pubDate>Sun, 15 May 2022 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid>
+      <description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文为 2022 年校内互联网 + 创业创新大赛的讲稿，在此记录，文章作者为我与 Solitude 同学。</p></blockquote>
 <blockquote>
-<p>本文禁止转载。</p>
-</blockquote>
+<p>本文禁止转载。</p></blockquote>
 <p>各位老师、同学们，大家好。</p>
 <p>我们是一支来自 2021 级的两人队伍，我们带来的项目是</p>
 <p>一种 AI 防疫快速通行，及自动追溯，辅助数据系统。</p>
@@ -4003,17 +4423,23 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <p>我们的项目汇报结束，谢谢各位的聆听。</p>
 <h2 id="版权声明">版权声明</h2>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="https://weixiang.github.io">weixiang.github.io</a> 发布。</p>
-]]></content:encoded></item><item><title>Hackintosh Monterey 安装手记</title><link>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</link><pubDate>Fri, 11 Mar 2022 12:59:45 +0800</pubDate><guid>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</guid><description>在 HP EliteDesk 800 G1 USDT 上使用 OpenCore 引导 macOS 12.2.1 Monterey 黑苹果系统安装过程记录。</description><content:encoded><![CDATA[<p>去年跟着 <a href="https://space.bilibili.com/28457">司波图</a> 捡垃圾，搞了一台 HP EliteDesk 800 G1 USDT 小主机，并且成功安装上了 Catalina 系统。
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Hackintosh Monterey 安装手记</title>
+      <link>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</link>
+      <pubDate>Fri, 11 Mar 2022 12:59:45 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hackintosh-monterey-installation-notes/</guid>
+      <description>在 HP EliteDesk 800 G1 USDT 上使用 OpenCore 引导 macOS 12.2.1 Monterey 黑苹果系统安装过程记录。</description>
+      <content:encoded><![CDATA[<p>去年跟着 <a href="https://space.bilibili.com/28457">司波图</a> 捡垃圾，搞了一台 HP EliteDesk 800 G1 USDT 小主机，并且成功安装上了 Catalina 系统。
 现在 Monterey 已经推出一段时间了，驱动等社区项目都已经趋于稳定，于是便自己动手尝试安装了，在此记录一下。</p>
 <blockquote>
-<p>Tips: 本文操作环境为 Windows10</p>
-</blockquote>
+<p>Tips: 本文操作环境为 Windows10</p></blockquote>
 <h2 id="下载安装程序镜像">下载安装程序镜像</h2>
 <p>需要先安装好 Python 环境：<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
 <p>下载 OpenCore：<a href="https://github.com/acidanthera/OpenCorePkg/releases">https://github.com/acidanthera/OpenCorePkg/releases</a></p>
 <p>解压，并在 CMD 里定位到 <code>/Utilities/macrecovery/</code>目录</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/4301a26e7bb63bb1.webp" alt="4301a26e7bb63bb1"  />
-</p>
+<p><img alt="4301a26e7bb63bb1" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/4301a26e7bb63bb1.webp"></p>
 <p>然后用命令下载对应版本就行了</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Mojave (10.14)</span>
 </span></span><span class="line"><span class="cl">python macrecovery.py -b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 download
@@ -4026,11 +4452,9 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Monterey (12)</span>
 </span></span><span class="line"><span class="cl">python ./macrecovery.py -b Mac-E43C1C25D4880AD6 -m <span class="m">00000000000000000</span> download
-</span></span></code></pre></div><p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/96ced11aa5247e6f.webp" alt="96ced11aa5247e6f"  />
-</p>
+</span></span></code></pre></div><p><img alt="96ced11aa5247e6f" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/96ced11aa5247e6f.webp"></p>
 <p>下载完毕之后，可以得到<code>BaseSystem</code>的镜像文件。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/ca7b4c320c8c128c.webp" alt="ca7b4c320c8c128c"  />
-</p>
+<p><img alt="ca7b4c320c8c128c" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/ca7b4c320c8c128c.webp"></p>
 <h2 id="制作启动盘">制作启动盘</h2>
 <p>下载 Rufus：<a href="https://rufus.ie/">https://rufus.ie/</a></p>
 <p>找一个大于 4G 的 U 盘，用 Rufus 打开：</p>
@@ -4040,15 +4464,12 @@ RedmiBook Pro 2022 锐龙版 默认已经开启 AMD-V™，无需额外操作。
 <li>点击开始</li>
 <li>删除 U 盘分区中的所有文件</li>
 </ol>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/f0ebebfc594740a7.webp" alt="f0ebebfc594740a7"  />
-</p>
+<p><img alt="f0ebebfc594740a7" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/f0ebebfc594740a7.webp"></p>
 <p>然后在 U 盘的根目录并创建一个名为<code>com.apple.recovery.boot</code>的文件夹，然后把刚刚下好的 <code>BaseSystem</code> 复制进去， <code>.dmg</code> 和 <code>.chunklist</code> 都要复制。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/31ee37eb4660cfea.webp" alt="31ee37eb4660cfea"  />
-</p>
+<p><img alt="31ee37eb4660cfea" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/31ee37eb4660cfea.webp"></p>
 <p>接着把刚刚下好的<code>OpenCorePkg</code>里的 <code>x64/EFI</code>文件夹复制到 U 盘根目录。<del>其实如果不打算自己写 EFI 文件的话这步就不用做了</del>
 此时 U 盘应该长这样：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/c2802884a0368c35.webp" alt="c2802884a0368c35"  />
-</p>
+<p><img alt="c2802884a0368c35" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/c2802884a0368c35.webp"></p>
 <p>到这一步，启动盘就制作好了，下面就是难点了。</p>
 <h2 id="获取-efi-文件">获取 EFI 文件</h2>
 <p>Hackintosh 安装的难点，就是 EFI 驱动，对我们普通玩家来说，还是直接找大佬做的 EFI 比较省事。
@@ -4062,8 +4483,7 @@ plist 编辑器 ProperTree：<a href="https://github.com/corpnewt/ProperTree">ht
 SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">https://github.com/corpnewt/GenSMBIOS</a></p>
 <p>接下来，让我们双击<code>ProperTree.bat</code>打开 ProperTree 并编辑大佬 EFI 中的 <code>config.plist</code>
 定位到<code>PlatformInfo</code>，修改系统信息。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/25bb66fdb84f785b.webp" alt="25bb66fdb84f785b"  />
-</p>
+<p><img alt="25bb66fdb84f785b" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/25bb66fdb84f785b.webp"></p>
 <p>Google 查询苹果的 iMac 系统支持情况可知，2015 年前后的电脑，只有<code>iMac16,2</code>以上的机型可以升级，所以我计划模拟为它。</p>
 <p>打开 GenSMBIOS，根据 readme 生成 <code>iMac16,2</code>的串号信息，看起来应该长这样：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">#######################################################
@@ -4090,8 +4510,7 @@ SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">htt
 <p>安装成功后，EFI 是不会自动添加进硬盘的，需要我们自己复制进去。
 首先需要一个 OpenCore Configurator：<a href="https://mackie100projects.altervista.org/download-opencore-configurator/">https://mackie100projects.altervista.org/download-opencore-configurator/</a>
 启动后，会在菜单栏出现快捷菜单，可以很方便地挂载 EFI 分区。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/b224a34e5050678d.webp" alt="b224a34e5050678d"  />
-</p>
+<p><img alt="b224a34e5050678d" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/b224a34e5050678d.webp"></p>
 <p>选择系统盘，然后点击挂载分区，打开分区。
 把 U 盘的 EFI 文件夹复制到硬盘的 EFI 分区里，下次启动时就不用插着 U 盘了。</p>
 <h2 id="修补驱动">修补驱动</h2>
@@ -4101,8 +4520,7 @@ SMBIOS 生成器 GenSMBIOS：<a href="https://github.com/corpnewt/GenSMBIOS">htt
 <p>可以在 GitHub 找自己需要的驱动，比如英特尔网卡驱动项目<code>itlwm</code>：
 <a href="https://github.com/OpenIntelWireless/itlwm">https://github.com/OpenIntelWireless/itlwm</a></p>
 <p>下载对应系统版本，解压并复制到 <code>EFI/Kexts</code> 里，然后在 OpenCore Configurator 里启用它就好了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/2f12cfc1f04efd6e.webp" alt="2f12cfc1f04efd6e"  />
-</p>
+<p><img alt="2f12cfc1f04efd6e" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/2f12cfc1f04efd6e.webp"></p>
 <h2 id="结语">结语</h2>
 <p>选择了 Hackintosh 就注定这不是一条轻松的道路，过程中会遇到许多困难，花费许多时间。
 OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到问题可以在里面查找：<a href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a></p>
@@ -4112,15 +4530,21 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 想去买一台的冲动也越来越强烈了……<del>（这一定是厨子的阴谋</del></p>
 <p>这或许就是苹果不严打 Hackintosh 的原因吧。
 愿你 Hackintosh 半生，归来仍是 Macintosh。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/69a244f5708f3160.webp" alt="69a244f5708f3160"  />
-</p>
+<p><img alt="69a244f5708f3160" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/03/69a244f5708f3160.webp"></p>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title><link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link><pubDate>Sun, 27 Feb 2022 12:45:47 +0800</pubDate><guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid><description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description><content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>一种基于 ESP8266 的新型家庭门锁智能化无损改造装置</title>
+      <link>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</link>
+      <pubDate>Sun, 27 Feb 2022 12:45:47 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/a-smart-lock-based-on-esp8266/</guid>
+      <description>基于乐鑫 ESP8266 平台的智能锁，通过 MFRC522 射频识别模组阅读卡片、智能手机、手表等 NFC 标签，控制电磁锁的通断，支持 APP 远程控制和管理。</description>
+      <content:encoded><![CDATA[<h2 id="特别鸣谢">特别鸣谢</h2>
 <p>感谢周威同学协助拍摄，感谢 ATRI 同学的 iPhone 13 Pro Max 1TB 远峰蓝 提供出镜，感谢大师兄同学的 DJI Pocket 2 提供拍摄，感谢廣州市傳製片廠的 DJI OM 3 提供拍摄。</p>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2022/02/0035c99d58fc0555.webp"/> 
@@ -4141,7 +4565,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>如果你觉得这个产品还有点意思的话，欢迎关注我，也欢迎给我提意见或建议，您的支持和关注就是我创作的最大动力！</p>
 <h2 id="版权声明">版权声明</h2>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="https://weixiang.github.io">weixiang.github.io</a> 发布。</p>
-]]></content:encoded></item><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>广东广电机顶盒 GDT-JL1000 研究记录</title>
+      <link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link>
+      <pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid>
+      <description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description>
+      <content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
 <ol>
 <li>进入设置页面，遥控器输入<code>96956</code></li>
 <li>查看 IP，并使用 <code>adb connect 192.168.1.x</code>连接到机顶盒</li>
@@ -4179,7 +4611,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </ul>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://blog.csdn.net/xianrenli38/article/details/79607077">https://blog.csdn.net/xianrenli38/article/details/79607077</a></p>
-]]></content:encoded></item><item><title>Flarum 使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link><pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate><guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid><description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description><content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Flarum 使用腾讯云 COS 对象存储</title>
+      <link>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Tue, 25 Jan 2022 03:03:30 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/flarum-uses-tencent-cloud-cos-storage/</guid>
+      <description>Flarum 使用腾讯云 COS 对象存储或其他支持 Amazon S3 协议的存储服务作为图床的配置方法。</description>
+      <content:encoded><![CDATA[<p>就挺奇怪的，非常常见的操作，但全网却找不到一篇教程，在我的一番尝试下，终于找到了能用的配置方法，在此记录一下。支持 AWS S3 的存储服务同理，比如阿里云什么的也一样。</p>
 <h2 id="安装-fof-upload-插件">安装 FoF Upload 插件</h2>
 <p>原作帖子地址：<a href="https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension">https://discuss.flarum.org/d/4154-friendsofflarum-upload-the-intelligent-file-attachment-extension</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">composer require fof/upload
@@ -4188,8 +4628,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>本文不再赘述创建存储桶取得 Key 之类的基本操作，可以参考下面：</p>
 <p>腾讯云官方 AWS S3 配置指南：<a href="https://cloud.tencent.com/document/product/436/41284">https://cloud.tencent.com/document/product/436/41284</a></p>
 <blockquote>
-<p>Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。</p>
-</blockquote>
+<p>Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。</p></blockquote>
 <h2 id="配置-fof-upload">配置 FoF Upload</h2>
 <p>在 Flarum 后台，进入 FoF Upload 配置页。</p>
 <h3 id="文件链接前缀">文件链接前缀</h3>
@@ -4212,9 +4651,16 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <li>访问控制列表（ACL）：<code>public-read</code> （即共有读私有写）</li>
 </ul>
 <p>应用于上传对象的读写权限 ACL（默认私有读写）。有关可用的值，请参阅：<a href="https://iflarum.cn/aws-s3acl">https://iflarum.cn/aws-s3acl</a></p>
-]]></content:encoded></item><item><title>Ghost 博客使用腾讯云 COS 对象存储</title><link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link><pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate><guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid><description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 博客使用腾讯云 COS 对象存储</title>
+      <link>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</link>
+      <pubDate>Thu, 13 Jan 2022 01:42:12 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/ghost-blog-uses-tencent-cloud-cos-storage/</guid>
+      <description>Ghost 博客部署系列第二期，使用腾讯云 COS 对象存储作为博客图床。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文 Ghost version: 4.32.1</p></blockquote>
 <h2 id="安装-ghost-qcloud-cos-模块">安装 ghost-qcloud-cos 模块</h2>
 <p>使用命令安装</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install ghost-qcloud-cos
@@ -4245,9 +4691,16 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl">sudo systemctl restart ghost_yoursite-com <span class="c1"># CentOS 要用这个</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://github.com/ZhelinCheng/ghost-qcloud-cos">https://github.com/ZhelinCheng/ghost-qcloud-cos</a></p>
-]]></content:encoded></item><item><title>Ghost 博客配置邮件系统</title><link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link><pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate><guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid><description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description><content:encoded><![CDATA[<blockquote>
-<p>本文 Ghost version: 4.32.1</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Ghost 博客配置邮件系统</title>
+      <link>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</link>
+      <pubDate>Thu, 13 Jan 2022 01:10:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/configuring-ghost-blog-mail-settings/</guid>
+      <description>本文以以网易域名邮箱和 Mailgun 为例，记录 Ghost 博客邮件系统的正确配置方法。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文 Ghost version: 4.32.1</p></blockquote>
 <p>Ghost 是一个年轻的博客系统，迭代速度之快使得互联网上许多相关的教程已经过时，特别是邮件配置方面。
 经过多次尝试，终于得出了邮件系统的正确配置方法，在此记录。<strong>以网易域名邮箱为例：</strong></p>
 <h2 id="修改配置文件">修改配置文件</h2>
@@ -4281,7 +4734,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
 </span></span></code></pre></div><h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/config/#mail">https://ghost.org/docs/config/#mail</a></p>
-]]></content:encoded></item><item><title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title><link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link><pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate><guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid><description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description><content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>在 CentOS 7 使用宝塔面板安装 Ghost 博客</title>
+      <link>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</link>
+      <pubDate>Tue, 11 Jan 2022 06:31:08 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/install-ghost-blog-with-aapanel-on-centos-7/</guid>
+      <description>Ghost 官方只提供一个错漏百出的 Ubuntu 安装教程，那么如何在 CentOS 上安装呢？</description>
+      <content:encoded><![CDATA[<p>对于新版本的 Ghost 安装，可谓是全网谜语人，经过一上午的努力，终于在一堆垃圾站中，摸索出了可用的安装方法。</p>
 <h2 id="创建用户">创建用户</h2>
 <p>使用 root 新建用户<code>&lt;user&gt;</code>为用户名，<code>-m</code>为创建用户主目录</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd &lt;user&gt; -m
@@ -4331,7 +4792,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://ghost.org/docs/install/ubuntu/">https://ghost.org/docs/install/ubuntu/</a>
 <a href="https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/">https://computingforgeeks.com/install-node-js-14-on-centos-rhel-linux/</a></p>
-]]></content:encoded></item><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0800</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description> 字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>字体在设计中的运用</title>
+      <link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link>
+      <pubDate>Thu, 16 Sep 2021 01:55:05 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid>
+      <description> 字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description>
+      <content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</p>
 <p>我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。</p>
 <p>我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。</p>
 <p>你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。</p>
@@ -4343,16 +4812,23 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。</p>
 <p>今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。</p>
 <p>如果你觉得这篇 tips 还不错的话，我的网站：weixiang.github.io，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
-]]></content:encoded></item><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 Android 手机制作树莓派镜像 SD 卡</title>
+      <link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid>
+      <description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
-<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
-</blockquote>
+<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p></blockquote>
 <p>今天树莓派的系统不小心被我搞炸了，不知道如何修复，需要重装系统才能解决，但正巧没有电脑，于是便想能不能用手机来制作树莓派的系统镜像 SD 卡。</p>
 <p>Google 了一下还真行。</p>
 <p>由于还没有类似的中文教程，这里简单记录一下就作为「中文首发」吧。?</p>
 <h2 id="下载-app">下载 APP</h2>
 <p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」即可下载。</p>
-<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&hl=en_US&gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
+<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&amp;hl=en_US&amp;gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
 <h2 id="下载系统镜像">下载系统镜像</h2>
 <p>打开 APP，默认会为你选择一个「boot」镜像。需要更改的话，点右上角「Choose OS」即可更换，我选择了「Raspberry Pi OS (32-bit)」。</p>
 <p>点击软件下方的「Download」即可开始下载。</p>
@@ -4368,10 +4844,17 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
 <p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
-]]></content:encoded></item><item><title>用 Prism.js 为 Ghost 博客添加代码高亮</title><link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link><pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate><guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid><description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>用 Prism.js 为 Ghost 博客添加代码高亮</title>
+      <link>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</link>
+      <pubDate>Sat, 07 Aug 2021 09:03:54 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-prism-js-to-add-code-highlighting-to-ghost-blog/</guid>
+      <description>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
-<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p>
-</blockquote>
+<p>Prism 是一个轻量级的、可扩展的语法高亮工具，在构建时考虑到了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。</p></blockquote>
 <p>技术博客怎么少得了代码呢？为了保护读者的眼睛，代码高亮是必不可少的，但 Ghost 博客并没有自带的代码高亮功能。不过我们可以用 Prism.js 手动添加这个功能。Ghost 官方也给出了对应的指引：<a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a></p>
 <p>在本指南中，我将展示如何将代码示例添加到您的 Ghost 站点，以及如何使用代码语法高亮显示对其进行自定义。</p>
 <h2 id="引入-prismjs">引入 Prism.js</h2>
@@ -4382,8 +4865,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span></code></pre></div><p>至此代码高亮已经可用。</p>
 <h2 id="添加自己常用的语言">添加自己常用的语言</h2>
 <blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
+<p>2022 年 1 月 16 日更新</p></blockquote>
 <p>Prism.js 默认配置仅包含 <code>Markup + HTML + XML + SVG + MathML + SSML + Atom + RSS</code> 这几种语言的高亮规则，如果你常用的语言不在内，则需要自己手动添加。</p>
 <p>在 <a href="https://cdnjs.com/libraries/prism">https://cdnjs.com/libraries/prism</a> 搜索自己需要的语言，添加进 <code>Site Footer</code> 中 <code>prism.min.js</code> 的后面即可。</p>
 <p>我添加了 Bash 和 json 的支持。</p>
@@ -4434,8 +4916,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/line-numbers/prism-line-numbers.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="行内代码样式更改">行内代码样式更改</h2>
 <blockquote>
-<p>2022 年 1 月 16 日更新</p>
-</blockquote>
+<p>2022 年 1 月 16 日更新</p></blockquote>
 <p><code>这个东西就是行内代码.</code></p>
 <p>Casper 自带的行内代码样式不太好看，换掉。</p>
 <p>从语雀那里抄来的：</p>
@@ -4457,7 +4938,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://prismjs.com/">Prism.js</a> - Prism.js</p>
 <p><a href="https://ghost.org/docs/tutorials/code-syntax-highlighting/">Tutorial: A complete guide to code samples in Ghost</a> - Ghost</p>
-]]></content:encoded></item><item><title>给 Ghost 博客更换字体</title><link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link><pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate><guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid><description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>给 Ghost 博客更换字体</title>
+      <link>https://weixiang.github.io/posts/change-font-for-ghost-blog/</link>
+      <pubDate>Wed, 07 Jul 2021 08:14:01 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/change-font-for-ghost-blog/</guid>
+      <description>接上篇中文网页中的字体选型及开发指南，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>接上篇 <a href="/posts//the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> ，我们已经知道了中文网页设计的字体理论及原理，现在是时候应用于实践了！</p>
 <h2 id="字体定义">字体定义</h2>
 <p>Ghost 博客中，以「Casper」主题为例，把全局字体进行了三个变量定义，分别对应「衬线字体」、「非衬线字体」和「等宽字体」，我们只需要在「Code injection」设置中，重新定义它们就能实现全局更改字体的效果了。</p>
@@ -4501,7 +4990,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span></code></pre></div><p>这里把正文字体设置为了无衬线字体，并且把字体大小调整为 16px，行间距为 1.8。</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="/posts/the-font-selection-and-development-guide-in-chinese-web-pages/">中文网页中的字体选型及开发指南</a> - Jacob&rsquo;s Thoughts</p>
-]]></content:encoded></item><item><title>中文网页中的字体选型及开发指南</title><link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link><pubDate>Sat, 03 Jul 2021 15:35:06 +0800</pubDate><guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid><description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>中文网页中的字体选型及开发指南</title>
+      <link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link>
+      <pubDate>Sat, 03 Jul 2021 15:35:06 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid>
+      <description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>趁着暑假，我又搭建了一个自己的个人博客，不同于以往，这次用的是较新的博客系统 Ghost。</p>
 <p>因为 Ghost 的主题和 UI 实在是太好看了。</p>
 <p>而且易用性也很好，比起臃肿的 WordPress 和 折腾人的 Hexo，Ghost 正中我意。</p>
@@ -4559,8 +5056,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="哔哩哔哩">哔哩哔哩</h3>
 <blockquote>
-<p>2022 年 1 月 17 日更新</p>
-</blockquote>
+<p>2022 年 1 月 17 日更新</p></blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 新版首页 */</span>
 </span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">HarmonyOS_Regular</span><span class="p">,</span><span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="cp">!important</span><span class="p">;</span>
@@ -4592,62 +5088,61 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="常见的字体">常见的字体</h2>
 <blockquote>
-<p>2022 年 1 月 17 日更新</p>
-</blockquote>
+<p>2022 年 1 月 17 日更新</p></blockquote>
 <h3 id="等线字体-sans-serif">等线字体 Sans-serif</h3>
 <table>
-<thead>
-<tr>
-<th>字体</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>system-ui</code></td>
-<td>默认系统字体</td>
-</tr>
-<tr>
-<td><code>-apple-system</code>, <code>BlinkMacSystemFont</code></td>
-<td>macOS, iOS</td>
-</tr>
-<tr>
-<td>Segoe UI</td>
-<td>Microsoft Windows, Xbox, etc.</td>
-</tr>
-<tr>
-<td>Roboto</td>
-<td>较新版本的 Android</td>
-</tr>
-<tr>
-<td>Oxygen</td>
-<td>Linux / KDE</td>
-</tr>
-<tr>
-<td>Ubuntu</td>
-<td>Linux / Ubuntu</td>
-</tr>
-<tr>
-<td>Cantarell</td>
-<td>Linux / GNOME 3</td>
-</tr>
-<tr>
-<td>Fira Sans</td>
-<td>Firefox OS</td>
-</tr>
-<tr>
-<td>Droid Sans</td>
-<td>旧版本的 Android</td>
-</tr>
-<tr>
-<td>Helvetica Neue</td>
-<td>OSX</td>
-</tr>
-<tr>
-<td>Arial, <code>sans-serif</code></td>
-<td>备胎</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>字体</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>system-ui</code></td>
+          <td>默认系统字体</td>
+      </tr>
+      <tr>
+          <td><code>-apple-system</code>, <code>BlinkMacSystemFont</code></td>
+          <td>macOS, iOS</td>
+      </tr>
+      <tr>
+          <td>Segoe UI</td>
+          <td>Microsoft Windows, Xbox, etc.</td>
+      </tr>
+      <tr>
+          <td>Roboto</td>
+          <td>较新版本的 Android</td>
+      </tr>
+      <tr>
+          <td>Oxygen</td>
+          <td>Linux / KDE</td>
+      </tr>
+      <tr>
+          <td>Ubuntu</td>
+          <td>Linux / Ubuntu</td>
+      </tr>
+      <tr>
+          <td>Cantarell</td>
+          <td>Linux / GNOME 3</td>
+      </tr>
+      <tr>
+          <td>Fira Sans</td>
+          <td>Firefox OS</td>
+      </tr>
+      <tr>
+          <td>Droid Sans</td>
+          <td>旧版本的 Android</td>
+      </tr>
+      <tr>
+          <td>Helvetica Neue</td>
+          <td>OSX</td>
+      </tr>
+      <tr>
+          <td>Arial, <code>sans-serif</code></td>
+          <td>备胎</td>
+      </tr>
+  </tbody>
 </table>
 <p><code>Helvetica</code> ：被评为设计师最爱的字体，Realist 风格，简洁现代的线条，非常受到追捧。在 Mac 下面被认为是最佳的网页字体，在 Windows 下由于 Hinting 的原因显示很糟糕。
 <code>Arial</code> ：Helvetica 的「克隆」，和 Helvetica 非常像，细节上比如 R 和 G 有小小差别。如果字号太小，文字太多，看起来会有些累眼。Win 和 Mac 显示都正常
@@ -4737,19 +5232,17 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <blockquote>
 <p>（1）优先使用排在前面的字体。</p>
 <p>（2）如果找不到该种字体，或者该种字体不包括所要渲染的文字，则使用下一种字体。</p>
-<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p>
-</blockquote>
+<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p></blockquote>
 <p><strong>根据这些规则，<code>font-family</code> 应该优先指定英文字体，然后再指定中文字体。</strong> 否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
 <p><strong>为了保证兼容性，中文字体的中文名称和英文名称，应该都写入<code>font-family</code>。</strong> 比如，&ldquo;微软雅黑&quot;的英文名称是<code>Microsoft YaHei</code>。</p>
 <blockquote>
-<p>font-family 后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode，比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p>
-</blockquote>
+<p>font-family 后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode，比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p></blockquote>
 <p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
 <p>由于 Windows 和 Mac 的中文字体没有交叉，所以应该同时为两个平台指定字体。</p>
 <p>常见的做法是，Windows 平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac 平台指定&quot;华文细黑&quot;（STXihei）。</p>
 <h3 id="web-fonts">Web Fonts</h3>
 <p>如果是纯英文网页的话，选字体的事情比较好办，因为直接引入 <a href="https://fonts.google.com/">Web Fonts</a>  的成本非常低（文件小），而且现在 Web Fonts 的 [兼容性](&quot;<a href="https://caniuse.com/#search=web">https://caniuse.com/#search=web</a> font&quot;) 很好，基本上所有主流浏览器都支持，就能保证各个平台所用的字体的一致性。</p>
-<p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro</a>：</p>
+<p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source&#43;Code&#43;Pro">Source Code Pro</a>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>或者</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
@@ -4795,12 +5288,18 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p><a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a>  &ldquo;中文字体网页开发指南&rdquo;</p>
 <p><a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<blockquote>
-<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>用 Pi-hole 搭建一个树莓派黑洞</title>
+      <link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link>
+      <pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid>
+      <description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p></blockquote>
 <p>Pi- <a href="https://pi-hole.net/trademark-rules-and-brand-guidelines/">hole®</a>是一个<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">DNS 沉洞服务器</a>，无需安装任何客户端软件即可保护您的设备免受有害内容的<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">侵害</a>。</p>
 <ul>
 <li><strong>易于安装</strong>：安装程序将引导您完成整个过程，并且<a href="https://www.youtube.com/watch?v=vKWjx1AQYgs">只需不到十分钟的时间</a></li>
@@ -4833,23 +5332,18 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p><strong>因为众所周知的原因，安装过程可能需要魔法！</strong></p>
 <p>如果你和我一样在这里卡了很久或者直接 error 了，说明你需要使用魔法。</p>
 <p>至于具体操作请自己 Google 一下吧，我这里也不太好直接向麻瓜们直接展示对吧。（搜索关键词：树莓派 + 魔法名称）</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp"></p>
 <p>安装完毕，记下访问地址和密码。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp"></p>
 <h2 id="调整-pi-hole-的设置">调整 Pi-hole 的设置</h2>
 <p>用浏览器访问刚刚的地址就能看到主页了，或者也可以访问 <a href="http://pi.hole/admin">http://pi.hole/admin</a></p>
 <p>主页展示的是 Pi-hole 的实时运行状态，点击 Login 输入记下的密码即可登录到控制台。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp"></p>
 <p>控制台就是这样的，现在可以开始调整 Pi-hole 的设置来获得更好的体验了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp"></p>
 <h3 id="添加-hosts-源">添加 hosts 源</h3>
 <p>实际上，Pi-hole 使用的是 hosts 方式对广告进行过滤（类似 AdAway），所以 hosts 源的好坏直接决定了用户体验。自带的 host 对于我国网络环境来说可能会水土不服，下面推荐几个知名 hosts 源，可以到  Settings - Blocklists 里面添加自定义源，添加一个之后按 Save 保存，全部添加完成后按 Save and Update 来更新 host 并保存设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp"></p>
 <ul>
 <li><a href="https://github.com/vokins/yhosts">yhosts</a>：可以说是国内比较老牌的知名 hosts，定期有更新，但作者主观屏蔽了一些非广告网站，可以用下面的命令手动添加白名单来解决不够客观的问题：</li>
 </ul>
@@ -4865,8 +5359,7 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h3 id="添加国内-dns-服务器">添加国内 DNS 服务器</h3>
 <p>Pi-hole 在安装时已经设置过一次 DNS 服务器了，但因为是国外的 DNS 服务，速度可能会比较慢，通过添加国内的 DNS 服务可以提高速度。</p>
 <p>进入 Settings - DNS - Upstream DNS Servers 就可以添加 DNS 服务器了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp"></p>
 <h4 id="国内常见公共-dns-服务">国内常见公共 DNS 服务</h4>
 <h5 id="腾讯-dnspod">腾讯 DNSPod</h5>
 <p><a href="https://www.dnspod.cn/Products/Public.DNS">https://www.dnspod.cn/Products/Public.DNS</a></p>
@@ -4874,38 +5367,33 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：119.29.29.29 / 119.28.28.28
 </span></span></code></pre></div><blockquote>
 <p>这是 DNSPod 建立的公共 DNS，之后 DNSPod 被腾讯收购以后由腾讯云负责运营。腾讯 DNSPod 公共 DNS 配置了 Anycast，节点囊括了腾讯云所有可用区的节点（包括海外），所以速度还是不错的，并且除了支持 ECS 以外还有一些关于 DNS 出口选择优化的加成，所以 CDN 解析结果相对准确很多。但是 SLA 却并不优秀 —— <del>曾经</del> 经常遭遇 DDoS 攻击导致无法解析。除此以外，由于相对出名、使用人数较多，是运营商重点劫持的对象。</p>
-<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p>
-</blockquote>
+<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p></blockquote>
 <h5 id="阿里云公共-dns">阿里云公共 DNS</h5>
 <p><a href="http://www.alidns.com">http://www.alidns.com</a></p>
 <p>Anycast：成都、深圳、杭州</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：223.5.5.5 / 223.6.6.6
 </span></span><span class="line"><span class="cl">IPv6：2400:3200::1 / 2400:3200:baba::1
 </span></span></code></pre></div><blockquote>
-<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p>
-</blockquote>
+<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p></blockquote>
 <h5 id="南京信风公共-dns">南京信风公共 DNS</h5>
 <p><a href="https://www.114dns.com/">https://www.114dns.com/</a></p>
 <p>Anycast：南京、济南、芝加哥</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：114.114.114.114 / 114.114.115.115
 </span></span></code></pre></div><blockquote>
-<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p>
-</blockquote>
+<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p></blockquote>
 <h5 id="cnnic-公共-dns">CNNIC 公共 DNS</h5>
 <p><a href="http://www.sdns.cn/">http://www.sdns.cn/</a>
 北京、杭州、香港</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：1.2.4.8 / 210.2.4.8
 </span></span></code></pre></div><blockquote>
-<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p>
-</blockquote>
+<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p></blockquote>
 <h5 id="百度公共-dns">百度公共 DNS</h5>
 <p>北京、南京、深圳
 <a href="https://dudns.baidu.com/">https://dudns.baidu.com/</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：180.76.76.76
 </span></span><span class="line"><span class="cl">IPv6：2400:da00::6666
 </span></span></code></pre></div><blockquote>
-<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p>
-</blockquote>
+<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p></blockquote>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
@@ -4913,16 +5401,21 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <hr>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<blockquote>
-<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派使用 V2Ray 魔法上网</title>
+      <link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link>
+      <pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid>
+      <description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p></blockquote>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
-</p>
+<p><img alt="image-20200410145120973" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp"></p>
 <p>啊不好意思放错了，应该是这张：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp" alt="File:VPN overview-en.svg"  />
-</p>
+<p><img alt="File:VPN overview-en.svg" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp"></p>
 <p>我们这篇文章要实现的目标是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
 </span></span><span class="line"><span class="cl">A(你的设备/树莓派) --&gt; B(树莓派 Privoxy)
@@ -5289,20 +5782,26 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>将代理设置配置为指向树莓派后，在浏览器中打开下面的地址</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://config.privoxy.org/
 </span></span></code></pre></div><p>如果一切运行正常，可以看到 Privoxy 的欢迎界面：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp" alt="image-20200414115516257"  />
-</p>
+<p><img alt="image-20200414115516257" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp"></p>
 <p>如果显示的是 <strong>Privoxy is not being used</strong> ，就要检查一下检查代理设置是否正确了。</p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派魔法的安装与配置，你可以开始使用你的树莓派访问真正的互联网，并为局域网内的其他设备提供魔法代理服务。</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
 <p>[Ask Ubuntu]: <a href="https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13</a> &ldquo;apt.conf “Acquire::http:Proxy ”proxyserver:port&rdquo; seems not to be used (Ubuntu 13.04 under Virtual Box on Win7)&quot;</p>
-]]></content:encoded></item><item><title>树莓派的安装与初始化</title><link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link><pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate><guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid><description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description><content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派的安装与初始化</title>
+      <link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link>
+      <pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid>
+      <description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description>
+      <content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
 <p>Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统。</p>
 <p>Raspberry Pi® “树莓派”是 2012 年问世的 ARM 计算机，旨在为儿童和所有的计算机爱好者提供一套廉价的编程学习与硬件 DIY 平台。树莓派基于 ARM11，具有 1080P 高清视频解析能力，附带用于硬件开发的 GPIO 接口，使用 Linux 操作系统。售价仅 $25~$35。</p>
 <p>Raspbian 系统是 Debian 7.0/wheezy 的定制版本。得益于 Debian 从 7.0/wheezy 开始引入的“带硬件浮点加速的 ARM 架构”(armhf)，Debian 7.0 在树莓派上的运行性能有了很大提升。Raspbian 默认使用 LXDE 桌面，内置 C 和 Python 编译器。</p>
@@ -5322,47 +5821,40 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <h2 id="安装-raspbain-系统到-sd-卡">安装 Raspbain 系统到 SD 卡</h2>
 <p>对于新手用户，树莓派官方建议使用 <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi Imager</a>，将系统镜像写入 SD 卡。也可以使用 balenaEtcher，Win32DiskImager 或 imgFlasher 等工具进行烧录，接有屏幕、键鼠的同学也可以使用 <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a> 来部署系统。</p>
 <p>下面以 <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a> 为例</p>
-<h3 id="下载安装--raspberry-pi-imagerhttpswwwraspberrypiorgdownloads">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
+<h3 id="下载安装--raspberry-pi-imager">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
 <p>Raspberry Pi Imager 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span>
 </span></span></code></pre></div><p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
 <p>安装后打开的软件界面是这样的，是不是超级简单：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp" alt="Raspberry Pi Imager"  />
-</p>
+<p><img alt="Raspberry Pi Imager" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp"></p>
 <h3 id="格式化-sd-卡">格式化 SD 卡</h3>
 <p>首先要格式化 SD 卡，在第一项 Choose OS 里选择 Erase，然后选好要格式化的 SD 卡，最后点 Write 即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp" alt="image-20200409181322292"  />
-</p>
+<p><img alt="image-20200409181322292" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp"></p>
 <h3 id="烧录镜像">烧录镜像</h3>
 <p>在 Choose OS 里选择第一项 Raspbain 即可，软件会自动下载并烧录进去，如果要使用本地的镜像文件，要注意文件路径中不要有中文。</p>
 <p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp" alt="image-20200409181731951"  />
-</p>
+<p><img alt="image-20200409181731951" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp"></p>
 <p>等进度条跑满，系统镜像就烧写完成啦。</p>
 <h2 id="开启-ssh-功能">开启 SSH 功能</h2>
 <p>在树莓派将来的使用中，我们要用 SSH 的方式连接树莓派并对其进行操作，但为了安全起见，这个功能默认是关闭的，所以我们需要在 SD 卡的根目录创建一个叫“SSH”的文件，才能开启树莓派的 SSH 功能。</p>
 <p>在“此电脑”中找到一个叫“boot”的盘，新建一个 TXT，命名为 <code>SSH</code> 即可，注意不要有后缀！
 如果找不到“boot”这个盘，重新拔插一下读卡器即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp" alt="image-20200409183711203"  />
-</p>
+<p><img alt="image-20200409183711203" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp"></p>
 <h2 id="启动树莓派并找到它">启动树莓派并找到它</h2>
 <h3 id="启动树莓派">启动树莓派</h3>
 <p>插入烧写好系统的 SD 卡，用网线把树莓派和路由器连接起来，如果有键鼠显示器也要先连接上，最后插上电源，等待树莓派启动即可。</p>
 <h3 id="查找树莓派的地址">查找树莓派的地址</h3>
 <p>使用浏览器登录路由器的管理页面，一般为 <code>192.168.1.1</code>，输入管理密码（路由器背面可以找到），进入“终端管理”界面，查看树莓派的 IP 地址。最好给树莓派设置一个固定 IP 地址方便后续使用。此步骤不同品牌的路由器操作方法略有不同，不过都大同小异。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp" alt="image-20200409194420317"  />
-</p>
+<p><img alt="image-20200409194420317" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp"></p>
 <h2 id="使用-ssh-连接到树莓派">使用 SSH 连接到树莓派</h2>
 <p>以 Xshell 为例</p>
 <p>Xshell 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.netsarang.com/zh/xshell/
 </span></span></code></pre></div><p>打开 Xshell，在左上角点击新建图标，填入名称，树莓派的 IP 地址，点击连接即可。</p>
 <p>树莓派默认的账户是 <code>pi</code> ，默认密码是 <code>raspberry</code> 。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp" alt="image-20200409195033479"  />
-</p>
+<p><img alt="image-20200409195033479" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp"></p>
 <p>如下图时即连接成功：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp" alt="image-20200409195326223"  />
-</p>
+<p><img alt="image-20200409195326223" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp"></p>
 <h2 id="给树莓派换上国内源">给树莓派换上国内源</h2>
 <p>因为众所周知的原因，树莓派的默认源速度感人，换上国内的源可以显著提高使用体验。</p>
 <p>以清华大学源为例</p>
@@ -5385,49 +5877,46 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>在 SSH 终端中输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo raspi-config
 </span></span></code></pre></div><p>即可进入下面的配置模式，罗列了扩展系统分区，修改密码，启动设置等等，然后按着图片找到 VNC 选项打开即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp" alt="image-20200409200744520"  />
-</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp" alt="image-20200409200759386"  />
-</p>
+<p><img alt="image-20200409200744520" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp"></p>
+<p><img alt="image-20200409200759386" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp"></p>
 <h3 id="连接到树莓派">连接到树莓派</h3>
 <p>下载 VNC 客户端</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">realvnc</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">connect</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">viewer</span><span class="o">/</span>
 </span></span></code></pre></div><p>打开 VNC 软件，输入树莓派的 IP 地址、账户名密码（上一节有），即可连接。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp" alt="image-20200409201641067"  />
-</p>
+<p><img alt="image-20200409201641067" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp"></p>
 <h3 id="完成剩余的设置">完成剩余的设置</h3>
 <p>连接成功后即可看到树莓派的桌面和欢迎界面。</p>
 <p>在欢迎界面中完成剩余的设置，修改地区、语言、时区、密码等，连接上 WiFi。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp" alt="image-20200409201733135"  />
-</p>
+<p><img alt="image-20200409201733135" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp"></p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>Windows 美化入门笔记</title><link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link><pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate><guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid><description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description><content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
-<p><img loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png" alt="Microsoft Fluent Design System"  />
-</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Windows 美化入门笔记</title>
+      <link>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</link>
+      <pubDate>Fri, 21 Feb 2020 10:21:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/getting-started-notes-for-windows-beautification/</guid>
+      <description>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</description>
+      <content:encoded><![CDATA[<p>Windows 美化可算是一个经久不衰的话题，虽然巨硬（微软）已经在努力在最新的 Windows 上不断努力打造属于自己的统一设计风格（Microsoft Fluent Design System），但为了兼容性还是不得不做出了许多妥协，在 UI 设计上还是被 Apple 的 macOS 甩出几条街……</p>
+<p><img alt="Microsoft Fluent Design System" loading="lazy" src="https://cdn.sspai.com/2017/05/14/7f3297b64f4b4c0101d904ac0d419cf7.png"></p>
 <p>不久我刚刚入坑 Windows 美化，在自己的 Windows 10 上实践后也取得了很不错的效果，虽然不如一些大佬的作品厉害，但自己觉得好看、好用就够了，这也是我美化 Windows 的目的，因为电脑配置垃圾，所以都尽可能用少的系统资源实现美化目的。</p>
 <blockquote>
-<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p>
-</blockquote>
+<p>系统美化的意义就在于让自己获得更好的浏览体验，像是清理桌面、文件夹图标等美化还能 提高浏览效率。—— 少数派</p></blockquote>
 <blockquote>
-<p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p>
-</blockquote>
+<p>真正的美化应该是集效率与美观一体，保持个性化且自己使用起来得心应手才是理想的美化。—— Fordes</p></blockquote>
 <p>这篇文章记录了我的一些方法，留作记录，也能帮助一些同学简单复刻这些操作，能加以创新当然会更加好啦。</p>
 <p>** 本文实践于 Windows 10 1903，其余版本未作测试，Windows 10 系统上应该都没问题，用 Windows 7 的同学该升级啦，0202 年了还在用一个 14 年前的系统……（截至发文还能白嫖升级）</p>
 <h2 id="最终效果">最终效果</h2>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png" alt="图标隐藏"  />
-
-<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="图片显示"  />
-
-<img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKmss.md.png" alt="滑动关机"  />
-</p>
+<p><img alt="图标隐藏" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKVzQ.md.png">
+<img alt="图片显示" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png">
+<img alt="滑动关机" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKmss.md.png"></p>
 <h2 id="快捷方式箭头">快捷方式箭头</h2>
 <p>按照惯例呢，我们先从最基础的开始，强迫症必做。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl">taskkill /f /im explorer.exe
@@ -5476,26 +5965,22 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p><a href="https://www.microsoft.com/store/apps/9PF4KZ2VN4W9">微软商店（推荐）</a></p>
 <h3 id="用法">用法</h3>
 <p>下载安装完毕之后默认就会透明，在托盘图标上右键即可对效果进行设置，记得勾选 <code>Open at boot</code> ，这样就能开机启动了。</p>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uJXJ1.png" alt="设置界面"  />
-</p>
+<p><img alt="设置界面" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uJXJ1.png"></p>
 <p>对照上面的介绍，并运用初中英语知识，最多再加 Google Translate 我们就可以完成这款软件的设置，透明任务栏√GET。</p>
 <h2 id="桌面图标修改">桌面图标修改</h2>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png" alt="桌面图标"  />
-</p>
+<p><img alt="桌面图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uKeMj.md.png"></p>
 <p>如上图所示，我对所有应用的快捷方式图标都进行了修改，这一步就是考验耐心……</p>
 <h3 id="获取图标">获取图标</h3>
-<p>图标用的是 <a href="ttps://www.coolapk.com/apk/me.morirain.dev.iconpack.pure">Pure 轻雨 图标包</a>，下载 APK 文件后使用解压文件解压即可获取图标。</p>
+<p>图标用的是 <a href="#ZgotmplZ">Pure 轻雨 图标包</a>，下载 APK 文件后使用解压文件解压即可获取图标。</p>
 <p>推荐使用 <a href="https://www.voidtools.com/">Everything 搜索</a> 来找图标。</p>
 <p>复制解压后文件的目录，粘贴到搜索框，最后加 <code>空格 + 关键词</code> 就能快速搜索到图标。可以在 Everything 的 <code>搜索</code> 菜单中选择仅搜索图像，在 <code>视图</code> 菜单中选择查看 <code>中图标</code> ，可以获得较好的搜索体验</p>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uNqoQ.png" alt="快速搜索图标"  />
-</p>
+<p><img alt="快速搜索图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3uNqoQ.png"></p>
 <p>将需要的图标复制到一个新文件夹里，等待转换格式。</p>
 <h3 id="转换格式">转换格式</h3>
 <p>从图标包提取出来的图标一般为 PNG 格式，但 Windows 系统的快捷方式图标需要 ico 格式，所有要进行转换。</p>
 <p>使用 <a href="https://convertico.com/">CONVERTICO</a> 即可完成在线转换。</p>
 <h3 id="设置图标">设置图标</h3>
-<p><img loading="lazy" src="https://s2.ax1x.com/2020/02/21/3udss0.md.png" alt="更改图标"  />
-</p>
+<p><img alt="更改图标" loading="lazy" src="https://s2.ax1x.com/2020/02/21/3udss0.md.png"></p>
 <p>右键图标 &ndash;&gt; 更改图标 &ndash;&gt; 选择图标 &ndash;&gt; 确认保存即可</p>
 <h2 id="windows-磁贴">Windows 磁贴</h2>
 <p>这一部分我没有做，以下内容来自少数派。</p>
@@ -5503,7 +5988,15 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 <p>在本节，我将以微信为例，教大家通过创建磁贴配置文件的方式更改 Win 32 应用的磁贴背景颜色及图标。</p>
 <p>首先右键点击开始屏幕中的「微信」磁贴，选择「打开文件所在的位置」，然后再次右键点击出现的快捷方式，跳转到微信的实际安装目录。</p>
 <p><a href="https://sspai.com/post/41307">收好这份美化技巧合辑，让你的 Windows 从此与众不同</a></p>
-]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>在 Android Q 上安装 V4A 的正确姿势</title>
+      <link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link>
+      <pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid>
+      <description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description>
+      <content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
 <p>那么，如何在 Android 10 上安装 ViPER4Android 呢？按照以下的方法即可正常安装使用 ViPER4Android</p>
 <p>Pixel，Pixel 3 XL，Pixel 2 XL，OnePlus 6 / 6T，OnePlus 7/7 Pro 经过测试均可运行成功，理论上适用于大部分 Android 10 手机。</p>
 <p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
@@ -5563,14 +6056,20 @@ OpenCore 的官方文档真的非常详细，我愿称之为早教级，遇到�
 
 <p>似乎是要按照上面的顺序安装 ViPER4Android 和 Audio Modification Library 才能成功如果还是失败的同学可以在评论区发出来看看有没有大佬…或者…等 ViPER4Android 的开发团队适配 Android 10 …</p>
 <p><em>感谢 XDA 上的 1dopewrx05，他在 Pixel 2 XL 主题站上分享了本方法，当然还有 The Customdroid 提供的图片和整理。</em></p>
-]]></content:encoded></item><item><title>Project V 连接工具</title><link>https://weixiang.github.io/posts/project-v-connection-tools/</link><pubDate>Mon, 14 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid><description>魔法企划 Project V 的连接工具的收集与记录。</description><content:encoded><![CDATA[<blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Project V 连接工具</title>
+      <link>https://weixiang.github.io/posts/project-v-connection-tools/</link>
+      <pubDate>Mon, 14 Oct 2019 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/project-v-connection-tools/</guid>
+      <description>魔法企划 Project V 的连接工具的收集与记录。</description>
+      <content:encoded><![CDATA[<blockquote>
 <p>2022 年 1 月 28 日 更新：
-本文章部分已经过时，现在大部分情况下可以用 Clash 解决，iOS 除外。</p>
-</blockquote>
+本文章部分已经过时，现在大部分情况下可以用 Clash 解决，iOS 除外。</p></blockquote>
 <blockquote>
 <p>2024 年 8 月 11 日更新：
-Clash 也没了……</p>
-</blockquote>
+Clash 也没了……</p></blockquote>
 <hr>
 <h3 id="v2raynwindows">v2rayN（Windows）</h3>
 <ul>
@@ -5618,7 +6117,15 @@ Clash 也没了……</p>
 <ul>
 <li>2022 年 1 月 28 日 迁移文章，修正排版，删除过时信息</li>
 </ul>
-]]></content:encoded></item><item><title>个人国际互联网冲浪准则</title><link>https://weixiang.github.io/posts/my-international-internet-surfing-guidelines/</link><pubDate>Sat, 12 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/my-international-internet-surfing-guidelines/</guid><description>面对繁杂的新闻媒体来源，我们需要有着自己的判断力，本文记录我自己的一些互联网冲浪经验。</description><content:encoded><![CDATA[<p>⚠️ 本准则主要用于应对政治类新闻报道及评论</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>个人国际互联网冲浪准则</title>
+      <link>https://weixiang.github.io/posts/my-international-internet-surfing-guidelines/</link>
+      <pubDate>Sat, 12 Oct 2019 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/my-international-internet-surfing-guidelines/</guid>
+      <description>面对繁杂的新闻媒体来源，我们需要有着自己的判断力，本文记录我自己的一些互联网冲浪经验。</description>
+      <content:encoded><![CDATA[<p>⚠️ 本准则主要用于应对政治类新闻报道及评论</p>
 <h2 id="宗旨">宗旨</h2>
 <p>没有绝对中立的媒体，不能完全信任任何一个媒体。看到新闻事件，冷静分析，独立思考，不跟风，不沸腾，不公开评论。</p>
 <h2 id="目前已知的不信任站点">目前已知的不信任站点</h2>
@@ -5657,7 +6164,15 @@ Clash 也没了……</p>
 <li>2022 年 1 月 25 日 表述修正</li>
 <li>2024 年 8 月 9 日 发生数据删除事件</li>
 </ul>
-]]></content:encoded></item><item><title>逆温现象</title><link>https://weixiang.github.io/posts/temperature-inversion/</link><pubDate>Sun, 06 Oct 2019 03:49:00 +0800</pubDate><guid>https://weixiang.github.io/posts/temperature-inversion/</guid><description>在对流层，气温垂直分布的一般情况是随高度增加而降低，大约每升高 100 米，气温降低 0.6°C，但在一定条件下，对流层中也会出现气温随高度增加而上升的现象，或者地面上随高度的增加，降温变化率小于 0.6°C/100 m，这种现象称为逆温。</description><content:encoded><![CDATA[<h3 id="1-逆温概念">1. 逆温概念</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>逆温现象</title>
+      <link>https://weixiang.github.io/posts/temperature-inversion/</link>
+      <pubDate>Sun, 06 Oct 2019 03:49:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/temperature-inversion/</guid>
+      <description>在对流层，气温垂直分布的一般情况是随高度增加而降低，大约每升高 100 米，气温降低 0.6°C，但在一定条件下，对流层中也会出现气温随高度增加而上升的现象，或者地面上随高度的增加，降温变化率小于 0.6°C/100 m，这种现象称为逆温。</description>
+      <content:encoded><![CDATA[<h3 id="1-逆温概念">1. 逆温概念</h3>
 <figure>
     <img loading="lazy" src="//jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/04db6e2fa3806ed9.webp"/> 
 </figure>
@@ -5761,12 +6276,19 @@ Clash 也没了……</p>
 
 <p><strong>参与的大气成分</strong>：空气分子和微小尘埃</p>
 <p><strong>特点</strong>：具有选择性（蓝光）</p>
-]]></content:encoded></item><item><title>社团 Ghost 博客调较记录</title><link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link><pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid><description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description><content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>社团 Ghost 博客调较记录</title>
+      <link>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</link>
+      <pubDate>Thu, 03 Oct 2019 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/a-record-of-optimizing-the-ghost-blog-for-waitech/</guid>
+      <description>优化社团网站的一些记录，适用于 Ghost 博客系统。</description>
+      <content:encoded><![CDATA[<p>最近做的一些 Ghost 小优化（Ghost 博客调教）</p>
 <h3 id="新增评论区">新增评论区</h3>
 <p>大家终于可以愉快地畅所欲言啦！</p>
 <p><del>而且因为我们服务器在新加坡，不受中国大陆法律限制，也没有敏感词蛤蛤蛤</del></p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955834-732004-image.png" alt="Image description"  />
-</p>
+<p><img alt="Image description" loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955834-732004-image.png"></p>
 <p>采用的是<a href="https://valine.js.org/">Valine</a>作为我们的评论系统，快速、简洁且高效、无后端。
 获取</p>
 <p>在 Code Injection 的 Footer 部分填入</p>
@@ -5787,8 +6309,7 @@ Clash 也没了……</p>
 <h3 id="新增邮件订阅">新增邮件订阅</h3>
 <p>大家可以在首页和每篇文章的下面找到这个订阅按钮</p>
 <p>将你的邮箱输进去，以后有文章更新就会通过邮件通知你啦~</p>
-<p><img loading="lazy" src="https://camo.githubusercontent.com/7ed58d9ed28f4a3a6d30b0152621cb0bec8c42d9ccecf9349e9f48c28174f963/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f656465762f696d6167652f75706c6f61642f76313538333739323932382f6c6965626c696e672f6c6965626c696e672d70726f6d6f2d6465736b746f702e6a7067" alt="邮件订阅"  />
-</p>
+<p><img alt="邮件订阅" loading="lazy" src="https://camo.githubusercontent.com/7ed58d9ed28f4a3a6d30b0152621cb0bec8c42d9ccecf9349e9f48c28174f963/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f656465762f696d6167652f75706c6f61642f76313538333739323932382f6c6965626c696e672f6c6965626c696e672d70726f6d6f2d6465736b746f702e6a7067"></p>
 <p>参考：<a href="https://github.com/eddiesigner/liebling/wiki">eddiesigner/liebling</a></p>
 <h3 id="接入了-google-广告">接入了 Google 广告</h3>
 <p>为什么要接广告？</p>
@@ -5796,8 +6317,7 @@ Clash 也没了……</p>
 <p>能补贴一下服务器的运营费用，顺便还能给文章作者一些报酬。</p>
 <p>广告是 Google 根据你的兴趣个性化推荐的哦！所以每个人看到的都不太一样</p>
 <p>下面是某位不愿意透露姓名的同学看到的情形</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955902-729164-image.png" alt="Image description"  />
-</p>
+<p><img alt="Image description" loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955902-729164-image.png"></p>
 <p>Google 广告接入还是很方便的</p>
 <p>在 Google Adsense 申请就好，然后 Google 就会给一段神秘代码</p>
 <p>像这样</p>
@@ -5814,8 +6334,7 @@ Clash 也没了……</p>
 <p>参考：<a href="https://ghost.org/integrations/google-adsense/">Google AdSense + Ghost</a></p>
 <h3 id="接入了统计系统">接入了统计系统</h3>
 <p>我们站点一共接入了三个统计系统，分别是 Google Analytics，百度统计 和 不蒜子统计。</p>
-<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955940-794386-image.png" alt=""  />
-</p>
+<p><img loading="lazy" src="https://waitech-1256058189.cos.ap-guangzhou.myqcloud.com/2022-01-12/1641955940-794386-image.png"></p>
 <p>上面是百度统计的效果图，就是能分析一下站点的访问量什么的。</p>
 <p><del>又没有多少人来统计个屁</del></p>
 <p>百度和 Google 的接入都很方便，直接注册然后按提示获取代码就好了。</p>
@@ -5840,7 +6359,15 @@ Clash 也没了……</p>
 <ul>
 <li>2022 年 1 月 25 日 文章迁移及表述调整</li>
 </ul>
-]]></content:encoded></item><item><title>你好，Ghost</title><link>https://weixiang.github.io/posts/hello-ghost/</link><pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-ghost/</guid><description>第一次使用 Ghost 博客，有什么感觉呢？</description><content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的 Ghost。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>你好，Ghost</title>
+      <link>https://weixiang.github.io/posts/hello-ghost/</link>
+      <pubDate>Sun, 01 Sep 2019 10:24:53 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hello-ghost/</guid>
+      <description>第一次使用 Ghost 博客，有什么感觉呢？</description>
+      <content:encoded><![CDATA[<p>就在昨天，我又双叒叕更换了一个船新的博客平台——也就是你现在看到的 Ghost。</p>
 <p>从我开始接触博客起，从最初的 Hexo，到后来的 WordPress，再到现在你看到的 Ghost，博客平台换的多，实际生产的内容却寥寥无几，在每一次博客的迁移过程中又丢失过一些文章，最后收获的不是知识的贮藏，而是各种博客平台的安装迁移方法。</p>
 <p>在我为 WordPress 臃肿的系统、找不到我钟意主题时，我在互联网的角落中发现了这个名为 Ghost 的博客系统。简洁的设计风格使我第一眼就看中了它，而它精简的系统也使我的辣鸡服务器不必再为 WordPress 而气喘吁吁。</p>
 <p>花费了我整整半天的时间，总算是把 Ghost 搭建起来了，这次搭建 Ghost 花费了我不少力气，并不是说 Ghost 不易用，而是我选择了一个我没有用过的船新操作——使用 Docker，还有一个原因是 Ghost 相关的中文资料还不够完善，很多教程都已经过时。虽然过程有点坎坷，不过好处是学会了一点点 Docker 的概念和基本用法。
@@ -5849,7 +6376,15 @@ Clash 也没了……</p>
 <p>午后，听着 Detroit: Become Human 中的开场钢琴曲 Opening Theme，写下最后这一段。</p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=863661729&auto=1&height=66"></iframe>
 <p>希望三百多天后的我还能愉快地打开这个编辑页面，写下另一篇新的文章吧。</p>
-]]></content:encoded></item><item><title>基于 ESP8266 的物联网微型气象站</title><link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link><pubDate>Wed, 21 Nov 2018 08:16:00 +0800</pubDate><guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid><description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description><content:encoded><![CDATA[<h2 id="一模块化设计">一、模块化设计</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>基于 ESP8266 的物联网微型气象站</title>
+      <link>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</link>
+      <pubDate>Wed, 21 Nov 2018 08:16:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/iot-micro-weather-station-based-on-esp8266/</guid>
+      <description>本系统采用模块化设计，通过 Wi-Fi 接入物联网平台，支持多种快速配网协议和休眠模式，具备低功耗长续航能力。模块包括户外主机、太阳能模块、室内网关、土壤、温湿度、气体、风速/风向模块以及智能插座和灯，可根据需求添加传感器或功能模块。系统可应用于智能家居、智慧农业和智慧城市等领域，具有数据自动上传、设备联动、警报等功能，并支持远程升级和控制。改进措施包括增强防水性能、优化外观设计及代码逻辑，并计划增加 GPRS/4G/NB-IoT 通信模块和摄像头以适应更多应用场景。</description>
+      <content:encoded><![CDATA[<h2 id="一模块化设计">一、模块化设计</h2>
 <p>所有模块均可通过 Wi-Fi 接入一个或多个物联平台，支持 AirKiss、SmartConfig 等多种快速配网协议，支持休眠模式，低功耗长续航，可根据实际需求增加相应的功能模块或传感器模块。以下是部分模块及其特性：</p>
 <p><strong>户外主机</strong>：Mini 百叶箱设计，内置温湿度、光照、PM2.5、气压、有害气体等多种高精度传感器，并支持拓展传感器，多路可编程继电器，太阳能辅助供电，大容量锂电池，LCD 显示实时数据，支持 ZigBee 协议，可使用 SD 卡记录数据，高精度 ADC 转换，冬季自动恒温等。</p>
 <figure>
@@ -5943,7 +6478,15 @@ Clash 也没了……</p>
 <p>优化代码逻辑，兼容更多类型的传感器。</p>
 <p>增加 GPRS，4G、NB-IoT 等通信模块，以应对户外无 Wi-Fi 信号和超出 ZigBee 通信距离的情况。</p>
 <p>增加摄像头，用户可通过手机查看实时画面，以辅助用户进行现场实况的判断。</p>
-]]></content:encoded></item><item><title>人口与城市</title><link>https://weixiang.github.io/posts/population-and-cities/</link><pubDate>Fri, 29 Jun 2018 13:57:00 +0800</pubDate><guid>https://weixiang.github.io/posts/population-and-cities/</guid><description>指城市的城区（不包括市辖县）的农业人口和非农业人口的总数，包括有常住户口和未落常住户口的人，以及被注销户口的在押犯、劳改、劳教人员。总人口中不包括现役军人、人民武装警察。</description><content:encoded><![CDATA[<h3 id="第一章-人口与环境">第一章 人口与环境</h3>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>人口与城市</title>
+      <link>https://weixiang.github.io/posts/population-and-cities/</link>
+      <pubDate>Fri, 29 Jun 2018 13:57:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/population-and-cities/</guid>
+      <description>指城市的城区（不包括市辖县）的农业人口和非农业人口的总数，包括有常住户口和未落常住户口的人，以及被注销户口的在押犯、劳改、劳教人员。总人口中不包括现役军人、人民武装警察。</description>
+      <content:encoded><![CDATA[<h3 id="第一章-人口与环境">第一章 人口与环境</h3>
 <p><strong>1、人口增长</strong></p>
 <p><strong>①人口自然增长率的概念（a）</strong></p>
 <p>在一定时期内出生人数减去死亡人数的净增人数与同期平均人数之比，多用百分比或千分比表示。一般情况下也可以用<strong>人口出生率减去人口死亡率</strong>得出<strong>人口自然增长率</strong>。</p>
@@ -6388,7 +6931,15 @@ Clash 也没了……</p>
 <p><strong>9、我国城市发展的趋势（b）</strong></p>
 <p>进入 21 世纪，我国城市化表现为加速趋势，这与我国社会经济的发展是密切关联的。现阶段中国特色的城市化道路，要更加注重协调发展。具体表现在六个方面：</p>
 <p>（1）<strong>城市经济</strong>逐渐成为区域经济增长的主导力量；2、<strong>大型中心城市</strong>加速发展，辐射带动功能显著增强；3、强调以人为本，注重构造和谐的人居环境；4、<strong>控制环境污染和生态破坏</strong>，治理各种“城市病”；5、有更多的农业人口进入城市或当地的小城镇；6、运用信息化手段进一步提高城市现代化水平。</p>
-]]></content:encoded></item><item><title>更改 Hexo 的背景颜色</title><link>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</link><pubDate>Fri, 16 Feb 2018 01:19:00 +0800</pubDate><guid>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</guid><description>这不是 2018 大年初一吗~为了迎合各大网站 APP 的传统习俗，我也把网页的主题色改了~改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</description><content:encoded><![CDATA[<p>这不是 2018 大年初一吗<del>为了迎合各大网站\APP 的传统习俗，我也把网页的主题色改了</del>改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>更改 Hexo 的背景颜色</title>
+      <link>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</link>
+      <pubDate>Fri, 16 Feb 2018 01:19:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/change-the-background-color-of-hexo/</guid>
+      <description>这不是 2018 大年初一吗~为了迎合各大网站 APP 的传统习俗，我也把网页的主题色改了~改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</description>
+      <content:encoded><![CDATA[<p>这不是 2018 大年初一吗<del>为了迎合各大网站\APP 的传统习俗，我也把网页的主题色改了</del>改成了喜庆的红色（你确定不是骚粉吗！(ㅍ_ㅍ)）</p>
 <h2 id="实现方法">实现方法</h2>
 <p>打开文件：<code>themes/next/source/css/_variables/custom.styl</code></p>
 <p>添加以下内容：</p>
@@ -6397,63 +6948,66 @@ Clash 也没了……</p>
 </span></span><span class="line"><span class="cl"><span class="nx">$header</span><span class="o">-</span><span class="nx">bg</span><span class="o">-</span><span class="nx">color</span> <span class="o">=</span> <span class="err">#</span><span class="nx">FFE4E1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">$footer</span><span class="o">-</span><span class="nx">bg</span><span class="o">-</span><span class="nx">color</span> <span class="o">=</span> <span class="err">#</span><span class="nx">FFE4E1</span><span class="p">;</span>
 </span></span></code></pre></div><p>保存以后刷新一下页面就可以看到效果啦！</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/2018-2-15-1.webp" alt=""  />
-</p>
-]]></content:encoded></item><item><title>Windows 10 更新后系统无法识别键盘的解决方案</title><link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link><pubDate>Tue, 13 Feb 2018 09:11:00 +0800</pubDate><guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid><description>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description><content:encoded><![CDATA[<blockquote>
-<p>非常抱歉，由于这篇文章过于古早，图片已经遗失在了互联网的长河中</p>
-</blockquote>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/2018-2-15-1.webp"></p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Windows 10 更新后系统无法识别键盘的解决方案</title>
+      <link>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</link>
+      <pubDate>Tue, 13 Feb 2018 09:11:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-solution-to-the-system-not-recognizing-the-keyboard-after-windows-10-update/</guid>
+      <description>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>非常抱歉，由于这篇文章过于古早，图片已经遗失在了互联网的长河中</p></blockquote>
 <blockquote>
 <p>2024 年 8 月 11 日更新：
-图片找回来了。</p>
-</blockquote>
+图片找回来了。</p></blockquote>
 <p>Windows10 以其良好的性能、外观和与移动端的兼容性正逐渐被大众所接受，市场份额也逐渐上涨。但 升级\重装\用了一段时间 之后，发现键盘突然就 识别不出来\失灵 了，这就非常不方便了。但结果我一上午的摸索，终于找到了解决方法！</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.webp"></p>
 <!-- more -->
 <p>电脑用久了就会有越来越多乱七八糟的 软件\文件\缓存 堆积在 C 盘的各个角落，拖严重影响使用体验。应对这种情况呢，如果没有什么重要的文件的话，直接重装就是最好的解决方案啦！嗯，于是我从微软官网上下载了一个“Windows10 创意者”给电脑装上了……</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082103626.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082103626.webp"></p>
 <p>但是当系统安装完之后，我才发现</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082104398.webp" alt="唉唉唉！键盘呢？？？？？？？"  />
-
+<p><img alt="唉唉唉！键盘呢？？？？？？？" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082104398.webp">
 但本着极（wu）客（聊）精神，尝试了不少办法，终于找到了最佳解决方案！</p>
 <hr>
 <h3 id="检查设备连线">检查设备连线</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082104929.webp" alt="PS/2接口或USB接口"  />
-
+<p><img alt="PS/2接口或USB接口" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082104929.webp">
 检查一下你的电脑与键盘的连接线有没有插好，如果没有的话记得要插紧♂一点。把你的键盘插到其他电脑看看是不是键盘坏掉了或者打开主机看看是不是哪里有问题。</p>
 <h3 id="检查驱动程序有没有正确安装">检查驱动程序有没有正确安装</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082105050.webp" alt="更新驱动程序"  />
-
+<p><img alt="更新驱动程序" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082105050.webp">
 右键左下角 Windows 标志，选择<code>设备管理器</code>→<code>键盘</code>→<code>更新驱动程序</code>，然后 Windows10 就会自己在线更新驱动啦！（也可以用驱动精灵、驱动大师之类的软件更新驱动）</p>
 <h3 id="找不到键盘设备怎么破">找不到键盘设备怎么破？</h3>
 <p>这也是我所遇到的问题，键盘设备都没有识别出来啊啊啊啊啊！
 此时，这可能就是 BIOS 那里的问题了！你可以关机并拔电源后拆开电脑来看看，把 BIOS 的电池抠下来，等一会再装回去。当然你也可以开机的时候进入 BIOS（不同品牌的电脑进 BIOS 的方法会不同，可以在网上搜索“你的电脑品牌+BIOS”找到你的电脑进入 BIOS 的方法），根据提示或说明书回复 BIOS 的出厂设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082106580.webp" alt="BIOS 设置"  />
-</p>
+<p><img alt="BIOS 设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082106580.webp"></p>
 <h3 id="还是不行啊啊啊啊啊怎么办">还是不行啊啊啊啊啊！！！怎么办？</h3>
 <p>如果上面的方法都无效，而且键盘确实是好的，重点是在<strong>BIOS 设置中键盘是可以正常使用的</strong>！！！那么就是<strong>系统</strong>的问题了！</p>
 <p>如果设备管理器里面没有键盘设备，你可以参考<a href="https://jingyan.baidu.com/article/2d5afd69c9c6b185a3e28e7f.html">这篇文章</a>，设置完毕之后重启一下电脑，看看键盘能不能用，如果还不行，请继续往下看。</p>
 <p>选择小娜的搜索框（或是快捷键 Windows + R），输入<code>regedit</code>，回车，打开<code>注册表管理器</code>。然后定位到<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}</code>
 删除<code>UpperFilters</code>项，然后再去<code>设备管理器</code>把键盘的驱动卸载。接着重启电脑。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082108498.webp" alt="删除 UpperFilters"  />
-</p>
+<p><img alt="删除 UpperFilters" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082108498.webp"></p>
 <p>开机之后如果你在进去设备管理器看的话，键盘的状态可能\应该是<code>该设备无法启动。 (代码 10)</code>酱紫的。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.webp" alt="该设备无法启动。"  />
-</p>
+<p><img alt="该设备无法启动。" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082101635.webp"></p>
 <p>然后再定位到那个目录<code>定位到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96B-E325-11CE-BFC1-08002BE10318}</code></p>
 <p>新建一个名称为<code>UpperFilters</code>多字符串值项，内容填上<code>kbdclass</code>
-<img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082110660.webp" alt="新建 UpperFilters"  />
-</p>
+<img alt="新建 UpperFilters" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082110660.webp"></p>
 <p>然后再去<code>设备管理器</code>卸载键盘设备，重启电脑即可。</p>
 <p><em>到这一步我的键盘终于恢复工作了！</em></p>
 <h3 id="还不行怎么办">还不行，怎么办？</h3>
 <p>要不，你试试重装一遍系统？</p>
 <p>再不行的话，这可能是因为内部硬件损坏导致的了，建议你把电脑交给专业的维修人员进行检查维修。</p>
 <p>完。</p>
-]]></content:encoded></item><item><title>您好，世界</title><link>https://weixiang.github.io/posts/hello-hexo/</link><pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate><guid>https://weixiang.github.io/posts/hello-hexo/</guid><description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description><content:encoded><![CDATA[<blockquote>
-<p>2022 年 1 月 25 日 更新</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>您好，世界</title>
+      <link>https://weixiang.github.io/posts/hello-hexo/</link>
+      <pubDate>Sat, 03 Feb 2018 09:47:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hello-hexo/</guid>
+      <description>你好世界 是所有编程语言给予世界的第一句问候，代表我博客时光的开始。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>2022 年 1 月 25 日 更新</p></blockquote>
 <p>如你所见，这是我开始写博客以来的第一篇文章，时过境迁，很多东西都不一样了，看个乐就好。还有一件事，现在我用的博客是基于 Ghost 的。</p>
 <hr>
 <p>断断续续地花了一个星期时间，终于把这个博客网站重新搭建了起来。其实这个网站在 2017 年的 8 月份就已经上线，但由于学业等原因，网站一直处于挂着的状态，现在趁着假期又将网站重新构建，优化添加了不少东西，也准备开始定期发布文章了。</p>
@@ -6469,7 +7023,15 @@ Clash 也没了……</p>
         </figcaption>
 </figure>
 
-]]></content:encoded></item><item><title>站点更新记录</title><link>https://weixiang.github.io/posts/blog-update-log/</link><pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate><guid>https://weixiang.github.io/posts/blog-update-log/</guid><description>本站点自创立以来的更新记录</description><content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>站点更新记录</title>
+      <link>https://weixiang.github.io/posts/blog-update-log/</link>
+      <pubDate>Sun, 31 Dec 2017 16:03:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/blog-update-log/</guid>
+      <description>本站点自创立以来的更新记录</description>
+      <content:encoded><![CDATA[<h2 id="时间线">时间线</h2>
 <ul>
 <li>2018-2-3 站点建立，由 Hexo 驱动，托管于 GitHub Pages，发布第一篇文章</li>
 <li>2018-02-17 启用域名 <code>████.tech</code> 和 <code>████████.club</code> [数据删除]</li>
@@ -6490,4 +7052,7 @@ Clash 也没了……</p>
 <li>2024-08-06 更换为 Hugo 驱动，页面托管至 GitHub，有了比命长的域名 <code>weixiang.github.io</code></li>
 </ul>
 <p>感谢<del>世界著名慈善企业</del>Cloudflare，感谢 Microsoft，提供了 GitHub Page 托管、GitHub Action 自动部署，以及<del>宇宙第一编辑器</del>VS Code，感谢所有开源作者。</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

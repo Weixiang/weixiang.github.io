@@ -1,14 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Android on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/android/</link><description>Recent content in Android on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 01 Aug 2024 16:55:37 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Android 机顶盒注入原生设置</title><link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link><pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate><guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid><description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description><content:encoded><![CDATA[<h2 id="引言">引言</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Android on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/android/</link>
+    <description>Recent content in Android on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Thu, 01 Aug 2024 16:55:37 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android 机顶盒注入原生设置</title>
+      <link>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</link>
+      <pubDate>Thu, 01 Aug 2024 16:55:37 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/inject-native-settings-into-android-tv-boxes/</guid>
+      <description>在为移动魔百盒 CM201-1-YS 刷入 Android 9 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。本文记录如何为此类定制机顶盒添加原生设置。</description>
+      <content:encoded><![CDATA[<h2 id="引言">引言</h2>
 <p>在为<a href="/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9">移动魔百盒 CM201-1-YS 刷入 Android 9</a> 后，发现原生设置被运营商的设置替换了，无法改动复杂的设置选项。</p>
 <p>本文修改自<a href="https://www.52pojie.cn/thread-1928986-1-1.html">为电视盒子注入原生设置的通用方法 - 『移动安全区』 - 吾爱破解 - LCG - LSG |安卓破解 | 病毒分析|www.52pojie.cn</a></p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp" alt="定制设置"  />
-</p>
+<p><img alt="定制设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173710939.webp"></p>
 <p>幸好我们有 root 权限，在盒子上装个 MT 管理器就能直接替换系统应用。于是我想去网上找个原生设置放进去，结果有的不能用，有的替换完干脆直接进不去系统了，又得重刷&hellip;  后来寻思我明明会逆向，为啥不自己动手，丰衣足食呢？</p>
 <h2 id="提取原生设置-apk">提取原生设置 APK</h2>
 <p>使用 MT 管理器提取 APK，查看 APK 内容。</p>
 <p>注意到我们的雷电模拟器里就有个原生设置，系统恰好也是安卓 9，提取并检查这个设置的 APK 文件，发现里面没有 lib 库，因此推断 APK 是全平台通用的，只要能装上：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp" alt="提取原生设置 APK"  />
-</p>
+<p><img alt="提取原生设置 APK" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801173935660.webp"></p>
 <h2 id="替换证书">替换证书</h2>
 <p>这个设置和电视盒子里已有的设置包名冲突了，只能先进行替换，替换后重启，发现设置图标消失，原生设置和定制设置都没了，于是对比两个设置的签名描述，如下：</p>
 <p>雷电模拟器设置：
@@ -24,20 +39,16 @@
 </span></span><span class="line"><span class="cl">        <span class="na">android:description=</span><span class="s">&#34;@string/superuser_description_more&#34;</span> <span class="nt">/&gt;</span>
 </span></span></code></pre></div><p>幸好，安卓对 <code>/system/app</code> 下的应用只判断签名是否存在，不判断是否有效，我们可以来一出借尸还魂。</p>
 <p>首先将定制设置备份，然后在 MT 管理器两侧同时打开原生设置和定制设置，接下来将定制设置中除 <code>META-INF</code> 外的文件全部删除，然后将原生设置中除 <code>META-INF</code> 外的文件全部添加到定制设置中，全程不要进行签名（同时建议保留 v2 签名数据），这样我们就得到了披着系统级签名的原生设置：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp" alt="替换后证书"  />
-</p>
+<p><img alt="替换后证书" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174043417.webp"></p>
 <h2 id="移动到系统-app-目录">移动到系统 App 目录</h2>
 <p>现在我们把这个设置再移到系统 App 目录下，例如 <code>/system/app/Setting</code>，并且设置权限为 644，所有者为 root，所有组也为 root。</p>
 <p>重启发现原生设置出现了，功能基本正常，也可以查看应用信息并清缓存了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp" alt="原生设置"  />
-</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp" alt="原生设置"  />
-</p>
+<p><img alt="原生设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174103641.webp"></p>
+<p><img alt="原生设置" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174107891.webp"></p>
 <h2 id="定制设置共存">定制设置共存</h2>
 <p>接下来要解决两个设置共存的问题，原生设置虽好，但调整屏幕分辨率比较困难，因此定制设置还是需要保留的，我们直接用 MT 的 apk 共存功能，修改定制设置的包名（因为原生设置会被第三方调用），同样不签名，然后一并放到系统 App 目录下，这里是 <code>/system/app/Setting2</code>，同样设置权限为 644，所有者和组为 root。</p>
 <p>重启电视盒子，发现两个设置都出现了，目前使用起来一切正常。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp" alt="原生设置与定制设置共存"  />
-</p>
+<p><img alt="原生设置与定制设置共存" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801174131387.webp"></p>
 <p>留一个思考题：目前发现无法在原生设置中通过多次点击版本号启用开发者模式，屏幕无任何提示，问如何解决？</p>
 <h2 id="还有一件事">还有一件事</h2>
 <p>该固件的默认字体被魔改了，是一种综艺体，看着挺非主流的，顺手给它改回 Noto + 思源字体了。</p>
@@ -49,9 +60,16 @@
 <li><a href="https://mt2.cn/guide/reverse/signature.html">APK 签名 | MT 管理器</a></li>
 <li><a href="https://github.com/Buernia/Noto-SHS-Magisk-module">GitHub - Buernia/Noto-SHS-Magisk-module: 谷歌 Noto + 思源系列可变字体，支持多语言多字重。适配 MIUI 13。Variable Noto fonts Magisk module for MIUI 13 (Android 12).</a></li>
 </ul>
-]]></content:encoded></item><item><title>移动魔百盒 CM201-1-YS 刷入 Android 9</title><link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link><pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate><guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid><description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description><content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="效果图"  />
-</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>移动魔百盒 CM201-1-YS 刷入 Android 9</title>
+      <link>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</link>
+      <pubDate>Thu, 01 Aug 2024 10:56:56 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/cmcc-mobile-tv-box-cm201-1-ys-flashed-android9/</guid>
+      <description>给中国移动魔百盒 CM201-1-YS 刷入 Android 9，芯片为 S095l3b</description>
+      <content:encoded><![CDATA[<h2 id="效果图">效果图</h2>
+<p><img alt="效果图" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp"></p>
 <h2 id="基本信息">基本信息</h2>
 <ul>
 <li>SOC：  <code>S095l3b</code></li>
@@ -59,18 +77,14 @@
 <li>无线网卡： <code>RTL8822CS</code></li>
 </ul>
 <h3 id="背部标签">背部标签</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp" alt="背部标签"  />
-</p>
+<p><img alt="背部标签" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111012796.webp"></p>
 <h3 id="主板正面">主板正面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp" alt="主板正面"  />
-</p>
+<p><img alt="主板正面" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111111051.webp"></p>
 <h3 id="主板背面">主板背面</h3>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp" alt="主板背面"  />
-</p>
+<p><img alt="主板背面" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111116716.webp"></p>
 <h3 id="刷机测试点">刷机测试点</h3>
 <p>短接标号为 4R12 的黑色电阻可进入刷机模式，用于救砖。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp" alt="刷机测试点"  />
-</p>
+<p><img alt="刷机测试点" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801111136295.webp"></p>
 <h2 id="准备">准备</h2>
 <h3 id="下载固件">下载固件</h3>
 <p>固件名称：<code>android_tv_cm201-1-ys_s905l3b.tar.xz</code></p>
@@ -84,19 +98,24 @@
 <h2 id="刷机">刷机</h2>
 <p>使用双 USB-A 线，连接机顶盒的 USB1 到电脑。</p>
 <p>1、打开 USB_Burning_Tool 线刷工具，加载固件，导入成功后，默认烧录配置勾选，不用动，然后点击开始。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp" alt="USB_Burning_Tool"  />
-</p>
+<p><img alt="USB_Burning_Tool" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112035500.webp"></p>
 <p>2、根据不同机器，比如 YS 代工按住 AV 口里面的复位键，CH 或者 ZG 代工短接闪存背面的 4R12 电阻两端，等等。也可通过刷机神器免拆。然后，双头 USB 线插上电脑和盒子靠近网口一端的 USB 接口，此时刷机工具自动连接识别，并开始走进度条刷机，等待刷机结束即可！（不能自动识别的可先通电，再插盒子端的 USB 接口）。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp" alt="开始刷机"  />
-</p>
+<p><img alt="开始刷机" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801112526884.webp"></p>
 <p>3、刷机完成后，刷机工具点“停止”，拔掉双头 USB 线，重新开机，即可正常进入刷机后的系统。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp" alt="完成效果"  />
-</p>
+<p><img alt="完成效果" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20240801110959740.webp"></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209">https://github.com/ophub/amlogic-s9xxx-armbian/issues/2209</a></p>
 <p><a href="https://www.mydigit.cn/thread-195255-1-1.html">https://www.mydigit.cn/thread-195255-1-1.html</a></p>
 <p><a href="https://www.right.com.cn/forum/thread-8292204-1-1.html">https://www.right.com.cn/forum/thread-8292204-1-1.html</a></p>
-]]></content:encoded></item><item><title>广东广电机顶盒 APK 安装限制探究</title><link>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link><pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate><guid>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid><description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description><content:encoded><![CDATA[<h2 id="省流">省流</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>广东广电机顶盒 APK 安装限制探究</title>
+      <link>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</link>
+      <pubDate>Wed, 31 Jul 2024 09:53:37 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/exploration-of-guangdong-cable-tv-box-apk-installation-restrictions/</guid>
+      <description>广东广电 2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装，本次探究 APK 安装限制的实现原理及绕过方法。</description>
+      <content:encoded><![CDATA[<h2 id="省流">省流</h2>
 <p>没成。</p>
 <h2 id="引言">引言</h2>
 <p>垃圾广电，宽带是租的，用户侧 BGP，出口随机，2024 年仍无 IPv6，更无公网 IP，电视机顶盒禁止所有方式的第三方 APK 安装。</p>
@@ -527,7 +546,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p><a href="https://www.znds.com/tv-1210588-1-1.html">https://www.znds.com/tv-1210588-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-1136160-1-1.html">https://www.52pojie.cn/thread-1136160-1-1.html</a></p>
 <p><a href="https://www.52pojie.cn/thread-710679-1-1.html">https://www.52pojie.cn/thread-710679-1-1.html</a></p>
-]]></content:encoded></item><item><title>广东广电机顶盒 GDT-JL1000 研究记录</title><link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link><pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate><guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid><description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description><content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>广东广电机顶盒 GDT-JL1000 研究记录</title>
+      <link>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</link>
+      <pubDate>Fri, 28 Jan 2022 10:02:34 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/guangdong-cable-tv-box-gdt-jl1000-research-record/</guid>
+      <description>广东广电送的 Android 机顶盒，研究了一下是否可以安装第三方应用。</description>
+      <content:encoded><![CDATA[<h2 id="网络-adb-调试">网络 ADB 调试</h2>
 <ol>
 <li>进入设置页面，遥控器输入<code>96956</code></li>
 <li>查看 IP，并使用 <code>adb connect 192.168.1.x</code>连接到机顶盒</li>
@@ -565,16 +592,23 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 </ul>
 <h2 id="参考资料">参考资料</h2>
 <p><a href="https://blog.csdn.net/xianrenli38/article/details/79607077">https://blog.csdn.net/xianrenli38/article/details/79607077</a></p>
-]]></content:encoded></item><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 Android 手机制作树莓派镜像 SD 卡</title>
+      <link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid>
+      <description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
-<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
-</blockquote>
+<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p></blockquote>
 <p>今天树莓派的系统不小心被我搞炸了，不知道如何修复，需要重装系统才能解决，但正巧没有电脑，于是便想能不能用手机来制作树莓派的系统镜像 SD 卡。</p>
 <p>Google 了一下还真行。</p>
 <p>由于还没有类似的中文教程，这里简单记录一下就作为「中文首发」吧。?</p>
 <h2 id="下载-app">下载 APP</h2>
 <p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」即可下载。</p>
-<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&hl=en_US&gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
+<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&amp;hl=en_US&amp;gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
 <h2 id="下载系统镜像">下载系统镜像</h2>
 <p>打开 APP，默认会为你选择一个「boot」镜像。需要更改的话，点右上角「Choose OS」即可更换，我选择了「Raspberry Pi OS (32-bit)」。</p>
 <p>点击软件下方的「Download」即可开始下载。</p>
@@ -590,7 +624,15 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
 <p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
-]]></content:encoded></item><item><title>在 Android Q 上安装 V4A 的正确姿势</title><link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link><pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid><description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description><content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>在 Android Q 上安装 V4A 的正确姿势</title>
+      <link>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</link>
+      <pubDate>Wed, 13 Nov 2019 12:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-correct-way-to-install-v4a-on-android-q/</guid>
+      <description>ViPER4Android 是一款用于 Android 系统的全局音效驱动，主要用于给音频渲染各种各样的音频效果，包括回放增益、均衡器、脉冲反馈处理、场环绕、数字混响、动态系统和限幅器。</description>
+      <content:encoded><![CDATA[<p>你试过在 Android 10 上安装 ViPER4Android 吗？如果是，那么你可能已经失败了。确实，不过这很正常。可能是因为 Android 10 更改了某些接口，ViPER4Android 还没有适配…</p>
 <p>那么，如何在 Android 10 上安装 ViPER4Android 呢？按照以下的方法即可正常安装使用 ViPER4Android</p>
 <p>Pixel，Pixel 3 XL，Pixel 2 XL，OnePlus 6 / 6T，OnePlus 7/7 Pro 经过测试均可运行成功，理论上适用于大部分 Android 10 手机。</p>
 <p>在开始之前，请确保：1、手机已 root 并且已安装 Magisk2、将已安装的音频修改类软件、模块停用或卸载</p>
@@ -650,4 +692,7 @@ PackageInstaller 或 <code>pm install</code> -&gt; PackageManager -&gt; PackageM
 
 <p>似乎是要按照上面的顺序安装 ViPER4Android 和 Audio Modification Library 才能成功如果还是失败的同学可以在评论区发出来看看有没有大佬…或者…等 ViPER4Android 的开发团队适配 Android 10 …</p>
 <p><em>感谢 XDA 上的 1dopewrx05，他在 Pixel 2 XL 主题站上分享了本方法，当然还有 The Customdroid 提供的图片和整理。</em></p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

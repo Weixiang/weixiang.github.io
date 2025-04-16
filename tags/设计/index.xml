@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>设计 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/</link><description>Recent content in 设计 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 16 Sep 2021 01:55:05 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml"/><item><title>字体在设计中的运用</title><link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link><pubDate>Thu, 16 Sep 2021 01:55:05 +0800</pubDate><guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid><description> 字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description><content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>设计 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 设计 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Thu, 16 Sep 2021 01:55:05 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>字体在设计中的运用</title>
+      <link>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</link>
+      <pubDate>Thu, 16 Sep 2021 01:55:05 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-use-of-fonts-in-design/</guid>
+      <description> 字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</description>
+      <content:encoded><![CDATA[<p>字体在设计中占有重要地位，我们要了解字体，明白不同场合应该用什么字体，才能做出令读者舒适的设计。</p>
 <p>我们设计时，首先要考虑到就是读者的感受，要让读者看得舒服，字体的选用十分关键。首先我们要知道字体的分类，无论是中文还是西文，字体都可以分为三类：衬线字体、无衬线字体、等宽字体。这三种字体有着不同的视觉风格，适用的场合也不太相同。</p>
 <p>我们生活中最常见的就是衬线字体和无衬线字体。衬线字体的代表是宋体，也就是我们在书本上看到的字体。</p>
 <p>你现在看到的这张图就是采用了衬线字体。最大的特征就是能看到笔锋，笔画有粗细变化（也就是所谓的“衬线”），用人话说就是类似于我们手写的效果，它能很好地体现文字之美，尤其适用于排版感性的文字，如文学类，适合纸质印刷。</p>
@@ -10,7 +27,15 @@
 <p>常用于代码、密码、数学等内容。这个不太常用，大家知道了解就行。</p>
 <p>今天的 tips 似乎有点长，有八百字了，内容比较偏理论，可能比较难以理解，大家可以翻翻自己身边的书本，来对应找找上面提到的三种字体。</p>
 <p>如果你觉得这篇 tips 还不错的话，我的网站：weixiang.github.io，各位可以在里面找到一篇我早些时候写的字体应用研究文章。</p>
-]]></content:encoded></item><item><title>中文网页中的字体选型及开发指南</title><link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link><pubDate>Sat, 03 Jul 2021 15:35:06 +0800</pubDate><guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid><description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>中文网页中的字体选型及开发指南</title>
+      <link>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</link>
+      <pubDate>Sat, 03 Jul 2021 15:35:06 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/the-font-selection-and-development-guide-in-chinese-web-pages/</guid>
+      <description>探索中文网页设计中，特别是文字较多的博客类，用那种字体更为合适呢？</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <p>趁着暑假，我又搭建了一个自己的个人博客，不同于以往，这次用的是较新的博客系统 Ghost。</p>
 <p>因为 Ghost 的主题和 UI 实在是太好看了。</p>
 <p>而且易用性也很好，比起臃肿的 WordPress 和 折腾人的 Hexo，Ghost 正中我意。</p>
@@ -68,8 +93,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="哔哩哔哩">哔哩哔哩</h3>
 <blockquote>
-<p>2022 年 1 月 17 日更新</p>
-</blockquote>
+<p>2022 年 1 月 17 日更新</p></blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 新版首页 */</span>
 </span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">font-family</span><span class="p">:</span> <span class="n">PingFang</span> <span class="n">SC</span><span class="p">,</span><span class="n">HarmonyOS_Regular</span><span class="p">,</span><span class="n">Helvetica</span> <span class="n">Neue</span><span class="p">,</span><span class="n">Microsoft</span> <span class="n">YaHei</span><span class="p">,</span><span class="kc">sans-serif</span><span class="cp">!important</span><span class="p">;</span>
@@ -101,62 +125,61 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h2 id="常见的字体">常见的字体</h2>
 <blockquote>
-<p>2022 年 1 月 17 日更新</p>
-</blockquote>
+<p>2022 年 1 月 17 日更新</p></blockquote>
 <h3 id="等线字体-sans-serif">等线字体 Sans-serif</h3>
 <table>
-<thead>
-<tr>
-<th>字体</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>system-ui</code></td>
-<td>默认系统字体</td>
-</tr>
-<tr>
-<td><code>-apple-system</code>, <code>BlinkMacSystemFont</code></td>
-<td>macOS, iOS</td>
-</tr>
-<tr>
-<td>Segoe UI</td>
-<td>Microsoft Windows, Xbox, etc.</td>
-</tr>
-<tr>
-<td>Roboto</td>
-<td>较新版本的 Android</td>
-</tr>
-<tr>
-<td>Oxygen</td>
-<td>Linux / KDE</td>
-</tr>
-<tr>
-<td>Ubuntu</td>
-<td>Linux / Ubuntu</td>
-</tr>
-<tr>
-<td>Cantarell</td>
-<td>Linux / GNOME 3</td>
-</tr>
-<tr>
-<td>Fira Sans</td>
-<td>Firefox OS</td>
-</tr>
-<tr>
-<td>Droid Sans</td>
-<td>旧版本的 Android</td>
-</tr>
-<tr>
-<td>Helvetica Neue</td>
-<td>OSX</td>
-</tr>
-<tr>
-<td>Arial, <code>sans-serif</code></td>
-<td>备胎</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>字体</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>system-ui</code></td>
+          <td>默认系统字体</td>
+      </tr>
+      <tr>
+          <td><code>-apple-system</code>, <code>BlinkMacSystemFont</code></td>
+          <td>macOS, iOS</td>
+      </tr>
+      <tr>
+          <td>Segoe UI</td>
+          <td>Microsoft Windows, Xbox, etc.</td>
+      </tr>
+      <tr>
+          <td>Roboto</td>
+          <td>较新版本的 Android</td>
+      </tr>
+      <tr>
+          <td>Oxygen</td>
+          <td>Linux / KDE</td>
+      </tr>
+      <tr>
+          <td>Ubuntu</td>
+          <td>Linux / Ubuntu</td>
+      </tr>
+      <tr>
+          <td>Cantarell</td>
+          <td>Linux / GNOME 3</td>
+      </tr>
+      <tr>
+          <td>Fira Sans</td>
+          <td>Firefox OS</td>
+      </tr>
+      <tr>
+          <td>Droid Sans</td>
+          <td>旧版本的 Android</td>
+      </tr>
+      <tr>
+          <td>Helvetica Neue</td>
+          <td>OSX</td>
+      </tr>
+      <tr>
+          <td>Arial, <code>sans-serif</code></td>
+          <td>备胎</td>
+      </tr>
+  </tbody>
 </table>
 <p><code>Helvetica</code> ：被评为设计师最爱的字体，Realist 风格，简洁现代的线条，非常受到追捧。在 Mac 下面被认为是最佳的网页字体，在 Windows 下由于 Hinting 的原因显示很糟糕。
 <code>Arial</code> ：Helvetica 的「克隆」，和 Helvetica 非常像，细节上比如 R 和 G 有小小差别。如果字号太小，文字太多，看起来会有些累眼。Win 和 Mac 显示都正常
@@ -246,19 +269,17 @@
 <blockquote>
 <p>（1）优先使用排在前面的字体。</p>
 <p>（2）如果找不到该种字体，或者该种字体不包括所要渲染的文字，则使用下一种字体。</p>
-<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p>
-</blockquote>
+<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p></blockquote>
 <p><strong>根据这些规则，<code>font-family</code> 应该优先指定英文字体，然后再指定中文字体。</strong> 否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
 <p><strong>为了保证兼容性，中文字体的中文名称和英文名称，应该都写入<code>font-family</code>。</strong> 比如，&ldquo;微软雅黑&quot;的英文名称是<code>Microsoft YaHei</code>。</p>
 <blockquote>
-<p>font-family 后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode，比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p>
-</blockquote>
+<p>font-family 后面的值最好全部写英文，中文的话在 macOS 下某些版本的浏览器是不支持的，认不出来，还有比<code>&quot;Microsoft YaHei&quot;</code>这种英文写法，更推荐的写法是把汉字转义为 unicode，比如微软雅黑转义之后就是<code>&quot;\5FAE\8F6F\96C5\9ED1&quot;</code>，这样能兼容更多平台和各种不同语言的浏览器，兼容性最好。</p></blockquote>
 <p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
 <p>由于 Windows 和 Mac 的中文字体没有交叉，所以应该同时为两个平台指定字体。</p>
 <p>常见的做法是，Windows 平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac 平台指定&quot;华文细黑&quot;（STXihei）。</p>
 <h3 id="web-fonts">Web Fonts</h3>
 <p>如果是纯英文网页的话，选字体的事情比较好办，因为直接引入 <a href="https://fonts.google.com/">Web Fonts</a>  的成本非常低（文件小），而且现在 Web Fonts 的 [兼容性](&quot;<a href="https://caniuse.com/#search=web">https://caniuse.com/#search=web</a> font&quot;) 很好，基本上所有主流浏览器都支持，就能保证各个平台所用的字体的一致性。</p>
-<p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source+Code+Pro">Source Code Pro</a>：</p>
+<p>对于开源字体，如果能在 Google Fonts 直接找到的话，可以通过他们的 CDN 直接引用到页面上。例如 <a href="https://fonts.google.com/specimen/Source&#43;Code&#43;Pro">Source Code Pro</a>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://fonts.googleapis.com/css?family=Source+Code+Pro&amp;display=swap&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></div><p>或者</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
@@ -304,7 +325,9 @@
 <p><a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">阮一峰的网络日志</a>  &ldquo;中文字体网页开发指南&rdquo;</p>
 <p><a href="https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/">https://qwtel.com/posts/software/the-monospaced-system-ui-css-font-stack/</a></p>
 <h2 id="版权声明">版权声明</h2>
-<p><img loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="知识共享许可协议"  />
-
+<p><img alt="知识共享许可协议" loading="lazy" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 本文由 <a href="https://weixiang.github.io">Jacob</a> 采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a> 进行许可，首发于 <a href="https://weixiang.github.io">weixiang.github.io</a> 。</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

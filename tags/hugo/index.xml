@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hugo on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/hugo/</link><description>Recent content in Hugo on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Thu, 15 Aug 2024 16:47:48 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Obsidian + Hugo 博客写作与自动化发布解决方案</title><link>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</link><pubDate>Thu, 15 Aug 2024 16:47:48 +0800</pubDate><guid>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</guid><description>Obsidian 是一款简约、功能强大的基于 Markdown 存储格式的的笔记应用程序。Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文将这两个强大的工具结合，旨在打造一个舒适的博客写作与知识管理工作流。</description><content:encoded><![CDATA[<h2 id="hugo-博客搭建与自动化发布配置">Hugo 博客搭建与自动化发布配置</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hugo on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Thu, 15 Aug 2024 16:47:48 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Obsidian &#43; Hugo 博客写作与自动化发布解决方案</title>
+      <link>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</link>
+      <pubDate>Thu, 15 Aug 2024 16:47:48 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/obsidian-hugo-blog-writing-and-automated-publishing-solution/</guid>
+      <description>Obsidian 是一款简约、功能强大的基于 Markdown 存储格式的的笔记应用程序。Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文将这两个强大的工具结合，旨在打造一个舒适的博客写作与知识管理工作流。</description>
+      <content:encoded><![CDATA[<h2 id="hugo-博客搭建与自动化发布配置">Hugo 博客搭建与自动化发布配置</h2>
 <p>接上一篇文章，已经完成了博客文章上传到 GitHub 后自动化发布到 GitHub Pages。在此基础上，使用 Obsidian 作为写作平台，实现博客写作的舒适工作流。</p>
 <p><a href="posts/hugo-github-blog-building-and-automated-deployment">Hugo + GitHub 博客自动化部署 - 传送门 →</a></p>
 <h2 id="下载与初始化-obsidian">下载与初始化 Obsidian</h2>
@@ -34,118 +51,117 @@
 <blockquote>
 <p><strong>Enveloppe：Obsidian GitHub 保险库发布者</strong></p>
 <p>免费在您自己的 GitHub 存储库中发布您的笔记，并随心所欲地处理它们。✨</p>
-<p>这使您能够设置任何模板：Jekyll、Mkdocs、Hugo 或自定义模板！</p>
-</blockquote>
+<p>这使您能够设置任何模板：Jekyll、Mkdocs、Hugo 或自定义模板！</p></blockquote>
 <p>在插件市场中，搜索 Enveloppe 安装即可。</p>
 <h3 id="配置-envelope">配置 Envelope</h3>
 <p>进入 Envelope 的设置，选择第一页配置 <code>GitHub config</code></p>
 <table>
-<thead>
-<tr>
-<th>GitHub config</th>
-<th>填写内容</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GitHub username</code></td>
-<td>GitHub 用户名</td>
-<td></td>
-</tr>
-<tr>
-<td><code>Repository name</code></td>
-<td>源码仓库名称</td>
-<td></td>
-</tr>
-<tr>
-<td><code>GitHub token</code></td>
-<td>个人令牌</td>
-<td></td>
-</tr>
-<tr>
-<td><code>Main branch</code></td>
-<td><code>main</code></td>
-<td>仓库的主分支名称</td>
-</tr>
-<tr>
-<td><code>Automatically merge pull requests</code></td>
-<td>开启</td>
-<td>自动通过合并请求</td>
-</tr>
-<tr>
-<td>第二页配置 <code>File paths</code>：</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>GitHub config</th>
+          <th>填写内容</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>GitHub username</code></td>
+          <td>GitHub 用户名</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>Repository name</code></td>
+          <td>源码仓库名称</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>GitHub token</code></td>
+          <td>个人令牌</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><code>Main branch</code></td>
+          <td><code>main</code></td>
+          <td>仓库的主分支名称</td>
+      </tr>
+      <tr>
+          <td><code>Automatically merge pull requests</code></td>
+          <td>开启</td>
+          <td>自动通过合并请求</td>
+      </tr>
+      <tr>
+          <td>第二页配置 <code>File paths</code>：</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>File paths</th>
-<th>填写内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Root folder</code></td>
-<td><code>content/posts</code></td>
-</tr>
-<tr>
-<td>第三页配置，<code>Content</code>：</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>File paths</th>
+          <th>填写内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Root folder</code></td>
+          <td><code>content/posts</code></td>
+      </tr>
+      <tr>
+          <td>第三页配置，<code>Content</code>：</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <table>
-<thead>
-<tr>
-<th>Content</th>
-<th>填写内容</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[[Wikilinks]] to [MDlinks](links)</code></td>
-<td>开启</td>
-<td>自动转换链接格式</td>
-</tr>
-<tr>
-<td><code>Text replacer</code></td>
-<td>见下表</td>
-<td>正则式替换功能</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Content</th>
+          <th>填写内容</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>[[Wikilinks]] to [MDlinks](links)</code></td>
+          <td>开启</td>
+          <td>自动转换链接格式</td>
+      </tr>
+      <tr>
+          <td><code>Text replacer</code></td>
+          <td>见下表</td>
+          <td>正则式替换功能</td>
+      </tr>
+  </tbody>
 </table>
 <p>Text replacer 规则：</p>
 <table>
-<thead>
-<tr>
-<th>功能</th>
-<th>查找</th>
-<th>替换</th>
-<th>运行时机</th>
-<th>介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>文章引用</td>
-<td><code>/[^\(]+\.md/</code></td>
-<td><code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code></td>
-<td>↓</td>
-<td>将 obsidian 文章之间的引用转化为 hugo 中的格式，在 obsidian 文章之间引用是没有 md 后缀的，因此执行该替换的时间是等文章使用插件转化后再执行，据此后面的箭头向下。</td>
-</tr>
-<tr>
-<td>文章封面</td>
-<td><code>/cover\.image/</code></td>
-<td><code>cover:\n image</code></td>
-<td>↑</td>
-<td>将一级 key 转为二级，因为 obsidian 不支持多层级属性。</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>功能</th>
+          <th>查找</th>
+          <th>替换</th>
+          <th>运行时机</th>
+          <th>介绍</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>文章引用</td>
+          <td><code>/[^\(]+\.md/</code></td>
+          <td><code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code></td>
+          <td>↓</td>
+          <td>将 obsidian 文章之间的引用转化为 hugo 中的格式，在 obsidian 文章之间引用是没有 md 后缀的，因此执行该替换的时间是等文章使用插件转化后再执行，据此后面的箭头向下。</td>
+      </tr>
+      <tr>
+          <td>文章封面</td>
+          <td><code>/cover\.image/</code></td>
+          <td><code>cover:\n image</code></td>
+          <td>↑</td>
+          <td>将一级 key 转为二级，因为 obsidian 不支持多层级属性。</td>
+      </tr>
+  </tbody>
 </table>
 <p>由于 Hugo 的勾使渲染机制，请将<code>{删掉我{&lt; relref &quot;$&amp;&quot; &gt;*/}}</code>中的<code>删掉我</code>去除后再使用，下面的配置文件同样。</p>
 <p>其他的部分不怎么需要调整了，可以参考我的配置文件，在右上角可以导入我的配置再修改：</p>
@@ -274,35 +290,43 @@
 <li><a href="https://enveloppe.github.io/">https://enveloppe.github.io/</a></li>
 <li><a href="https://sspai.com/post/85262">使用 Obsidian 免费建个人博客 - 少数派</a></li>
 </ul>
-]]></content:encoded></item><item><title>Hugo + GitHub 博客自动化部署</title><link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link><pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate><guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid><description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description><content:encoded><![CDATA[<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Hugo &#43; GitHub 博客自动化部署</title>
+      <link>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</link>
+      <pubDate>Wed, 14 Aug 2024 20:30:14 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/hugo-github-blog-building-and-automated-deployment/</guid>
+      <description>Hugo 是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。本文利用 GitHub 提供的免费 Pages 和 Action 服务，构建一个博客写作与自动化发布工作流，搭建一个免费的个人博客静态网站。</description>
+      <content:encoded><![CDATA[<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
 <p>参考官方文档：<a href="https://docs.github.com/zh/repositories/creating-and-managing-repositories/quickstart-for-repositories">仓库快速入门 - GitHub 文档</a></p>
 <p>一共需要创建两个仓库，分别如下：</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">简称</th>
-<th>名称</th>
-<th>用途</th>
-<th>Action</th>
-<th>Pages</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">源码仓库</td>
-<td>随意，这里以 <code>你的用户名/blog</code> 为例</td>
-<td>存放 Hugo 博客的源码、文章等，执行 Action 生成静态页面</td>
-<td>是</td>
-<td>否</td>
-</tr>
-<tr>
-<td style="text-align:left">页面仓库</td>
-<td>必须是 <code>你的用户名/你的用户名.github.io</code> 的格式</td>
-<td>存放静态页面提供 Web 服务</td>
-<td>否</td>
-<td>是</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">简称</th>
+          <th>名称</th>
+          <th>用途</th>
+          <th>Action</th>
+          <th>Pages</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">源码仓库</td>
+          <td>随意，这里以 <code>你的用户名/blog</code> 为例</td>
+          <td>存放 Hugo 博客的源码、文章等，执行 Action 生成静态页面</td>
+          <td>是</td>
+          <td>否</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">页面仓库</td>
+          <td>必须是 <code>你的用户名/你的用户名.github.io</code> 的格式</td>
+          <td>存放静态页面提供 Web 服务</td>
+          <td>否</td>
+          <td>是</td>
+      </tr>
+  </tbody>
 </table>
 <p>源码仓库创建后，需要克隆到本地，稍后将在其中安装 Hugo。</p>
 <p>页面仓库创建后，并且打开 Pages 功能，用于静态页面托管。参考官方文档：<a href="https://docs.github.com/zh/pages/getting-started-with-github-pages/creating-a-github-pages-site">创建 GitHub Pages 站点 - GitHub 文档</a></p>
@@ -584,7 +608,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">Title</span><span class="p">:</span><span class="w"> </span><span class="l">Thoughts, stories and ideas. </span><span class="w"> </span><span class="c"># 首页大标题</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">Content</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="cl"><span class="sd">          👋 你好！这里是 Jacob 的博客。
-</span></span></span><span class="line"><span class="cl"><span class="sd">          - 如果你觉得文章写得还不错的话，欢迎通过下面的按钮订阅我。</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="sd">          - 如果你觉得文章写得还不错的话，欢迎通过下面的按钮订阅我。</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">outputs</span><span class="p">:</span><span class="w">  </span><span class="c"># 输出设置</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">home</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">HTML</span><span class="w">
@@ -789,4 +813,7 @@
 <li><a href="https://stack.jimmycai.com/">Stack | Card-style Hugo theme designed for bloggers</a></li>
 <li><a href="https://docs.github.com/zh/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">在 GitHub Actions 中使用机密 - GitHub 文档</a></li>
 </ul>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

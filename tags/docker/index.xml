@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Docker on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/docker/</link><description>Recent content in Docker on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Tue, 06 Feb 2024 11:06:34 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>为 Docker 配置 IPv6</title><link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link><pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate><guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid><description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description><content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/docker/</link>
+    <description>Recent content in Docker on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Tue, 06 Feb 2024 11:06:34 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为 Docker 配置 IPv6</title>
+      <link>https://weixiang.github.io/posts/configure-ipv6-for-docker/</link>
+      <pubDate>Tue, 06 Feb 2024 11:06:34 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/configure-ipv6-for-docker/</guid>
+      <description>随着 IPv6 的普及，Docker 也要上 IPv6！网际协议第 6 版是网际协议的最新版本，用作互联网的协议。用它来取代 IPv4 主要是为了解决 IPv4 地址枯竭问题，同时它也在其他方面对于 IPv4 有许多改进。</description>
+      <content:encoded><![CDATA[<h2 id="添加配置">添加配置</h2>
 <p>编辑配置</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nano /etc/docker/daemon.json
 </span></span></code></pre></div><p>添加</p>
@@ -42,7 +59,15 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> qbittorrent ping6 -c4 youtube.com
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://blog.laoda.de/archives/docker-qbittorrent-ipv6/">https://blog.laoda.de/archives/docker-qbittorrent-ipv6/</a></p>
-]]></content:encoded></item><item><title>使用 Docker 部署 File Browser</title><link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link><pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate><guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid><description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description><content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 Docker 部署 File Browser</title>
+      <link>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:47:30 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/deploy-file-browser-using-docker/</guid>
+      <description>filebrowser 是一个使用 go 语言编写的软件，功能是可以通过浏览器对服务器上的文件进行管理。可以是修改文件，或者是添加删除文件，甚至可以分享文件，是一个很棒的文件管理器，你甚至可以当成一个网盘来使用。总之使用非常简单方便，功能很强大。</description>
+      <content:encoded><![CDATA[<h2 id="创建配置">创建配置</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">touch /volume1/docker/filebrowser/.filebrowser.json
 </span></span><span class="line"><span class="cl">touch /volume1/docker/filebrowser/filebrowser.db
 </span></span></code></pre></div><p>编辑配置</p>
@@ -71,7 +96,15 @@
 <p><a href="https://filebrowser.org/installation">https://filebrowser.org/installation</a></p>
 <p><a href="https://www.iszy.cc/posts/filebrowser2-setup-docker/">https://www.iszy.cc/posts/filebrowser2-setup-docker/</a></p>
 <p><a href="https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504">https://blog.csdn.net/CAIYUNFREEDOM/article/details/93972504</a></p>
-]]></content:encoded></item><item><title>PVE LXC Debian 12 容器换源与安装 Docker</title><link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link><pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate><guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid><description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description><content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>PVE LXC Debian 12 容器换源与安装 Docker</title>
+      <link>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</link>
+      <pubDate>Tue, 26 Dec 2023 09:17:12 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/pve-lxc-debian-12-container-source-change-and-installation-docker/</guid>
+      <description>本文记录了 PVE LXC Debian 12 容器环境下 Docker 的换源与安装，包含代理设置等本地特色内容，Docker 是一个开放源代码的开放平台软件，用于开发应用、交付应用和运行应用。</description>
+      <content:encoded><![CDATA[<h2 id="创建-lxc">创建 LXC</h2>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
 <p>创建容器时<strong>取消勾选无特权容器！</strong></p>
@@ -112,7 +145,15 @@
 <p><a href="https://ihnic.com/index.php/archives/12/">https://ihnic.com/index.php/archives/12/</a></p>
 <p><a href="https://docs.portainer.io/start/install-ce/server/docker/linux">https://docs.portainer.io/start/install-ce/server/docker/linux</a></p>
 <p><a href="https://mirrors.ustc.edu.cn/help/debian.html">https://mirrors.ustc.edu.cn/help/debian.html</a></p>
-]]></content:encoded></item><item><title>HomeLab 搭建笔记</title><link>https://weixiang.github.io/posts/homelab-deployment-record/</link><pubDate>Thu, 27 Jul 2023 13:12:04 +0800</pubDate><guid>https://weixiang.github.io/posts/homelab-deployment-record/</guid><description>Homelab 是指可在家中搭建的实验（折腾）环境，用于进行实验和学习。本文记录了一次 HomeLab 的搭建过程，包含多个服务的配置，主要使用 Docker 和群晖 DSM 构成。</description><content:encoded><![CDATA[<h2 id="adguard-home">AdGuard Home</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>HomeLab 搭建笔记</title>
+      <link>https://weixiang.github.io/posts/homelab-deployment-record/</link>
+      <pubDate>Thu, 27 Jul 2023 13:12:04 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/homelab-deployment-record/</guid>
+      <description>Homelab 是指可在家中搭建的实验（折腾）环境，用于进行实验和学习。本文记录了一次 HomeLab 的搭建过程，包含多个服务的配置，主要使用 Docker 和群晖 DSM 构成。</description>
+      <content:encoded><![CDATA[<h2 id="adguard-home">AdGuard Home</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --name adguardhome<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart unless-stopped<span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --network host<span class="se">\
@@ -231,7 +272,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;json-file&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w"> </span><span class="c"># 限制 docker 控制台日志大小，可自行调整</span><span class="w">
-</span></span></span></code></pre></div>]]></content:encoded></item><item><title>使用 SakuraFrp 内网穿透 DSM</title><link>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</link><pubDate>Wed, 19 Jul 2023 16:19:16 +0800</pubDate><guid>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</guid><description>使用 SakuraFrp 内网穿透 DSM 和 HomeAssistant。SakuraFrp 是免费的内网穿透服务。SakuraFrp 是由 KasuganoSora 开发、维护的一个共享内网穿透管理平台，长期提供免费的内网穿透服务。</description><content:encoded><![CDATA[<h2 id="docker-部署-sakurafrp-客户端">Docker 部署 SakuraFrp 客户端</h2>
+</span></span></span></code></pre></div>]]></content:encoded>
+    </item>
+    <item>
+      <title>使用 SakuraFrp 内网穿透 DSM</title>
+      <link>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</link>
+      <pubDate>Wed, 19 Jul 2023 16:19:16 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-sakurafrp-to-penetrate-dsm-through-the-intranet/</guid>
+      <description>使用 SakuraFrp 内网穿透 DSM 和 HomeAssistant。SakuraFrp 是免费的内网穿透服务。SakuraFrp 是由 KasuganoSora 开发、维护的一个共享内网穿透管理平台，长期提供免费的内网穿透服务。</description>
+      <content:encoded><![CDATA[<h2 id="docker-部署-sakurafrp-客户端">Docker 部署 SakuraFrp 客户端</h2>
 <p>参考官方文档：<a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
 <ol>
 <li>安装 Docker 套件</li>
@@ -250,8 +299,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-f 6i862oypc561ipo5ku9uz895o40jh73:7605087,7605086,7605085
 </span></span></code></pre></div><h2 id="ssl-证书配置">SSL 证书配置</h2>
 <blockquote>
-<p>官方文档有说明：<a href="https://doc.natfrp.com/frpc/ssl.html">https://doc.natfrp.com/frpc/ssl.html</a></p>
-</blockquote>
+<p>官方文档有说明：<a href="https://doc.natfrp.com/frpc/ssl.html">https://doc.natfrp.com/frpc/ssl.html</a></p></blockquote>
 <p>但尝试过后发现无法使用，原因未知（浪费 5 个小时</p>
 <p>最后使用 DSM 自带的反向代理解决。</p>
 <p>首先，准备一个域名，使用 CNAME 解析到 SakuraFrp 的节点地址，参考 <a href="https://doc.natfrp.com/app/http.html#setup-dns">https://doc.natfrp.com/app/http.html#setup-dns</a></p>
@@ -283,7 +331,15 @@
 </span></span><span class="line"><span class="cl">外部 URL：https://自己域名地址：穿透后端口号
 </span></span></code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://doc.natfrp.com/app/synology.html">https://doc.natfrp.com/app/synology.html</a></p>
-]]></content:encoded></item><item><title>群晖部署青龙面板</title><link>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</link><pubDate>Wed, 19 Jul 2023 16:18:18 +0800</pubDate><guid>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</guid><description>本文记录在群晖 DSM 上使用 Docker 部署青龙面板。青龙，又名苍龙，在中国传统文化中是四象之一、天之四灵之一。青龙面板是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台</description><content:encoded><![CDATA[<h2 id="启动容器">启动容器</h2>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>群晖部署青龙面板</title>
+      <link>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</link>
+      <pubDate>Wed, 19 Jul 2023 16:18:18 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/synology-deploys-qinglong-panel/</guid>
+      <description>本文记录在群晖 DSM 上使用 Docker 部署青龙面板。青龙，又名苍龙，在中国传统文化中是四象之一、天之四灵之一。青龙面板是支持 Python3、JavaScript、Shell、Typescript 的定时任务管理平台</description>
+      <content:encoded><![CDATA[<h2 id="启动容器">启动容器</h2>
 <p>Docker 镜像可能更新有延迟，可以通过将 <code>latest</code> 替换为版本号，来指定拉取最新版本。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -dit <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>-v <span class="nv">$PWD</span>/ql/config:/ql/config <span class="se">\
@@ -389,4 +445,7 @@
 <p><a href="https://github.com/RayWangQvQ/BiliBiliToolPro">https://github.com/RayWangQvQ/BiliBiliToolPro</a></p>
 <p><a href="https://github.com/FlechazoPh/QLDependency">https://github.com/FlechazoPh/QLDependency</a></p>
 <p><a href="https://github.com/Ethiner/hoyolab_daily_login">https://github.com/Ethiner/hoyolab_daily_login</a></p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,13 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>树莓派 on Jacob's Thoughts</title><link>https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link><description>Recent content in 树莓派 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 Android 手机制作树莓派镜像 SD 卡</title><link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link><pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid><description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description><content:encoded><![CDATA[<h2 id="引子">引子</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>树莓派 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <description>Recent content in 树莓派 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Android 手机制作树莓派镜像 SD 卡</title>
+      <link>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</link>
+      <pubDate>Fri, 13 Aug 2021 00:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-android-device-to-make-a-raspberry-pi-image-sd-card/</guid>
+      <description>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</description>
+      <content:encoded><![CDATA[<h2 id="引子">引子</h2>
 <blockquote>
-<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p>
-</blockquote>
+<p>需要为 Raspberry Pi 制作系统镜像 SD 卡，但电脑不在附近？这个美妙的 Android 应用可以胜任这份工作！更加美妙的是它不需要 Root！</p></blockquote>
 <p>今天树莓派的系统不小心被我搞炸了，不知道如何修复，需要重装系统才能解决，但正巧没有电脑，于是便想能不能用手机来制作树莓派的系统镜像 SD 卡。</p>
 <p>Google 了一下还真行。</p>
 <p>由于还没有类似的中文教程，这里简单记录一下就作为「中文首发」吧。?</p>
 <h2 id="下载-app">下载 APP</h2>
 <p>在「Play 商店」或「APK Pure」中搜索「Pi SD Card Imager」即可下载。</p>
-<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&hl=en_US&gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
+<p>传送门 → <a href="https://play.google.com/store/apps/details?id=com.redrobe.raspicardimager&amp;hl=en_US&amp;gl=US">Pi SD Card Imager - Apps on Google Play</a></p>
 <h2 id="下载系统镜像">下载系统镜像</h2>
 <p>打开 APP，默认会为你选择一个「boot」镜像。需要更改的话，点右上角「Choose OS」即可更换，我选择了「Raspberry Pi OS (32-bit)」。</p>
 <p>点击软件下方的「Download」即可开始下载。</p>
@@ -23,9 +39,16 @@
 <p>最后点击 APP 左下角的「Write to SD」即可开始烧写，期间要保持 APP 在前台，不要触碰 OTG 线。</p>
 <h2 id="大功告成">大功告成</h2>
 <p>等待进度条跑完，SD 卡就烧写完毕了，此时在系统通知栏中选择「弹出」来安全移除 SD 卡，就能拔出 SD 卡插入到树莓派中了。树莓派会自动执行剩下的安装程序。</p>
-]]></content:encoded></item><item><title>用 Pi-hole 搭建一个树莓派黑洞</title><link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link><pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate><guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid><description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description><content:encoded><![CDATA[<blockquote>
-<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>用 Pi-hole 搭建一个树莓派黑洞</title>
+      <link>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</link>
+      <pubDate>Mon, 12 Apr 2021 05:19:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/use-pi-hole-to-build-a-raspberry-pi-black-hole/</guid>
+      <description>通过您自己的 Linux 硬件进行广告拦截！Pi- hole®是一个 DNS 沉洞服务器，无需安装任何客户端软件即可保护您的设备免受有害内容的侵害。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p><strong>通过您自己的 Linux 硬件进行广告拦截</strong></p></blockquote>
 <p>Pi- <a href="https://pi-hole.net/trademark-rules-and-brand-guidelines/">hole®</a>是一个<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">DNS 沉洞服务器</a>，无需安装任何客户端软件即可保护您的设备免受有害内容的<a href="https://en.wikipedia.org/wiki/DNS_Sinkhole">侵害</a>。</p>
 <ul>
 <li><strong>易于安装</strong>：安装程序将引导您完成整个过程，并且<a href="https://www.youtube.com/watch?v=vKWjx1AQYgs">只需不到十分钟的时间</a></li>
@@ -58,23 +81,18 @@
 <p><strong>因为众所周知的原因，安装过程可能需要魔法！</strong></p>
 <p>如果你和我一样在这里卡了很久或者直接 error 了，说明你需要使用魔法。</p>
 <p>至于具体操作请自己 Google 一下吧，我这里也不太好直接向麻瓜们直接展示对吧。（搜索关键词：树莓派 + 魔法名称）</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/ce442dcfb36d6358.webp"></p>
 <p>安装完毕，记下访问地址和密码。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/31a7b37aea789e4a.webp"></p>
 <h2 id="调整-pi-hole-的设置">调整 Pi-hole 的设置</h2>
 <p>用浏览器访问刚刚的地址就能看到主页了，或者也可以访问 <a href="http://pi.hole/admin">http://pi.hole/admin</a></p>
 <p>主页展示的是 Pi-hole 的实时运行状态，点击 Login 输入记下的密码即可登录到控制台。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/4d988d18bf797756.webp"></p>
 <p>控制台就是这样的，现在可以开始调整 Pi-hole 的设置来获得更好的体验了：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/bd03f70004631eaa.webp"></p>
 <h3 id="添加-hosts-源">添加 hosts 源</h3>
 <p>实际上，Pi-hole 使用的是 hosts 方式对广告进行过滤（类似 AdAway），所以 hosts 源的好坏直接决定了用户体验。自带的 host 对于我国网络环境来说可能会水土不服，下面推荐几个知名 hosts 源，可以到  Settings - Blocklists 里面添加自定义源，添加一个之后按 Save 保存，全部添加完成后按 Save and Update 来更新 host 并保存设置。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/1d8f1ef3b816cab6.webp"></p>
 <ul>
 <li><a href="https://github.com/vokins/yhosts">yhosts</a>：可以说是国内比较老牌的知名 hosts，定期有更新，但作者主观屏蔽了一些非广告网站，可以用下面的命令手动添加白名单来解决不够客观的问题：</li>
 </ul>
@@ -90,8 +108,7 @@
 <h3 id="添加国内-dns-服务器">添加国内 DNS 服务器</h3>
 <p>Pi-hole 在安装时已经设置过一次 DNS 服务器了，但因为是国外的 DNS 服务，速度可能会比较慢，通过添加国内的 DNS 服务可以提高速度。</p>
 <p>进入 Settings - DNS - Upstream DNS Servers 就可以添加 DNS 服务器了。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp" alt=""  />
-</p>
+<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/ghost/content/images/2021/07/602215aea76932ad.webp"></p>
 <h4 id="国内常见公共-dns-服务">国内常见公共 DNS 服务</h4>
 <h5 id="腾讯-dnspod">腾讯 DNSPod</h5>
 <p><a href="https://www.dnspod.cn/Products/Public.DNS">https://www.dnspod.cn/Products/Public.DNS</a></p>
@@ -99,38 +116,33 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：119.29.29.29 / 119.28.28.28
 </span></span></code></pre></div><blockquote>
 <p>这是 DNSPod 建立的公共 DNS，之后 DNSPod 被腾讯收购以后由腾讯云负责运营。腾讯 DNSPod 公共 DNS 配置了 Anycast，节点囊括了腾讯云所有可用区的节点（包括海外），所以速度还是不错的，并且除了支持 ECS 以外还有一些关于 DNS 出口选择优化的加成，所以 CDN 解析结果相对准确很多。但是 SLA 却并不优秀 —— <del>曾经</del> 经常遭遇 DDoS 攻击导致无法解析。除此以外，由于相对出名、使用人数较多，是运营商重点劫持的对象。</p>
-<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p>
-</blockquote>
+<p>值得一提的是，DNSPod 的公共 DNS 是免费提供 HTTPDNS 的，Demo 可以看 <a href="https://www.dnspod.cn/httpdns/demo">这里</a></p></blockquote>
 <h5 id="阿里云公共-dns">阿里云公共 DNS</h5>
 <p><a href="http://www.alidns.com">http://www.alidns.com</a></p>
 <p>Anycast：成都、深圳、杭州</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：223.5.5.5 / 223.6.6.6
 </span></span><span class="line"><span class="cl">IPv6：2400:3200::1 / 2400:3200:baba::1
 </span></span></code></pre></div><blockquote>
-<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p>
-</blockquote>
+<p>阿里建立的公共 DNS。和腾讯一样，阿里公共 DNS 也是搭建在自家的云服务 —— 阿里云上。虽然也配置了 Anycast，不过不包括海外节点，<del>国内也就浙江阿里云和深圳阿里云两个节点，</del> 而且华北地区都是隧道穿透回深圳，响应速度略逊于 DNSPod 提供的公共 DNS；阿里公共 DNS 不支持 ECS，有 DNS 出口的优化 <del>（一般都是广东出口）</del>，。关于阿里的公共 DNS 没有听说太多宕机、无法使用相关的报告。<del>，但是倒是听说阿里公共 DNS 时常有返回 <code>NXDOMAIN</code> 影响使用体验。</del> <code>NSDOMAIN</code> 问题已得到一定缓解。阿里云 DNS 是国内首个支持 IPv6 的 DNS 服务。</p></blockquote>
 <h5 id="南京信风公共-dns">南京信风公共 DNS</h5>
 <p><a href="https://www.114dns.com/">https://www.114dns.com/</a></p>
 <p>Anycast：南京、济南、芝加哥</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：114.114.114.114 / 114.114.115.115
 </span></span></code></pre></div><blockquote>
-<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p>
-</blockquote>
+<p>无疑是国内最著名的公共 DNS，但是显然不是最好的。有 Anycast，国内有南京和<del>青岛</del>济南两个节点、海外有芝加哥节点，响应速度不敢恭维。国内最著名的公共 DNS、使用的人很多，SLA 非常可靠，因此也是运营商重点劫持的对象。但是考虑到南京信风为运营商旁路广告劫持提供技术和硬件支持，对他们提供的公共 DNS 服务还是戴着有色眼镜来看吧。</p></blockquote>
 <h5 id="cnnic-公共-dns">CNNIC 公共 DNS</h5>
 <p><a href="http://www.sdns.cn/">http://www.sdns.cn/</a>
 北京、杭州、香港</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：1.2.4.8 / 210.2.4.8
 </span></span></code></pre></div><blockquote>
-<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p>
-</blockquote>
+<p>CNNIC 名声并不好（CNNIC Root CA 的故事），因此有些许人相对都有些对 CNNIC 的抵触心理。CNNIC 的公共 DNS（SDNS）国内仅双点部署、Anycast 配得一塌糊涂、速度堪忧，解析结果没有 CDN 优化。至于撇开 CNNIC 来谈 SDNS 推不推荐使用？SLA 比 DNSPod 的公共 DNS 还惨，解析请求时不时超时，嗯。</p></blockquote>
 <h5 id="百度公共-dns">百度公共 DNS</h5>
 <p>北京、南京、深圳
 <a href="https://dudns.baidu.com/">https://dudns.baidu.com/</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">IPv4：180.76.76.76
 </span></span><span class="line"><span class="cl">IPv6：2400:da00::6666
 </span></span></code></pre></div><blockquote>
-<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p>
-</blockquote>
+<p>百度的名声现在怕是比 CNNIC 还要臭得多，他们的公共 DNS 于 2017 年上线，现在也不被太多人知道，不过还是简单提两笔：百度也为公共 DNS 也配置了 Anycast，国内是<del>单点百度北京数据中心</del>北京、南京、深圳三点，海外是单点百度香港数据中心。用的人少，也许不容易被运营商劫持，有兴趣的可以试一试看。</p></blockquote>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
@@ -138,16 +150,21 @@
 <hr>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item><item><title>树莓派使用 V2Ray 魔法上网</title><link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link><pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate><guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid><description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description><content:encoded><![CDATA[<blockquote>
-<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p>
-</blockquote>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派使用 V2Ray 魔法上网</title>
+      <link>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</link>
+      <pubDate>Mon, 13 Jul 2020 03:39:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/raspberry-pi-uses-v2ray-magic-to-surf-the-internet/</guid>
+      <description>本文将向你介绍如何使用树莓派配置和安装 V2Ray 和 privoxy，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 socks5 代理和 http 代理服务。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>请注意：由于 V2Ray 项目变动，本文的操作方法已经失效，但仍具一定参考价值</p></blockquote>
 <p>本文将向你介绍如何使用树莓派配置和安装 <code>V2Ray</code> 和 <code>privoxy</code> ，让树莓派顺畅访问国际互联网，并为局域网内的其他的设备提供 <code>socks5代理</code>和 <code>http代理</code>服务。</p>
 <p>先来给大家解释一下基本原理：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp" alt="image-20200410145120973"  />
-</p>
+<p><img alt="image-20200410145120973" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200410145120973.webp"></p>
 <p>啊不好意思放错了，应该是这张：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp" alt="File:VPN overview-en.svg"  />
-</p>
+<p><img alt="File:VPN overview-en.svg" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/567px-VPN_overview-en.svg.webp"></p>
 <p>我们这篇文章要实现的目标是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph LR
 </span></span><span class="line"><span class="cl">A(你的设备/树莓派) --&gt; B(树莓派 Privoxy)
@@ -514,20 +531,26 @@
 <p>将代理设置配置为指向树莓派后，在浏览器中打开下面的地址</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://config.privoxy.org/
 </span></span></code></pre></div><p>如果一切运行正常，可以看到 Privoxy 的欢迎界面：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp" alt="image-20200414115516257"  />
-</p>
+<p><img alt="image-20200414115516257" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/202408082146488.webp"></p>
 <p>如果显示的是 <strong>Privoxy is not being used</strong> ，就要检查一下检查代理设置是否正确了。</p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派魔法的安装与配置，你可以开始使用你的树莓派访问真正的互联网，并为局域网内的其他设备提供魔法代理服务。</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
 <p>[Ask Ubuntu]: <a href="https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13">https://askubuntu.com/questions/349702/apt-conf-acquirehttpproxy-proxyserverport-seems-not-to-be-used-ubuntu-13</a> &ldquo;apt.conf “Acquire::http:Proxy ”proxyserver:port&rdquo; seems not to be used (Ubuntu 13.04 under Virtual Box on Win7)&quot;</p>
-]]></content:encoded></item><item><title>树莓派的安装与初始化</title><link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link><pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate><guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid><description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description><content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>树莓派的安装与初始化</title>
+      <link>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</link>
+      <pubDate>Thu, 02 Apr 2020 05:22:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/installation-and-initialization-of-raspberry-pi/</guid>
+      <description>Raspbian 是树莓派的开发与维护机构 The Raspbeery Pi Foundation“树莓派基金会”，推荐用于树莓派的首选系统。本文展示的是在没有外接显示屏的情况下的树莓派的初始化安装，以及如何连接到树莓派。</description>
+      <content:encoded><![CDATA[<p>树莓派（英语：Raspberry Pi）是基于 Linux 的 单片机电脑，由英国树莓派基金会开发，目的是以低价硬件及自由软件促进学校的基本计算机科学教育。</p>
 <p>Raspbian 是专门用于 ARM 卡片式计算机 Raspberry Pi® “树莓派”的操作系统。</p>
 <p>Raspberry Pi® “树莓派”是 2012 年问世的 ARM 计算机，旨在为儿童和所有的计算机爱好者提供一套廉价的编程学习与硬件 DIY 平台。树莓派基于 ARM11，具有 1080P 高清视频解析能力，附带用于硬件开发的 GPIO 接口，使用 Linux 操作系统。售价仅 $25~$35。</p>
 <p>Raspbian 系统是 Debian 7.0/wheezy 的定制版本。得益于 Debian 从 7.0/wheezy 开始引入的“带硬件浮点加速的 ARM 架构”(armhf)，Debian 7.0 在树莓派上的运行性能有了很大提升。Raspbian 默认使用 LXDE 桌面，内置 C 和 Python 编译器。</p>
@@ -547,47 +570,40 @@
 <h2 id="安装-raspbain-系统到-sd-卡">安装 Raspbain 系统到 SD 卡</h2>
 <p>对于新手用户，树莓派官方建议使用 <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi Imager</a>，将系统镜像写入 SD 卡。也可以使用 balenaEtcher，Win32DiskImager 或 imgFlasher 等工具进行烧录，接有屏幕、键鼠的同学也可以使用 <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a> 来部署系统。</p>
 <p>下面以 <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a> 为例</p>
-<h3 id="下载安装--raspberry-pi-imagerhttpswwwraspberrypiorgdownloads">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
+<h3 id="下载安装--raspberry-pi-imager">下载安装  <a href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a></h3>
 <p>Raspberry Pi Imager 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">raspberrypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span>
 </span></span></code></pre></div><p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
 <p>安装后打开的软件界面是这样的，是不是超级简单：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp" alt="Raspberry Pi Imager"  />
-</p>
+<p><img alt="Raspberry Pi Imager" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409180805444.webp"></p>
 <h3 id="格式化-sd-卡">格式化 SD 卡</h3>
 <p>首先要格式化 SD 卡，在第一项 Choose OS 里选择 Erase，然后选好要格式化的 SD 卡，最后点 Write 即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp" alt="image-20200409181322292"  />
-</p>
+<p><img alt="image-20200409181322292" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181731951.webp"></p>
 <h3 id="烧录镜像">烧录镜像</h3>
 <p>在 Choose OS 里选择第一项 Raspbain 即可，软件会自动下载并烧录进去，如果要使用本地的镜像文件，要注意文件路径中不要有中文。</p>
 <p>因为众所周知的原因，可能需要一些魔法才能下载成功。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp" alt="image-20200409181731951"  />
-</p>
+<p><img alt="image-20200409181731951" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409181322292.webp"></p>
 <p>等进度条跑满，系统镜像就烧写完成啦。</p>
 <h2 id="开启-ssh-功能">开启 SSH 功能</h2>
 <p>在树莓派将来的使用中，我们要用 SSH 的方式连接树莓派并对其进行操作，但为了安全起见，这个功能默认是关闭的，所以我们需要在 SD 卡的根目录创建一个叫“SSH”的文件，才能开启树莓派的 SSH 功能。</p>
 <p>在“此电脑”中找到一个叫“boot”的盘，新建一个 TXT，命名为 <code>SSH</code> 即可，注意不要有后缀！
 如果找不到“boot”这个盘，重新拔插一下读卡器即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp" alt="image-20200409183711203"  />
-</p>
+<p><img alt="image-20200409183711203" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409194420317.webp"></p>
 <h2 id="启动树莓派并找到它">启动树莓派并找到它</h2>
 <h3 id="启动树莓派">启动树莓派</h3>
 <p>插入烧写好系统的 SD 卡，用网线把树莓派和路由器连接起来，如果有键鼠显示器也要先连接上，最后插上电源，等待树莓派启动即可。</p>
 <h3 id="查找树莓派的地址">查找树莓派的地址</h3>
 <p>使用浏览器登录路由器的管理页面，一般为 <code>192.168.1.1</code>，输入管理密码（路由器背面可以找到），进入“终端管理”界面，查看树莓派的 IP 地址。最好给树莓派设置一个固定 IP 地址方便后续使用。此步骤不同品牌的路由器操作方法略有不同，不过都大同小异。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp" alt="image-20200409194420317"  />
-</p>
+<p><img alt="image-20200409194420317" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409183711203.webp"></p>
 <h2 id="使用-ssh-连接到树莓派">使用 SSH 连接到树莓派</h2>
 <p>以 Xshell 为例</p>
 <p>Xshell 下载地址：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">https://www.netsarang.com/zh/xshell/
 </span></span></code></pre></div><p>打开 Xshell，在左上角点击新建图标，填入名称，树莓派的 IP 地址，点击连接即可。</p>
 <p>树莓派默认的账户是 <code>pi</code> ，默认密码是 <code>raspberry</code> 。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp" alt="image-20200409195033479"  />
-</p>
+<p><img alt="image-20200409195033479" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195033479.webp"></p>
 <p>如下图时即连接成功：</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp" alt="image-20200409195326223"  />
-</p>
+<p><img alt="image-20200409195326223" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409195326223.webp"></p>
 <h2 id="给树莓派换上国内源">给树莓派换上国内源</h2>
 <p>因为众所周知的原因，树莓派的默认源速度感人，换上国内的源可以显著提高使用体验。</p>
 <p>以清华大学源为例</p>
@@ -610,28 +626,26 @@
 <p>在 SSH 终端中输入</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo raspi-config
 </span></span></code></pre></div><p>即可进入下面的配置模式，罗列了扩展系统分区，修改密码，启动设置等等，然后按着图片找到 VNC 选项打开即可。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp" alt="image-20200409200744520"  />
-</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp" alt="image-20200409200759386"  />
-</p>
+<p><img alt="image-20200409200744520" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200759386.webp"></p>
+<p><img alt="image-20200409200759386" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409200744520.webp"></p>
 <h3 id="连接到树莓派">连接到树莓派</h3>
 <p>下载 VNC 客户端</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">realvnc</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">connect</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">viewer</span><span class="o">/</span>
 </span></span></code></pre></div><p>打开 VNC 软件，输入树莓派的 IP 地址、账户名密码（上一节有），即可连接。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp" alt="image-20200409201641067"  />
-</p>
+<p><img alt="image-20200409201641067" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201641067.webp"></p>
 <h3 id="完成剩余的设置">完成剩余的设置</h3>
 <p>连接成功后即可看到树莓派的桌面和欢迎界面。</p>
 <p>在欢迎界面中完成剩余的设置，修改地区、语言、时区、密码等，连接上 WiFi。</p>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp" alt="image-20200409201733135"  />
-</p>
+<p><img alt="image-20200409201733135" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/image-20200409201733135.webp"></p>
 <h2 id="enjoy-it">Enjoy it</h2>
 <p>到这里，你已经完成了树莓派的安装与初始化设置，你可以开始使用你的树莓派，做出令人惊叹的作品了！</p>
 <p>希望你喜欢这篇文章，如果对你有帮助的话，别忘了点赞、收藏、分享和点击订阅，并留意更新动态。</p>
 <p>Stay creative, and I will see you next time!</p>
 <hr>
-<p><img loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp" alt="知识共享许可协议"  />
-</p>
+<p><img alt="知识共享许可协议" loading="lazy" src="https://jacob-1256058189.cos.ap-guangzhou.myqcloud.com/markdown/by-nc-sa.webp"></p>
 <p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名 - 非商业性使用 - 相同方式共享 4.0 国际许可协议</a>进行许可。</p>
 <p>参考文献：</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

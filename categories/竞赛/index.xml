@@ -1,9 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>竞赛 on Jacob's Thoughts</title><link>https://weixiang.github.io/categories/%E7%AB%9E%E8%B5%9B/</link><description>Recent content in 竞赛 on Jacob's Thoughts</description><generator>Hugo -- 0.132.1</generator><language>zh</language><copyright>©2017-2024 Jacob&amp;rsquo;s Thoughts</copyright><lastBuildDate>Sun, 15 May 2022 16:00:00 +0800</lastBuildDate><atom:link href="https://weixiang.github.io/categories/%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml"/><item><title>一种 AI 防疫快速通行及自动追溯辅助数据系统</title><link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link><pubDate>Sun, 15 May 2022 16:00:00 +0800</pubDate><guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid><description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description><content:encoded><![CDATA[<blockquote>
-<p>本文为 2022 年校内互联网 + 创业创新大赛的讲稿，在此记录，文章作者为我与 Solitude 同学。</p>
-</blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>竞赛 on Jacob&#39;s Thoughts</title>
+    <link>https://weixiang.github.io/categories/%E7%AB%9E%E8%B5%9B/</link>
+    <description>Recent content in 竞赛 on Jacob&#39;s Thoughts</description>
+    <generator>Hugo -- 0.146.4</generator>
+    <language>zh</language>
+    <copyright>©2017-2025 Jacob&amp;rsquo;s Thoughts</copyright>
+    <lastBuildDate>Sun, 15 May 2022 16:00:00 +0800</lastBuildDate>
+    <atom:link href="https://weixiang.github.io/categories/%E7%AB%9E%E8%B5%9B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一种 AI 防疫快速通行及自动追溯辅助数据系统</title>
+      <link>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</link>
+      <pubDate>Sun, 15 May 2022 16:00:00 +0800</pubDate>
+      <guid>https://weixiang.github.io/posts/an-ai-epidemic-prevention-fast-passage-and-automatic-traceability-auxiliary-data-system/</guid>
+      <description>本项目主要采用了低功耗蓝牙技术，解决在疫情防控常态化背景下，健康码人工查验导致通行效率不佳的问题，并且有数据追溯、记录的功能，能为流行病学调查分析提供依据和有力帮助。</description>
+      <content:encoded><![CDATA[<blockquote>
+<p>本文为 2022 年校内互联网 + 创业创新大赛的讲稿，在此记录，文章作者为我与 Solitude 同学。</p></blockquote>
 <blockquote>
-<p>本文禁止转载。</p>
-</blockquote>
+<p>本文禁止转载。</p></blockquote>
 <p>各位老师、同学们，大家好。</p>
 <p>我们是一支来自 2021 级的两人队伍，我们带来的项目是</p>
 <p>一种 AI 防疫快速通行，及自动追溯，辅助数据系统。</p>
@@ -21,4 +36,7 @@
 <p>我们的项目汇报结束，谢谢各位的聆听。</p>
 <h2 id="版权声明">版权声明</h2>
 <p>本文由 <a href="https://weixiang.github.io">Jacob</a> 采用独家许可，禁止转载、演绎，仅限于 <a href="https://weixiang.github.io">weixiang.github.io</a> 发布。</p>
-]]></content:encoded></item></channel></rss>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
